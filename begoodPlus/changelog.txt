@@ -1,0 +1,17 @@
++ add code to category __str__ 
++ category inline add product image
++ sizes: sort by code
++ add code to provider __str__
++ buy cost + buy cost with tax
++ added google analytics
++ adding actions to product
++ regrouping admin view modles
++ change "amont" to "stock at us"
++ add to product total "stock at us"
++ change to inst const without tax 
++ change to sing const with tax 
+
+? add to stock avilable at provider and when resturn- TODO: need improvments
+
+- check FK protect
+- insert multiple stocks form for product

@@ -1,0 +1,48 @@
+
+
+ses-smtp-user.20200925-221629
+SMTP Username:
+AKIAWNTXXG5ZMK4B5AR4
+SMTP Password:
+BOISBR/TRfYsLzTyjxtxs15KTRfx1lCJLPqbwDbpLoNW
+
+
+- הוספת מוצרים מרובים: לא לאפשר מידה 36 לחולצות לדוגמא
+- לכתוב מחדש את הבוט
+- טופס הזמנה
+- הוספת יצירת קטלוגים
+
+- frade out nexts
+- bigger circles, center number
+
+add content to title in google
+
+steps for deploy
+in settings.py:
+    change debug to False
+    comment this line =====> 'debug_toolbar.middleware.DebugToolbarMiddleware', # TODO: remove in production
+    run python manage.py collectstatic
+    
+    
+    
+connect to Putty:
+    cd BeGoodPlus/begoodPlus/
+    pull from git
+    
+    read requeierements.txt
+        sudo su
+        activate env: source ../../env/bin/activate
+        pip install -r requirements.txt
+        python manage.py collectstatic
+        
+    run: supervisorctl restart all
+    run: service nginx restart
+    nginx -t
+
+
+
+TODO: add h1 to catalog_page
+TODO: facebook
+TODO: mail design
+
+copy db: cp -v ~/BeGoodPlus/begoodPlus/db.sqlite3  ~/db_backup/$(date +%y_%m_%d).db.sqlite3
