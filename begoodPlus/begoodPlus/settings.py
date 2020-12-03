@@ -77,7 +77,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    #'debug_toolbar', # TODO: remove in production
+    'debug_toolbar', # TODO: remove in production
 ]
 # django_user_agents implementation
 # Cache backend is optional, but recommended to speed up user agent parsing
@@ -93,7 +93,7 @@ USER_AGENTS_CACHE = 'default'
 
 
 MIDDLEWARE = [
-    #'debug_toolbar.middleware.DebugToolbarMiddleware', # TODO: remove in production
+    'debug_toolbar.middleware.DebugToolbarMiddleware', # TODO: remove in production
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -223,3 +223,10 @@ EMAIL_HOST_PASSWORD =  secrects.EMAIL_HOST_PASSWORD
 
 # from django.core.mail import send_mail
 # send_mail(subject='hey', message='message', from_email='bot@ms-global.co.il', recipient_list=['nhrnhr0@gmail.com'])
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}

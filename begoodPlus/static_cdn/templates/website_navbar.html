@@ -43,15 +43,13 @@
                             <ul>
                                 {% recursetree albums %}
                                 <li>
-                                    <!--<li class="dropdown-link">
-                                            {{ node.title }}
-                                        </li>-->
-                                    {% if node.images.exists %}
-                                <li class="dropdown-link">
-                                    <a href="{{node.get_absolute_url }}"> {{ node.title }}</a>
-                                </li>
+                                {% if node.images.exists and node.is_public %}
+                                    <li class="dropdown-link">
+                                        <a href="{{node.get_absolute_url }}"> {{ node.title }}</a>
+                                    </li>
                                 {% endif %}
-                                {% if not node.is_leaf_node %}
+                                
+                                {% if not node.is_leaf_node and node.is_public %}
                                 <li class="dropdown-link">
                                     <a href="#">{{ node.title }}<i class="fas fa-caret-down"></i></a>
                                     <div class="dropdown second">
@@ -117,32 +115,34 @@
             </li>
             <li class="nav-link" style="--i: 1.35s">
                 <a href="#">צור קשר<i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown">
-                        <ul>
+                <div class="dropdown">
+                    <ul>
 
-                            <li class="dropdown-link">
-                                <a href="https://wa.me/+972547919908">עידן פיירמן - מנהל מכירות</a>
-                            </li>
-                            <li class="dropdown-link">
-                                <a href="https://wa.me/+972524314139">אופיר דאלי - מנהל תפעול</a>
-                            </li>
-                            <li class="dropdown-link">
-                                <a href="mailto:Main@ms-global.co.il">מייל: Main@ms-global.co.il</i></a>
-                            </li>
-                            
-                            <li class="dropdown-link">
-                                <a href="https://www.facebook.com/%D7%91%D7%99%D7%92%D7%95%D7%93-%D7%A4%D7%9C%D7%95%D7%A1-102693374827456/?hc_ref=ARSgZoRwNsNfIVktiPfZoyP-ne7OFkGrcB5pglF-JrJJqyRANDRuwmLk1U8MAhY9AsM&fref=nf&__tn__=kC-R">
-                                    <img src="{% static 'facebook_icon.jpg' %}" />
-                                    דף הפייסבוק
-                                </a>
-                            </li>
-                            
-                            <li class="dropdown-link">
-                                <a href="https://5ef318ddbb88d.site123.me/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8">השאר פרטים</a>
-                            </li>
-                            <!--<div class="arrow"></div>-->
-                        </ul>
-                    </div>
+                        <li class="dropdown-link">
+                            <a href="https://wa.me/+972547919908">עידן פיירמן - מנהל מכירות</a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="https://wa.me/+972524314139">אופיר דאלי - מנהל תפעול</a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="mailto:Main@ms-global.co.il">מייל: Main@ms-global.co.il</i></a>
+                        </li>
+
+                        <li class="dropdown-link">
+                            <a
+                                href="https://www.facebook.com/%D7%91%D7%99%D7%92%D7%95%D7%93-%D7%A4%D7%9C%D7%95%D7%A1-102693374827456/?hc_ref=ARSgZoRwNsNfIVktiPfZoyP-ne7OFkGrcB5pglF-JrJJqyRANDRuwmLk1U8MAhY9AsM&fref=nf&__tn__=kC-R">
+                                <img src="{% static 'facebook_icon.jpg' %}" />
+                                דף הפייסבוק
+                            </a>
+                        </li>
+
+                        <li class="dropdown-link">
+                            <a href="https://5ef318ddbb88d.site123.me/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8">השאר
+                                פרטים</a>
+                        </li>
+                        <!--<div class="arrow"></div>-->
+                    </ul>
+                </div>
             </li>
             </ul>
         </div>

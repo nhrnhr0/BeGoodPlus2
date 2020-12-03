@@ -61,6 +61,7 @@ urlpatterns = [
     path('api/productColors', api_product_colors),
     path('api/add_multiple_stocks', add_multiple_stocks),
     path('add_liked_images', add_liked_images),
+    #re_path('^tracking/', include('tracking.urls')),
 ]
 
 if settings.DEBUG:

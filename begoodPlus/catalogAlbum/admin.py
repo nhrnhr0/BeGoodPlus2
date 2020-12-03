@@ -20,7 +20,7 @@ from django.db.models import Count
 
 class CatalogAlbumAdmin(SortableAdmin, DraggableMPTTAdmin):
     inlines = (CatalogImageInline,)
-    list_display = ('tree_actions','indented_title', 'slug', 'get_absolute_url','view_in_website_link','related_images_count',)#'get_absolute_url')
+    list_display = ('tree_actions','indented_title', 'slug', 'get_absolute_url','view_in_website_link','related_images_count','is_public',)#'get_absolute_url')
     readonly_fields = ('view_in_website_link','related_images_count',)
     #readonly_fields = ('get_absolute_url',)
     prepopulated_fields = {'slug': ('title',),}
