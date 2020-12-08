@@ -1,12 +1,9 @@
 begoodPlus/begoodPlus/secrects.py
 
-begoodPlus/db.sqlite3
+#begoodPlus/db.sqlite3
 begoodPlus/static/**
 begoodPlus/backups/**
 .vscode/**
 
-**/migrations/**
-!**/migrations
-!**/migrations/__init__.py
 **/__pycache__/**
 *.pyc
