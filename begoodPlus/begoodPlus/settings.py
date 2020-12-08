@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #SECRET_KEY = '#r*r40h()nfz(8duh2%98n2=2y$!7hd6law4t#_mkht3xafe(c'
 SECRET_KEY = secrects.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 
 
     # 3rd party
+    'django_crontab',
     'colorfield',
     'rest_framework',
     'django_user_agents',
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
     'adminsortable',
     'admin_numeric_filter',
     #'jet',
+    'dbbackup',
+    
 
     # own
     'core',
@@ -77,8 +80,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'debug_toolbar', # TODO: remove in production
+    #'debug_toolbar', # TODO: remove in production
 ]
+
+# django-dbbackup
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR  + '/backups/'}
+
+#cron
+CRONJOBS = [
+    ('59 23 * * *', 'begoodPlus.cron.my_db_backup')
+]
+
 # django_user_agents implementation
 # Cache backend is optional, but recommended to speed up user agent parsing
 CACHES = {
@@ -93,7 +106,7 @@ USER_AGENTS_CACHE = 'default'
 
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware', # TODO: remove in production
+    #'debug_toolbar.middleware.DebugToolbarMiddleware', # TODO: remove in production
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
