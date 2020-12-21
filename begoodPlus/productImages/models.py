@@ -1,7 +1,7 @@
 from django.db import models
 from product.models import Product
 from django.utils.translation import gettext as _
-
+from django.conf import settings
 # Create your models here.
 class ProductImage(models.Model):
     class Meta():

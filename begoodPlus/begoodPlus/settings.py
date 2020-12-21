@@ -71,6 +71,8 @@ INSTALLED_APPS = [
     'catalogImages',
     'catalogAlbum',
     'clientLikedImages',
+    'clientImages',
+    'freeFlow',
 
 
     'django.contrib.admin',

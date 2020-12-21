@@ -37,6 +37,9 @@ from productSize.views import api_product_sizes
 from productColor.views import api_product_colors
 from stock.views import add_multiple_stocks
 from clientLikedImages.views import add_liked_images
+from clientImages.views import upload_user_image
+from glofa_types.views import glofa_data
+from freeFlow.views import freeFlowView
 urlpatterns = [
     #path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
@@ -61,6 +64,9 @@ urlpatterns = [
     path('api/productColors', api_product_colors),
     path('api/add_multiple_stocks', add_multiple_stocks),
     path('add_liked_images', add_liked_images),
+    path('upload_user_image', upload_user_image),
+    path('glofa_data/<int:id>', glofa_data),
+    path('freeFlow', freeFlowView),
     #re_path('^tracking/', include('tracking.urls')),
 ]
 

@@ -230,8 +230,51 @@ p {
     object-fit: cover
 }
 
+/*------------------------------- printing and embro ----------------------------------- */
 
+#MyModle {
+    direction: rtl;
+    text-align: right;
+}
 
+.modal-dialog { /* Width */
+    max-width: 100%;
+    width: auto !important;
+    display: inline-block;
+}
+
+.modal {
+    z-index: -1;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-open .modal {
+     z-index: 1050;
+  }
+
+.dz {
+    border: dashed !important;
+    border-color: #ccc !important;
+    border-radius: 10px !important;
+}
+
+.dz:hover {
+    background-color: aliceblue !important;
+}
+
+.dz-message > i {
+    display: block;
+}
+
+#productPrintTable {
+    direction: rtl;
+}
+
+.logo-select-item{
+    border-top: 1px solid black;
+}
 
 /*---------------------------------- form control ------------------------------------*/
 .form-control {
@@ -380,3 +423,4 @@ td {
 .form-check {
     display: inline-flex
 }
+

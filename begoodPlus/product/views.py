@@ -41,6 +41,7 @@ def products_select(request,phrash,  *args, **kwargs):
 from stock.models import Stock
 from productSize.models import ProductSize
 from productColor.models import ProductColor
+#TODO: improve this code
 def product_detail(request, id, *args, **kwargs):
     product = Product.objects.get(id=id)
     sizes = ProductSize.objects.all()

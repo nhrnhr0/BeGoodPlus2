@@ -41,7 +41,7 @@ class GlofaTypeInline(admin.StackedInline):
     def get_queryset(self, request):
         qs = super(GlofaTypeInline, self).get_queryset(request)
         qs = qs.select_related('product',)
-        qs = qs.prefetch_related('supportedProducts',)
+        #qs = qs.prefetch_related('supportedProducts',)
         return qs
     model = Product.supportedProducts.through
     fields = ()

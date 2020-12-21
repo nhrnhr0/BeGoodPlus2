@@ -7,3 +7,7 @@ SMTP Username:
 AKIAWNTXXG5ZM5IBIUEQ
 SMTP Password:
 BHJY50/zwukaolno7+fLwJvkxvNT1Q20gUWyWvOzQ1MK
+
+
+TODO:
+disable print and embro button until product selected and the print/embro data has arrived
