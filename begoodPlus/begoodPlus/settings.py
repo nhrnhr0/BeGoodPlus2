@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'admin_numeric_filter',
     #'jet',
     'dbbackup',
+    'webpush',
     
 
     # own
@@ -246,3 +247,8 @@ REST_FRAMEWORK = {
     ]
 }
 
+WEBPUSH_SETTINGS = {
+    "VAPID_PUBLIC_KEY": secrects.VAPID_PUBLIC_KEY,
+    "VAPID_PRIVATE_KEY":secrects.VAPID_PRIVATE_KEY,
+    "VAPID_ADMIN_EMAIL": "computer-support@ms-global.co.il"
+}

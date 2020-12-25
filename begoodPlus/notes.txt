@@ -36,7 +36,7 @@ connect to Putty:
         python manage.py collectstatic
         
     run: supervisorctl restart all
-    run: service nginx restart
+            run: service nginx restart
     nginx -t
 
 

@@ -216,8 +216,12 @@ h6 {
   text-align: center;
 }
 
+#hero h3 {
+  margin: 0;
+}
+
 #hero h1 {
-  margin: 30px 0 10px 0;
+  margin: 0px 0 10px 0;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
@@ -632,7 +636,7 @@ section {
 #about .about-container .background {
   min-height: 550px;
   min-width: 300px;
-  background: url(../img/freeFlowFirstImage.webp) center top no-repeat;
+  background: url(../img/freeFlowFirstImage.png) center top no-repeat;
   margin-bottom: 10px;
 }
 
@@ -1175,6 +1179,11 @@ section {
 #contact {
   background: #f7f7f7;
   padding: 80px 0 40px 0;
+}
+
+#contact form .form-check {
+  display: inline-block;
+  padding-right: 1.5rem;
 }
 
 #contact #google-map {

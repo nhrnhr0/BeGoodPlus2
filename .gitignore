@@ -1,6 +1,6 @@
 begoodPlus/begoodPlus/secrects.py
 
-#begoodPlus/db.sqlite3
+begoodPlus/db.sqlite3
 begoodPlus/static/**
 begoodPlus/backups/**
 .vscode/**
