@@ -757,6 +757,7 @@ section {
 }
 
 #videos {
+  padding-bottom: 50px;
   /* youtube */
 }
 
@@ -764,10 +765,12 @@ section {
   padding: 60px;
 }
 
-#videos .col-lg-12 .ytLoader {
-  overflow: hidden;
-  height: 450px;
-  margin-bottom: 20px;
+@media (min-width: 992px) {
+  #videos .col-lg-12 .ytLoader {
+    overflow: hidden;
+    height: 450px;
+    margin-bottom: 20px;
+  }
 }
 
 #videos .ytLoader .youtube-cover {

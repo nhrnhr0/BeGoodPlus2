@@ -761,15 +761,19 @@ section {
 
 
 #videos {
+    padding-bottom: 50px;
+
     .section-header {
         padding: 60px;
     }
     /* youtube */
-    .col-lg-12 {
-        .ytLoader {
-            overflow: hidden;
-            height: 450px;
-            margin-bottom: 20px;
+    @media (min-width: 992px) {
+        .col-lg-12 {
+            .ytLoader {
+                overflow: hidden;
+                height: 450px;
+                margin-bottom: 20px;
+            }
         }
     }
     .ytLoader{
