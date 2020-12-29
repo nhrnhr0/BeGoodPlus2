@@ -31,13 +31,14 @@ connect to Putty:
     
     read requeierements.txt
         sudo su
-        activate env: source ../../env/bin/activate
+        activate env: source /home/ubuntu/env/bin/activate
         pip install -r requirements.txt
+        python manage.py migrate
         python manage.py collectstatic
         
-    run: supervisorctl restart all
-            run: service nginx restart
-    nginx -t
+    run: sudo supervisorctl restart all
+            run: sudo service nginx restart
+    sudo nginx -t
 
 
 
