@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     #'jet',
     'dbbackup',
     'webpush',
+    'tof',
     
 
     # own

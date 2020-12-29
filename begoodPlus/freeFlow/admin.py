@@ -5,3 +5,9 @@ class freeFlowClientAdmin(admin.ModelAdmin):
     list_display = ('create_date', 'name', 'email','phone', 'country','message','privatePerson')
     
 admin.site.register(FreeFlowClient,freeFlowClientAdmin)
+
+from .models import FreeFlowContent
+from tof.admin import TofAdmin
+class FreeFlowContentAdmin(TofAdmin):
+    list_display = ('heroH3', 'heroH1', 'heroH2', 'heroBtn', 'aboutTitle',)
+admin.site.register(FreeFlowContent,FreeFlowContentAdmin)

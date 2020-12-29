@@ -756,8 +756,35 @@ section {
   font-size: 1.2em;
 }
 
+#videos {
+  /* youtube */
+}
+
 #videos .section-header {
   padding: 60px;
+}
+
+#videos .ytLoader .youtube-cover {
+  width: 100%;
+}
+
+#videos .ytLoader .playBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 100px;
+  width: 100px;
+  opacity: 70%;
+  background: url(https://img.icons8.com/ios-filled/100/000000/youtube-play.png);
+}
+
+#videos .ytLoader:hover > .playBtn {
+  height: 96px;
+  width: 96px;
+  opacity: 100%;
+  background: url(https://img.icons8.com/color/96/000000/youtube-play.png);
 }
 
 @media (max-width: 480px) {

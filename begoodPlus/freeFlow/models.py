@@ -12,3 +12,12 @@ class FreeFlowClient(models.Model):
     message = models.CharField(max_length=200, verbose_name=_('message'))
     privatePerson = models.BooleanField(verbose_name=_("is private person"),default=True)
     create_date = models.DateTimeField(verbose_name=_("create date"), auto_now_add=True)
+    
+    
+class FreeFlowContent(models.Model):
+    heroH3 = models.CharField(max_length=100)
+    heroH1 = models.CharField(max_length=100)
+    heroH2 = models.CharField(max_length=200)
+    heroBtn = models.CharField(max_length=50)
+    
+    aboutTitle = models.CharField(max_length=150)

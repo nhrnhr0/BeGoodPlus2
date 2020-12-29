@@ -764,6 +764,33 @@ section {
     .section-header {
         padding: 60px;
     }
+            /* youtube */
+
+    .ytLoader{
+        .youtube-cover {
+            width: 100%;
+        }
+        
+        .playBtn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: 100px;
+            width: 100px;
+            opacity: 70%;
+            background: url(https://img.icons8.com/ios-filled/100/000000/youtube-play.png);
+            
+        }
+        
+        &:hover > .playBtn {
+                height: 96px;
+                width: 96px;
+                opacity: 100%;
+                background: url(https://img.icons8.com/color/96/000000/youtube-play.png);
+            }
+        }
+    
     .videos-container-1 {
     div {
         @media (max-width: 480px) {
@@ -1177,6 +1204,7 @@ section {
 
 /* Contact Section
   --------------------------------*/
+  /*
 
 #contact {
     background: #f7f7f7;
@@ -1315,7 +1343,7 @@ section {
         }
     }
 }
-
+*/
 @-webkit-keyframes animate-loading {
     0% {
         transform: rotate(0deg);
@@ -1357,3 +1385,5 @@ section {
         color: #ccc;
     }
 }
+
+

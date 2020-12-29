@@ -9,8 +9,15 @@ from webpush import send_group_notification
 from django.urls import reverse
 
 import threading, time
+from freeFlow.models import FreeFlowContent
+
+from django.core.mail import send_mail
+from django.utils.html import strip_tags
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 
 def freeFlowView(request):
+    content = FreeFlowContent.objects.get(pk=1)
     if request.method == 'POST':
         form = freeFlowClientForm(request.POST)
         if form.is_valid():
@@ -26,5 +33,17 @@ def freeFlowView(request):
             payload = {"head": "Free Flow", "body": message, "icon": "https://ms-global.co.il/static/assets/freeFlow/assets/img/freeFlowFirstImage.png", "url": url}
             thread = threading.Thread(target=send_group_notification, kwargs={"group_name":"admin", "payload":payload, "ttl":1000})
             thread.start()
+            
+            # send email:
+            recipient_list = ['Main@ms-global.co.il',] # ['Main@ms-global.co.il',]
+            subject =  'freeFlow טופס הזמנה ' + obj.name
+            email_body = render_to_string('freeFlow_email_template.html', {'data':obj})
 
-    return render(request, 'freeflow2.html',{})
+            #plain_message = strip_tags(email_html)
+            email = EmailMessage(subject, body=email_body,
+                            from_email='MS-GLOBAL <bot@ms-global.co.il>',
+                            to=recipient_list, reply_to=['Main@ms-global.co.il'])
+            email.content_subtype = "html"
+            mail_res = email.send(True)
+
+    return render(request, 'freeflow2.html',{'content':content})
