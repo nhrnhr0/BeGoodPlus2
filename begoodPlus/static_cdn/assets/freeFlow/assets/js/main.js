@@ -192,12 +192,17 @@
  /** youtube video load */
  function youTubes_makeDynamic() {
  
-  var $ytIframes = $('iframe[src*="youtube.com"]');
+  var $ytIframes = $('iframe[data-src*="youtube.com"]');
   $ytIframes.each(function (i,e) {
     var $ytFrame = $(e);
-    var ytKey; var tmp = $ytFrame.attr('src').split(/\//); tmp = tmp[tmp.length - 1]; tmp = tmp.split('?'); ytKey = tmp[0];
+    var ytKey;
+    //var tmp = $ytFrame.attr('src').split(/\//); 
+    var tmp = $ytFrame.data().src.split(/\//); 
+    tmp = tmp[tmp.length - 1];
+    tmp = tmp.split('?');
+    ytKey = tmp[0];
     var $ytLoader = $('<div class="ytLoader">');
-    //https://i3.ytimg.com/vi/S7ZeconnOK8/maxresdefault.jpg
+    
     $ytLoader.append($('<img class="youtube-cover" src="https://i3.ytimg.com/vi/'+ytKey+'/maxresdefault.jpg">'));
     //$ytLoader.append($('<img class="youtube-cover" src="https://i.ytimg.com/vi/'+ytKey+'/hqdefault.jpg">'));
     $ytLoader.append($('<div class="playBtn"></div>'));
@@ -205,7 +210,7 @@
     $ytFrame.replaceWith($ytLoader);
     $ytLoader.click(function () {
       var $ytFrame = $ytLoader.data('$ytFrame');
-      $ytFrame.attr('src',$ytFrame.attr('src')+'?autoplay=1');
+      $ytFrame.attr('src',$ytFrame.data().src + '?autoplay=1');
       $ytLoader.replaceWith($ytFrame);
     });
   });
