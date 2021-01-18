@@ -174,6 +174,7 @@
   $(window).on('load', function() {
     aos_init();
     youTubes_makeDynamic();
+    initMap();
   });
   /*
   // Initiate venobox (lightbox feature used in portofilo)
@@ -215,4 +216,53 @@
     });
   });
 };
+
+let map;
+
+function initMap() {
+  var locations  = [
+    {'name': 'הנסיך הקטן פרחים - ועידת קטוביץ 33, תל אביב יפו', 'lat': 34.791400, 'lng':32.094000, 'img': 'laLittlePrince.png', 'url': 'https://lpflowers.co.il/'},
+    {'name': 'דיזיגארדן - דיזנגוף 84, תל־אביב', 'lat': 34.774680, 'lng': 32.076730, 'img': 'dizidarden.jpg', 'url': 'https://www.instagram.com/dizigarden/'},
+    {'name': 'משתלה אורבנית - רחוב דניאל 27, שוק הכרמל, תל אביב', 'lat':34.765190, 'lng':32.068180, 'img':'urbanPlants.png', 'url': 'https://mashtela-urbanit.co.il/'}
+  ];
+  /*[
+    ['הנסיך הקטן פרחים - ועידת קטוביץ 33, תל אביב יפו', 32.094000, 34.791400],
+    [`דיזיגארדן - דיזנגוף 84, תל־אביב`, 32.076730, 34.774680],
+    ['משתלה אורבנית - רחוב דניאל 27, שוק הכרמל, תל אביב',  32.068180, 34.765190],
+  ]*/
+
+  //https://www.google.com/maps/search/?api=1&query=47.5951518,-122.3316393
+  
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 32.073582, lng: 34.788052 },
+    zoom: 12,
+  });
+
+
+  
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {  
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i].lng, locations[i].lat),
+      map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent(`
+        <h5 style="text-align: center;">${locations[i].name}</h5>
+        <a href="${locations[i].url}" target=_blank>
+        <img style="max-width:450px;padding-left: 25px;" src="/media/${locations[i].img}"/>
+        </a>
+        `);
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
+  }
+}
+
+
 })(jQuery);

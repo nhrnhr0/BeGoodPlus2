@@ -1396,4 +1396,16 @@ section {
     }
 }
 
+#map_section {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
 
+#map {
+    height: 100%;
+    width: 80%;
+}
