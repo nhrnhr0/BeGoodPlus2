@@ -255,7 +255,7 @@ function initMap() {
         infowindow.setContent(`
         <h5 style="text-align: center;">${locations[i].name}</h5>
         <a href="${locations[i].url}" target=_blank>
-        <img style="max-width:450px;padding-left: 25px;" src="/media/${locations[i].img}"/>
+        <img style="max-width:450px;padding-left: 25px;" src="static/assets/freeFlow/assets/img/${locations[i].img}"/>
         </a>
         `);
         infowindow.open(map, marker);
