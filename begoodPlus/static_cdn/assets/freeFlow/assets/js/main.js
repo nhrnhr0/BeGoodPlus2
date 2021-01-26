@@ -324,6 +324,7 @@
       styleElem.innerHTML = "#benefits .benefits-container .content li::before{margin-left: 0;}";
 
       $('.benefits-container  ol  li').before().css('margin-left', '0');
+      $('#benefits .section-title').css('direction', 'rtl');
     }
   }
 
