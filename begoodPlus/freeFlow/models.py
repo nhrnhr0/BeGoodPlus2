@@ -21,3 +21,16 @@ class FreeFlowContent(models.Model):
     heroBtn = models.CharField(max_length=50)
     
     aboutTitle = models.CharField(max_length=150)
+    aboutP = models.CharField(max_length=100)
+    aboutItem1Title = models.CharField(max_length=100)
+    aboutItem1Description = models.CharField(max_length=500)
+    aboutItem2Title = models.CharField(max_length=100)
+    aboutItem2Description = models.CharField(max_length=500)
+    aboutItem3Title = models.CharField(max_length=100)
+    aboutItem3Description = models.CharField(max_length=500)
+
+    nav_Home = models.CharField(max_length=100)
+    nav_AboutUs = models.CharField(max_length=100)
+    nav_BenefitsAdvantages = models.CharField(max_length=100)
+    nav_Videos = models.CharField(max_length=100)
+    nav_ContactUs = models.CharField(max_length=100)

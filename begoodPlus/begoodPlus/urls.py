@@ -39,7 +39,7 @@ from stock.views import add_multiple_stocks
 from clientLikedImages.views import add_liked_images
 from clientImages.views import upload_user_image
 from glofa_types.views import glofa_data
-from freeFlow.views import freeFlowView
+from freeFlow.views import freeFlowView, freeFlowChangeLanguage
 from core.views import admin_subscribe_view
 urlpatterns = [
     #path('jet/', include('jet.urls', 'jet')),
@@ -68,6 +68,7 @@ urlpatterns = [
     path('upload_user_image', upload_user_image),
     path('glofa_data/<int:id>', glofa_data),
     path('freeFlow', freeFlowView),
+    path('freeFlow/lang/<str:language_code>', freeFlowChangeLanguage),
     path('adminSub', admin_subscribe_view),
     re_path('^webpush/', include('webpush.urls')),
     #re_path('^tracking/', include('tracking.urls')),

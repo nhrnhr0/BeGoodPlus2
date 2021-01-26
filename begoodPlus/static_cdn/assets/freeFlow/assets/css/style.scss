@@ -636,7 +636,6 @@ section {
 
 /* About Us Section
   --------------------------------*/
-
 #about {
     background: #fff;
     padding: 80px 0;
@@ -671,9 +670,11 @@ section {
             background: #fff;
             background-size: cover;
             padding: 0 0 30px 0;
+            display: flex;
 
             .icon {
                 float: left;
+                flex-shrink: 0;
                 background: #fff;
                 width: 64px;
                 height: 64px;

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+{%load static%}
+{% load i18n %}
+{%include 'base.html'%}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{LANGUAGE_CODE}}">
 
 <head>
-    {%load static%}
-    {%include 'base.html'%}
+    
+
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -51,11 +55,15 @@
 </head>
 
 <body>
-
+    
+    <input id="loadedLanguage" type="hidden" value={{LANGUAGE_CODE}}/>
     <!-- ======= Header ======= -->
     <header id="header" class="header-transparent">
         <div class="container">
-
+            <select id="languages" name="languages">
+                <option value="he">he</option>
+              <option value="en">en</option>
+            </select>
             <div id="logo" class="pull-left">
                 <a href="freeFlow"><img src="{%static 'assets/freeFlow/assets/img/freeFlowLogo.png' %}" alt=""></a>
                 <!-- Uncomment below if you prefer to use a text logo -->
@@ -64,10 +72,10 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#hero">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#benefits">Benefits & Advantages</a></li>
-                    <li><a href="#videos">Videos</a></li>
+                    <li class="menu-active"><a href="#hero">{{content.nav_Home}}</a></li>
+                    <li><a href="#about">{{content.nav_AboutUs}}</a></li>
+                    <li><a href="#benefits">{{content.nav_BenefitsAdvantages}}</a></li>
+                    <li><a href="#videos">{{content.nav_Videos}}</a></li>
                     <!--
                     <li><a href="#team">Team</a></li>
                     <li class="menu-has-children"><a href="">Drop Down</a>
@@ -87,7 +95,7 @@
                             <li><a href="#">Drop Down 5</a></li>
                         </ul>
                     </li> -->
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#contact">{{content.nav_ContactUs}}</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -95,6 +103,7 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero">
+            
         <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
             <h3>{{content.heroH3 }}</h3>
             <h1>{{content.heroH1 }}</h1>
@@ -113,29 +122,31 @@
                     <div class="col-lg-6 content order-lg-1 order-2">
                         <h2 class="title">{{content.aboutTitle }}</h2>
                         <p>
-                            Free Flow is the perfect watering solution for the balcony, the terrace the garden the
-                            office, at home and anywhere else where you want to grow your plants
+                            {{content.aboutP}}
                         </p>
 
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                             <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-                            <h4 class="title"><a href="">Use in office, home, or wherever you want</a></h4>
-                            <p class="description">Free Flow is so small and compact that it can even be used to put
-                                your favorite plain in your office, home, garden, or any place you see fit.</p>
+                            <div class="icon-box-content">
+                                <h4 class="title"><a href="">{{content.aboutItem1Title}}</a></h4>
+                                <p class="description">{{content.aboutItem1Description}}</p>
+                            </div>
                         </div>
 
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                             <div class="icon"><i class="fa fa-tint"></i></div>
-                            <h4 class="title"><a href="">Save water</a></h4>
-                            <p class="description">Save water while working less. Free Flow lets you enjoy the confort
-                                of automatic watering system without any waste of precious water</p>
+                            <div class="icon-box-content">
+                                <h4 class="title"><a href="">{{content.aboutItem2Title}}</a></h4>
+                                <p class="description">{{content.aboutItem2Description}}</p>
+                            </div>
                         </div>
 
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
                             <div class="icon"><i class="fas fa-tree"></i></div>
-                            <h4 class="title"><a href="">Go Green</a></h4>
-                            <p class="description">Free Flow lets you save the envierment by growing your own plants,
-                                for your own needs</p>
+                            <div class="icon-box-content">
+                                <h4 class="title"><a href="">{{content.aboutItem3Title}}</a></h4>
+                                <p class="description">{{content.aboutItem3Description}}</p>
+                            </div>
                         </div>
 
                     </div>

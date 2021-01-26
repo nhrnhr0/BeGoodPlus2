@@ -662,10 +662,15 @@ section {
   background: #fff;
   background-size: cover;
   padding: 0 0 30px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #about .about-container .icon-box .icon {
   float: left;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   background: #fff;
   width: 64px;
   height: 64px;

@@ -15,8 +15,21 @@ from django.core.mail import send_mail
 from django.utils.html import strip_tags
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+from django.utils import translation
+from django.http import HttpResponse
+
+def freeFlowChangeLanguage(request, language_code):
+    translation.activate(language_code)
+    return HttpResponse(content=language_code)
 
 def freeFlowView(request):
+    #if request.session.get(translation.LANGUAGE_SESSION_KEY) is not None:
+    #    print (request.session[translation.LANGUAGE_SESSION_KEY])
+    #else:
+    #    request.session[translation.LANGUAGE_SESSION_KEY] = 'he'
+    
+    #translation.activate(request.session[translation.LANGUAGE_SESSION_KEY]) 
+
     content = FreeFlowContent.objects.get(pk=1)
     if request.method == 'POST':
         form = freeFlowClientForm(request.POST)
