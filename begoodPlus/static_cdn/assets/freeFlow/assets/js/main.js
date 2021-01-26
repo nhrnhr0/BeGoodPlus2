@@ -175,7 +175,7 @@
     aos_init();
     youTubes_makeDynamic();
     initMap();
-    setCurrentLanguage();
+    //setCurrentLanguage();
   });
   /*
   // Initiate venobox (lightbox feature used in portofilo)
@@ -285,19 +285,18 @@
     }
   }
 
+  /*
   function setCurrentLanguage() {
     var lang_code = document.getElementById('loadedLanguage').value.replace('/', '');
     document.getElementById("languages").value = lang_code;
 
-  }
+  }*/
+
   var language_select = document.getElementById("languages");
+  language_select.value = '/freeFlow/' + document.documentElement.lang;
   language_select.addEventListener('change', function (event) {
     var selected_value = this.value;
-    $.get(`/freeFlow/lang/${selected_value}`, function (data, status) {
-      console.log(data);
-      console.log(status);
-      window.location.reload();
-    });
+    window.location = selected_value;
   });
 
 
@@ -305,7 +304,6 @@
   // translation fits:
   function fitTranslation() {
     var lang = document.documentElement.lang;
-    debugger;
     if(lang == 'he') {
       // nav bar
       $('#nav-menu-container').css('transform', 'rotate(180deg)');

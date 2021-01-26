@@ -22,7 +22,8 @@ def freeFlowChangeLanguage(request, language_code):
     translation.activate(language_code)
     return HttpResponse(content=language_code)
 
-def freeFlowView(request):
+def freeFlowView(request, lang='en'):
+    translation.activate(lang)
     #if request.session.get(translation.LANGUAGE_SESSION_KEY) is not None:
     #    print (request.session[translation.LANGUAGE_SESSION_KEY])
     #else:
