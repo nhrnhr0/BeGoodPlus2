@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-12 14:29+0300\n"
+"POT-Creation-Date: 2021-01-26 15:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,25 +19,30 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % "
 "1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 
-#: .\catalogAlbum\models.py:7 .\catalogImages\models.py:13
+#: .\catalogAlbum\models.py:45 .\catalogImages\models.py:13
 #: .\category\models.py:7
 msgid "title"
 msgstr "כותרת"
 
-#: .\catalogAlbum\models.py:8
+#: .\catalogAlbum\models.py:46
 msgid "slug"
 msgstr ""
 
-#: .\catalogAlbum\models.py:21
-msgid "weight"
-msgstr "משקל"
+#: .\catalogAlbum\models.py:49
+msgid "is public"
+msgstr ""
+
+#: .\catalogAlbum\models.py:74
+msgid "view in website"
+msgstr ""
 
 #: .\catalogImages\models.py:14 .\glofa_types\models.py:12
 msgid "description"
 msgstr "תיאור"
 
 #: .\catalogImages\models.py:16 .\catalogImages\models.py:54
-#: .\productImages\models.py:12 .\product\models.py:107
+#: .\clientImages\models.py:11 .\glofa_types\models.py:24
+#: .\productImages\models.py:12 .\product\models.py:94
 msgid "image"
 msgstr "תמונה"
 
@@ -73,6 +78,43 @@ msgstr "קטגוריות"
 msgid "products count"
 msgstr "מספר מוצרים"
 
+#: .\clientImages\models.py:7
+#, fuzzy
+#| msgid "client name"
+msgid "Client image"
+msgstr "שם לקוח"
+
+#: .\clientImages\models.py:8
+#, fuzzy
+#| msgid "Catalog images"
+msgid "Client images"
+msgstr "תמונות קטלוג"
+
+#: .\clientLikedImages\models.py:7 .\freeFlow\models.py:8
+#: .\product\models.py:20 .\provider\models.py:12
+msgid "name"
+msgstr "שם"
+
+#: .\clientLikedImages\models.py:8 .\freeFlow\models.py:9 .\order\models.py:24
+msgid "email"
+msgstr "אימייל"
+
+#: .\clientLikedImages\models.py:9
+#, fuzzy
+#| msgid "number"
+msgid "phone number"
+msgstr "מספר"
+
+#: .\clientLikedImages\models.py:10 .\freeFlow\models.py:12
+msgid "message"
+msgstr ""
+
+#: .\clientLikedImages\models.py:12
+#, fuzzy
+#| msgid "submit date"
+msgid "submited date"
+msgstr "תאריך הגשה"
+
 #: .\color\models.py:9
 msgid "Color"
 msgstr "צבע"
@@ -88,6 +130,26 @@ msgstr "שם צבע"
 #: .\color\models.py:13 .\order_detail\models.py:15 .\stock\models.py:19
 msgid "color"
 msgstr "צבע"
+
+#: .\freeFlow\models.py:10 .\order\models.py:23
+msgid "telephone"
+msgstr "טלפון"
+
+#: .\freeFlow\models.py:11
+#, fuzzy
+#| msgid "amount"
+msgid "country"
+msgstr "כמות"
+
+#: .\freeFlow\models.py:13
+#, fuzzy
+#| msgid "private compeny"
+msgid "is private person"
+msgstr "חברה פרטית"
+
+#: .\freeFlow\models.py:14
+msgid "create date"
+msgstr ""
 
 #: .\glofa_types\models.py:9
 msgid "glofa type"
@@ -106,6 +168,18 @@ msgstr "מספר"
 #| msgid "suport printing"
 msgid "supported products"
 msgstr "תומך בהדפסה"
+
+#: .\glofa_types\models.py:22
+#, fuzzy
+#| msgid "Catalog image"
+msgid "glofa image"
+msgstr "תמונת קטלוג"
+
+#: .\glofa_types\models.py:23
+#, fuzzy
+#| msgid "glofa types"
+msgid "glofa images"
+msgstr "סוגי גלופה"
 
 #: .\order\models.py:16
 msgid "Order"
@@ -130,14 +204,6 @@ msgstr "חברה פרטית"
 #: .\order\models.py:22
 msgid "addres"
 msgstr "כתובת"
-
-#: .\order\models.py:23
-msgid "telephone"
-msgstr "טלפון"
-
-#: .\order\models.py:24
-msgid "email"
-msgstr "אימייל"
 
 #: .\order\models.py:25
 msgid "contact man"
@@ -224,7 +290,7 @@ msgstr "צבעי מוצר"
 msgid "code"
 msgstr "קוד"
 
-#: .\productColor\models.py:19
+#: .\productColor\models.py:22
 msgid "color representation"
 msgstr "ייצוג צבע"
 
@@ -248,35 +314,35 @@ msgstr "גודל מוצר"
 msgid "Product sizes"
 msgstr "גדלי מוצרים"
 
-#: .\product\admin.py:97
+#: .\product\admin.py:111
 msgid " Selected Record(s) Marked as Active pringing Successfully"
 msgstr " מוצרים מסומנים סומנו כתומכים בהדפסה"
 
-#: .\product\admin.py:98
+#: .\product\admin.py:112
 msgid "make prining active"
 msgstr "הפוך הדפסה לזמינה"
 
-#: .\product\admin.py:102
+#: .\product\admin.py:116
 msgid " Selected Record(s) Marked as Active embroidery Successfully"
 msgstr " מוצרים מסומנים סומנו כתומכים ברקמה"
 
-#: .\product\admin.py:103
+#: .\product\admin.py:117
 msgid "make embroidery active"
 msgstr "הפוך רקמה לזמינה"
 
-#: .\product\admin.py:107
+#: .\product\admin.py:121
 msgid " Selected Record(s) Marked as Inactive pringing Successfully"
 msgstr " מוצרים מסומנים סומנו כלא תומכי הדפסה"
 
-#: .\product\admin.py:108
+#: .\product\admin.py:122
 msgid "make prining inactive"
 msgstr "הפוך הדפסה ללא זמינה"
 
-#: .\product\admin.py:112
+#: .\product\admin.py:126
 msgid " Selected Record(s) Marked as Inactive embroidery Successfully"
 msgstr " מוצרים מסומנים סומנו כלא תומכי רקמה"
 
-#: .\product\admin.py:113
+#: .\product\admin.py:127
 msgid "make embroidery inactive"
 msgstr "הפוך רקמה ללא זמינה"
 
@@ -284,59 +350,27 @@ msgstr "הפוך רקמה ללא זמינה"
 msgid "Products"
 msgstr "מוצרים"
 
-#: .\product\models.py:20 .\provider\models.py:12
-msgid "name"
-msgstr "שם"
-
-#: .\product\models.py:25
-msgid "buy cost"
-msgstr "מחיר עלות"
-
-#: .\product\models.py:28
-msgid "cost for institucional without tax from"
-msgstr "מחיר לקוח מוסדי ללא מע\"מ מ"
-
-#: .\product\models.py:29
-msgid "to"
-msgstr "עד"
-
-#: .\product\models.py:30
-msgid "cost for single client with tax"
-msgstr "מחיר לקוח בודד כולל מע\"מ"
-
-#: .\product\models.py:32
+#: .\product\models.py:27
 msgid "suport printing"
 msgstr "תומך בהדפסה"
 
-#: .\product\models.py:33
+#: .\product\models.py:28
 msgid "suport embroidery"
 msgstr "תומך ברקמה"
 
-#: .\product\models.py:34
+#: .\product\models.py:29
 msgid "content"
 msgstr "תוכן"
 
-#: .\product\models.py:35
+#: .\product\models.py:30
 msgid "comments"
 msgstr "הערות"
 
 #: .\product\models.py:45
-msgid "buy const with tax"
-msgstr "מחיר עלות כולל מע\"מ"
-
-#: .\product\models.py:55
 msgid "customer catalog number"
 msgstr "מספר קטלוג לקוח"
 
-#: .\product\models.py:70
-msgid "institutional client price range"
-msgstr "טווח מחירים ללקוח עסקי"
-
-#: .\product\models.py:74
-msgid "single client price range"
-msgstr "טווח מחירים ללקוח פרטי"
-
-#: .\product\models.py:86
+#: .\product\models.py:73
 msgid "total stock at us"
 msgstr "כמות כוללת אצלנו"
 
@@ -351,6 +385,96 @@ msgstr "ספקים"
 #: .\provider\models.py:20
 msgid "stocks count"
 msgstr "מספר מלאי"
+
+#: .\static_cdn\templates\freeflow2.html:75
+msgid "Home"
+msgstr "בית"
+
+#: .\static_cdn\templates\freeflow2.html:76
+msgid "About Us"
+msgstr "אודות"
+
+#: .\static_cdn\templates\freeflow2.html:77
+msgid "Benefits & Advantages"
+msgstr "יתרונות"
+
+#: .\static_cdn\templates\freeflow2.html:78
+msgid "videos"
+msgstr "סרטונים"
+
+#: .\static_cdn\templates\freeflow2.html:98
+msgid "contact"
+msgstr "צור קשר"
+
+#: .\static_cdn\templates\freeflow2.html:108
+msgid "Welcome to"
+msgstr "ברוך הבא"
+
+#: .\static_cdn\templates\freeflow2.html:109
+msgid "FREE FLOW"
+msgstr ""
+
+#: .\static_cdn\templates\freeflow2.html:110
+msgid ""
+"Tired of watering the pots every day? You must have noticed that growing "
+"plants is an action that requires time and effort"
+msgstr ""
+"נמאס לך כל יום להשקות את העציצים? בטח כבר שמת לב שלגדל צמחים זאת הפעולה "
+"שדורשת זמן והתעסקות"
+
+#: .\static_cdn\templates\freeflow2.html:121
+msgid ""
+"Free Flow: A product designed for irrigating plants in places where there is "
+"no pressurized water source."
+msgstr "Free Flow מוצר המיועד להשקיית צמחים במקומות שבהם אין מקור מים בלחץ."
+
+#: .\static_cdn\templates\freeflow2.html:124
+msgid "1 to 6 Plants"
+msgstr "1 ל 6 צמחים"
+
+#: .\static_cdn\templates\freeflow2.html:126
+msgid ""
+"The perfect solution for watering the plants on the balcony, on the "
+"windowsill, in the office, at home And wherever you want to grow your plants."
+msgstr ""
+"הפתרון המושלם להשקיית הצמחים במרפסת, על אדן החלון, במשרד, בבית ובכל מקום בו "
+"תרצו לגדל את הצמחים שלכם."
+
+#: .\static_cdn\templates\freeflow2.html:132
+msgid "Use it in the office, at home, or anywhere you want"
+msgstr "השתמש במשרד, בבית, או בכל מקום שתרצה"
+
+#: .\static_cdn\templates\freeflow2.html:133
+msgid ""
+"It is so small and compact that you can even use it to put your favorite "
+"plant in the office, home, garden or anywhere you see fit"
+msgstr ""
+"הוא כל כך קטן וקומפקטי, שאפשר אפילו להשתמש בו בכדי לשים את הצמח האהוב עליכם "
+"במשרד, בבית, בגינה או בכל מקום שנראה לכם מתאים"
+
+#: .\static_cdn\templates\freeflow2.html:140
+msgid "Saves water and time"
+msgstr "חוסך מים וזמן"
+
+#: .\static_cdn\templates\freeflow2.html:141
+msgid ""
+"Focused and efficient watering allows you to enjoy the convenience of an "
+"automatic irrigation system without wasting water and valuable time!"
+msgstr ""
+"השקייה ממוקדת ויעילה מאפשרת לך ליהנות מנוחות מערכת השקיה אוטומטית ללא בזבוז "
+"מים וזמן יקר!"
+
+#: .\static_cdn\templates\freeflow2.html:148
+msgid "Eco-friendly system"
+msgstr "מערכת ידידותית לסביבה "
+
+#: .\static_cdn\templates\freeflow2.html:149
+msgid ""
+"The irrigation system does not consume electricity, and allows recycling and "
+"reuse of most standard plastic bottles"
+msgstr ""
+"מערכת השקייה שלא צורכת חשמל, וצאפשרת מחזור ושימוש חוזר ברוב בקבוקי הפלסטיק "
+"הסטנדרטים"
 
 #: .\stock\models.py:12
 msgid "Stock"
@@ -388,6 +512,39 @@ msgstr "קיים אצל הספק"
 msgid "provider resupply date"
 msgstr "תאריך חידוש מלאי אצל הספק"
 
-#: .\stock\models.py:35
+#: .\stock\models.py:26
+msgid "buy cost"
+msgstr "מחיר עלות"
+
+#: .\stock\models.py:28
+msgid "cost for institucional without tax from"
+msgstr "מחיר לקוח מוסדי ללא מע\"מ מ"
+
+#: .\stock\models.py:29
+msgid "to"
+msgstr "עד"
+
+#: .\stock\models.py:30
+msgid "cost for single client with tax"
+msgstr "מחיר לקוח בודד כולל מע\"מ"
+
+#: .\stock\models.py:37
+msgid "buy const with tax"
+msgstr "מחיר עלות כולל מע\"מ"
+
+#: .\stock\models.py:41
+msgid "institutional client price range"
+msgstr "טווח מחירים ללקוח עסקי"
+
+#: .\stock\models.py:53
 msgid "makat"
 msgstr "מק\"ט"
+
+#~ msgid "Some translatable text"
+#~ msgstr "טקסט שצריך לתרגם"
+
+#~ msgid "weight"
+#~ msgstr "משקל"
+
+#~ msgid "single client price range"
+#~ msgstr "טווח מחירים ללקוח פרטי"

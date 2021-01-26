@@ -72,10 +72,10 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#hero">{{content.nav_Home}}</a></li>
-                    <li><a href="#about">{{content.nav_AboutUs}}</a></li>
-                    <li><a href="#benefits">{{content.nav_BenefitsAdvantages}}</a></li>
-                    <li><a href="#videos">{{content.nav_Videos}}</a></li>
+                    <li class="menu-active"><a href="#hero">{% trans "Home" %}<!--{{content.nav_Home}}--></a></li>
+                    <li><a href="#about">{% trans "About Us"%}</a></li>
+                    <li><a href="#benefits">{% trans "Benefits & Advantages"%}</a></li>
+                    <li><a href="#videos">{% trans "videos" %}</a></li>
                     <!--
                     <li><a href="#team">Team</a></li>
                     <li class="menu-has-children"><a href="">Drop Down</a>
@@ -95,7 +95,7 @@
                             <li><a href="#">Drop Down 5</a></li>
                         </ul>
                     </li> -->
-                    <li><a href="#contact">{{content.nav_ContactUs}}</a></li>
+                    <li><a href="#contact">{%trans "contact" %}</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -105,9 +105,9 @@
     <section id="hero">
             
         <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-            <h3>{{content.heroH3 }}</h3>
-            <h1>{{content.heroH1 }}</h1>
-            <h2>{{content.heroH2 }}</h2>
+            <h3>{% trans "Welcome to" %}</h3>
+            <h1>{% trans "FREE FLOW" %}</h1>
+            <h2>{% trans "Tired of watering the pots every day? You must have noticed that growing plants is an action that requires time and effort" %}</h2>
             <a href="#about" class="btn-get-started">{{content.heroBtn }}</a>
         </div>
     </section><!-- End Hero Section -->
@@ -118,34 +118,35 @@
         <section id="about">
             <div class="container" data-aos="fade-up">
                 <div class="row about-container">
-
+                    <h4>{%trans "Free Flow: A product designed for irrigating plants in places where there is no pressurized water source." %}</h4>
                     <div class="col-lg-6 content order-lg-1 order-2">
-                        <h2 class="title">{{content.aboutTitle }}</h2>
+                        
+                        <h2 class="title">{% trans "1 to 6 Plants" %}</h2>
                         <p>
-                            {{content.aboutP}}
+                            {% trans "The perfect solution for watering the plants on the balcony, on the windowsill, in the office, at home And wherever you want to grow your plants." %}
                         </p>
 
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                             <div class="icon"><i class="fa fa-shopping-bag"></i></div>
                             <div class="icon-box-content">
-                                <h4 class="title"><a href="">{{content.aboutItem1Title}}</a></h4>
-                                <p class="description">{{content.aboutItem1Description}}</p>
+                                <h4 class="title"><a href="">{%trans "Use it in the office, at home, or anywhere you want" %}</a></h4>
+                                <p class="description">{%trans "It is so small and compact that you can even use it to put your favorite plant in the office, home, garden or anywhere you see fit" %}</p>
                             </div>
                         </div>
 
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                             <div class="icon"><i class="fa fa-tint"></i></div>
                             <div class="icon-box-content">
-                                <h4 class="title"><a href="">{{content.aboutItem2Title}}</a></h4>
-                                <p class="description">{{content.aboutItem2Description}}</p>
+                                <h4 class="title"><a href="">{%trans "Saves water and time" %}</a></h4>
+                                <p class="description">{%trans "Focused and efficient watering allows you to enjoy the convenience of an automatic irrigation system without wasting water and valuable time!" %}</p>
                             </div>
                         </div>
 
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
                             <div class="icon"><i class="fas fa-tree"></i></div>
                             <div class="icon-box-content">
-                                <h4 class="title"><a href="">{{content.aboutItem3Title}}</a></h4>
-                                <p class="description">{{content.aboutItem3Description}}</p>
+                                <h4 class="title"><a href="">{%trans "Eco-friendly system" %}</a></h4>
+                                <p class="description">{%trans "The irrigation system does not consume electricity, and allows recycling and reuse of most standard plastic bottles" %}</p>
                             </div>
                         </div>
 
