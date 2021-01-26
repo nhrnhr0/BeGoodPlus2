@@ -730,11 +730,16 @@ section {
     }
     .benefits-container {
         .background {
-            background: url(../img/freeFlowBox.png);
+            img {
+                width: 100%;
+            }
+        }
+        /*.background {
+            background: url(../img/freeFlowGarden.jpeg);
             min-height: 480px;
             max-width: 250px;
             background-size: cover;
-        }
+        }*/
 
         .content {
             padding-top: 50px;

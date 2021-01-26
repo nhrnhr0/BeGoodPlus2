@@ -314,6 +314,16 @@
       //$('#about .about-container .icon-box').css('flex-direction', 'row-reverse');
       $('#about > *').css('text-align', 'right');
       $('#about > *').css('direction', 'rtl');
+
+
+      // benefits
+      debugger;
+      $('.benefits-container  ol').css('text-align', 'right');
+      $('.benefits-container  ol  li').css('direction', 'rtl');
+      var styleElem = document.head.appendChild(document.createElement("style"));
+      styleElem.innerHTML = "#benefits .benefits-container .content li::before{margin-left: 0;}";
+
+      $('.benefits-container  ol  li').before().css('margin-left', '0');
     }
   }
 
