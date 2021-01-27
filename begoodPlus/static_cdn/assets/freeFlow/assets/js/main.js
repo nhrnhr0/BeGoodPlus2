@@ -406,7 +406,8 @@
 
   $(".next").on("click", {
     d: "n"
-  }, rotate);
+  },rotate);
+
   $(".prev").on("click", {
     d: "p"
   }, rotate);
@@ -451,6 +452,7 @@
     return swipeCD;
   }
   function rotate(e) {
+
     console.log('rotating');
     if(isSwipeInCD() == false) {
       if (e.data.d == "n") {
@@ -465,6 +467,9 @@
         "-o-transform": "rotateY(" + currdeg + "deg)",
         "transform": "rotateY(" + currdeg + "deg)"
       });
+      console.log(currdeg);
+      console.log(currdeg%360);
+      $(".prev").css("display", (currdeg % 360)?"block":"none");
       setSwipeCD();
     }
   }

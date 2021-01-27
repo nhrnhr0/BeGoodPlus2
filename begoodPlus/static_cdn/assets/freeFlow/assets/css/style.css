@@ -784,6 +784,7 @@ section {
 
 #benefits .benefits-container .prev {
   left: 5em;
+  display: none;
 }
 
 @media (max-width: 768px) {
