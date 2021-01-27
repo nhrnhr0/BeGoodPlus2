@@ -426,12 +426,13 @@
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
       //most significant
-      if (xDiff > 0) {
+      console.log('xDiff', xDiff);
+      if (xDiff > 200) {
         // left swipe 
         //evt.originalEvent.dataTransfer.setData('d', 'n');
         evt.data = {'d':'n'};
         rotate(evt);
-      } else {
+      } else if(xDiff < -200){
         //evt.originalEvent.dataTransfer.setData('d', 'p');
         evt.data = {'d':'p'};
         rotate(evt);
@@ -469,7 +470,12 @@
       });
       console.log(currdeg);
       console.log(currdeg%360);
-      $(".prev").css("display", (currdeg % 360)?"block":"none");
+      var smallScreen = window.matchMedia("(max-width: 768px)");
+      if(smallScreen.matches == false) {
+        $(".prev").css("display", (currdeg % 360)?"block":"none");
+      }
+
+      
       setSwipeCD();
     }
   }

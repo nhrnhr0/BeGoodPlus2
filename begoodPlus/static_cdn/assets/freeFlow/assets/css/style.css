@@ -799,9 +799,16 @@ section {
   width: 250px;
   height: 200px;
   position: relative;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
+  -webkit-perspective: 800px;
+          perspective: 800px;
   padding-bottom: 270px;
+}
+
+@media screen and (max-width: 768px) {
+  #benefits .benefits-container .container {
+    -webkit-perspective: 1200px;
+            perspective: 1200px;
+  }
 }
 
 #benefits .benefits-container .container .carousel {
@@ -830,6 +837,8 @@ section {
   background: #000;
   width: 250px;
   height: 200px;
+  left: 10px;
+  top: 10px;
   font-size: 1em;
   text-align: center;
   color: black;
@@ -849,63 +858,63 @@ section {
 }
 
 #benefits .benefits-container .container .carousel .a {
-  -webkit-transform: rotateY(0deg) translateZ(390px);
-          transform: rotateY(0deg) translateZ(390px);
-  background: #d0ffd0;
+  -webkit-transform: rotateY(0deg) translateZ(385px);
+          transform: rotateY(0deg) translateZ(385px);
+  background: #97ff9a;
 }
 
 #benefits .benefits-container .container .carousel .b {
-  -webkit-transform: rotateY(36deg) translateZ(390px);
-          transform: rotateY(36deg) translateZ(390px);
-  background: #beffbe;
+  -webkit-transform: rotateY(36deg) translateZ(385px);
+          transform: rotateY(36deg) translateZ(385px);
+  background: #93ff94;
 }
 
 #benefits .benefits-container .container .carousel .c {
-  -webkit-transform: rotateY(72deg) translateZ(390px);
-          transform: rotateY(72deg) translateZ(390px);
-  background: #a3ffa3;
+  -webkit-transform: rotateY(72deg) translateZ(385px);
+          transform: rotateY(72deg) translateZ(385px);
+  background: #8dff8d;
 }
 
 #benefits .benefits-container .container .carousel .d {
-  -webkit-transform: rotateY(108deg) translateZ(390px);
-          transform: rotateY(108deg) translateZ(390px);
-  background: #8bff8b;
+  -webkit-transform: rotateY(108deg) translateZ(385px);
+          transform: rotateY(108deg) translateZ(385px);
+  background: #87ff86;
 }
 
 #benefits .benefits-container .container .carousel .e {
-  -webkit-transform: rotateY(144deg) translateZ(390px);
-          transform: rotateY(144deg) translateZ(390px);
-  background: #6eff6e;
+  -webkit-transform: rotateY(144deg) translateZ(385px);
+          transform: rotateY(144deg) translateZ(385px);
+  background: #80ff7e;
 }
 
 #benefits .benefits-container .container .carousel .f {
-  -webkit-transform: rotateY(180deg) translateZ(390px);
-          transform: rotateY(180deg) translateZ(390px);
-  background: #4eff4e;
+  -webkit-transform: rotateY(180deg) translateZ(385px);
+          transform: rotateY(180deg) translateZ(385px);
+  background: #79ff77;
 }
 
 #benefits .benefits-container .container .carousel .g {
-  -webkit-transform: rotateY(216deg) translateZ(390px);
-          transform: rotateY(216deg) translateZ(390px);
-  background: #39ff39;
+  -webkit-transform: rotateY(216deg) translateZ(385px);
+          transform: rotateY(216deg) translateZ(385px);
+  background: #70ff6d;
 }
 
 #benefits .benefits-container .container .carousel .h {
-  -webkit-transform: rotateY(252deg) translateZ(390px);
-          transform: rotateY(252deg) translateZ(390px);
-  background: #2aff2a;
+  -webkit-transform: rotateY(252deg) translateZ(385px);
+          transform: rotateY(252deg) translateZ(385px);
+  background: #68ff65;
 }
 
 #benefits .benefits-container .container .carousel .i {
-  -webkit-transform: rotateY(288deg) translateZ(390px);
-          transform: rotateY(288deg) translateZ(390px);
-  background: #11ff11;
+  -webkit-transform: rotateY(288deg) translateZ(385px);
+          transform: rotateY(288deg) translateZ(385px);
+  background: #5cff5a;
 }
 
 #benefits .benefits-container .container .carousel .j {
-  -webkit-transform: rotateY(324deg) translateZ(390px);
-          transform: rotateY(324deg) translateZ(390px);
-  background: #00ff00;
+  -webkit-transform: rotateY(324deg) translateZ(385px);
+          transform: rotateY(324deg) translateZ(385px);
+  background: #4eff4e;
 }
 
 #benefits .benefits-container .content {
