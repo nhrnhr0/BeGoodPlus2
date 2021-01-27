@@ -766,12 +766,13 @@ section {
 }
 
 #instructions {
+    padding-top: 70px;
     .row {
         .ff-box {
 
         }
         .ff-items {
-            background: url('../img/freeFlowItems.png');
+            background: url('../img/freeFlowItemsEng.png');
             background-size: contain;
             background-repeat: no-repeat;
             min-width: 250px;
@@ -788,7 +789,7 @@ section {
 }
 #videos {
     padding-bottom: 50px;
-
+    background: aliceblue;
     .section-header {
         padding: 60px;
     }

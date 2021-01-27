@@ -325,6 +325,11 @@
 
       $('.benefits-container  ol  li').before().css('margin-left', '0');
       $('#benefits .section-title').css('direction', 'rtl');
+
+      // instructions:
+      $('#instructions .ff-items').css('background', 'url(/static/assets/freeFlow/assets/img/freeFlowItemsHeb.png) center center')
+      $('#instructions .ff-items').css('background-size', 'contain');
+      $('#instructions .ff-items').css('background-repeat', 'no-repeat');
     }
   }
 
