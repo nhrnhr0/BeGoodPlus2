@@ -796,11 +796,11 @@ section {
             width: 250px;
             height: 200px;
             position: relative;
-            perspective: 800px;
+            perspective: 1000px;
             padding-bottom: 270px;
-            @media screen and (max-width: 768px) {
-                perspective: 1200px;
-            }
+            padding-left:0;
+            padding-right: 0;
+            
 
             .carousel {
                 height: 100%;
@@ -817,6 +817,7 @@ section {
                     background: #000;
                     width: 250px;
                     height: 200px;
+                    max-width: 220px;
                     left: 10px;
                     top: 10px;
                     //max-width: 50vw;

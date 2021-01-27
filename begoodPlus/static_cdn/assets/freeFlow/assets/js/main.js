@@ -427,12 +427,12 @@
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
       //most significant
       console.log('xDiff', xDiff);
-      if (xDiff > 200) {
+      if (xDiff > 50) {
         // left swipe 
         //evt.originalEvent.dataTransfer.setData('d', 'n');
         evt.data = {'d':'n'};
         rotate(evt);
-      } else if(xDiff < -200){
+      } else if(xDiff < -50){
         //evt.originalEvent.dataTransfer.setData('d', 'p');
         evt.data = {'d':'p'};
         rotate(evt);
