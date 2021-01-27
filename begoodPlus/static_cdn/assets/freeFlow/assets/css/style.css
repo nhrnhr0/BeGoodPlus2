@@ -767,6 +767,16 @@ section {
   font-size: 1.2em;
 }
 
+#instructions .row .ff-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#instructions .row .ff-items img {
+  max-width: 100%;
+}
+
 #videos {
   padding-bottom: 50px;
   /* youtube */

@@ -765,7 +765,20 @@ section {
     }
 }
 
+#instructions {
+    .row {
+        .ff-box {
 
+        }
+        .ff-items {
+            display: flex;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+}
 #videos {
     padding-bottom: 50px;
 
