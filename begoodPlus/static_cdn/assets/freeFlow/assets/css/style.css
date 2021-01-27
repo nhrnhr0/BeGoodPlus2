@@ -740,8 +740,135 @@ section {
         }*/
 }
 
+#benefits .benefits-container .background {
+  padding-top: 70px;
+}
+
 #benefits .benefits-container .background img {
   width: 100%;
+}
+
+#benefits .benefits-container .next,
+#benefits .benefits-container .prev {
+  color: #444;
+  position: absolute;
+  top: 100px;
+  padding: 1em 2em;
+  cursor: pointer;
+  background: #CCC;
+  border-radius: 5px;
+  border-top: 1px solid #FFF;
+  -webkit-box-shadow: 0 5px 0 #999;
+          box-shadow: 0 5px 0 #999;
+  -webkit-transition: top 0.1s, -webkit-box-shadow 0.1s;
+  transition: top 0.1s, -webkit-box-shadow 0.1s;
+  transition: box-shadow 0.1s, top 0.1s;
+  transition: box-shadow 0.1s, top 0.1s, -webkit-box-shadow 0.1s;
+}
+
+#benefits .benefits-container .next:hover,
+#benefits .benefits-container .prev:hover {
+  color: #000;
+}
+
+#benefits .benefits-container .next:active,
+#benefits .benefits-container .prev:active {
+  top: 104px;
+  -webkit-box-shadow: 0 1px 0 #999;
+          box-shadow: 0 1px 0 #999;
+}
+
+#benefits .benefits-container .next {
+  right: 5em;
+}
+
+#benefits .benefits-container .prev {
+  left: 5em;
+}
+
+@media (max-width: 768px) {
+  #benefits .benefits-container .next,
+  #benefits .benefits-container .prev {
+    display: none;
+  }
+}
+
+#benefits .benefits-container .container {
+  margin: 0 auto;
+  width: 250px;
+  height: 200px;
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+#benefits .benefits-container .container .carousel {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+#benefits .benefits-container .container .carousel .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  background: #000;
+  width: 250px;
+  height: 200px;
+  font-size: 1em;
+  text-align: center;
+  color: #FFF;
+  opacity: 0.95;
+  border-radius: 10px;
+}
+
+#benefits .benefits-container .container .carousel .a {
+  -webkit-transform: rotateY(0deg) translateZ(250px);
+          transform: rotateY(0deg) translateZ(250px);
+  background: #ed1c24;
+}
+
+#benefits .benefits-container .container .carousel .b {
+  -webkit-transform: rotateY(60deg) translateZ(250px);
+          transform: rotateY(60deg) translateZ(250px);
+  background: #0072bc;
+}
+
+#benefits .benefits-container .container .carousel .c {
+  -webkit-transform: rotateY(120deg) translateZ(250px);
+          transform: rotateY(120deg) translateZ(250px);
+  background: #39b54a;
+}
+
+#benefits .benefits-container .container .carousel .d {
+  -webkit-transform: rotateY(180deg) translateZ(250px);
+          transform: rotateY(180deg) translateZ(250px);
+  background: #f26522;
+}
+
+#benefits .benefits-container .container .carousel .e {
+  -webkit-transform: rotateY(240deg) translateZ(250px);
+          transform: rotateY(240deg) translateZ(250px);
+  background: #630460;
+}
+
+#benefits .benefits-container .container .carousel .f {
+  -webkit-transform: rotateY(300deg) translateZ(250px);
+          transform: rotateY(300deg) translateZ(250px);
+  background: #8c6239;
 }
 
 #benefits .benefits-container .content {
@@ -837,7 +964,8 @@ section {
   color: #2DC174;
 }
 
-#videos .videos-container-2 iframe, #videos .videos-container-2 .ytLoader {
+#videos .videos-container-2 iframe,
+#videos .videos-container-2 .ytLoader {
   padding-bottom: 20px;
 }
 

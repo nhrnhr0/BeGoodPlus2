@@ -304,7 +304,7 @@
   // translation fits:
   function fitTranslation() {
     var lang = document.documentElement.lang;
-    if(lang == 'he') {
+    if (lang == 'he') {
       // nav bar
       $('#nav-menu-container').css('transform', 'rotate(180deg)');
       $('#nav-menu-container li').css('transform', 'rotate(-180deg)');
@@ -332,6 +332,145 @@
       $('#instructions .ff-items').css('background-repeat', 'no-repeat');
     }
   }
+  document.addEventListener('touchstart', handleTouchStart, false);
+  var xDown = null;
+  var yDown = null;
+
+  function getTouches(evt) {
+    return  evt.touches || // browser API
+            evt.originalEvent.touches; // jQuery
+  }
+  function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+  };
+  /*
+  function benefitsCaruselFunctionality() {
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;
+    var yDown = null;
+
+    function getTouches(evt) {
+      return evt.touches || // browser API
+        evt.originalEvent.touches; // jQuery
+    }
+
+    function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
+    };
+
+    function handleTouchMove(evt) {
+      console.log('handleTouchMove', evt);
+      if (!xDown || !yDown) {
+        return;
+      }
+
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
+
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        //most significant
+        if (xDiff > 0) {
+          // left swipe 
+          debugger;
+          evt.originalEvent.dataTransfer.setData('d', 'n');
+          rotate(evt);
+        } else {
+          evt.originalEvent.dataTransfer.setData('d', 'p');
+          rotate(evt);
+          // right swipe 
+        }
+      } else {
+        if (yDiff > 0) {
+          // up swipe 
+        } else {
+          // down swipe 
+        }
+      }
+      // reset values 
+      xDown = null;
+      yDown = null;
+    };*/
+
+
+  var carousel = $(".carousel");
+  var currdeg = 0;
+
+  $(".next").on("click", {
+    d: "n"
+  }, rotate);
+  $(".prev").on("click", {
+    d: "p"
+  }, rotate);
+
+  $('#benefits .benefits-container .content').bind('touchmove', function (evt) {
+    evt.preventDefault();
+    if (!xDown || !yDown) {
+      return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      //most significant
+      if (xDiff > 0) {
+        // left swipe 
+        //evt.originalEvent.dataTransfer.setData('d', 'n');
+        evt.data = {'d':'n'};
+        rotate(evt);
+      } else {
+        //evt.originalEvent.dataTransfer.setData('d', 'p');
+        evt.data = {'d':'p'};
+        rotate(evt);
+        // right swipe 
+      }
+    }
+    //var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+    //console.log(touch.pageX);
+  });
+
+  const swipeCooldown = 250
+  var swipeCD = false;
+  function setSwipeCD() {
+    swipeCD = true;
+    setTimeout(()=>{swipeCD = false;}, swipeCooldown);
+  }
+  function isSwipeInCD() {
+    return swipeCD;
+  }
+  function rotate(e) {
+    if(isSwipeInCD() == false) {
+      if (e.data.d == "n") {
+        currdeg = currdeg - 60;
+      }
+      if (e.data.d == "p") {
+        currdeg = currdeg + 60;
+      }
+      carousel.css({
+        "-webkit-transform": "rotateY(" + currdeg + "deg)",
+        "-moz-transform": "rotateY(" + currdeg + "deg)",
+        "-o-transform": "rotateY(" + currdeg + "deg)",
+        "transform": "rotateY(" + currdeg + "deg)"
+      });
+      setSwipeCD();
+    }
+  }
+
+  function initTouchEventHandler() {}
 
   fitTranslation();
+  benefitsCaruselFunctionality();
+  initTouchEventHandler();
 })(jQuery);
