@@ -832,6 +832,15 @@ section {
   }
 }
 
+#videos .videos-container-2 h2 {
+  text-align: center;
+  color: #2DC174;
+}
+
+#videos .videos-container-2 iframe, #videos .videos-container-2 .ytLoader {
+  padding-bottom: 20px;
+}
+
 /* Facts Section
   --------------------------------*/
 #facts {

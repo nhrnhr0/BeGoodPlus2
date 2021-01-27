@@ -36,8 +36,8 @@ connect to Putty:
         python manage.py migrate
         python manage.py collectstatic
         
-    run: sudo supervisorctl restart all
-            run: sudo service nginx restart
+        sudo supervisorctl restart all
+        sudo service nginx restart
     sudo nginx -t
 
 

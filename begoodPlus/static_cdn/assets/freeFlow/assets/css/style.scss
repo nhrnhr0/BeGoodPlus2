@@ -10,11 +10,14 @@
 --------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-$primery_green: #60a142; /* #2dc997; */
+$primery_green: #60a142;
+/* #2dc997; */
 $primery_green_dark: #2dca98;
+
 * {
     font-family: 'Lato', sans-serif;
 }
+
 body {
     background: #fff;
     color: #666666;
@@ -154,20 +157,21 @@ h6 {
     }
 
     &.header-fixed {
-        background: #eee; /*rgba(52, 59, 64, 0.9);*/
+        background: #eee;
+        /*rgba(52, 59, 64, 0.9);*/
         padding: 20px 0;
         height: 72px;
         transition: all 0.5s;
-        
+
         /* change color of nav back text after fixed*/
-        nav > ul > li > a{
-            color:black;
+        nav>ul>li>a {
+            color: black;
         }
-        
+
         #mobile-nav-toggle i {
             color: black;
         }
-        
+
     }
 }
 
@@ -216,7 +220,7 @@ h6 {
         flex-direction: column;
         text-align: center;
     }
-    
+
     h3 {
         margin: 0;
     }
@@ -454,7 +458,8 @@ h6 {
     cursor: pointer;
 
     i {
-        color: black;/*#fff;*/
+        color: black;
+        /*#fff;*/
     }
 }
 
@@ -729,15 +734,18 @@ section {
   --------------------------------*/
 #benefits {
     background-color: #f3f3f3;
+
     .section-header {
         padding-top: 70px;
     }
+
     .benefits-container {
         .background {
             img {
                 width: 100%;
             }
         }
+
         /*.background {
             background: url(../img/freeFlowGarden.jpeg);
             min-height: 480px;
@@ -747,6 +755,7 @@ section {
 
         .content {
             padding-top: 50px;
+
             ol {
                 list-style: none;
                 counter-reset: li;
@@ -761,9 +770,10 @@ section {
                 margin-left: -1em;
                 counter-increment: li;
             }
+
             li {
                 font-size: 1.2em;
-                
+
             }
         }
     }
@@ -771,10 +781,10 @@ section {
 
 #instructions {
     padding-top: 70px;
-    .row {
-        .ff-box {
 
-        }
+    .row {
+        .ff-box {}
+
         .ff-items {
             background: url('../img/freeFlowItemsEng.png');
             background-size: contain;
@@ -791,12 +801,15 @@ section {
     }
 
 }
+
 #videos {
     padding-bottom: 50px;
     background: aliceblue;
+
     .section-header {
         padding: 60px;
     }
+
     /* youtube */
     @media (min-width: 992px) {
         .col-lg-12 {
@@ -807,39 +820,49 @@ section {
             }
         }
     }
-    .ytLoader{
+
+    .ytLoader {
         .youtube-cover {
             width: 100%;
         }
-        
+
         .playBtn {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             height: 100px;
             width: 100px;
             opacity: 70%;
             background: url(https://img.icons8.com/ios-filled/100/000000/youtube-play.png);
-            
+
         }
-        
-        &:hover > .playBtn {
-                height: 96px;
-                width: 96px;
-                opacity: 100%;
-                background: url(https://img.icons8.com/color/96/000000/youtube-play.png);
-            }
+
+        &:hover>.playBtn {
+            height: 96px;
+            width: 96px;
+            opacity: 100%;
+            background: url(https://img.icons8.com/color/96/000000/youtube-play.png);
         }
-    
+    }
+
     .videos-container-1 {
-    div {
-        @media (max-width: 480px) {
-            iframe {
-                height: 315px;
+        div {
+            @media (max-width: 480px) {
+                iframe {
+                    height: 315px;
+                }
             }
         }
     }
+    .videos-container-2 {
+        h2 {
+            text-align: center;
+            color: #2DC174;
+        }
+        iframe, .ytLoader {
+            padding-bottom: 20px;
+        }
     }
 }
 
@@ -1245,7 +1268,7 @@ section {
 
 /* Contact Section
   --------------------------------*/
-  /*
+/*
 
 #contact {
     background: #f7f7f7;
