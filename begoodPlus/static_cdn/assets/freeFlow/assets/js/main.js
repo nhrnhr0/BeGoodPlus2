@@ -451,12 +451,13 @@
     return swipeCD;
   }
   function rotate(e) {
+    console.log('rotating');
     if(isSwipeInCD() == false) {
       if (e.data.d == "n") {
-        currdeg = currdeg - 60;
+        currdeg = currdeg - 36;
       }
       if (e.data.d == "p") {
-        currdeg = currdeg + 60;
+        currdeg = currdeg + 36;
       }
       carousel.css({
         "-webkit-transform": "rotateY(" + currdeg + "deg)",
@@ -468,9 +469,9 @@
     }
   }
 
-  function initTouchEventHandler() {}
+  //function initTouchEventHandler() {}
 
   fitTranslation();
-  benefitsCaruselFunctionality();
-  initTouchEventHandler();
+  //benefitsCaruselFunctionality();
+  //initTouchEventHandler();
 })(jQuery);

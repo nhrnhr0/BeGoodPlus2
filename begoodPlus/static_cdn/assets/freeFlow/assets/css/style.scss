@@ -737,11 +737,12 @@ section {
 
     .section-header {
         padding-top: 70px;
+        padding-bottom: 50px;
     }
 
     .benefits-container {
         .background {
-            padding-top: 70px;
+            margin-top: 70px;
             img {
                 width: 100%;
             }
@@ -751,7 +752,7 @@ section {
         .prev {
             color: #444;
             position: absolute;
-            top: 100px;
+            //top: 100px;
             padding: 1em 2em;
             cursor: pointer;
             background: #CCC;
@@ -759,6 +760,7 @@ section {
             border-top: 1px solid #FFF;
             box-shadow: 0 5px 0 #999;
             transition: box-shadow 0.1s, top 0.1s;
+            z-index: 999999999;
         }
 
         .next:hover,
@@ -768,7 +770,7 @@ section {
 
         .next:active,
         .prev:active {
-            top: 104px;
+            //top: 104px;
             box-shadow: 0 1px 0 #999;
         }
 
@@ -794,6 +796,7 @@ section {
             height: 200px;
             position: relative;
             perspective: 1000px;
+            padding-bottom: 270px;
 
             .carousel {
                 height: 100%;
@@ -813,39 +816,65 @@ section {
                     //line-height: 200px;
                     font-size: 1em;
                     text-align: center;
-                    color: #FFF;
-                    opacity: 0.95;
+                    //color: #FFF;
+                    color: black;
+                    opacity: 0.90;
                     border-radius: 10px;
+                    .icon {
+                        position: absolute;
+                        bottom: 2px;
+                        left: 40px;
+                        img {
+                            min-width: 30px;
+                            max-width: 40px;
+                        }
+                    }
                 }
 
                 .a {
-                    transform: rotateY(0deg) translateZ(250px);
-                    background: #ed1c24;
+                    transform: rotateY(0deg) translateZ(390px);
+                    background: #d0ffd0;
                 }
 
                 .b {
-                    transform: rotateY(60deg) translateZ(250px);
-                    background: #0072bc;
+                    transform: rotateY(36deg) translateZ(390px);
+                    background: #beffbe;
                 }
 
                 .c {
-                    transform: rotateY(120deg) translateZ(250px);
-                    background: #39b54a;
+                    transform: rotateY(72deg) translateZ(390px);
+                    background: #a3ffa3;
                 }
 
                 .d {
-                    transform: rotateY(180deg) translateZ(250px);
-                    background: #f26522;
+                    transform: rotateY(108deg) translateZ(390px);
+                    background: #8bff8b;
                 }
 
                 .e {
-                    transform: rotateY(240deg) translateZ(250px);
-                    background: #630460;
+                    transform: rotateY(144deg) translateZ(390px);
+                    background: #6eff6e;
                 }
 
                 .f {
-                    transform: rotateY(300deg) translateZ(250px);
-                    background: #8c6239;
+                    transform: rotateY(180deg) translateZ(390px);
+                    background: #4eff4e;
+                }
+                .g {
+                    transform: rotateY(216deg) translateZ(390px);
+                    background: #39ff39;
+                }
+                .h{
+                    transform: rotateY(252deg) translateZ(390px);
+                    background: #2aff2a;
+                }
+                .i{
+                    transform: rotateY(288deg) translateZ(390px);
+                    background: #11ff11;
+                }
+                .j {
+                    transform: rotateY(324deg) translateZ(390px);
+                    background: #00ff00;
                 }
 
 

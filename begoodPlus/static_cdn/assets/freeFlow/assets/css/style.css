@@ -729,6 +729,7 @@ section {
 
 #benefits .section-header {
   padding-top: 70px;
+  padding-bottom: 50px;
 }
 
 #benefits .benefits-container {
@@ -741,7 +742,7 @@ section {
 }
 
 #benefits .benefits-container .background {
-  padding-top: 70px;
+  margin-top: 70px;
 }
 
 #benefits .benefits-container .background img {
@@ -752,7 +753,6 @@ section {
 #benefits .benefits-container .prev {
   color: #444;
   position: absolute;
-  top: 100px;
   padding: 1em 2em;
   cursor: pointer;
   background: #CCC;
@@ -764,6 +764,7 @@ section {
   transition: top 0.1s, -webkit-box-shadow 0.1s;
   transition: box-shadow 0.1s, top 0.1s;
   transition: box-shadow 0.1s, top 0.1s, -webkit-box-shadow 0.1s;
+  z-index: 999999999;
 }
 
 #benefits .benefits-container .next:hover,
@@ -773,7 +774,6 @@ section {
 
 #benefits .benefits-container .next:active,
 #benefits .benefits-container .prev:active {
-  top: 104px;
   -webkit-box-shadow: 0 1px 0 #999;
           box-shadow: 0 1px 0 #999;
 }
@@ -800,6 +800,7 @@ section {
   position: relative;
   -webkit-perspective: 1000px;
           perspective: 1000px;
+  padding-bottom: 270px;
 }
 
 #benefits .benefits-container .container .carousel {
@@ -830,45 +831,80 @@ section {
   height: 200px;
   font-size: 1em;
   text-align: center;
-  color: #FFF;
-  opacity: 0.95;
+  color: black;
+  opacity: 0.90;
   border-radius: 10px;
 }
 
+#benefits .benefits-container .container .carousel .item .icon {
+  position: absolute;
+  bottom: 2px;
+  left: 40px;
+}
+
+#benefits .benefits-container .container .carousel .item .icon img {
+  min-width: 30px;
+  max-width: 40px;
+}
+
 #benefits .benefits-container .container .carousel .a {
-  -webkit-transform: rotateY(0deg) translateZ(250px);
-          transform: rotateY(0deg) translateZ(250px);
-  background: #ed1c24;
+  -webkit-transform: rotateY(0deg) translateZ(390px);
+          transform: rotateY(0deg) translateZ(390px);
+  background: #d0ffd0;
 }
 
 #benefits .benefits-container .container .carousel .b {
-  -webkit-transform: rotateY(60deg) translateZ(250px);
-          transform: rotateY(60deg) translateZ(250px);
-  background: #0072bc;
+  -webkit-transform: rotateY(36deg) translateZ(390px);
+          transform: rotateY(36deg) translateZ(390px);
+  background: #beffbe;
 }
 
 #benefits .benefits-container .container .carousel .c {
-  -webkit-transform: rotateY(120deg) translateZ(250px);
-          transform: rotateY(120deg) translateZ(250px);
-  background: #39b54a;
+  -webkit-transform: rotateY(72deg) translateZ(390px);
+          transform: rotateY(72deg) translateZ(390px);
+  background: #a3ffa3;
 }
 
 #benefits .benefits-container .container .carousel .d {
-  -webkit-transform: rotateY(180deg) translateZ(250px);
-          transform: rotateY(180deg) translateZ(250px);
-  background: #f26522;
+  -webkit-transform: rotateY(108deg) translateZ(390px);
+          transform: rotateY(108deg) translateZ(390px);
+  background: #8bff8b;
 }
 
 #benefits .benefits-container .container .carousel .e {
-  -webkit-transform: rotateY(240deg) translateZ(250px);
-          transform: rotateY(240deg) translateZ(250px);
-  background: #630460;
+  -webkit-transform: rotateY(144deg) translateZ(390px);
+          transform: rotateY(144deg) translateZ(390px);
+  background: #6eff6e;
 }
 
 #benefits .benefits-container .container .carousel .f {
-  -webkit-transform: rotateY(300deg) translateZ(250px);
-          transform: rotateY(300deg) translateZ(250px);
-  background: #8c6239;
+  -webkit-transform: rotateY(180deg) translateZ(390px);
+          transform: rotateY(180deg) translateZ(390px);
+  background: #4eff4e;
+}
+
+#benefits .benefits-container .container .carousel .g {
+  -webkit-transform: rotateY(216deg) translateZ(390px);
+          transform: rotateY(216deg) translateZ(390px);
+  background: #39ff39;
+}
+
+#benefits .benefits-container .container .carousel .h {
+  -webkit-transform: rotateY(252deg) translateZ(390px);
+          transform: rotateY(252deg) translateZ(390px);
+  background: #2aff2a;
+}
+
+#benefits .benefits-container .container .carousel .i {
+  -webkit-transform: rotateY(288deg) translateZ(390px);
+          transform: rotateY(288deg) translateZ(390px);
+  background: #11ff11;
+}
+
+#benefits .benefits-container .container .carousel .j {
+  -webkit-transform: rotateY(324deg) translateZ(390px);
+          transform: rotateY(324deg) translateZ(390px);
+  background: #00ff00;
 }
 
 #benefits .benefits-container .content {
