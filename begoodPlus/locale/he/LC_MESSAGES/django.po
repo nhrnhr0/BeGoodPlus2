@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-27 08:39+0200\n"
+"POT-Creation-Date: 2021-01-27 10:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -531,6 +531,18 @@ msgstr "ניתן להוסיף דשנים למי ההשקיה."
 #: .\static_cdn\templates\freeflow2.html:231
 msgid "FreeFlow System Design"
 msgstr "FreeFlow עיצוב מערכת"
+
+#: .\static_cdn\templates\freeflow2.html:249
+msgid "Videos & Assembly instructions Manuals"
+msgstr "סרטונים & הוראות הרכבה"
+
+#: .\static_cdn\templates\freeflow2.html:253
+msgid "Free Flow - Single Plant"
+msgstr "Free Flow - צמח יחיד"
+
+#: .\static_cdn\templates\freeflow2.html:261
+msgid "Free Flow - Multi Plants"
+msgstr "Free Flow - שישה צמחים"
 
 #: .\stock\models.py:12
 msgid "Stock"
