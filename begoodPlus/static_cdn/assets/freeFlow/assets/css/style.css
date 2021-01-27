@@ -768,13 +768,17 @@ section {
 }
 
 #instructions .row .ff-items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#instructions .row .ff-items img {
-  max-width: 100%;
+  background: url("../img/freeFlowItems.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-width: 250px;
+  background-position: center center;
+  min-height: 250px;
+  /*
+            display: flex;
+            img {
+                max-width: 100%;
+            }*/
 }
 
 #videos {

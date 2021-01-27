@@ -771,10 +771,17 @@ section {
 
         }
         .ff-items {
+            background: url('../img/freeFlowItems.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            min-width: 250px;
+            background-position: center center;
+            min-height: 250px;
+            /*
             display: flex;
             img {
                 max-width: 100%;
-            }
+            }*/
         }
     }
 
