@@ -175,6 +175,7 @@
     aos_init();
     youTubes_makeDynamic();
     initMap();
+    initCountriesDropDown();
     //setCurrentLanguage();
   });
   /*
@@ -191,6 +192,17 @@
   });
 */
 
+function initCountriesDropDown(){
+  debugger;
+  $("#languages").msDropdown({
+    on: {change:function(data, ui) {
+      console.log('data',data);
+      console.log('ui',ui);
+      var selected_value = data.value;
+      window.location = selected_value;
+    }}
+  });
+}
   /** youtube video load */
   function youTubes_makeDynamic() {
 
@@ -294,10 +306,10 @@
 
   var language_select = document.getElementById("languages");
   language_select.value = '/freeFlow/' + document.documentElement.lang;
-  language_select.addEventListener('change', function (event) {
+  /*language_select.addEventListener('change', function (event) {
     var selected_value = this.value;
     window.location = selected_value;
-  });
+  });*/
 
 
 

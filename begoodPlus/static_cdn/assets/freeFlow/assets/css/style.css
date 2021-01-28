@@ -1621,4 +1621,9 @@ section {
   height: 100%;
   width: 80%;
 }
+
+#languages_msdd {
+  display: inline-block;
+  margin-top: 20px;
+}
 /*# sourceMappingURL=style.css.map */

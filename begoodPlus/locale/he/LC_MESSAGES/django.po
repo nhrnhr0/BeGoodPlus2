@@ -530,7 +530,7 @@ msgstr "ניתן להוסיף דשנים למי ההשקיה."
 
 #: .\static_cdn\templates\freeflow2.html:231
 msgid "FreeFlow System Design"
-msgstr "FreeFlow עיצוב מערכת"
+msgstr "FreeFlow חלקי המערכת"
 
 #: .\static_cdn\templates\freeflow2.html:249
 msgid "Videos & Assembly instructions Manuals"

@@ -28,6 +28,10 @@
     <link rel="preload" href="{%static 'assets/css/bootstrap.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="{%static 'assets/freeFlow/assets/vendor/font-awesome/css/font-awesome.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
+
+    <!--<link rel="stylesheet" type="text/css" href="{%static 'assets/freeFlow/assets/css/msdropdown/flags.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'assets/freeFlow/assets/css/dd.css' %}" />-->
+
     <!--
     <link href="{%static 'assets/freeFlow/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{%static 'assets/freeFlow/assets/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
@@ -60,16 +64,23 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header-transparent">
         <div class="container">
+            
+           <!--
             <select id="languages" name="languages">
-                <option value="/freeFlow/he">he</option>
-                <option value="/freeFlow/en">en</option>
+                <option value="/freeFlow/he"style="background-image:url(/static/assets/freeFlow/assets/img/israel.png);">U+1F1F1</option>
+                <option value="/freeFlow/en"><img src="{%static 'assets/freeFlow/assets/img/united-kingdom.png' %}"></option>
+            </select>
+        -->
+            <select name="languages" id="languages">
+                <option value="/freeFlow/he" data-image="{%static 'assets/freeFlow/assets/img/israel.png' %}"></option>
+                <option value="/freeFlow/en" data-image="{%static 'assets/freeFlow/assets/img/united-kingdom.png' %}"></option>
             </select>
             <div id="logo" class="pull-left">
                 <a href="freeFlow"><img src="{%static 'assets/freeFlow/assets/img/freeFlowLogo.png' %}" alt=""></a>
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!--<h1><a href="#hero">Regna</a></h1>-->
             </div>
-
+            
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="#hero">{% trans "Home" %}<!--{{content.nav_Home}}--></a></li>
@@ -98,7 +109,12 @@
                     </li> -->
                     <li><a href="#contact">{%trans "contact" %}</a></li>
                 </ul>
+                
             </nav><!-- #nav-menu-container -->
+            
+            <!--
+            
+            -->
         </div>
     </header><!-- End Header -->
 
@@ -477,6 +493,8 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmOyl1lZ1oOovi60v6HPnp6bY-7A80is&language=he&libraries=places"
     defer></script>
 
+    <script src="{%static 'assets/freeFlow/assets/js/jquery.dd.min.js' %}"></script>
+
 </body>
 
 </html>
@@ -491,4 +509,6 @@
     <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     <a target="_blank" href="https://icons8.com/icons/set/family">Family icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
     <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 -->
