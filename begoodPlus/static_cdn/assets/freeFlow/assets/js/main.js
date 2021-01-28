@@ -357,6 +357,10 @@ function initCountriesDropDown(){
       $('#instructions .ff-items').css('background', 'url(/static/assets/freeFlow/assets/img/freeFlowItemsHeb.png) center center')
       $('#instructions .ff-items').css('background-size', 'contain');
       $('#instructions .ff-items').css('background-repeat', 'no-repeat');
+
+
+      //map
+      $('#map_section .section-title').css('direction','rtl');
     }
   }
   document.addEventListener('touchstart', handleTouchStart, false);

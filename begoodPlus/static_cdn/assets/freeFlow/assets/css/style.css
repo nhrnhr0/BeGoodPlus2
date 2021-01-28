@@ -1621,7 +1621,14 @@ section {
   color: #ccc;
 }
 
-#map_section {
+#map_section .section-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#map_section .map_container {
   width: 100vw;
   height: 50vh;
   display: -webkit-box;
