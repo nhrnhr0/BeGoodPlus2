@@ -352,6 +352,7 @@ function initCountriesDropDown(){
 
       $('.benefits-container  ol  li').before().css('margin-left', '0');
       $('#benefits .section-title').css('direction', 'rtl');
+      $('.carousel .item').css('direction', 'rtl');
 
       // instructions:
       $('#instructions .ff-items').css('background', 'url(/static/assets/freeFlow/assets/img/freeFlowItemsHeb.png) center center')

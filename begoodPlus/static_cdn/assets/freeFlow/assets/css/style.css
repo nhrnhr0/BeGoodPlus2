@@ -980,7 +980,7 @@ section {
 }
 
 #videos .section-header {
-  padding: 60px;
+  padding: 0px;
 }
 
 @media (min-width: 992px) {
