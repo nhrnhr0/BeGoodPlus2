@@ -700,9 +700,12 @@ section {
                     font-size: 24px;
                 }
             }
+            .icon-box-content {
+                margin-left: 30px;
+            }
 
             .title {
-                margin-left: 80px;
+                //margin-left: 80px;
                 font-weight: 500;
                 margin-bottom: 5px;
                 font-size: 18px;
@@ -714,7 +717,7 @@ section {
             }
 
             .description {
-                margin-left: 80px;
+                //margin-left: 80px;
                 line-height: 24px;
                 font-size: 14px;
             }
@@ -927,7 +930,12 @@ section {
     padding-top: 70px;
 
     .row {
-        .ff-box {}
+        flex-wrap: wrap-reverse;
+        .ff-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         .ff-items {
             background: url('../img/freeFlowItemsEng.png');
@@ -1616,4 +1624,7 @@ section {
 #languages_msdd {
     display: inline-block;
     margin-top: 20px;
+    ul {
+        list-style-type: none;
+    }
 }

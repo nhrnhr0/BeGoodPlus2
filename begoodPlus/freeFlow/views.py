@@ -18,6 +18,8 @@ from django.template.loader import render_to_string
 from django.utils import translation
 from django.http import HttpResponse
 
+
+
 def freeFlowChangeLanguage(request, language_code):
     translation.activate(language_code)
     return HttpResponse(content=language_code)
@@ -61,3 +63,10 @@ def freeFlowView(request, lang='en'):
             mail_res = email.send(True)
 
     return render(request, 'freeflow2.html',{'content':content})
+
+from .models import FreeFlowStores
+from rest_framework import viewsets
+from .serializers import FreeFlowStoresSerializer
+class FfStoreViewSet(viewsets.ModelViewSet):
+    queryset = FreeFlowStores.objects.all()#.order_by('id')
+    serializer_class = FreeFlowStoresSerializer

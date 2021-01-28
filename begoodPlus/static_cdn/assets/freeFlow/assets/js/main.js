@@ -233,28 +233,29 @@ function initCountriesDropDown(){
   let map;
 
   function initMap() {
+    /*
     var locations = [{
         'name': 'הנסיך הקטן פרחים - ועידת קטוביץ 33, תל אביב יפו',
         'lat': 34.791400,
         'lng': 32.094000,
-        'img': 'laLittlePrince.png',
+        'img': '../laLittlePrince.png',
         'url': 'https://lpflowers.co.il/'
       },
       {
         'name': 'דיזיגארדן - דיזנגוף 84, תל־אביב',
         'lat': 34.774680,
         'lng': 32.076730,
-        'img': 'dizidarden.jpg',
+        'img': '../dizidarden.jpg',
         'url': 'https://www.instagram.com/dizigarden/'
       },
       {
         'name': 'משתלה אורבנית - רחוב דניאל 27, שוק הכרמל, תל אביב',
         'lat': 34.765190,
         'lng': 32.068180,
-        'img': 'urbanPlants.png',
+        'img': '../urbanPlants.png',
         'url': 'https://mashtela-urbanit.co.il/'
       }
-    ];
+    ];*/
     /*[
       ['הנסיך הקטן פרחים - ועידת קטוביץ 33, תל אביב יפו', 32.094000, 34.791400],
       [`דיזיגארדן - דיזנגוף 84, תל־אביב`, 32.076730, 34.774680],
@@ -272,29 +273,41 @@ function initCountriesDropDown(){
     });
 
 
+    $.get('/api/freeFlowStores/', (res, data)=>{
+      console.log(res);
+      if(data == 'success') {
+        debugger;
+        var locations = res;
+        var infowindow = new google.maps.InfoWindow();
 
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i].lng, locations[i].lat),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function (marker, i) {
-        return function () {
-          infowindow.setContent(`
-        <h5 style="text-align: center;">${locations[i].name}</h5>
-        <a href="${locations[i].url}" target=_blank>
-        <img style="max-width:450px;padding-left: 25px;" src="static/assets/freeFlow/assets/img/${locations[i].img}"/>
-        </a>
-        `);
-          infowindow.open(map, marker);
+        var marker, i;
+    
+        for (i = 0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i].lng, locations[i].lat),
+            map: map
+          });
+    
+          google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+              infowindow.setContent(`
+              <div style="display: flex;
+                          justify-content: center;
+                          align-items: center;">
+              <h5 style="text-align: center;">${locations[i].name}</h5>
+              <a href="${locations[i].url}" target=_blank>
+              <img style="max-width: 200px;height: 100px;" src="${locations[i].img}"/>
+              </a>  
+            </div>
+            `);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
         }
-      })(marker, i));
-    }
+      }
+      
+    });
+    
   }
 
   /*
@@ -326,6 +339,8 @@ function initCountriesDropDown(){
       //$('#about .about-container .icon-box').css('flex-direction', 'row-reverse');
       $('#about > *').css('text-align', 'right');
       $('#about > *').css('direction', 'rtl');
+      $('.icon-box-content').css({'margin-left':'0px',
+                                  'margin-right':'30px'})
 
 
       // benefits

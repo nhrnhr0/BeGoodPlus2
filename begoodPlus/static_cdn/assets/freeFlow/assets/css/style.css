@@ -697,8 +697,11 @@ section {
   font-size: 24px;
 }
 
+#about .about-container .icon-box .icon-box-content {
+  margin-left: 30px;
+}
+
 #about .about-container .icon-box .title {
-  margin-left: 80px;
   font-weight: 500;
   margin-bottom: 5px;
   font-size: 18px;
@@ -710,7 +713,6 @@ section {
 }
 
 #about .about-container .icon-box .description {
-  margin-left: 80px;
   line-height: 24px;
   font-size: 14px;
 }
@@ -938,6 +940,23 @@ section {
 
 #instructions {
   padding-top: 70px;
+}
+
+#instructions .row {
+  -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse;
+}
+
+#instructions .row .ff-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #instructions .row .ff-items {
@@ -1625,5 +1644,9 @@ section {
 #languages_msdd {
   display: inline-block;
   margin-top: 20px;
+}
+
+#languages_msdd ul {
+  list-style-type: none;
 }
 /*# sourceMappingURL=style.css.map */

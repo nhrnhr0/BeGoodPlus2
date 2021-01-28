@@ -26,11 +26,13 @@ from category.views import CategoryViewSet
 from productImages.views import ProductImageViewSet
 from catalogImages.views import CatalogImageViewSet
 from product.views import products_select_all, products_select, product_detail
+from freeFlow.views import FfStoreViewSet
 router = routers.DefaultRouter()
 router.register(r'products', ProductViewSet)
 router.register(r'categories', CategoryViewSet)
 router.register(r'productImages', ProductImageViewSet)
 router.register(r'CatalogImages', CatalogImageViewSet)
+router.register(r'freeFlowStores', FfStoreViewSet)
 from provider.views import api_providers
 from packingType.views import api_packing_types
 from productSize.views import api_product_sizes

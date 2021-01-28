@@ -34,3 +34,10 @@ class FreeFlowContent(models.Model):
     nav_BenefitsAdvantages = models.CharField(max_length=100)
     nav_Videos = models.CharField(max_length=100)
     nav_ContactUs = models.CharField(max_length=100)
+
+class FreeFlowStores(models.Model):
+    name = models.CharField(max_length=100)
+    lat = models.FloatField()
+    lng = models.FloatField()
+    img = models.ImageField()
+    url = models.URLField()
