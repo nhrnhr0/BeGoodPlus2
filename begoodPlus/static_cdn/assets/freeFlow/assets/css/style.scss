@@ -1628,7 +1628,28 @@ section {
     width: 80%;
 }
 
-
+.im-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.im-heading {
+    text-align: center;
+}
+.im-image {
+    max-width: 100px!important;
+    height: 100px;
+}
+@media (max-width: 600px) {
+    .im-container {
+        flex-direction: column-reverse;
+    }
+    .im-image {
+        border-radius: 50% !important;
+        height: 100px;
+        width: 100px;
+    }
+}
 // languages drop down
 #languages_msdd {
     display: inline-block;

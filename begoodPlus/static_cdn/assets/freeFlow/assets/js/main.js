@@ -291,14 +291,12 @@ function initCountriesDropDown(){
           google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
               infowindow.setContent(`
-              <div style="display: flex;
-                          justify-content: center;
-                          align-items: center;">
-              <h5 style="text-align: center;">${locations[i].name}</h5>
-              <a href="${locations[i].url}" target=_blank>
-              <img style="max-width: 200px;height: 100px;" src="${locations[i].img}"/>
-              </a>  
-            </div>
+              <div class="im-container">
+                <h5 class="im-heading">${locations[i].name}</h5>
+                <a href="${locations[i].url}" target=_blank>
+                  <img class="im-image" src="${locations[i].img}"/>
+                </a>  
+              </div>
             `);
               infowindow.open(map, marker);
             }
