@@ -270,6 +270,7 @@ function initCountriesDropDown(){
         lng: 34.788052
       },
       zoom: 12,
+      mapTypeId: 'hybrid',
     });
 
 
