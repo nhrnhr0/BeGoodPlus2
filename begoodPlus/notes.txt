@@ -34,7 +34,8 @@ connect to Putty:
         activate env: source /home/ubuntu/env/bin/activate
         pip install -r requirements.txt
         python manage.py migrate
-        python manage.py collectstatic
+        #python manage.py collectstatic
+        python /home/ubuntu/BeGoodPlus2/begoodPlus/manage.py collectstatic
         
         sudo supervisorctl restart all
         sudo service nginx restart
