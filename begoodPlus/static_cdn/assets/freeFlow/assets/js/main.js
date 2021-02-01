@@ -193,7 +193,6 @@
 */
 
 function initCountriesDropDown(){
-  debugger;
   $("#languages").msDropdown({
     on: {change:function(data, ui) {
       console.log('data',data);
@@ -277,7 +276,6 @@ function initCountriesDropDown(){
     $.get('/api/freeFlowStores/', (res, data)=>{
       console.log(res);
       if(data == 'success') {
-        debugger;
         var locations = res;
         var infowindow = new google.maps.InfoWindow();
 
@@ -343,7 +341,6 @@ function initCountriesDropDown(){
 
 
       // benefits
-      debugger;
       $('.benefits-container  ol').css('text-align', 'right');
       $('.benefits-container  ol  li').css('direction', 'rtl');
       var styleElem = document.head.appendChild(document.createElement("style"));
@@ -411,7 +408,6 @@ function initCountriesDropDown(){
         //most significant
         if (xDiff > 0) {
           // left swipe 
-          debugger;
           evt.originalEvent.dataTransfer.setData('d', 'n');
           rotate(evt);
         } else {

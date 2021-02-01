@@ -16,7 +16,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{%static 'assets/freeFlow/assets/img/freeFlowLogo.png' %}" rel="icon">
+    <link href="{%static 'assets/freeFlow/assets/img/freeFlowFirstImage.png' %}" rel="icon">
     <link href="{%static 'assets/freeFlow/assets/img/freeFlowFirstImage.png' %}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -76,7 +76,7 @@
                 <option value="/freeFlow/en" data-image="{%static 'assets/freeFlow/assets/img/united-kingdom.png' %}"></option>
             </select>
             <div id="logo" class="pull-left">
-                <a href="freeFlow"><img src="{%static 'assets/freeFlow/assets/img/freeFlowLogo.png' %}" alt=""></a>
+                <a href="/freeFlow/{{LANGUAGE_CODE}}"><img src="{%static 'assets/freeFlow/assets/img/freeFlowLogo.png' %}" alt=""></a>
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!--<h1><a href="#hero">Regna</a></h1>-->
             </div>
@@ -124,7 +124,7 @@
         <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
             <h3>{% trans "Welcome to" %}</h3>
             <h1>{% trans "FREE FLOW" %}</h1>
-            <h2>{% trans "Tired of watering the pots every day? You must have noticed that growing plants is an action that requires time and effort" %}</h2>
+            <h2>{% trans "Tired of watering the pots every day? You must have noticed that growing plants is an action that requires time and effort ... not anymore!" %}</h2>
             <a href="#about" class="btn-get-started">{{content.heroBtn }}</a>
         </div>
     </section><!-- End Hero Section -->

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-28 11:59+0200\n"
+"POT-Creation-Date: 2021-02-01 17:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -419,18 +419,22 @@ msgid "FREE FLOW"
 msgstr "FREE FLOW"
 
 #: .\static_cdn\templates\freeflow2.html:127
+#, fuzzy
+#| msgid ""
+#| "Tired of watering the pots every day? You must have noticed that growing "
+#| "plants is an action that requires time and effort"
 msgid ""
 "Tired of watering the pots every day? You must have noticed that growing "
-"plants is an action that requires time and effort"
+"plants is an action that requires time and effort ... not anymore!"
 msgstr ""
-"נמאס לך כל יום להשקות את העציצים? בטח כבר שמת לב שלגדל צמחים זאת הפעולה "
-"שדורשת זמן והתעסקות"
+"נמאס לך כל יום להשקות את העציצים? בטח כבר שמת לב שלגדל צמחים זאת פעולה "
+"שדורשת זמן והתעסקות..."
 
 #: .\static_cdn\templates\freeflow2.html:138
 msgid ""
 "Free Flow: A product designed for irrigating plants in places where there is "
 "no pressurized water source."
-msgstr "Free Flow מוצר המיועד להשקיית צמחים במקומות שבהם אין מקור מים בלחץ."
+msgstr "Free Flow הפתרון המושלם להשקיית צמחים במקומות שבהם אין מקור מים בלחץ."
 
 #: .\static_cdn\templates\freeflow2.html:141
 msgid "1 to 6 Plants"
@@ -554,7 +558,7 @@ msgstr "Free Flow - צמח יחיד"
 msgid "Free Flow - Multi Plants"
 msgstr "Free Flow - שישה צמחים"
 
-#: .\static_cdn\templates\freeflow2.html:386
+#: .\static_cdn\templates\freeflow2.html:388
 msgid ""
 "To view and purchase, enter the map and go to the branch closest to you!"
 msgstr "לצפיה ורכישה היכנסו למפה וגשו לסניף הקרוב אליכם!"
