@@ -331,6 +331,7 @@ function initCountriesDropDown(){
       $('#nav-menu-container').css('transform', 'rotate(180deg)');
       $('#nav-menu-container li').css('transform', 'rotate(-180deg)');
 
+      $("#hero").css('direction', 'rtl');
       // about:
       //$('#about .about-container').css('flex-direction', 'row-reverse');
       //$('#about .about-container .icon-box').css('flex-direction', 'row-reverse');
