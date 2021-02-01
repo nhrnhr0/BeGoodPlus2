@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-01 17:31+0200\n"
+"POT-Creation-Date: 2021-02-01 17:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -419,10 +419,6 @@ msgid "FREE FLOW"
 msgstr "FREE FLOW"
 
 #: .\static_cdn\templates\freeflow2.html:127
-#, fuzzy
-#| msgid ""
-#| "Tired of watering the pots every day? You must have noticed that growing "
-#| "plants is an action that requires time and effort"
 msgid ""
 "Tired of watering the pots every day? You must have noticed that growing "
 "plants is an action that requires time and effort ... not anymore!"
@@ -504,10 +500,9 @@ msgid "Plug & Play: Watering System, Easy to Use- Just Fill &Go"
 msgstr "מערכת השקיה, קלה לשימוש - פשוט Fill & Go"
 
 #: .\static_cdn\templates\freeflow2.html:214
-#: .\static_cdn\templates\freeflow2.html:288
 msgid ""
-"Eco-Friendly System: Reusing Almost Any Standard Plastic Bottle and without "
-"the use of batteries"
+"Eco-Friendly System: Reusing Almost Any Standard Plastic Bottle, without the "
+"use of batteries"
 msgstr ""
 "מערכת ידידותית לסביבה: שימוש חוזר כמעט בכל בקבוק פלסטיק רגיל וללא צורך "
 "בבטריות"
@@ -523,8 +518,7 @@ msgid "Time saving"
 msgstr "חוסך זמן"
 
 #: .\static_cdn\templates\freeflow2.html:239
-#: .\static_cdn\templates\freeflow2.html:300
-msgid "Irrigation without dirt and without wet floor and puddles."
+msgid "Irrigation without dirt, wet floor or puddles."
 msgstr "השקיה ללא לכלוך וללא רצפה רטובה ושלוליות."
 
 #: .\static_cdn\templates\freeflow2.html:247
@@ -541,6 +535,18 @@ msgstr "זמן איכות הורים וילדים-חינוך לקיימות."
 #: .\static_cdn\templates\freeflow2.html:312
 msgid "Fertilizers can be added to irrigation water."
 msgstr "ניתן להוסיף דשנים למי ההשקיה."
+
+#: .\static_cdn\templates\freeflow2.html:288
+msgid ""
+"Eco-Friendly System: Reusing Almost Any Standard Plastic Bottle and without "
+"the use of batteries"
+msgstr ""
+"מערכת ידידותית לסביבה: שימוש חוזר כמעט בכל בקבוק פלסטיק רגיל וללא צורך "
+"בבטריות"
+
+#: .\static_cdn\templates\freeflow2.html:300
+msgid "Irrigation without dirt and without wet floor and puddles."
+msgstr "השקיה ללא לכלוך וללא רצפה רטובה ושלוליות."
 
 #: .\static_cdn\templates\freeflow2.html:334
 msgid "FreeFlow System Design"
