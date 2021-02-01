@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-01 18:12+0200\n"
+"POT-Creation-Date: 2021-02-01 18:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -427,20 +427,24 @@ msgstr ""
 "שדורשת זמן והתעסקות..."
 
 #: .\static_cdn\templates\freeflow2.html:128
-msgid "we have the perfect solution for you!"
+msgid "we have a solution for you!"
 msgstr "יש לנו את הפתרון המושלם עבורך!"
 
-#: .\static_cdn\templates\freeflow2.html:139
+#: .\static_cdn\templates\freeflow2.html:130
+msgid "The Perfect Solution"
+msgstr "לפתרון המושלם"
+
+#: .\static_cdn\templates\freeflow2.html:140
 msgid ""
 "Free Flow: A product designed for irrigating plants in places where there is "
 "no pressurized water source."
 msgstr "Free Flow הפתרון המושלם להשקיית צמחים במקומות שבהם אין מקור מים בלחץ."
 
-#: .\static_cdn\templates\freeflow2.html:142
+#: .\static_cdn\templates\freeflow2.html:143
 msgid "1 to 6 Plants"
 msgstr "1 ל 6 צמחים"
 
-#: .\static_cdn\templates\freeflow2.html:144
+#: .\static_cdn\templates\freeflow2.html:145
 msgid ""
 "The perfect solution for watering the plants on the balcony, on the "
 "windowsill, in the office, at home And wherever you want to grow your plants."
@@ -448,11 +452,11 @@ msgstr ""
 "הפתרון המושלם להשקיית הצמחים במרפסת, על אדן החלון, במשרד, בבית ובכל מקום בו "
 "תרצו לגדל את הצמחים שלכם."
 
-#: .\static_cdn\templates\freeflow2.html:150
+#: .\static_cdn\templates\freeflow2.html:151
 msgid "Use it in the office, at home, or anywhere you want"
 msgstr "השתמש במשרד, בבית, או בכל מקום שתרצה"
 
-#: .\static_cdn\templates\freeflow2.html:151
+#: .\static_cdn\templates\freeflow2.html:152
 msgid ""
 "It is so small and compact that you can even use it to put your favorite "
 "plant in the office, home, garden or anywhere you see fit"
@@ -460,11 +464,11 @@ msgstr ""
 "הוא כל כך קטן וקומפקטי, שאפשר אפילו להשתמש בו בכדי לשים את הצמח האהוב עליכם "
 "במשרד, בבית, בגינה או בכל מקום שנראה לכם מתאים"
 
-#: .\static_cdn\templates\freeflow2.html:158
+#: .\static_cdn\templates\freeflow2.html:159
 msgid "Saves water and time"
 msgstr "חוסך מים וזמן"
 
-#: .\static_cdn\templates\freeflow2.html:159
+#: .\static_cdn\templates\freeflow2.html:160
 msgid ""
 "Focused and efficient watering allows you to enjoy the convenience of an "
 "automatic irrigation system without wasting water and valuable time!"
@@ -472,11 +476,11 @@ msgstr ""
 "השקייה ממוקדת ויעילה מאפשרת לך ליהנות מנוחות מערכת השקיה אוטומטית ללא בזבוז "
 "מים וזמן יקר!"
 
-#: .\static_cdn\templates\freeflow2.html:166
+#: .\static_cdn\templates\freeflow2.html:167
 msgid "Eco-friendly system"
 msgstr "מערכת ידידותית לסביבה "
 
-#: .\static_cdn\templates\freeflow2.html:167
+#: .\static_cdn\templates\freeflow2.html:168
 msgid ""
 "The irrigation system does not consume electricity, and allows recycling and "
 "reuse of most standard plastic bottles"
@@ -484,26 +488,26 @@ msgstr ""
 "מערכת השקייה שלא צורכת חשמל, ומאפשרת מחזור ושימוש חוזר ברוב בקבוקי הפלסטיק "
 "הסטנדרטים"
 
-#: .\static_cdn\templates\freeflow2.html:183
+#: .\static_cdn\templates\freeflow2.html:184
 msgid "FreeFlow Benefits & Advantages"
 msgstr "יתרונות של free flow"
 
-#: .\static_cdn\templates\freeflow2.html:193
-#: .\static_cdn\templates\freeflow2.html:277
+#: .\static_cdn\templates\freeflow2.html:194
+#: .\static_cdn\templates\freeflow2.html:278
 msgid "Multi Plants Watering: One Single Plant and Up to Six Plants"
 msgstr "מערכת השקיה לצמח הבודד ועד שישה צמחים."
 
-#: .\static_cdn\templates\freeflow2.html:199
-#: .\static_cdn\templates\freeflow2.html:281
+#: .\static_cdn\templates\freeflow2.html:200
+#: .\static_cdn\templates\freeflow2.html:282
 msgid "Gravitational Watering: Non-Pressurized System"
 msgstr "מערכת השקיה בגרביטציה וללא לחץ מים."
 
-#: .\static_cdn\templates\freeflow2.html:207
-#: .\static_cdn\templates\freeflow2.html:285
+#: .\static_cdn\templates\freeflow2.html:208
+#: .\static_cdn\templates\freeflow2.html:286
 msgid "Plug & Play: Watering System, Easy to Use- Just Fill &Go"
 msgstr "מערכת השקיה, קלה לשימוש - פשוט Fill & Go"
 
-#: .\static_cdn\templates\freeflow2.html:215
+#: .\static_cdn\templates\freeflow2.html:216
 msgid ""
 "Eco-Friendly System: Reusing Almost Any Standard Plastic Bottle, without the "
 "use of batteries"
@@ -511,36 +515,36 @@ msgstr ""
 "מערכת ידידותית לסביבה: שימוש חוזר כמעט בכל בקבוק פלסטיק רגיל וללא צורך "
 "בבטריות"
 
-#: .\static_cdn\templates\freeflow2.html:224
-#: .\static_cdn\templates\freeflow2.html:293
+#: .\static_cdn\templates\freeflow2.html:225
+#: .\static_cdn\templates\freeflow2.html:294
 msgid "Accurate and efficient watering"
 msgstr "השקיה מדויקת ויעילה"
 
-#: .\static_cdn\templates\freeflow2.html:232
-#: .\static_cdn\templates\freeflow2.html:297
+#: .\static_cdn\templates\freeflow2.html:233
+#: .\static_cdn\templates\freeflow2.html:298
 msgid "Time saving"
 msgstr "חוסך זמן"
 
-#: .\static_cdn\templates\freeflow2.html:240
+#: .\static_cdn\templates\freeflow2.html:241
 msgid "Irrigation without dirt, wet floor or puddles."
 msgstr "השקיה ללא לכלוך וללא רצפה רטובה ושלוליות."
 
-#: .\static_cdn\templates\freeflow2.html:248
-#: .\static_cdn\templates\freeflow2.html:305
+#: .\static_cdn\templates\freeflow2.html:249
+#: .\static_cdn\templates\freeflow2.html:306
 msgid "A system that helps success in growing plants."
 msgstr "מערכת המסייעת להצלחה שבגידול הצמחים."
 
-#: .\static_cdn\templates\freeflow2.html:256
-#: .\static_cdn\templates\freeflow2.html:309
+#: .\static_cdn\templates\freeflow2.html:257
+#: .\static_cdn\templates\freeflow2.html:310
 msgid "Quality time for parents and children - education for sustainability."
 msgstr "זמן איכות הורים וילדים-חינוך לקיימות."
 
-#: .\static_cdn\templates\freeflow2.html:264
-#: .\static_cdn\templates\freeflow2.html:313
+#: .\static_cdn\templates\freeflow2.html:265
+#: .\static_cdn\templates\freeflow2.html:314
 msgid "Fertilizers can be added to irrigation water."
 msgstr "ניתן להוסיף דשנים למי ההשקיה."
 
-#: .\static_cdn\templates\freeflow2.html:289
+#: .\static_cdn\templates\freeflow2.html:290
 msgid ""
 "Eco-Friendly System: Reusing Almost Any Standard Plastic Bottle and without "
 "the use of batteries"
@@ -548,27 +552,27 @@ msgstr ""
 "מערכת ידידותית לסביבה: שימוש חוזר כמעט בכל בקבוק פלסטיק רגיל וללא צורך "
 "בבטריות"
 
-#: .\static_cdn\templates\freeflow2.html:301
+#: .\static_cdn\templates\freeflow2.html:302
 msgid "Irrigation without dirt and without wet floor and puddles."
 msgstr "השקיה ללא לכלוך וללא רצפה רטובה ושלוליות."
 
-#: .\static_cdn\templates\freeflow2.html:335
+#: .\static_cdn\templates\freeflow2.html:336
 msgid "FreeFlow System Design"
 msgstr "FreeFlow חלקי המערכת"
 
-#: .\static_cdn\templates\freeflow2.html:353
+#: .\static_cdn\templates\freeflow2.html:354
 msgid "Videos & Assembly instructions Manuals"
 msgstr "סרטונים & הוראות הרכבה"
 
-#: .\static_cdn\templates\freeflow2.html:357
+#: .\static_cdn\templates\freeflow2.html:358
 msgid "Free Flow - Single Plant"
 msgstr "Free Flow - צמח יחיד"
 
-#: .\static_cdn\templates\freeflow2.html:365
+#: .\static_cdn\templates\freeflow2.html:366
 msgid "Free Flow - Multi Plants"
 msgstr "Free Flow - שישה צמחים"
 
-#: .\static_cdn\templates\freeflow2.html:389
+#: .\static_cdn\templates\freeflow2.html:390
 msgid ""
 "To view and purchase, enter the map and go to the branch closest to you!"
 msgstr "לצפיה ורכישה היכנסו למפה וגשו לסניף הקרוב אליכם!"
