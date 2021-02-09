@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'clientLikedImages',
     'clientImages',
     'freeFlow',
+    'leadsCampains',
 
 
     'django.contrib.admin',

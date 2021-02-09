@@ -96,6 +96,8 @@ stdout_logfile=/var/log/gunicorn/gunicorn.out.log
 programs:gunicorn
 /////////////////////////////////////////////////////////////////////
 
+ sudo mkdir /var/log/gunicorn
+
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl restart all

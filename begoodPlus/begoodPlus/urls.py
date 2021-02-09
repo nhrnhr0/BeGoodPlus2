@@ -43,6 +43,7 @@ from clientImages.views import upload_user_image
 from glofa_types.views import glofa_data
 from freeFlow.views import freeFlowView, freeFlowChangeLanguage
 from core.views import admin_subscribe_view
+from leadsCampains.views import TaxReturnCampainView
 urlpatterns = [
     #path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
@@ -73,6 +74,7 @@ urlpatterns = [
     path('freeFlow/<str:lang>/', freeFlowView),
     path('adminSub', admin_subscribe_view),
     re_path('^webpush/', include('webpush.urls')),
+    path('TaxReturnCampain/', TaxReturnCampainView)
     #re_path('^tracking/', include('tracking.urls')),
 ]
 
