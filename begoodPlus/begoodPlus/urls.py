@@ -42,8 +42,8 @@ from clientLikedImages.views import add_liked_images
 from clientImages.views import upload_user_image
 from glofa_types.views import glofa_data
 from freeFlow.views import freeFlowView, freeFlowChangeLanguage
-from core.views import admin_subscribe_view
-from leadsCampains.views import TaxReturnCampainView
+from core.views import admin_subscribe_view, mainView
+from leadsCampains.views import landingPageFormSubmit
 urlpatterns = [
     #path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
@@ -74,8 +74,11 @@ urlpatterns = [
     path('freeFlow/<str:lang>/', freeFlowView),
     path('adminSub', admin_subscribe_view),
     re_path('^webpush/', include('webpush.urls')),
-    path('TaxReturnCampain/', TaxReturnCampainView)
+    #path('TaxReturnCampain/', TaxReturnCampainView)
+    path('landingPageFormSubmit', landingPageFormSubmit),
     #re_path('^tracking/', include('tracking.urls')),
+
+    path('test/', mainView, name='main-view'),
 ]
 
 if settings.DEBUG:

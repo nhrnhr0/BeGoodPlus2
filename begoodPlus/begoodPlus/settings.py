@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'dbbackup',
     'webpush',
     'tof',
+    'bootstrap5',
     
 
     # own
@@ -151,6 +152,7 @@ TEMPLATES = [
                 
                 # own
                 'pages.context_processors.navbar_load',
+                'core.context_processors.loadBaseInfo',
             ],
         },
     },
@@ -222,14 +224,8 @@ STATICFILES_DIRS = [
 
 MEDIA_URL= '/media/'
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media_root/')
-'''
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = "ronionsegal@gmail.com"
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_POST = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "6464Ff8@@"
-'''
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'email-smtp.us-east-2.amazonaws.com'
@@ -238,7 +234,6 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = secrects.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD =  secrects.EMAIL_HOST_PASSWORD
-
 # from django.core.mail import send_mail
 # send_mail(subject='hey', message='message', from_email='bot@ms-global.co.il', recipient_list=['nhrnhr0@gmail.com'])
 
