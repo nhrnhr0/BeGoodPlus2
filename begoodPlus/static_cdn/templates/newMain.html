@@ -4,88 +4,130 @@
 {% load static %}
 {% load bootstrap5 %}
 
-{% block head_title %}{% trans "Profile" %}{% endblock %}
+{% block head_title %}{% trans "Main" %}{% endblock %}
 {% block extra_head %}
 <!-- css includes in head -->
 <link rel="stylesheet" href="{%static 'assets/main/css/style.css'%}">
+<script src="https://kit.fontawesome.com/022c0fea0b.js" crossorigin="anonymous"></script>
 {% endblock extra_head%}
 
 {% block content %}
 <!-- html body -->
 <div class="my-body">
-    
+
     <div class="main-section">
-        <div class="container hero">
-            <div class="hero-description">
-                <h1 class="hero-description-title gold-animation">
-                 אמ אס גלובל
-                </h1>
-                מתמחה באספקת בגדי עבודה, מוצרי טקסטיל ואביזרי מיתוג
-                למוסדות ולחנויות. 
-                </br>
-                אפשרויות הדפסה ורקמה על מגוון מוצרים. שירותי גרפיקה
-                מתקדמים. 
-                </br>
-                מחלקת הייטק המספקת שירותי בניית אתרים, הקמת תוכנה ושיווק
-                אינטרנטי יעיל לבעלי העסקים.
+        <div class="section-1-wraper">
+            <div class="hero-wraper">
+                <div class="container hero">
+                    <div class="hero-description gold-animation">
+                        <h1 class="hero-description-title gold-animation">
+                            אמ אס גלובל
+                        </h1>
+                        מתמחה באספקת בגדי עבודה, מוצרי טקסטיל ואביזרי מיתוג
+                        למוסדות ולחנויות.
+                        </br>
+                        אפשרויות הדפסה ורקמה על מגוון מוצרים. שירותי גרפיקה
+                        מתקדמים.
+                        </br>
+                        מחלקת הייטק המספקת שירותי בניית אתרים, הקמת תוכנה ושיווק
+                        אינטרנטי יעיל לבעלי העסקים.
+                    </div>
+                    <h2 class="hero-slogen">M.S. Global - הבית של העסק שלך</h2>
+                </div>
             </div>
-            <h2 class="hero-slogen">M.S. Global - הבית של העסק שלך</h2>
-        </div>
-        <div class="scene-wraper">
-            <div class="scene">
-                <div class="carousel">
-                    <div class="carousel__cell">1</div>
-                    <div class="carousel__cell">2</div>
-                    <div class="carousel__cell">3</div>
-                    <div class="carousel__cell">4</div>
-                    <div class="carousel__cell">5</div>
-                    <div class="carousel__cell">6</div>
-                    <div class="carousel__cell">7</div>
-                    <div class="carousel__cell">8</div>
-                    <div class="carousel__cell">9</div>
+            <div class="scene-wraper">
+                <div class="scene">
+                    <div class="carousel">
+                        <div class="carousel__cell">
+                            <div class="title">
+                                קטלוג מוצרים
+                            </div>
+
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                            <img class="carusel-img" src="{%static 'assets/main/imgs/caruselImg1.png' %}" />
+                        </div>
+                        <div class="carousel__cell">
+                            <div class="title">
+                                קטלוג מוצרי פרסום
+                            </div>
+
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                            <img class="carusel-img" src="{%static 'assets/main/imgs/caruselImg2.png' %}" />
+                        </div>
+                        <div class="carousel__cell">
+                            <div class="title">
+                                3
+                            </div>
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                        </div>
+                        <div class="carousel__cell">
+                            <div class="title">
+                                4
+                            </div>
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                        </div>
+                        <div class="carousel__cell">
+                            <div class="title">
+                                5
+                            </div>
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                        </div>
+                        <div class="carousel__cell">
+                            <div class="title">
+                                6
+                            </div>
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                        </div>
+                        <div class="carousel__cell">
+                            <div class="title">
+                                7
+                            </div>
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                        </div>
+                        <div class="carousel__cell">
+                            <div class="title">
+                                8
+                            </div>
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                        </div>
+                        <div class="carousel__cell">
+                            <div class="title">
+                                9
+                            </div>
+                            <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                        </div>
+                        <!--
                     <div class="carousel__cell">10</div>
                     <div class="carousel__cell">11</div>
                     <div class="carousel__cell">12</div>
                     <div class="carousel__cell">13</div>
                     <div class="carousel__cell">14</div>
                     <div class="carousel__cell">15</div>
-                </div>
-            </div>
+                    -->
+                    </div>
 
-            <!---->
-            <div class="carousel-options">
-                <p>
-                    <label>
-                        Cells
-                        <input class="cells-range" type="range" min="3" max="15" value="9" />
-                    </label>
-                </p>
-                <p>
-                    <button class="previous-button">Previous</button>
-                    <button class="next-button">Next</button>
-                </p>
-                <p>
-                    Orientation:
-                    <label>
-                        <input type="radio" name="orientation" value="horizontal" checked />
-                        horizontal
-                    </label>
-                    <label>
-                        <input type="radio" name="orientation" value="vertical" />
-                        vertical
-                    </label>
-                </p>
+                    <div class="carusel-control">
+                        <button class="next-button"><i class="fas fa-arrow-up fa-5x"></i></button>
+                        <button class="previous-button"><i class="fas fa-arrow-up fa-5x"></i></button>
+                    </div>
+
+                </div>
+                <input style="display: none;" class="cells-range" type="range" min="3" max="15" value="9" />
+                <input style="display: none;" type="radio" name="orientation" value="vertical" />
+                <input style="display: none;" type="radio" name="orientation" value="horizontal" checked />
+
             </div>
         </div>
-
         <div class="contact-form-wraper2">
             <div class="contact-form-wraper">
                 <form action="/url/to/submit/" method="post" class="contact-form">
                     {% csrf_token %}
-                    <h2 class="form-header">לקבלת הצעת מחיר משתלמת ללא עלות וללא התחייבות השאירו פרטים ומיד נחזור אליכם</h2>
+                    <h2 class="form-header">לקבלת הצעת מחיר משתלמת ללא עלות וללא התחייבות השאירו פרטים ומיד נחזור אליכם
+                    </h2>
                     {% bootstrap_form contactForm %}
                     {% buttons %}
-                    <button type="submit" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו פרטים</button>
+                    <button type="submit" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו
+                        פרטים</button>
                     {% endbuttons %}
                 </form>
             </div>
@@ -103,3 +145,8 @@
 <script src="{%static 'assets/js/jQuery.js'%}"></script>
 <script src="{%static 'assets/main/js/main.js' %}"></script>
 {%endblock extra_body %}
+
+
+<!--
+<a href='https://www.freepik.com/photos/background'>Background photo created by kues1 - www.freepik.com</a>
+-->

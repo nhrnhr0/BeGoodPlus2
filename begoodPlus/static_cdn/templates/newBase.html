@@ -7,7 +7,7 @@
 
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>{% block head_title %}{% endblock %}</title>
+    <title>M.S. Global {% block head_title %}{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="{%static 'assets/base/css/style.css'%}">
@@ -32,9 +32,9 @@
     </div>
     {% endif %}
     -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{%url 'main-view'%}"><img src="{%static 'ms_global_icon-1.png'%}" alt=""
+            <a class="navbar-brand" href="{%url 'main-view'%}"><img class="nav-logo" src="{%static 'assets/base/imgs/logo_ms.png'%}" alt=""
                     height="58" width="auto"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -77,6 +77,25 @@
 
     {%block content %} {%endblock content%}
 
+
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                © Copyright <strong>M.S. Global</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://ms-global.co.il/">M.S. Global</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{%static 'assets/js/jQuery.js'%}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>

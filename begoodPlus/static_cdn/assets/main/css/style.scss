@@ -1,19 +1,11 @@
 
 
 .my-body {
-    background-color: rgb(0, 0, 0);
+    background-color: black;
+    //background-color: rgb(0, 0, 0);
 }
 
-.gold-animation {
-    //TODO: fix gold animations...
-    color:#c3a343;
-    -webkit-text-fill-color: transparent;
-    background: -webkit-linear-gradient(transparent, transparent),
-    url(https://previews.123rf.com/images/prasongtakham/prasongtakham1611/prasongtakham161101139/65229478-gold-foil-texture-background.jpg) repeat;
-    background: -o-linear-gradient(transparent, transparent);
-    -webkit-background-clip: text;
-    
-}
+
 
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
@@ -31,12 +23,23 @@
     100%{background-position:0% 50%}
 }
 
+.hero-wraper {
+    background: url('../../base/imgs/tilesBg.jpg');
+    /*
+    background-size: cover;
+    box-shadow: 0 0 8px 8px rgb(2, 2, 2) inset;*/
+
+    /*
+    background-color: #854cbf;
+    border-radius: 30px;
+    */
+}
 .hero {
     color: silver;
     padding-bottom: 10px;
     .hero-description {
         font-size: 1.8rem;
-        color: #ddb550;
+        //color: #ddb550;
         padding-top: 20px;
         text-align: center;
 
@@ -52,11 +55,11 @@
     }
 
     .hero-slogen {
-        padding-top: 60px;
+        //padding-top: 60px;
         text-align: center;
-        color: #000000;
+        color: #ffffff;
         font-weight: 900;
-        animation: glow 0.7s ease-in-out infinite alternate;
+        //animation: glow 0.7s ease-in-out infinite alternate;
     }
 }
 @-webkit-keyframes glow {
@@ -71,19 +74,43 @@
     }
   }
 .main-section  {
-    background: url('../../base/imgs/mainBg2.jpeg');//center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-repeat: no-repeat;
-    //background-position: 50% 50%;
-    background-position-x: center;
-    //background-attachment: fixed;
-    /////min-height: 800px;
+
+        
+}
+.section-1-wraper {
+
 }
 .scene-wraper {
+    background: url('../../base/imgs/mainBg3.jpg');
+
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    padding-top: 100px;
+    padding-bottom: 150px;
+    /*background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: bottom;
+    padding-bottom: 150px;*/
     //padding-top: 220px;
     //padding-bottom: 140px;
+    //overflow-x: hidden;
     overflow-x: hidden;
+    
+    //padding-bottom: 80px;
+
+    /*background: url('../../base/imgs/mainBg3.jpg');
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: bottom;
+        padding-top: 75px;
+        padding-bottom: 150px;
+    */
+//    padding-top: 100px;
+//        padding-bottom: 150px;
 }
 // carousel implementation:
 .scene {
@@ -95,7 +122,33 @@
     perspective: 1000px;
     
 
-
+    .carusel-control {
+        .previous-button{
+            position: absolute;
+            top: 20%;
+            transform: rotate(-90deg) translate(-50%, 0);
+            right: 470px;
+            padding: 20px;
+            background: transparent;
+            border: 0;
+            :hover {
+                color:white;
+            }
+        }
+        .next-button{
+            
+            position: absolute;
+            top: 50%;
+            transform: rotate(90deg) translate(-50%, 0);
+            right: -125px;
+            padding: 20px;
+            background: transparent;
+            border: 0;
+            :hover {
+                color:white;
+            }
+        }
+    }
 
   }
   
@@ -123,6 +176,37 @@
     transition: transform 1s, opacity 1s;
 
     border-radius: 20px;
+
+    .title {
+        position: absolute;
+        left: 50%;
+        font-size: 3rem;
+        transform: translateX(-50%);
+        transition: transform 1s;
+        width:100%;
+    }
+    .carusel-img {
+        height: 320px;
+    }
+    .cell-btn {
+        bottom: 0px;
+        position: absolute;
+        transform: translateX(00%);
+        width: 100%;
+        border-radius: 25px;
+        transition: transform 1.3s;
+    }
+
+    &.active{
+        animation: glow 0.7s ease-in-out infinite alternate;
+        .title{
+            transform: translateX(-50%) translateY(-100%);
+        }
+        .cell-btn {
+            transform: translateX(00%) translateY(150%);
+            animation: glow 0.7s ease-in-out infinite alternate;
+        }
+    }
   }
   
   .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
@@ -202,6 +286,8 @@
 
   .contact-form-wraper2 {
     //background-color: black;
+    padding-top: 5px;
+    //background-color: #5c6369;
     .contact-form-wraper {
         //background-color: #F0D57A;
         border-radius: 30px;
@@ -209,6 +295,9 @@
 
         .contact-form {
             margin: auto 80px;
+            @media screen and (max-width: 490px) {
+                margin: auto 10px;
+            }
             .form-header {
                 color: black;
                 background-color: #ffca43;
@@ -233,4 +322,44 @@
             }
         }
     }
+}
+
+
+
+$gold-animation-duration: 5s;
+$gold-animation-text-color: rgba(255, 255, 255, 0.3);
+//$bgr-color: #333;
+
+.gold-animation {
+	background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+	background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
+	-webkit-background-size: 200px;
+	color: $gold-animation-text-color;
+	-webkit-background-clip: text;
+	-webkit-animation-name: shine;
+	-webkit-animation-duration: $gold-animation-duration;
+	-webkit-animation-iteration-count: infinite;
+	text-shadow: 0 0px 0px #cc9900ce;//rgba(255, 255, 0, 0.623);
+    
+}
+
+
+@-webkit-keyframes shine {
+	0%, 10% {
+		background-position: -1000px;
+	}
+	20% {
+		background-position: top left;
+	}
+	90% {
+		background-position: top right;
+	}
+	100% {
+		background-position: 1000px;
+	}
+}
+
+.temp-img {
+    width: 440px;
+    border-radius: 20px;
 }

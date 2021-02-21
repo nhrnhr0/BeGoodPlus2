@@ -4,4 +4,30 @@ body {}
     position: sticky;
     top:0;
     z-index: 1000;
+    background: #ffd880;
+    .nav-logo {
+        width: auto;
+        height: 30px;
+    }
+}
+
+#footer {
+    background: #343b40;
+    padding: 5px 0;
+    color: #fff;
+    font-size: 14px;
+
+    .copyright {
+        text-align: center;
+        strong {
+            color:yellow;
+        }
+    }
+
+    .credits {
+        padding-top: 10px;
+        text-align: center;
+        font-size: 13px;
+        color: #ccc;
+    }
 }

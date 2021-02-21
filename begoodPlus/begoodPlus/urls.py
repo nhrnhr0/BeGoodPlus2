@@ -44,6 +44,7 @@ from glofa_types.views import glofa_data
 from freeFlow.views import freeFlowView, freeFlowChangeLanguage
 from core.views import admin_subscribe_view, mainView
 from leadsCampains.views import landingPageFormSubmit
+from catalogAlbum.views import catalogView2
 urlpatterns = [
     #path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
@@ -79,6 +80,7 @@ urlpatterns = [
     #re_path('^tracking/', include('tracking.urls')),
 
     path('test/', mainView, name='main-view'),
+    path('testCatalog', catalogView2,name="catalogView2")
 ]
 
 if settings.DEBUG:

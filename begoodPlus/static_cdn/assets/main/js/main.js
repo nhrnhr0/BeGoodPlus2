@@ -13,6 +13,20 @@ function rotateCarousel() {
   var angle = theta * selectedIndex * -1;
   carousel.style.transform = 'translateZ(' + -radius + 'px) ' + 
     rotateFn + '(' + angle + 'deg)';
+  console.log(selectedIndex);
+  console.log(cells.length);
+  console.log(selectedIndex % cells.length);
+  for(var i = 0; i< cells.length;i++) {
+    cells[i].classList.remove('active');
+  }
+  cells[selectedIndex % cells.length].classList.add('active');
+  //cells.classList.remove('active');
+
+  /*
+  cells[(selectedIndex+1) % cells.length].classList.remove('active');
+  if((selectedIndex % cells.length)!=0) {
+    cells[(selectedIndex % cells.length)-1].classList.remove('active');
+  }*/
 }
 
 var prevButton = document.querySelector('.previous-button');
@@ -69,6 +83,105 @@ function onOrientationChange() {
   rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
   changeCarousel();
 }
+var isCaruselLooping;
+function initLoopCarusel() {
+  isCaruselLooping = true;
+  setInterval(() => {
+    console.log('set interval');
+    loopCarusel()
+  }, 500);
+
+  var isHoverd = false;
+  $('.scene-wraper').mouseenter( ()=>{
+    isCaruselLooping=false;
+    } 
+    ).mouseleave( ()=>{
+      isCaruselLooping=true
+    } );
+
+}
+
+function loopCarusel() {
+  if(isCaruselLooping) {
+    /*const regex1 = 'rotate.\((?:.+?)deg\)/g';
+    const startIndex = carousel.style.transform .indexOf('rotate') + 8
+    const endIndex = carousel.style.transform .indexOf('deg', startIndex);
+    var newRotation = parseInt(carousel.style.transform .substring(startIndex, endIndex));
+    //console.log(theta * newRotation * -1);
+    carousel.style.transform = 'translateZ(' + -radius + 'px) ' + 
+          rotateFn + '(' + (newRotation+10) + 'deg)';
+
+    activeIndex = parseInt(newRotation%360 /theta);
+    selectedIndex = cells.length -  activeIndex;
+    console.log(cells.length - activeIndex);*/
+
+  }
+  /*if(isCaruselLooping) {
+    $('.next-button').click();
+    console.log('next click');
+  }*/
+}
+
+
+document.addEventListener('touchstart', handleTouchStart, false);
+var xDown = null;
+var yDown = null;
+
+function getTouches(evt) {
+  return  evt.touches || // browser API
+          evt.originalEvent.touches; // jQuery
+}
+function handleTouchStart(evt) {
+  console.log('handleTouchStart');
+  const firstTouch = getTouches(evt)[0];
+  xDown = firstTouch.clientX;
+  yDown = firstTouch.clientY;
+};
+
+
+$('.scene-wraper').bind('touchmove', function (evt) {
+  evt.preventDefault();
+  if (!xDown || !yDown) {
+    return;
+  }
+
+  var xUp = evt.touches[0].clientX;
+  var yUp = evt.touches[0].clientY;
+
+  var xDiff = xDown - xUp;
+  var yDiff = yDown - yUp;
+
+  if (Math.abs(xDiff) > Math.abs(yDiff)) {
+    //most significant
+    console.log('xDiff', xDiff, isSwipeInCD());
+    if(isSwipeInCD() == false) {
+      if (xDiff > 50 ) {
+        // left swipe 
+        //evt.originalEvent.dataTransfer.setData('d', 'n');
+        $('.next-button').click();
+        setSwipeCD();
+      } else if(xDiff < -50){
+        //evt.originalEvent.dataTransfer.setData('d', 'p');
+        $('.previous-button').click();
+        setSwipeCD();
+        // right swipe 
+      }
+    }
+  }
+  //var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+  //console.log(touch.pageX);
+});
+
+const swipeCooldown = 250
+var swipeCD = false;
+function setSwipeCD() {
+  swipeCD = true;
+  setTimeout(()=>{swipeCD = false;}, swipeCooldown);
+}
+function isSwipeInCD() {
+  return swipeCD;
+}
 
 // set initials
 onOrientationChange();
+initLoopCarusel()

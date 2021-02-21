@@ -2,13 +2,6 @@
   background-color: black;
 }
 
-.gold-animation {
-  color: #c3a343;
-  -webkit-text-fill-color: transparent;
-  background: -o-linear-gradient(transparent, transparent);
-  -webkit-background-clip: text;
-}
-
 @-webkit-keyframes AnimationName {
   0% {
     background-position: 0% 50%;
@@ -33,6 +26,17 @@
   }
 }
 
+.hero-wraper {
+  background: url("../../base/imgs/tilesBg.jpg");
+  /*
+    background-size: cover;
+    box-shadow: 0 0 8px 8px rgb(2, 2, 2) inset;*/
+  /*
+    background-color: #854cbf;
+    border-radius: 30px;
+    */
+}
+
 .hero {
   color: silver;
   padding-bottom: 10px;
@@ -40,7 +44,6 @@
 
 .hero .hero-description {
   font-size: 1.8rem;
-  color: #ddb550;
   padding-top: 20px;
   text-align: center;
   /*text-shadow:
@@ -51,12 +54,9 @@
 }
 
 .hero .hero-slogen {
-  padding-top: 60px;
   text-align: center;
-  color: #000000;
+  color: #ffffff;
   font-weight: 900;
-  -webkit-animation: glow 0.7s ease-in-out infinite alternate;
-          animation: glow 0.7s ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes glow {
@@ -71,16 +71,28 @@
   }
 }
 
-.main-section {
-  background: url("../../base/imgs/mainBg2.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: center;
-}
-
 .scene-wraper {
+  background: url("../../base/imgs/mainBg3.jpg");
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  /*background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: bottom;
+    padding-bottom: 150px;*/
   overflow-x: hidden;
+  /*background: url('../../base/imgs/mainBg3.jpg');
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: bottom;
+        padding-top: 75px;
+        padding-bottom: 150px;
+    */
 }
 
 .scene {
@@ -90,6 +102,36 @@
   margin: 10px auto;
   -webkit-perspective: 1000px;
           perspective: 1000px;
+}
+
+.scene .carusel-control .previous-button {
+  position: absolute;
+  top: 20%;
+  -webkit-transform: rotate(-90deg) translate(-50%, 0);
+          transform: rotate(-90deg) translate(-50%, 0);
+  right: 470px;
+  padding: 20px;
+  background: transparent;
+  border: 0;
+}
+
+.scene .carusel-control .previous-button :hover {
+  color: white;
+}
+
+.scene .carusel-control .next-button {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: rotate(90deg) translate(-50%, 0);
+          transform: rotate(90deg) translate(-50%, 0);
+  right: -125px;
+  padding: 20px;
+  background: transparent;
+  border: 0;
+}
+
+.scene .carusel-control .next-button :hover {
+  color: white;
 }
 
 .carousel {
@@ -123,6 +165,53 @@
   transition: transform 1s, opacity 1s;
   transition: transform 1s, opacity 1s, -webkit-transform 1s;
   border-radius: 20px;
+}
+
+.carousel__cell .title {
+  position: absolute;
+  left: 50%;
+  font-size: 3rem;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  width: 100%;
+}
+
+.carousel__cell .carusel-img {
+  height: 320px;
+}
+
+.carousel__cell .cell-btn {
+  bottom: 0px;
+  position: absolute;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  width: 100%;
+  border-radius: 25px;
+  -webkit-transition: -webkit-transform 1.3s;
+  transition: -webkit-transform 1.3s;
+  transition: transform 1.3s;
+  transition: transform 1.3s, -webkit-transform 1.3s;
+}
+
+.carousel__cell.active {
+  -webkit-animation: glow 0.7s ease-in-out infinite alternate;
+          animation: glow 0.7s ease-in-out infinite alternate;
+}
+
+.carousel__cell.active .title {
+  -webkit-transform: translateX(-50%) translateY(-100%);
+          transform: translateX(-50%) translateY(-100%);
+}
+
+.carousel__cell.active .cell-btn {
+  -webkit-transform: translateX(0%) translateY(150%);
+          transform: translateX(0%) translateY(150%);
+  -webkit-animation: glow 0.7s ease-in-out infinite alternate;
+          animation: glow 0.7s ease-in-out infinite alternate;
 }
 
 .carousel__cell:nth-child(9n+1) {
@@ -257,12 +346,22 @@
   }
 }
 
+.contact-form-wraper2 {
+  padding-top: 5px;
+}
+
 .contact-form-wraper2 .contact-form-wraper {
   border-radius: 30px;
 }
 
 .contact-form-wraper2 .contact-form-wraper .contact-form {
   margin: auto 80px;
+}
+
+@media screen and (max-width: 490px) {
+  .contact-form-wraper2 .contact-form-wraper .contact-form {
+    margin: auto 10px;
+  }
 }
 
 .contact-form-wraper2 .contact-form-wraper .contact-form .form-header {
@@ -298,5 +397,37 @@
 .contact-form-wraper2 .contact-form-wraper .contact-form .form-submit {
   display: block;
   margin: 0 auto;
+}
+
+.gold-animation {
+  background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+  background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
+  -webkit-background-size: 200px;
+  color: rgba(255, 255, 255, 0.3);
+  -webkit-background-clip: text;
+  -webkit-animation-name: shine;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  text-shadow: 0 0px 0px #cc9900ce;
+}
+
+@-webkit-keyframes shine {
+  0%, 10% {
+    background-position: -1000px;
+  }
+  20% {
+    background-position: top left;
+  }
+  90% {
+    background-position: top right;
+  }
+  100% {
+    background-position: 1000px;
+  }
+}
+
+.temp-img {
+  width: 440px;
+  border-radius: 20px;
 }
 /*# sourceMappingURL=style.css.map */
