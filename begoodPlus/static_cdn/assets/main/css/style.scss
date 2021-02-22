@@ -23,8 +23,49 @@
     100%{background-position:0% 50%}
 }
 
+.waves-container-2 {
+    width: 100vw;
+    height: 221px;
+    position: absolute;
+    top: -1px;
+    z-index: -1;
+    background: url(../imgs/wave_3upsd.svg);
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-size: 200% 15%;
+    -webkit-animation-name: move-waves;
+    animation-name: move-waves;
+    -webkit-animation-duration: 10s;
+    animation-duration: 10s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+.waves-container {
+    width: 100vw;
+    height: 221px;
+    position: absolute;
+    bottom: 0px;
+    z-index: -1;
+    background: url('../imgs/wave_3.svg');
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-size: 200% 15%;
+    animation-name: move-waves;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
 .hero-wraper {
-    background: url('../../base/imgs/tilesBg.jpg');
+    position: relative;
+    z-index: 1;
+
+    //background: url('../../base/imgs/tilesBg.jpg');
     /*
     background-size: cover;
     box-shadow: 0 0 8px 8px rgb(2, 2, 2) inset;*/
@@ -33,6 +74,18 @@
     background-color: #854cbf;
     border-radius: 30px;
     */
+
+
+}
+
+@keyframes move-waves {
+    from {
+        background-position-x:0%;
+    }
+
+    to {
+        background-position-x:100%;
+    }
 }
 .hero {
     color: silver;
@@ -53,14 +106,21 @@
         }
         //mix-blend-mode: difference;
     }
+    
+}
 
-    .hero-slogen {
-        //padding-top: 60px;
-        text-align: center;
-        color: #ffffff;
-        font-weight: 900;
-        //animation: glow 0.7s ease-in-out infinite alternate;
-    }
+.hero-slogen-wraper {
+    position: relative;
+    z-index: 1;
+}
+.hero-slogen {
+    //padding-top: 60px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 900;
+    margin-bottom: 0px;
+    
+    //animation: glow 0.7s ease-in-out infinite alternate;
 }
 @-webkit-keyframes glow {
     from {
@@ -81,6 +141,8 @@
 
 }
 .scene-wraper {
+    position: relative;
+    z-index: 1;
     background: url('../../base/imgs/mainBg3.jpg');
 
     overflow: hidden;

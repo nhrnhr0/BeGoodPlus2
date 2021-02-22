@@ -7,52 +7,65 @@
 {% block head_title %}{% trans "Main" %}{% endblock %}
 {% block extra_head %}
 <!-- css includes in head -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
-    integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
-    crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+
+<link rel="stylesheet" href="{%static 'assets/catalog/css/style.css' %}">
 {% endblock extra_head%}
 
 {% block content %}
-<h1>hey</h1>
-{%for album in  catalogAlbums %}
-    <h3>{{album}}</h3>
-    <div class="slick">
-    {%for img in album.images.all  %}
-        <div class="slick-in">
-            <h6>{{img}}</h6>
-            <img height="50px" src="{{img.image_thumbnail.url}}" />
+<div class="catalog">
+    {%for album in  catalogAlbums %}
+    {%if album.is_public %}
+    <div class="title">{{album}}</div>
+    <div class="container">
+        <div id="slick-slider-{{forloop.counter0}}" class="slick-slider">
+            {%for img in album.images.all  %}
+            <div class="my-slick-slide"><img data-lazy="{{img.image_thumbnail.url}}" alt="" /></div>
+            {%endfor%}
         </div>
-    {%endfor%}
     </div>
-{%endfor%}
+    {%endif%}
+    {%endfor%}
 </div>
-<!--
-        <ul class="lightSlider" id="lightSlider-{{album.id}}">
-        {%for img in album.images.all  %}
-                <li>
-                    <img height="50px" src="{{img.image_thumbnail.url}}"/>
-                    <h1>{{img}}</h1>
-                    <p>
-                        {{img.description}}
-                    </p>
-                </li>
-        {%endfor%}
-        </ul>
-        -->
-
-
 {%endblock%}
 
 {%block extra_body%}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-    crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+
 
 <script type="text/javascript">
-$(document).ready(function(){
-    $('.slick').slick({
+    $(document).ready(function () {
+        var slisks = $('.slick-slider');
+        for (var i = 0; i < slisks.length; i++) {
 
+
+            var numberOfItems = $(slisks[i]).find('.my-slick-slide').length
+            var isDots = true;
+            if (numberOfItems > 20) {
+                isDots = false;
+            }
+            $(slisks[i]).slick({
+                slidesToShow: 5,
+                slidesToScroll:1,
+                dots: isDots,
+                focusOnSelect: true,
+                rtl: true,
+                swipeToSlide: true,
+                lazyLoad: 'ondemand',
+
+
+
+                responsive: [{
+                    breakpoint: 500,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                }]
+            });
+
+        }
     });
-});
 </script>
 {%endblock%}
