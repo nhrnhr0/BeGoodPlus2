@@ -17,3 +17,8 @@ def api_product_sizes(request, *args, **kwargs):
     prep = {"productSizes": sizes}
     ret = HttpResponse(json.dumps(prep), content_type="application/json")
     return ret    
+from rest_framework import viewsets
+from .serializers import ProductSizeSerializer
+class SizesViewSet(viewsets.ModelViewSet):
+    queryset = ProductSize.objects.all()
+    serializer_class = ProductSizeSerializer

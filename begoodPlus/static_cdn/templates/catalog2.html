@@ -37,7 +37,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="catalogModal" aria-label="Close">
+                <button type="button" class="close close-modal" data-dismiss="catalogModal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -45,8 +45,8 @@
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="catalogModal">Close</button>
+                <button type="button" class="btn btn-primary">הוסף להצעת מחיר</button>
+                <button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
                         <div id="slick-slider-${i}" class="slick-slider">`
                 for(var j = 0; j < album.images_list.length;j++) {
                     var img = album.images_list[j];
-                    albumMarkup += `<div data-prod-title="${img.title}" data-prod-image-thumbnail="${img.image_thumbnail}" data-prod-id="${img.id}" data-prod-description="${img.description}" class="my-slick-slide shadow-lg"><img data-lazy="${img.image_thumbnail}" alt="" /></div>`
+                    albumMarkup += `<div data-album-id="${album.id}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg"><img data-lazy="${img.image_thumbnail}" alt="" /></div>`
                 }
                 albumMarkup += `</div></div>`
             }
@@ -92,7 +92,7 @@
                 slidesToShow: 5,
                 slidesToScroll: 1,
                 dots: isDots,
-                focusOnSelect: true,
+                focusOnSelect: false,
                 rtl: true,
                 swipeToSlide: true,
                 lazyLoad: 'ondemand',
@@ -111,16 +111,56 @@
 
         $('.my-slick-slide').on('click',(e)=>{
             console.log(e.currentTarget);
-            $('#catalogModal').data('prod-id', e.currentTarget.dataset.prodId);
-            $('#catalogModal').modal('show');
-            $('#catalogModal .modal-title').text(e.currentTarget.dataset.prodTitle);
+            var prodId= parseInt(e.currentTarget.dataset.prodId);
+            var albumId = parseInt(e.currentTarget.dataset.albumId);
+            
+            debugger;
+            albums =  getAllAlbums();
+            var album = albums.find((val,idx,obj)=>{console.log('val.id', val.id); return val.id == albumId})
+            var img = album.images_list.find((val)=>{return val.id== prodId});
+
+            var colorMarkup = ``
+            for(var i = 0; i< img.colors_list.length; i++){ 
+                var col = img.colors_list[i];
+                colorMarkup += `<div class="color-box" style="background:${col.color};"></div>`;
+            }
+
+            var sizeMarkup = ``;
+            for(var i =0; i<img.sizes_list.length;i++) {
+                var size = img.sizes_list[i];
+                sizeMarkup += `<div class="size-box">${size.size}</div>`;
+            }
+
+            $('#catalogModal .modal-title').text(img.title);
             $('#catalogModal .modal-body').html(`
                 <div class="inner-body">
-                    <div class="img-wraper"><img src="${e.currentTarget.dataset.prodImageThumbnail}"/></div>
-                    <div class="product-detail">${e.currentTarget.dataset.prodDescription}</div>
+
+                    <div class="product-detail">
+                        <div class="product-title">${img.title}</div>
+                        <hr>
+                        <div class="product-description">${img.description}</div>
+                        <hr>
+                        <div class="section-title">צבעים</div>
+                        <div class="product-color">${colorMarkup}</div>
+                        <hr>
+                        <div class="section-title">מידות</div>
+                        <div class="product-size">${sizeMarkup}</div>
+                    </div>
+                    <div class="img-wraper"><img src="${img.image_thumbnail}"/></div>
+                    
                     
                 </div>
             `)
+
+
+
+
+
+            $('#catalogModal').modal('show');
+            $('#catalogModal .close-modal').click(function() {
+                console.log('#catalogModal > .close-modal');
+                $('#catalogModal').modal('hide');
+            });
         });
 
 

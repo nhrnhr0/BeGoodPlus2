@@ -231,7 +231,7 @@
     height: 470px;
     left: 10px;
     top: 10px;
-    border: 2px solid black;
+    //border: 2px solid black;
     line-height: 116px;
     font-size: 80px;
     font-weight: bold;
@@ -251,6 +251,7 @@
     }
     .carusel-img {
         height: 320px;
+        border-radius: 25px;
     }
     .cell-btn {
         bottom: 0px;
@@ -273,6 +274,7 @@
     }
   }
   
+  /*
   .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
   .carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 50%, 0.8); }
   .carousel__cell:nth-child(9n+3) { background: hsla( 80, 100%, 50%, 0.8); }
@@ -282,7 +284,7 @@
   .carousel__cell:nth-child(9n+7) { background: hsla(240, 100%, 50%, 0.8); }
   .carousel__cell:nth-child(9n+8) { background: hsla(280, 100%, 50%, 0.8); }
   .carousel__cell:nth-child(9n+0) { background: hsla(320, 100%, 50%, 0.8); }
-  
+  */
   .carousel__cell:nth-child(1) { transform: rotateY(  0deg) translateZ(288px); }
   .carousel__cell:nth-child(2) { transform: rotateY( 40deg) translateZ(288px); }
   .carousel__cell:nth-child(3) { transform: rotateY( 80deg) translateZ(288px); }

@@ -28,6 +28,8 @@ from catalogImages.views import CatalogImageViewSet
 from catalogAlbum.views import CatalogAlbumViewSet
 from product.views import products_select_all, products_select, product_detail
 from freeFlow.views import FfStoreViewSet
+from color.views import ColorsViewSet
+from productSize.views import SizesViewSet
 router = routers.DefaultRouter()
 router.register(r'products', ProductViewSet)
 router.register(r'categories', CategoryViewSet)
@@ -36,6 +38,8 @@ router.register(r'CatalogAlbums', CatalogAlbumViewSet)
 router.register(r'CatalogImages', CatalogImageViewSet)
 
 router.register(r'freeFlowStores', FfStoreViewSet)
+router.register(r'colors', ColorsViewSet)
+router.register(r'sizes', SizesViewSet)
 from provider.views import api_providers
 from packingType.views import api_packing_types
 from productSize.views import api_product_sizes
