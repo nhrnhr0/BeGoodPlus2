@@ -37,6 +37,7 @@
         
       }
       &:hover + .img-title {
+        transition: transform 0.2s;
         transform: translate(-50%, -80%);
         font-weight: 700;
       }

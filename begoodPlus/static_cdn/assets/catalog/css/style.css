@@ -43,6 +43,10 @@
 }
 
 .slick-slider .my-slick-slide img:hover + .img-title {
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
   -webkit-transform: translate(-50%, -80%);
           transform: translate(-50%, -80%);
   font-weight: 700;
