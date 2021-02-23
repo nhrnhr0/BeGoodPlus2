@@ -65,6 +65,7 @@
 .hero-wraper {
     position: relative;
     z-index: 1;
+    font-weight: 700;
 
     //background: url('../../base/imgs/tilesBg.jpg');
     /*
@@ -140,7 +141,9 @@
         
 }
 .section-1-wraper {
-
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imgs/white_paper.webp');
+    background-size: cover;
+    
 }
 .scene-wraper {
     position: relative;
@@ -406,7 +409,8 @@ $gold-animation-text-color: rgba(255, 255, 255, 0.3);
 	-webkit-animation-duration: $gold-animation-duration;
 	-webkit-animation-iteration-count: infinite;
 	//text-shadow: 0 0px 0px #cc9900ce;//rgba(255, 255, 0, 0.623);
-    text-shadow: 1 1px 0px #cc9900ce, -3px -3px 0 rgba(0, 0, 0, 1), 3px -3px 0 rgba(0, 0, 0, 1), -3px 3px 0 rgba(0, 0, 0, 1);//, 1px 1px 0 rgba(0, 0, 0, 0.5);
+    //text-shadow: 1 1px 0px #cc9900ce, -3px -3px 0 rgba(0, 0, 0, 1), 3px -3px 0 rgba(0, 0, 0, 1), -3px 3px 0 rgba(0, 0, 0, 1);//, 1px 1px 0 rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0px 0px #cc9900ce;
     
 }
 

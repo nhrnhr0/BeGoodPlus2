@@ -71,6 +71,7 @@
 .hero-wraper {
   position: relative;
   z-index: 1;
+  font-weight: 700;
   /*
     background-size: cover;
     box-shadow: 0 0 8px 8px rgb(2, 2, 2) inset;*/
@@ -137,6 +138,12 @@
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #f8cb58, 0 0 40px #f8cb58, 0 0 50px #f8cb58, 0 0 60px #f8cb58, 0 0 70px #f8cb58, 0 0 80px #f8cb58;
   }
+}
+
+.section-1-wraper {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../imgs/white_paper.webp");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../imgs/white_paper.webp");
+  background-size: cover;
 }
 
 .scene-wraper {
@@ -453,7 +460,7 @@
   -webkit-animation-name: shine;
   -webkit-animation-duration: 5s;
   -webkit-animation-iteration-count: infinite;
-  text-shadow: 1 1px 0px #cc9900ce, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black;
+  text-shadow: 0 0px 0px #cc9900ce;
 }
 
 @-webkit-keyframes shine {
