@@ -2,12 +2,6 @@
 .catalog {
     background-color: rgb(61, 61, 61);
 }
-
-img {
-    width: 100%;
-    height: auto;
-    padding: 5px;
-}
 .title{
     padding-top: 5px;
     color: wheat;
@@ -19,6 +13,33 @@ img {
 }
 .slick-dots li button:before {
     color:white;
+}
+
+.slick-slider {
+  .my-slick-slide {
+    img {
+      width: 100%;
+      height: auto;
+      padding: 5px;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+#catalogModal {
+  .inner-body {
+    display: flex;
+    flex-direction: row;
+    .product-detail {
+      padding-right: 5px;
+    }
+    .img-wraper {
+      img {
+        width: 300px;
+      }
+    }
+  }
 }
 /*
 

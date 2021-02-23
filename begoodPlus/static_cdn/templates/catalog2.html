@@ -16,18 +16,40 @@
 
 {% block content %}
 <div class="catalog">
+    <!--
     {%for album in  catalogAlbums %}
     {%if album.is_public %}
     <div class="title">{{album}}</div>
     <div class="container">
         <div id="slick-slider-{{forloop.counter0}}" class="slick-slider">
             {%for img in album.images.all  %}
-            <div class="my-slick-slide"><img data-lazy="{{img.image_thumbnail.url}}" alt="" /></div>
+            <div class="my-slick-slide shadow-lg"><img data-lazy="{{img.image_thumbnail.url}}" alt="" /></div>
             {%endfor%}
         </div>
     </div>
     {%endif%}
     {%endfor%}
+    -->
+</div>
+
+<div class="modal" id="catalogModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="catalogModal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="catalogModal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 {%endblock%}
 
@@ -37,6 +59,26 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        albums = getAllAlbums();
+        var catalogMarkup = ``;
+        for(var i = 0; i<albums.length; i++) {
+            var albumMarkup = ``;
+            album = albums[i];
+            if(albums[i].is_public) {
+                albumMarkup += `
+                    <div class="title">${album.title}</div>
+                    <div class="container">
+                        <div id="slick-slider-${i}" class="slick-slider">`
+                for(var j = 0; j < album.images_list.length;j++) {
+                    var img = album.images_list[j];
+                    albumMarkup += `<div data-prod-title="${img.title}" data-prod-image-thumbnail="${img.image_thumbnail}" data-prod-id="${img.id}" data-prod-description="${img.description}" class="my-slick-slide shadow-lg"><img data-lazy="${img.image_thumbnail}" alt="" /></div>`
+                }
+                albumMarkup += `</div></div>`
+            }
+            catalogMarkup += albumMarkup;
+        }
+        $('.catalog').html(catalogMarkup);
+        console.log(albums)
         var slisks = $('.slick-slider');
         for (var i = 0; i < slisks.length; i++) {
 
@@ -48,7 +90,7 @@
             }
             $(slisks[i]).slick({
                 slidesToShow: 5,
-                slidesToScroll:1,
+                slidesToScroll: 1,
                 dots: isDots,
                 focusOnSelect: true,
                 rtl: true,
@@ -66,6 +108,22 @@
             });
 
         }
+
+        $('.my-slick-slide').on('click',(e)=>{
+            console.log(e.currentTarget);
+            $('#catalogModal').data('prod-id', e.currentTarget.dataset.prodId);
+            $('#catalogModal').modal('show');
+            $('#catalogModal .modal-title').text(e.currentTarget.dataset.prodTitle);
+            $('#catalogModal .modal-body').html(`
+                <div class="inner-body">
+                    <div class="img-wraper"><img src="${e.currentTarget.dataset.prodImageThumbnail}"/></div>
+                    <div class="product-detail">${e.currentTarget.dataset.prodDescription}</div>
+                    
+                </div>
+            `)
+        });
+
+
     });
 </script>
 {%endblock%}

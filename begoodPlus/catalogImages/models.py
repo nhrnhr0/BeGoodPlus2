@@ -6,6 +6,7 @@ from django.core.files.base import ContentFile
 from django.utils.html import mark_safe
 from django.conf import settings
 
+from color.models import Color
 # Create your models here.
 class CatalogImage(models.Model):
 
@@ -15,6 +16,8 @@ class CatalogImage(models.Model):
     
     image = models.ImageField(verbose_name=_("image"))
     image_thumbnail = models.ImageField(verbose_name=_("image thumbnail"), null=True, blank=True)
+
+    #colors = models.ManyToManyField(to=Color)
     
     class Meta():
         verbose_name = _('Catalog image')

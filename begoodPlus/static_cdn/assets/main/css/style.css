@@ -1,5 +1,5 @@
 .my-body {
-  background-color: black;
+  background-color: white;
 }
 
 @-webkit-keyframes AnimationName {
@@ -120,6 +120,7 @@
 }
 
 .hero-slogen {
+  max-width: 100vw;
   text-align: center;
   color: #ffffff;
   font-weight: 900;
@@ -477,7 +478,7 @@
   -webkit-animation-name: shine;
   -webkit-animation-duration: 5s;
   -webkit-animation-iteration-count: infinite;
-  text-shadow: 0 0px 0px #cc9900ce;
+  text-shadow: 1 1px 0px #cc9900ce, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black;
 }
 
 @-webkit-keyframes shine {
