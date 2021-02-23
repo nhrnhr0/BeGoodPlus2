@@ -264,6 +264,7 @@
 
 .carousel__cell .cell-btn {
   bottom: 0px;
+  left: 0px;
   position: absolute;
   -webkit-transform: translateX(0%);
           transform: translateX(0%);

@@ -23,13 +23,36 @@
 
 .slick-slider {
   .my-slick-slide {
+    position: relative;
     img {
       width: 100%;
       height: auto;
       padding: 5px;
+
       &:hover {
         transform: scale(1.1);
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+        
+
+        
       }
+      &:hover + .img-title {
+        transform: translate(-50%, -80%);
+        font-weight: 700;
+      }
+    }
+    .img-title {
+      position: absolute;
+      color: white;
+      z-index: 2000;
+      top: 0px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      font-size: 1.5em;
+      
+      left: 50%;
+      pointer-events: none;
+      text-align: center;
     }
   }
 }

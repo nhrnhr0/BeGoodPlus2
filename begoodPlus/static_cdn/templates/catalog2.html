@@ -61,6 +61,7 @@
     $(document).ready(function () {
         albums = getAllAlbums();
         var catalogMarkup = ``;
+        var catalogPreload = ``;
         for(var i = 0; i<albums.length; i++) {
             var albumMarkup = ``;
             album = albums[i];
@@ -69,15 +70,22 @@
                     <div class="title">${album.title}</div>
                     <div class="container">
                         <div id="slick-slider-${i}" class="slick-slider">`
+                albumPreload = ``;
                 for(var j = 0; j < album.images_list.length;j++) {
                     var img = album.images_list[j];
-                    albumMarkup += `<div data-album-id="${album.id}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg"><img data-lazy="${img.image_thumbnail}" alt="" /></div>`
+                    albumMarkup += `
+                        <div data-album-id="${album.id}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
+                            <img data-lazy="${img.image_thumbnail}" alt="" />
+                            <div class="img-title">${img.title}</div>
+                        </div>`
+                    albumPreload += `<link rel="prefetch" href="${img.image}" />`;
                 }
                 albumMarkup += `</div></div>`
             }
             catalogMarkup += albumMarkup;
+            catalogPreload += albumPreload;
         }
-        $('.catalog').html(catalogMarkup);
+        $('.catalog').html(catalogMarkup).append(catalogPreload);
         console.log(albums)
         var slisks = $('.slick-slider');
         for (var i = 0; i < slisks.length; i++) {

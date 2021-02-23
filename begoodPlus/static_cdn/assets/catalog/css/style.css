@@ -23,6 +23,10 @@
   color: white;
 }
 
+.slick-slider .my-slick-slide {
+  position: relative;
+}
+
 .slick-slider .my-slick-slide img {
   width: 100%;
   height: auto;
@@ -32,6 +36,30 @@
 .slick-slider .my-slick-slide img:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0)));
+  -webkit-mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+          mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0)));
+          mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+}
+
+.slick-slider .my-slick-slide img:hover + .img-title {
+  -webkit-transform: translate(-50%, -80%);
+          transform: translate(-50%, -80%);
+  font-weight: 700;
+}
+
+.slick-slider .my-slick-slide .img-title {
+  position: absolute;
+  color: white;
+  z-index: 2000;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  font-size: 1.5em;
+  left: 50%;
+  pointer-events: none;
+  text-align: center;
 }
 
 #catalogModal .close {
