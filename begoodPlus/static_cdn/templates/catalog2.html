@@ -4,7 +4,7 @@
 {% load static %}
 {% load bootstrap5 %}
 
-{% block head_title %}{% trans "Main" %}{% endblock %}
+{% block head_title %}{% trans "Catalog" %}{% endblock %}
 {% block extra_head %}
 <!-- css includes in head -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
@@ -16,7 +16,6 @@
 
 {% block content %}
 <div class="catalog">
-    <!--
     {%for album in  catalogAlbums %}
     {%if album.is_public %}
     <div class="title">{{album}}</div>
@@ -29,7 +28,27 @@
     </div>
     {%endif%}
     {%endfor%}
-    -->
+
+</div>
+
+<div class="modal" id="catalogProductsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close close-modal" data-dismiss="catalogModal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="modal-send-products-btn" class="btn btn-primary">שלח</button>
+                <button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="modal" id="catalogModal" tabindex="-1" role="dialog">
@@ -45,19 +64,35 @@
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">הוסף להצעת מחיר</button>
+                <button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>
                 <button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="contact-form-wraper2">
+    <div class="contact-form-wraper">
+        <form id="contact-form"  action="{%url 'save-contact-form' '/testCatalog'%}" method="post" class="contact-form">
+            {% csrf_token %}
+            <h2 class="form-header">לקבלת הצעת מחיר משתלמת ללא עלות וללא התחייבות השאירו פרטים ומיד נחזור אליכם
+            </h2>
+            {% bootstrap_form contactForm %}
+            {% buttons %}
+            <button type="submit" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו
+                פרטים</button>
+            {% endbuttons %}
+        </form>
     </div>
 </div>
 {%endblock%}
 
 {%block extra_body%}
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
-
+<script src="{%static 'assets/catalog/js/catalog.js'%}"></script>
 
 <script type="text/javascript">
+
     $(document).ready(function () {
         albums = getAllAlbums();
         var catalogMarkup = ``;
@@ -98,8 +133,9 @@
             }
             $(slisks[i]).slick({
                 slidesToShow: 5,
-                slidesToScroll: 1,
+                slidesToScroll: 3,
                 dots: isDots,
+                speed:100,
                 focusOnSelect: false,
                 rtl: true,
                 swipeToSlide: true,
@@ -122,7 +158,6 @@
             var prodId= parseInt(e.currentTarget.dataset.prodId);
             var albumId = parseInt(e.currentTarget.dataset.albumId);
             
-            debugger;
             albums =  getAllAlbums();
             var album = albums.find((val,idx,obj)=>{console.log('val.id', val.id); return val.id == albumId})
             var img = album.images_list.find((val)=>{return val.id== prodId});
@@ -161,9 +196,11 @@
             `)
 
 
-
-
-
+            $('#modal-add-btn').val(prodId);
+            $('#modal-add-btn').click((e)=>{
+                addClientLikeProduct(e.currentTarget.value)
+            });
+            
             $('#catalogModal').modal('show');
             $('#catalogModal .close-modal').click(function() {
                 console.log('#catalogModal > .close-modal');

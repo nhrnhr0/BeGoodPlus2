@@ -78,6 +78,7 @@
       padding-left:30px;
       .product-color {
         flex-wrap: wrap;
+        flex-direction: row-reverse;
         display: flex;
         flex-direction: row;
         .color-box {
@@ -93,6 +94,7 @@
 
       .product-size {
         display: flex;
+        flex-direction: row-reverse;
         flex-wrap: wrap;
         .size-box {
           border: 1px black solid;

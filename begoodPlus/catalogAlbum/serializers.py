@@ -6,7 +6,7 @@ from color.serializers import ColorSerializer
 class CatalogAlbumSerializer(serializers.ModelSerializer):
     images_list = serializers.SerializerMethodField('_get_images')
     def _get_images(self, obj):
-        serializer = CatalogImageSerializer(obj.images,context=self.context, many=True)
+        serializer = CatalogImageSerializer(obj.images.order_by("throughimage__image_order"),context=self.context, many=True,)
         return serializer.data
 
     class Meta:

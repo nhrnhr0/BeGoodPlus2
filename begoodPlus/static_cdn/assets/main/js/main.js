@@ -184,4 +184,37 @@ function isSwipeInCD() {
 
 // set initials
 onOrientationChange();
-initLoopCarusel()
+initLoopCarusel();
+setMainTaskListiner();
+
+function setMainTaskListiner() {
+  document.querySelector('.contact-form #id_name').addEventListener('change',function () {
+    checkMainTask();
+  });
+  document.querySelector('.contact-form #id_phone').addEventListener('change',function () {
+    checkMainTask();
+  });
+  document.querySelector('.contact-form #id_email').addEventListener('change',function () {
+    checkMainTask();
+  });
+  document.querySelector('.contact-form #id_message').addEventListener('change',function () {
+    checkMainTask();
+  });
+}
+function checkMainTask() {
+  debugger;
+  if(document.querySelector('.contact-form #id_name').value != "" ||
+     document.querySelector('.contact-form #id_phone').value != "" || 
+     document.querySelector('.contact-form #id_email').value != "" || 
+     document.querySelector('.contact-form #id_message').value != "") {
+    setClientTask('main', {
+      'msg':'לא סיימת למלא טופס יצירת קשר בדף הראשי',
+      'url': '/test#contact-form'
+    });
+  }else {
+    deleteClientTask('main');
+  }
+}
+
+
+/**base */

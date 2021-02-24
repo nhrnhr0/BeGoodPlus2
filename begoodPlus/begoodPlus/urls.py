@@ -49,7 +49,7 @@ from clientLikedImages.views import add_liked_images
 from clientImages.views import upload_user_image
 from glofa_types.views import glofa_data
 from freeFlow.views import freeFlowView, freeFlowChangeLanguage
-from core.views import admin_subscribe_view, mainView
+from core.views import admin_subscribe_view, mainView, saveBaseContactFormView
 from leadsCampains.views import landingPageFormSubmit
 from catalogAlbum.views import catalogView2
 urlpatterns = [
@@ -84,6 +84,7 @@ urlpatterns = [
     re_path('^webpush/', include('webpush.urls')),
     #path('TaxReturnCampain/', TaxReturnCampainView)
     path('landingPageFormSubmit', landingPageFormSubmit),
+    path('saveContactForm/<path:next>/', saveBaseContactFormView, name="save-contact-form"),
     #re_path('^tracking/', include('tracking.urls')),
 
     path('test/', mainView, name='main-view'),

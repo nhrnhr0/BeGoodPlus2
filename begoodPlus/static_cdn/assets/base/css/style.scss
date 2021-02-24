@@ -31,3 +31,48 @@ body {}
         color: #ccc;
     }
 }
+
+.contact-form-wraper2 {
+    //background-color: black;
+    padding-top: 5px;
+
+    //background-color: #5c6369;
+    .contact-form-wraper {
+        //background-color: #F0D57A;
+        border-radius: 30px;
+        //padding-top: 100px;
+
+        .contact-form {
+            margin: auto 80px;
+
+            @media screen and (max-width: 490px) {
+                margin: auto 10px;
+            }
+
+            .form-header {
+                color: black;
+                background-color: #ffca43;
+                border-radius: 20px;
+                padding-right: 10px;
+                //margin-bottom: 80px;
+                text-align: center;
+            }
+
+            ::placeholder {
+                color: black;
+            }
+
+            .form-control {
+                border-radius: 1rem;
+                background-color: rgb(209, 209, 209);
+                margin-bottom: 1px;
+
+            }
+
+            .form-submit {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+}

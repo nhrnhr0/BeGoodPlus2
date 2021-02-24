@@ -83,9 +83,9 @@ class ThroughImage(Sortable):
     catalogImage = SortableForeignKey(CatalogImage, on_delete=models.CASCADE)
     catalogAlbum = models.ForeignKey(CatalogAlbum, on_delete=models.CASCADE)
     #weight = models.IntegerField(verbose_name=_("weight"))
-    
+    image_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     class Meta(Sortable.Meta):
         #ordering = ['weight']
         #unique_together = ('catalogAlbum', 'weight',)
-        pass
+        ordering = ['image_order']
 

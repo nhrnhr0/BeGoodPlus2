@@ -139,15 +139,19 @@
             </div>
         </div>
         <div class="contact-form-wraper2">
-            <div class="contact-form-wraper">
-                <form action="/url/to/submit/" method="post" class="contact-form">
+            <div id="contactForm" class="contact-form-wraper">
+                <form id="contact-form"  action="{%url 'save-contact-form' '/test'%}" method="post" class="contact-form">
                     {% csrf_token %}
+                    <input type="hidden" name="taskName" id="taskName" value="main">
                     <h2 class="form-header">לקבלת הצעת מחיר משתלמת ללא עלות וללא התחייבות השאירו פרטים ומיד נחזור אליכם
                     </h2>
                     {% bootstrap_form contactForm %}
                     {% buttons %}
-                    <button type="submit" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו
+                    <!--
+                        <button type="submit" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו
                         פרטים</button>
+                        -->
+                        <input type="button" class="btn btn-success form-submit"  value="לשיחת יעוץ ללא עלות וללא התחייבות השאירו פרטים" id="btnsubmit" onclick="submitForm()">
                     {% endbuttons %}
                 </form>
             </div>

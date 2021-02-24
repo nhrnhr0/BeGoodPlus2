@@ -52,7 +52,7 @@
   max-width: 100%;
   height: 221px;
   position: absolute;
-  bottom: 0px;
+  bottom: -1px;
   z-index: -1;
   background: url("../imgs/wave_3.svg");
   background-repeat: no-repeat;
@@ -400,59 +400,6 @@
   }
 }
 
-.contact-form-wraper2 {
-  padding-top: 5px;
-}
-
-.contact-form-wraper2 .contact-form-wraper {
-  border-radius: 30px;
-}
-
-.contact-form-wraper2 .contact-form-wraper .contact-form {
-  margin: auto 80px;
-}
-
-@media screen and (max-width: 490px) {
-  .contact-form-wraper2 .contact-form-wraper .contact-form {
-    margin: auto 10px;
-  }
-}
-
-.contact-form-wraper2 .contact-form-wraper .contact-form .form-header {
-  color: black;
-  background-color: #ffca43;
-  border-radius: 20px;
-  padding-right: 10px;
-  text-align: center;
-}
-
-.contact-form-wraper2 .contact-form-wraper .contact-form ::-webkit-input-placeholder {
-  color: black;
-}
-
-.contact-form-wraper2 .contact-form-wraper .contact-form :-ms-input-placeholder {
-  color: black;
-}
-
-.contact-form-wraper2 .contact-form-wraper .contact-form ::-ms-input-placeholder {
-  color: black;
-}
-
-.contact-form-wraper2 .contact-form-wraper .contact-form ::placeholder {
-  color: black;
-}
-
-.contact-form-wraper2 .contact-form-wraper .contact-form .form-control {
-  border-radius: 1rem;
-  background-color: #d1d1d1;
-  margin-bottom: 1px;
-}
-
-.contact-form-wraper2 .contact-form-wraper .contact-form .form-submit {
-  display: block;
-  margin: 0 auto;
-}
-
 .gold-animation {
   background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
   background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
@@ -466,7 +413,8 @@
 }
 
 @-webkit-keyframes shine {
-  0%, 10% {
+  0%,
+  10% {
     background-position: -1000px;
   }
   20% {

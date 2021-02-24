@@ -32,4 +32,57 @@
   font-size: 13px;
   color: #ccc;
 }
+
+.contact-form-wraper2 {
+  padding-top: 5px;
+}
+
+.contact-form-wraper2 .contact-form-wraper {
+  border-radius: 30px;
+}
+
+.contact-form-wraper2 .contact-form-wraper .contact-form {
+  margin: auto 80px;
+}
+
+@media screen and (max-width: 490px) {
+  .contact-form-wraper2 .contact-form-wraper .contact-form {
+    margin: auto 10px;
+  }
+}
+
+.contact-form-wraper2 .contact-form-wraper .contact-form .form-header {
+  color: black;
+  background-color: #ffca43;
+  border-radius: 20px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.contact-form-wraper2 .contact-form-wraper .contact-form ::-webkit-input-placeholder {
+  color: black;
+}
+
+.contact-form-wraper2 .contact-form-wraper .contact-form :-ms-input-placeholder {
+  color: black;
+}
+
+.contact-form-wraper2 .contact-form-wraper .contact-form ::-ms-input-placeholder {
+  color: black;
+}
+
+.contact-form-wraper2 .contact-form-wraper .contact-form ::placeholder {
+  color: black;
+}
+
+.contact-form-wraper2 .contact-form-wraper .contact-form .form-control {
+  border-radius: 1rem;
+  background-color: #d1d1d1;
+  margin-bottom: 1px;
+}
+
+.contact-form-wraper2 .contact-form-wraper .contact-form .form-submit {
+  display: block;
+  margin: 0 auto;
+}
 /*# sourceMappingURL=style.css.map */
