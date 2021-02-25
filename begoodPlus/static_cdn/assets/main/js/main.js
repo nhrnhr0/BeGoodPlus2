@@ -188,19 +188,33 @@ initLoopCarusel();
 setMainTaskListiner();
 
 function setMainTaskListiner() {
-  document.querySelector('.contact-form #id_name').addEventListener('change',function () {
-    checkMainTask();
-  });
-  document.querySelector('.contact-form #id_phone').addEventListener('change',function () {
-    checkMainTask();
-  });
-  document.querySelector('.contact-form #id_email').addEventListener('change',function () {
-    checkMainTask();
-  });
-  document.querySelector('.contact-form #id_message').addEventListener('change',function () {
-    checkMainTask();
+  var frm = $('.contact-form');
+  frm.change(function(){
+    console.log('updateMainTask');
+    updateMainTask();
   });
 }
+function updateMainTask() {
+  var frm = $('.contact-form');
+  task_id = myStorage.getItem('task_main_id');
+  var serTaskId ='';
+  if(task_id) {
+    var serTaskId = '&task_id=' + task_id
+  }
+  serFrm = frm.serialize() + serTaskId;
+  console.log('serFrm', serFrm);
+  $.ajax({
+    type: "POST",
+    url: '/tasks/update-contact-form',
+    data: serFrm,
+    success: (json)=> {
+      console.log(json);
+      myStorage.setItem('task_main_id',json.task_id )
+    },
+    dataType: "json"
+  });
+}
+/*
 function checkMainTask() {
   debugger;
   if(document.querySelector('.contact-form #id_name').value != "" ||
@@ -215,6 +229,6 @@ function checkMainTask() {
     deleteClientTask('main');
   }
 }
-
+*/
 
 /**base */

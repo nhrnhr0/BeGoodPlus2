@@ -52,6 +52,7 @@ from freeFlow.views import freeFlowView, freeFlowChangeLanguage
 from core.views import admin_subscribe_view, mainView, saveBaseContactFormView
 from leadsCampains.views import landingPageFormSubmit
 from catalogAlbum.views import catalogView2
+from myUserTasks.views import updateContactFormUserTaskView
 urlpatterns = [
     #path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
@@ -88,7 +89,8 @@ urlpatterns = [
     #re_path('^tracking/', include('tracking.urls')),
 
     path('test/', mainView, name='main-view'),
-    path('testCatalog', catalogView2,name="catalogView2")
+    path('testCatalog', catalogView2,name="catalogView2"),
+    path('tasks/update-contact-form', updateContactFormUserTaskView, name='update-contact-form-user-task'),
 ]
 
 if settings.DEBUG:

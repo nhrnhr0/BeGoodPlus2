@@ -75,14 +75,16 @@ function submitForm() {
     if (!formIsFull) {
         return false;
     }
-
+    debugger;
+    frm.submit(); // Submit the form
     var taskName = frm.find('#taskName').val();
     for (var i = 2; i < frm[0].length; i++) {
         $(frm[0][i]).val('');
         $(frm[0][i]).change();
+        $(frm[0][i]).trigger('change');
         autosave_functionality(taskName + '_' + frm[0][i].id, frm[0][i]);
     }
-    frm.submit(); // Submit the form
+    
     frm.reset(); // Reset all form data
     return false; // Prevent page refresh
 }

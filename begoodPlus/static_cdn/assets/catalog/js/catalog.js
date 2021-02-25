@@ -7,6 +7,8 @@
   set_autosave(document.querySelector('.contact-form #id_email'), taskName + '_email')
   set_autosave(document.querySelector('.contact-form #id_message'), taskName + '_message')
 }*/
+
+/*
 function setCatalogTaskListiner() {
   document.querySelector('.contact-form #id_name').addEventListener('change', function () {
     checkCatalogFormTask();
@@ -130,3 +132,35 @@ if (window.location.hash == '#sendProductsModal') {
 
 }
 setCatalogTaskListiner();
+*/
+
+function setMainTaskListiner() {
+  var frm = $('.contact-form');
+  frm.change(function(){
+    console.log('update Catalog Task');
+    updateCatalogTask();
+  });
+}
+function updateCatalogTask() {
+  var frm = $('.contact-form');
+  task_id = myStorage.getItem('task_catalog_id');
+  var serTaskId ='';
+  if(task_id) {
+    var serTaskId = '&task_id=' + task_id
+  }
+  serFrm = frm.serialize() + serTaskId;
+  console.log('serFrm', serFrm);
+  $.ajax({
+    type: "POST",
+    url: '/tasks/update-contact-form',
+    data: serFrm,
+    success: (json)=> {
+      console.log(json);
+      myStorage.setItem('task_catalog_id',json.task_id )
+    },
+    dataType: "json"
+  });
+}
+
+
+setMainTaskListiner();
