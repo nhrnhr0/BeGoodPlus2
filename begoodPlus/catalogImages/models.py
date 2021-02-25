@@ -8,6 +8,8 @@ from django.conf import settings
 
 from color.models import Color
 from productSize.models import ProductSize
+from django.core.files.uploadedfile import InMemoryUploadedFile
+import sys
 # Create your models here.
 class CatalogImage(models.Model):
 
@@ -29,6 +31,31 @@ class CatalogImage(models.Model):
     def save(self, *args, **kwargs):
         
         # if the image is set and and squere image we will generate one
+        im = Image.open(self.image)
+        im2 = Image.open(self.image)
+        output = BytesIO()
+        output2 = BytesIO()
+
+        # Resize/modify the image
+        im = im.resize((923, 715))
+        im2 = im2.resize((450, 450))
+        im = im.convert('RGB')
+        im2 = im2.convert('RGB')
+
+        # after modifications, save it to the output
+        im.save(output, format='JPEG', quality=50)
+        im2.save(output2, format='JPEG', quality=50)
+        output.seek(0)
+        output2.seek(0)
+
+        # change the imagefield value to be the newley modifed image value
+        self.image = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
+                                        sys.getsizeof(output), None)
+        self.image_thumbnail = InMemoryUploadedFile(output2, 'ImageField', "image_thumbnail_%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
+                                        sys.getsizeof(output), None)
+        print(self.image, self.image.size)
+        print(self.image_thumbnail, self.image_thumbnail.size)
+        '''
         if self.image and not self.image_thumbnail:
             thub = Image.open(self.image)
             #thub.thumbnail(size)
@@ -40,7 +67,7 @@ class CatalogImage(models.Model):
                                                 ContentFile(f.getvalue()))
             finally:
                 f.close()
-
+        '''
         
         super(CatalogImage, self).save(*args,**kwargs)
         
