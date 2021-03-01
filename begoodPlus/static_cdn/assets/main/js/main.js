@@ -185,9 +185,9 @@ function isSwipeInCD() {
 // set initials
 onOrientationChange();
 initLoopCarusel();
-setMainTaskListiner();
+setCatalogTaskListiner();
 
-function setMainTaskListiner() {
+function setCatalogTaskListiner() {
   var frm = $('.contact-form');
   frm.change(function(){
     console.log('updateMainTask');
@@ -210,9 +210,11 @@ function updateMainTask() {
     success: (json)=> {
       console.log(json);
       myStorage.setItem('task_main_id',json.task_id )
+      getUserTasks();
     },
     dataType: "json"
   });
+
 }
 /*
 function checkMainTask() {

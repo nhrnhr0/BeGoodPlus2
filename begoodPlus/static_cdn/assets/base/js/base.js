@@ -1,6 +1,6 @@
 /* tasks management */
 const myStorage = window.sessionStorage;
-
+/*
 function getClientTasks() {
     var tasks = myStorage.getItem('tasks');
     if (tasks == undefined) {
@@ -30,7 +30,7 @@ function deleteClientTask(taskName) {
     delete tasks[taskName]
     myStorage.setItem('tasks', JSON.stringify(tasks));
     displayTasks();
-}
+}*/
 
 function set_autosave(selector, autosave_identifier) {
     if (sessionStorage.getItem(autosave_identifier)) {
@@ -59,6 +59,7 @@ function setContactFormAutoSave() {
 
 /** contact form submit */
 /* TODO: this function dose not clean the autosave data... */
+/*
 function submitForm() {
     console.log('send form');
     var frm = $('#contact-form');
@@ -87,9 +88,10 @@ function submitForm() {
     
     frm.reset(); // Reset all form data
     return false; // Prevent page refresh
-}
+}*/
 
 /* set tasks in navbar: */
+/*
 function displayTasks() {
     var dropMenu = $('.navbar .dropdown .dropdown-menu');
     var tasks = getClientTasks();
@@ -103,7 +105,7 @@ function displayTasks() {
         dropMenu.empty();
         dropMenu.html(markup);
     }
-}
+}*/
 
 $(function () {
     $(document).ready(function () {
@@ -111,16 +113,14 @@ $(function () {
             setTimeout(() => {
                 window.scrollTo(0, document.body.scrollHeight);
             }, 500);
-
-            /*$('html, body').animate({
-                scrollTop: $(window.location.hash).offset().top + 'px'
-            }, 1000, 'swing');*/
         }
+
+        getUserTasks();
     });
 });
 
 function startGetUserTasksLoop() {
-    setInterval(getUserTasks, 5000);
+    setInterval(getUserTasks, 15000);
 }
 
 function getUserTasks() {
@@ -130,22 +130,25 @@ function getUserTasks() {
         //cache:false,
         dataType: "json",
         success: function(json){
-            console.log(json);
-            data = JSON.parse(json.tasks);
-            console.log(data);
-            //alert ("resp: "+json);
+            data = json;
             var markup = ``;
             for(var i = 0; i< data.length; i++) {
                 if(data[i].task_name == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
-                    markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="#">לא סיימתי למלא טופס בדף הקטלוג </a></li>`
+                    markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/testCatalog#contact-form">לא סיימתי למלא טופס בדף הקטלוג </a></li>`
+                }
+                else if(data[i].task_name == "main-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+                    markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/test#contact-form">לא סיימתי למלא טופס בדף הבית </a></li>`
                 }
             }
             $('#navbarDropdownList').html(markup);
+        },
+        error: function(e) {
+            console.log('error: ', e);
         }
     });
 }
 
 
 setContactFormAutoSave();
-displayTasks();
+//displayTasks();
 startGetUserTasksLoop();

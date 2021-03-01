@@ -87,7 +87,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'debug_toolbar', # TODO: remove in production
+    #'debug_toolbar', # TODO: remove in production
 ]
 
 # django-dbbackup
@@ -113,7 +113,7 @@ USER_AGENTS_CACHE = 'default'
 
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware', # TODO: remove in production
+    #'debug_toolbar.middleware.DebugToolbarMiddleware', # TODO: remove in production
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

@@ -134,11 +134,17 @@ if (window.location.hash == '#sendProductsModal') {
 setCatalogTaskListiner();
 */
 
-function setMainTaskListiner() {
+function setCatalogTaskListiner() {
   var frm = $('.contact-form');
   frm.change(function(){
     console.log('update Catalog Task');
     updateCatalogTask();
+  });
+
+  var productsFrm = $('#likedProductsForm');
+  productsFrm.change(function() {
+    console.log('update Products Task');
+    updateLikedProductsTask();
   });
 }
 function updateCatalogTask() {
@@ -156,11 +162,77 @@ function updateCatalogTask() {
     data: serFrm,
     success: (json)=> {
       console.log(json);
-      myStorage.setItem('task_catalog_id',json.task_id )
+      myStorage.setItem('task_catalog_id',json.task_id );
+      getUserTasks();
     },
     dataType: "json"
   });
 }
 
 
-setMainTaskListiner();
+function updateLikedProductsTask() {
+  var frm = $('#likedProductsForm');
+  task_id = myStorage.getItem('task_products_id');
+  var serTaskId ='';
+  if(task_id) {
+    var serTaskId = '&task_id=' + task_id
+  }
+  serFrm = frm.serialize() + serTaskId;
+  console.log('serFrm', serFrm);
+  $.ajax({
+    type: "POST",
+    url: '/tasks/update-products-form',
+    data: serFrm,
+    success: (json)=> {
+      console.log(json);
+      myStorage.setItem('task_products_id',json.task_id );
+      getUserTasks();
+    },
+    dataType: "json"
+  });
+}
+
+
+
+
+
+// handle client liked images:
+/*
+function getClientLinkedProducts() {
+  var products = myStorage.getItem('client_liked_products');
+  if (products == undefined) {
+    return undefined;
+  } else {
+    return JSON.parse(products);
+  }
+}
+
+function setClientLinkedProducts(products) {
+  myStorage.setItem('client_liked_products', JSON.stringify(products));
+}
+*/
+function addClientLikeProduct(prodId) {
+  //products = $('#likedProductsForm > products[]');
+  $('#likedProductsForm').append(`<input type="text" name="products[]" value="${prodId}"id="">`);
+  $('#likedProductsForm').trigger('change');
+  console.log('addClientLikeProduct done');
+  /*
+  products = getClientLinkedProducts();
+  var found = false;
+  if (products == undefined) {
+    products = [];
+  }
+  for (var i = 0; i < products.length; i++) {
+    if (products[i] == prodId) {
+      found = true;
+    }
+  }
+  if (found == false) {
+    products.push(prodId);
+    setClientLinkedProducts(products);
+    updateLikedProductsTask();
+  }*/
+}
+
+
+setCatalogTaskListiner();

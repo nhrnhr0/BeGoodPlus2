@@ -16,19 +16,7 @@
 
 {% block content %}
 <div class="catalog">
-    {%for album in  catalogAlbums %}
-    {%if album.is_public %}
-    <div class="title">{{album}}</div>
-    <div class="container">
-        <div id="slick-slider-{{forloop.counter0}}" class="slick-slider">
-            {%for img in album.images.all  %}
-            <div class="my-slick-slide shadow-lg"><img data-lazy="{{img.image_thumbnail.url}}" alt="" /></div>
-            {%endfor%}
-        </div>
-    </div>
-    {%endif%}
-    {%endfor%}
-
+    
 </div>
 
 <div class="modal" id="catalogProductsModal" tabindex="-1" role="dialog">
@@ -71,6 +59,36 @@
     </div>
 </div>
 
+
+<div class="modal" id="likedProductsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close close-modal" data-dismiss="likedProductsModal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="likedProductsForm">
+                    {%csrf_token%}
+                    <input type="text" name="name" id="id_name">
+                    <input type="email" name="email" id="id_email">
+                    <input type="tel" name="tel" id="id_tel">
+                    <input type="text" name="products[]" id="">
+                    <input type="hidden" name="taskName" id="taskName" value="products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e">
+                    
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="modal-add-btn" class="btn btn-primary">שלח</button>
+                <button type="button" class="btn btn-secondary close-modal" data-dismiss="likedProductsModal">סגור</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="contact-form-wraper2">
     <div class="contact-form-wraper">
         <form id="contact-form"  action="{%url 'save-contact-form' '/testCatalog'%}" method="post" class="contact-form">
@@ -98,6 +116,7 @@
         albums = getAllAlbums();
         var catalogMarkup = ``;
         var catalogPreload = ``;
+        var k = 0;
         for(var i = 0; i<albums.length; i++) {
             var albumMarkup = ``;
             album = albums[i];
@@ -110,7 +129,7 @@
                 for(var j = 0; j < album.images_list.length;j++) {
                     var img = album.images_list[j];
                     albumMarkup += `
-                        <div data-album-id="${album.id}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
+                        <div data-album-id="${album.id}" data-my-slide-index="${k++}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
                             <img data-lazy="${img.image_thumbnail}" alt="" />
                             <div class="img-title">${img.title}</div>
                         </div>`
@@ -133,15 +152,16 @@
                 isDots = false;
             }
             $(slisks[i]).slick({
-                slidesToShow: 5,
-                slidesToScroll: 3,
+                slidesToShow: 4,
+                slidesToScroll: 1,
                 dots: isDots,
                 speed:100,
                 focusOnSelect: false,
                 rtl: true,
                 swipeToSlide: true,
                 lazyLoad: 'ondemand',
-
+                draggable: false,
+                infinite: true,
 
 
                 responsive: [{
@@ -160,7 +180,7 @@
             var albumId = parseInt(e.currentTarget.dataset.albumId);
             
             albums =  getAllAlbums();
-            var album = albums.find((val,idx,obj)=>{console.log('val.id', val.id); return val.id == albumId})
+            var album = albums.find((val,idx,obj)=>{return val.id == albumId})
             var img = album.images_list.find((val)=>{return val.id== prodId});
 
             var colorMarkup = ``
@@ -175,7 +195,7 @@
                 sizeMarkup += `<div class="size-box">${size.size}</div>`;
             }
 
-            $('#catalogModal .modal-title').text(img.title);
+            $('#catalogModal .modal-title').text(album.title);
             $('#catalogModal .modal-body').html(`
                 <div class="inner-body">
 
@@ -191,14 +211,17 @@
                         <div class="product-size">${sizeMarkup}</div>
                     </div>
                     <div class="img-wraper"><img src="${img.image}"/></div>
-                    
-                    
+                </div>
+                <div class="inner-footer">
+                    <button class="btn btn-primary" onclick="$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();" > הבא </button>
+                    <button class="btn btn-primary" onclick="$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();" > הקודם </button>
                 </div>
             `)
 
 
             $('#modal-add-btn').val(prodId);
             $('#modal-add-btn').click((e)=>{
+                console.log('modal-add-btn clicked');
                 addClientLikeProduct(e.currentTarget.value)
             });
             
@@ -227,3 +250,11 @@
     });
 </script>
 {%endblock%}
+
+
+
+<!--
+    credits:
+    <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+-->

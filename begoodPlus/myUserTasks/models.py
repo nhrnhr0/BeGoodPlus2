@@ -20,6 +20,13 @@ class ContactFormTask(UserTask):
     message = models.TextField(verbose_name=_('message'), max_length=1500, blank=True, null=True)
     url = models.CharField(max_length=300)
 
+from catalogImages.models import CatalogImage
+class ProductsTask(UserTask):
+    name = models.CharField(verbose_name=_('name'), max_length=50, blank=True, null=True)
+    phone = models.CharField(verbose_name=_("phone"), max_length=30, blank=True, null=True)
+    email = models.EmailField(verbose_name=_('email'), max_length=120, blank=True, null=True)
+    products = models.ManyToManyField(to=CatalogImage)
+
 #class UserTasks(models.Model):
     
 #    tasks = models.ManyToManyField(to=UserTask)

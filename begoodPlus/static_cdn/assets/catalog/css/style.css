@@ -15,12 +15,12 @@
   font-size: 2rem;
 }
 
-.slick-slider {
-  margin-bottom: 0px !important;
-}
-
 .slick-dots li button:before {
   color: white;
+}
+
+.slick-slider {
+  margin-bottom: 0px !important;
 }
 
 .slick-slider .my-slick-slide {
