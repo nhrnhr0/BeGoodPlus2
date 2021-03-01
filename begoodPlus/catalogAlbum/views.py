@@ -16,7 +16,7 @@ class CatalogAlbumViewSet(viewsets.ModelViewSet):
 import json
 
 def catalogView2(request, *args, **wkargs):
-    albums = CatalogAlbum.objects.all()
+    albums = CatalogAlbum.objects.prefetch_related('images').all()
     ser_context={'request': request}
     serializer = CatalogAlbumSerializer(albums,context=ser_context, many=True)
     #content = JSONRenderer().render(serializer.data)

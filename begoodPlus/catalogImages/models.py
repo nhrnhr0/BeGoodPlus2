@@ -43,8 +43,8 @@ class CatalogImage(models.Model):
         im2 = im2.convert('RGB')
 
         # after modifications, save it to the output
-        im.save(output, format='JPEG', quality=50)
-        im2.save(output2, format='JPEG', quality=50)
+        im.save(output, format='JPEG', quality=75)
+        im2.save(output2, format='JPEG', quality=75)
         output.seek(0)
         output2.seek(0)
 
@@ -52,7 +52,7 @@ class CatalogImage(models.Model):
         self.image = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
                                         sys.getsizeof(output), None)
         self.image_thumbnail = InMemoryUploadedFile(output2, 'ImageField', "image_thumbnail_%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
-                                        sys.getsizeof(output), None)
+                                        sys.getsizeof(output2), None)
         print(self.image, self.image.size)
         print(self.image_thumbnail, self.image_thumbnail.size)
         '''

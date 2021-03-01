@@ -9,6 +9,18 @@ def updateUserTaskView(request, *args, **kwargs):
 from .models import ContactFormTask, UserTask
 import json
 from django.core.exceptions import ObjectDoesNotExist
+from .serializers import UserTaskSerializer
+def getUserTasksView(request, *args, **kwargs):
+    session = request.session.session_key
+    tasks = UserTask.objects.filter(session=session)
+    ser_context={'request': request}
+    serializer = UserTaskSerializer(tasks,context=ser_context, many=True)
+    #content = JSONRenderer().render(serializer.data)
+    data = json.dumps(serializer.data)
+    #context = {'catalogAlbums': albums,'catalogAlbumData':data}
+    context = {'tasks':data}
+    #context = {'catalogAlbums': albums,}
+    return HttpResponse(context,content_type="application/json")
 
 def updateContactFormUserTaskView(request,*args, **kwargs):
     if request.is_ajax() and request.method == "POST":

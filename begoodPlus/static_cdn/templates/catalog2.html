@@ -208,8 +208,22 @@
                 $('#catalogModal').modal('hide');
             });
         });
-
-
+        
+        
+        
+        
+        
+        task = myStorage.getItem('user_click_task');
+        if(task == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+            console.log('show task catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e');
+            setTimeout(()=> {
+                //document.getElementById('contact-form').scrollIntoView();
+                window.scrollTo(0,document.body.scrollHeight);
+                //myStorage.setItem('user_click_task', undefined);
+                myStorage.removeItem('user_click_task');
+            },100); 
+            
+        }
     });
 </script>
 {%endblock%}

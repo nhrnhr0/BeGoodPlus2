@@ -119,6 +119,33 @@ $(function () {
     });
 });
 
+function startGetUserTasksLoop() {
+    setInterval(getUserTasks, 5000);
+}
+
+function getUserTasks() {
+    $.ajax({
+        url: "/tasks/get-user-tasks",
+        type: "GET",
+        //cache:false,
+        dataType: "json",
+        success: function(json){
+            console.log(json);
+            data = JSON.parse(json.tasks);
+            console.log(data);
+            //alert ("resp: "+json);
+            var markup = ``;
+            for(var i = 0; i< data.length; i++) {
+                if(data[i].task_name == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+                    markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="#">לא סיימתי למלא טופס בדף הקטלוג </a></li>`
+                }
+            }
+            $('#navbarDropdownList').html(markup);
+        }
+    });
+}
+
 
 setContactFormAutoSave();
 displayTasks();
+startGetUserTasksLoop();
