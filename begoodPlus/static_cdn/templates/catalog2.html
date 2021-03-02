@@ -52,17 +52,43 @@
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>
-                <button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>
+                
+                <!--<button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>-->
 
                 
-                <button id="modal-prev-btn" class="btn btn-danger"> הקודם </button>
-                <button id="modal-next-btn" class="btn btn-danger" > הבא </button>
+                <button id="modal-prev-btn" class="btn btn-secondary"> הקודם </button>
+                <button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>
+                <button id="modal-next-btn" class="btn btn-secondary" > הבא </button>
             </div>
         </div>
     </div>
 </div>
 
+<div class="modal" id="categoryModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Category</h5>
+                <button type="button" class="close close-modal" data-dismiss="catalogModal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                
+                <!--<button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>-->
+
+                <!--
+                <button id="modal-prev-btn" class="btn btn-secondary"> הקודם </button>
+                <button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>
+                <button id="modal-next-btn" class="btn btn-secondary" > הבא </button>
+                -->
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal" id="likedProductsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -148,6 +174,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        
         albums = getAllAlbums();
         var catalogMarkup = ``;
         var catalogPreload = ``;
@@ -157,7 +184,10 @@
             album = albums[i];
             if (albums[i].is_public) {
                 albumMarkup += `
-                    <div class="title">${album.title}</div>
+                    <!--<div class="title">${album.title}</div>-->
+                    <div class="title-wraper">
+                        <button data-album-id="${album.id}" onclick="openCategoryModal(${album.id})" class="title btn btn-success">${album.title}</button>
+                    </div>
                     <div class="container">
                         <div id="slick-slider-${i}" class="slick-slider">`
                 albumPreload = ``;
@@ -213,6 +243,7 @@
             console.log(e.currentTarget);
             var prodId = parseInt(e.currentTarget.dataset.prodId);
             var albumId = parseInt(e.currentTarget.dataset.albumId);
+            var isAdded = e.currentTarget.dataset.isAdded;
 
             albums = getAllAlbums();
             var album = albums.find((val, idx, obj) => {
@@ -249,7 +280,7 @@
                         <div class="section-title">מידות</div>
                         <div class="product-size">${sizeMarkup}</div>
                     </div>
-                    <div class="img-wraper"><img src="${img.image}"/></div>
+                    <div class="img-wraper"><img id="catalog-image-${img.id}" src="${img.image}"/></div>
                 </div>
                 <div class="inner-footer">
                     <!--
@@ -258,7 +289,7 @@
                     -->
                 </div>
             `)
-
+            debugger;
             $('#modal-next-btn').attr('onClick',`$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`);
             $('#modal-prev-btn').attr('onClick',`$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`);
             /*
@@ -273,6 +304,14 @@
             });
 
             $('#modal-add-btn').val(prodId);
+            debugger;
+            if($(e.currentTarget).data().isAdded){
+                $('#modal-add-btn').prop('disabled', true);
+                $('#modal-add-btn').text('נוסף להצעת מחיר');
+            }else {
+                $('#modal-add-btn').prop('disabled', false);
+                $('#modal-add-btn').text('הוסף להצעת מחיר');
+            }
             $('#modal-add-btn').click((e) => {
                 console.log('modal-add-btn clicked');
                 addClientLikeProduct(e.currentTarget.value)

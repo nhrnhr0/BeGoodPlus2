@@ -57,7 +57,8 @@ def updateProductsFormUserTaskView(request, *args, **kwargs):
         #print(created, task.id,task)
         
 
-        return HttpResponse(json.dumps({'task_id': task.id}), content_type="application/json")
+        #return HttpResponse(json.dumps({'task_id': task.id}), content_type="application/json")
+        return getUserCartView(request, *args,**kwargs)
 def getUserCartView(request, *args, **kwargs):
     session = get_session_key(request)
     cart = ProductsTask.objects.filter(session=session).first()

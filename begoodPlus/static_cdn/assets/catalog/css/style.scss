@@ -8,11 +8,16 @@
     max-width: 850px;
   }
 }
-.title{
-    padding-top: 5px;
-    color: wheat;
-    text-align: center;
-    font-size: 2rem;
+.title-wraper {
+  display: flex;
+  justify-content: center;
+  .title{
+      margin-top: 25px;
+      color: wheat;
+      text-align: center;
+      font-size: 2rem;
+      width: 70%;
+  }
 }
 .slick-dots li button:before {
     color:white;
@@ -58,14 +63,6 @@
   }
 }
 .modal {
-  .modal-header {
-    background: #ffd880;
-  }
-  .modal-footer {
-    background: #ffd880;
-  }
-}
-#catalogModal {
   .close {
     border: 0;
     background: none;
@@ -75,6 +72,15 @@
       color:red;
     }
   }
+  .modal-header {
+    background: #ffd880;
+  }
+  .modal-footer {
+    background: #ffd880;
+  }
+}
+#catalogModal {
+  
   .inner-body {
     display: flex;
     flex-direction: row;
@@ -87,6 +93,10 @@
       .product-title {
         font-size: 1.6em;
         font-weight: bold;
+      }
+      .product-description {
+        max-height: 120px;
+        overflow-y: auto;
       }
       .product-color {
         flex-wrap: wrap;
@@ -128,67 +138,25 @@
       }
     }
   }
-}
-/*
 
-.slick-dots-container {
-    width: 5.5rem;
-    overflow: hidden;
-    display: block;
-    padding: 0;
-    margin: 0.625rem auto;
-    height: 0.875rem;
-    position: relative;
+  .modal-footer {
+    justify-content: space-between;
+    #modal-add-btn:disabled {
+      color: #fff;
+      background-color: #398439;
+      border-color: #255625;
+    }
   }
-  
-  .slick-dots-container > ul {
-    padding: 0;
+}
+
+#categoryModal {
+  .category-items {
     display: flex;
-    transition: all 0.25s;
-    position: relative;
-    margin: 0;
-    list-style: none;
-    transform: translateX(0);
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    bottom: unset;
-    height: 100%;
+    .category-item {
+      padding:5px;
+    }
   }
-  
-  .slick-dots-container > ul li {
-    width: 0.625rem;
-    height: 0.625rem;
-    margin: 0 0.25rem;
-    background-color: #efd5d5;
-    border: none;
-    border-radius: 50%;
-  }
-  
-  .slick-dots-container > ul li button {
-    font-size: 0;
-    line-height: 0;
-    display: block;
-    width: 1.25rem;
-    height: 1.25rem;
-    padding: 0.3125rem;
-    cursor: pointer;
-    color: transparent;
-    border: 0;
-    outline: 0;
-    background: 0 0;
-  }
-  
-  .slick-dots-container > ul li.p-small-1,
-  .slick-dots-container > ul li.n-small-1 {
-    transform: scale(0.8);
-  }
-  
-  .slick-dots-container > ul li.slick-active {
-    transform: scale(1.3);
-    transform-origin: center;
-    background: #3498db;
-  }
-  
-  .slick-dots li button:before {
-    display: none;
-  }
-  */
+}

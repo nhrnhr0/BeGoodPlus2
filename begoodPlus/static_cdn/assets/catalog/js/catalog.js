@@ -1,138 +1,14 @@
-//setContactFormAutoSave();
 
-/*function setContactFormAutoSave() {
-  var taskName = 'catalog';
-  set_autosave(document.querySelector('.contact-form #id_name'), taskName + '_name')
-  set_autosave(document.querySelector('.contact-form #id_phone'), taskName + '_phone')
-  set_autosave(document.querySelector('.contact-form #id_email'), taskName + '_email')
-  set_autosave(document.querySelector('.contact-form #id_message'), taskName + '_message')
-}*/
-
-/*
-function setCatalogTaskListiner() {
-  document.querySelector('.contact-form #id_name').addEventListener('change', function () {
-    checkCatalogFormTask();
-  });
-  document.querySelector('.contact-form #id_phone').addEventListener('change', function () {
-    checkCatalogFormTask();
-  });
-  document.querySelector('.contact-form #id_email').addEventListener('change', function () {
-    checkCatalogFormTask();
-  });
-
-  document.querySelector('.contact-form #id_message').addEventListener('change', function () {
-    checkCatalogFormTask();
-  });
-}
-
-function checkCatalogProductsTask() {
-  var products = getClientLinkedProducts();
-  if (products == undefined || products == "") {
-    deleteClientTask('catalog_images');
-  } else {
-    setClientTask('catalog_images', {
-      'msg': 'לא שלחת את המוצרים שאהבת',
-      'url': '/testCatalog#sendProductsModal',
-      //'onclick':`$('#catalogProductsModal').modal('show');`,
-      'onclick':`$('#catalogProductsModal').modal('show');`
-    });
-  }
-}
-
-function checkCatalogFormTask() {
-  if (document.querySelector('.contact-form #id_name').value != "" ||
-    document.querySelector('.contact-form #id_phone').value != "" ||
-    document.querySelector('.contact-form #id_email').value != "" ||
-    document.querySelector('.contact-form #id_message').value != "") {
-    setClientTask('catalog', {
-      'msg': 'לא סיימת למלא טופס יצירת קשר בקטלוג',
-      'url': '/testCatalog#contact-form'
-    });
-  } else {
-    deleteClientTask('catalog');
-  }
-}
-
-
-function getClientLinkedProducts() {
-  var products = myStorage.getItem('client_liked_products');
-  if (products == undefined) {
-    return undefined;
-  } else {
-    return JSON.parse(products);
-  }
-}
-
-function setClientLinkedProducts(products) {
-  myStorage.setItem('client_liked_products', JSON.stringify(products)); +
-  checkCatalogProductsTask();
-}
-
-function addClientLikeProduct(prodId) {
-  products = getClientLinkedProducts();
-  var found = false;
-  if (products == undefined) {
-    products = [];
-  }
-  for (var i = 0; i < products.length; i++) {
-    if (products[i] == prodId) {
-      found = true;
-    }
-  }
-  if (found == false) {
-    products.push(prodId);
-    setClientLinkedProducts(products)
-  }
-}
-
-function refreshCatalogProductsModal() {
-  debugger;
-  var liked = getClientLinkedProducts();
-  var albums = getAllAlbums();
-
-  var modalBodyMarkup = `
-    <table>
-      <thead>
-        <tr>מוצר</tr>
-        <tr>שם</tr>
-      </thead>
-      <tbody>
-   
-   `;
-  for (var i = 0; i < liked.length; i++) {
-    product = findProductFromAlbum(albums, liked[i]);
-    modalBodyMarkup += `<tr>
-      <td>${product.image}</td>
-      <td>${product.title}</td>
-    </tr>`
-  }
-  modalBodyMarkup += `
-  </tbody>
-</table>
-`
-}
-
-function findProductFromAlbum(albums, prodId) {
-  for (var i = 0; i < albums.length; i++) {
-    for (var j = 0; j < albums[i].images_list.length; j++) {
-      if (albums[i].images_list[j].id == prodId) {
-        return albums[i].images_list[j];
-      }
-    }
-  }
-
-}
-
-
-
-//TODO: this is not fucking working!
-if (window.location.hash == '#sendProductsModal') {
-    refreshCatalogProductsModal();
-    $('#catalogProductsModal').modal('show');
-
-}
-setCatalogTaskListiner();
-*/
+$(document).on('show.bs.modal', '.modal', function (event) {
+  var zIndex = 1040 + (10 * $('.modal:visible').length);
+  $(this).css('z-index', zIndex);
+  setTimeout(function() {
+      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+  }, 0);
+});
+$(document).on('hidden.bs.modal', '.modal', function () {
+  $('.modal:visible').length && $(document.body).addClass('modal-open');
+});
 
 function setCatalogTaskListiner() {
   var frm = $('.contact-form');
@@ -184,9 +60,15 @@ function updateLikedProductsTask() {
     url: '/tasks/update-products-form',
     data: serFrm,
     success: (json)=> {
+      debugger;
       console.log(json);
-      myStorage.setItem('task_products_id',json.task_id );
+      myStorage.setItem('task_products_id',json.task_name );
       getUserTasks();
+      for(var i = 0; i< json.products_list.length; i++) {
+        img = json.products_list[i];
+        var slick_slide = $(`[data-prod-id="${img.id}"`);
+        slick_slide.data('is-added',true);
+      }
     },
     dataType: "json"
   });
@@ -215,6 +97,8 @@ function addClientLikeProduct(prodId) {
   //products = $('#likedProductsForm > products[]');
   $('#likedProductsForm').append(`<input type="text" name="products[]" value="${prodId}"id="">`);
   $('#likedProductsForm').trigger('change');
+  $('#modal-add-btn').prop('disabled', true);
+  $('#modal-add-btn').text('נוסף להצעת מחיר');
   console.log('addClientLikeProduct done');
   /*
   products = getClientLinkedProducts();
@@ -261,7 +145,31 @@ function loadProductsModal() {
   $('#likedProductsModal').modal('show');
   $('#likedProductsModal .close-modal').click(function () {
     $('#likedProductsModal').modal('hide');
-});
+  });
   updateProductsCart();
 }
+
+function openCategoryModal(albumId) {
+  debugger;
+  var albums = getAllAlbums();
+  var album = albums.find((val, idx, obj) => {
+    return val.id == albumId
+  });
+  var imagesMarkup = '<div class="category-items">'
+  for(var i = 0; i < album.images_list.length;i++) {
+    img = album.images_list[i];
+    imagesMarkup+= `<div class="category-item" onclick="$('.my-slick-slide[data-prod-id=${img.id}]').click();" data-category-prod-id="${img.id}">
+                    <img width="250px" height="250px" src="${img.image_thumbnail}" alt="${img.description}" />
+                    </div>
+      `
+  }
+  imagesMarkup += '</div>'
+  $('#categoryModal .modal-title').text(album.title);
+  $('#categoryModal .modal-body').html(imagesMarkup);
+  $('#categoryModal').modal('show');
+  $('#categoryModal .close-modal').click(function () {
+    $('#categoryModal').modal('hide');
+  });
+}
+
 setCatalogTaskListiner();
