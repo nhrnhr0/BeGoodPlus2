@@ -28,9 +28,25 @@ class CatalogImage(models.Model):
         verbose_name_plural = _('Catalog images')
         
     
+    def optimize_image(image,size, *args, **kwargs):
+        im = Image.open(image)
+        output = BytesIO()
+        im = im.resize(size)
+        im = im.convert('RGB')
+        im.save(output, format='JPEG', quality=75)
+        output.seek(0)
+        return output 
+    
     def save(self, *args, **kwargs):
-        
+        if self.image:
+            output = CatalogImage.optimize_image(self.image, size=(923, 715))
+            self.image = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
+                                        sys.getsizeof(output), None)
+            output2 = CatalogImage.optimize_image(self.image, size=(450,450))
+            self.image_thumbnail = InMemoryUploadedFile(output2, 'ImageField', "image_thumbnail_%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
+                                        sys.getsizeof(output2), None)
         # if the image is set and and squere image we will generate one
+        '''
         im = Image.open(self.image)
         im2 = Image.open(self.image)
         output = BytesIO()
@@ -56,6 +72,7 @@ class CatalogImage(models.Model):
         print(self.image, self.image.size)
         print(self.image_thumbnail, self.image_thumbnail.size)
         '''
+        '''
         if self.image and not self.image_thumbnail:
             thub = Image.open(self.image)
             #thub.thumbnail(size)
@@ -71,6 +88,7 @@ class CatalogImage(models.Model):
         
         super(CatalogImage, self).save(*args,**kwargs)
         
+
         
     def render_thumbnail(self, *args, **kwargs):
         ret = ''
