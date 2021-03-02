@@ -122,10 +122,13 @@
 }
 
 .hero-slogen {
+  -webkit-animation: glow 0.7s ease-in-out infinite alternate;
+          animation: glow 0.7s ease-in-out infinite alternate;
   max-width: 100vw;
   text-align: center;
-  color: #ffffff;
+  color: black;
   font-weight: 900;
+  padding-bottom: 15px;
   margin-bottom: 0px;
 }
 
@@ -245,6 +248,7 @@
 }
 
 .carousel__cell .title {
+  display: none;
   position: absolute;
   left: 50%;
   font-size: 3rem;
@@ -263,6 +267,7 @@
 }
 
 .carousel__cell .cell-btn {
+  font-size: 0.5em;
   bottom: 0px;
   left: 0px;
   position: absolute;
@@ -274,6 +279,8 @@
   transition: -webkit-transform 1.3s;
   transition: transform 1.3s;
   transition: transform 1.3s, -webkit-transform 1.3s;
+  color: black;
+  font-weight: bold;
 }
 
 .carousel__cell.active {
@@ -287,8 +294,8 @@
 }
 
 .carousel__cell.active .cell-btn {
-  -webkit-transform: translateX(0%) translateY(150%);
-          transform: translateX(0%) translateY(150%);
+  -webkit-transform: translateX(0%) translateY(75%);
+          transform: translateX(0%) translateY(75%);
   -webkit-animation: glow 0.7s ease-in-out infinite alternate;
           animation: glow 0.7s ease-in-out infinite alternate;
 }

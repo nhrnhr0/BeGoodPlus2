@@ -144,11 +144,13 @@
 }
 
 .hero-slogen {
+    animation: glow 0.7s ease-in-out infinite alternate;
     max-width: 100vw;
     //padding-top: 60px;
     text-align: center;
-    color: #ffffff;
+    color: black;
     font-weight: 900;
+    padding-bottom: 15px;
     margin-bottom: 0px;
 
     //animation: glow 0.7s ease-in-out infinite alternate;
@@ -282,6 +284,7 @@
     border-radius: 20px;
 
     .title {
+        display: none;
         position: absolute;
         left: 50%;
         font-size: 3rem;
@@ -296,6 +299,7 @@
     }
 
     .cell-btn {
+        font-size: 0.5em;
         bottom: 0px;
         left: 0px;
         position: absolute;
@@ -303,6 +307,8 @@
         width: 100%;
         border-radius: 25px;
         transition: transform 1.3s;
+        color:black;
+        font-weight: bold;
     }
 
     &.active {
@@ -313,7 +319,7 @@
         }
 
         .cell-btn {
-            transform: translateX(00%) translateY(150%);
+            transform: translateX(00%) translateY(75%);
             animation: glow 0.7s ease-in-out infinite alternate;
         }
     }
