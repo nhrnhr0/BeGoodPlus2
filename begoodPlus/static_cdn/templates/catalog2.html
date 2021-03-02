@@ -237,7 +237,7 @@
                     <div class="product-detail">
                         <div class="product-title">${img.title}</div>
                         <hr>
-                        <div class="product-description">${img.description}</div>
+                        <div class="product-description">${img.description.replace(/(?:\r\n|\r|\n)/g, '<br>') }</div>
                         <hr>
                         <div class="section-title">צבעים</div>
                         <div class="product-color">${colorMarkup}</div>
