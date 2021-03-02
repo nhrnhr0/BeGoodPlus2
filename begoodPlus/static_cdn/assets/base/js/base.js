@@ -139,6 +139,9 @@ function getUserTasks() {
                 else if(data[i].task_name == "main-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
                     markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/test#contact-form">לא סיימתי למלא טופס בדף הבית </a></li>`
                 }
+                else if(data[i].task_name == "products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+                    markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/testCatalog">לחץ כאן לשליחת טופס מוצרים אהובים </a></li>`
+                }
             }
             $('#navbarDropdownList').html(markup);
         },

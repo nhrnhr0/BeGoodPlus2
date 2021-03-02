@@ -16,7 +16,7 @@
 
 {% block content %}
 <div class="catalog">
-    
+
 </div>
 
 <div class="modal" id="catalogProductsModal" tabindex="-1" role="dialog">
@@ -64,7 +64,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">מוצרים שאהבתי</h5>
                 <button type="button" class="close close-modal" data-dismiss="likedProductsModal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -72,18 +72,50 @@
             <div class="modal-body">
                 <form id="likedProductsForm">
                     {%csrf_token%}
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="hidden" name="taskName" id="taskName"
+                                value="products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e">
+                                <div class="form-group">
+                                    <label class="control-label">Name</label>
+                                    <div>
+                                        <input type="text" class="form-control input-lg" name="name" value="">
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                <label class="control-label">E-Mail Address</label>
+                                <div>
+                                    <input type="email" class="form-control input-lg" name="email" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label">Phone</label>
+                                <div>
+                                    <input type="tel" class="form-control input-lg" name="phone" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6" id="cartProductsList">
+                            <h1>my products</h1>
+                        </div>
+                    </div>
+
+                    <!--
                     <input type="text" name="name" id="id_name">
                     <input type="email" name="email" id="id_email">
                     <input type="tel" name="tel" id="id_tel">
                     <input type="text" name="products[]" id="">
-                    <input type="hidden" name="taskName" id="taskName" value="products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e">
-                    
+                    -->
+
+
                 </form>
 
             </div>
             <div class="modal-footer">
                 <button type="button" id="modal-add-btn" class="btn btn-primary">שלח</button>
-                <button type="button" class="btn btn-secondary close-modal" data-dismiss="likedProductsModal">סגור</button>
+                <button type="button" class="btn btn-secondary close-modal"
+                    data-dismiss="likedProductsModal">סגור</button>
             </div>
         </div>
     </div>
@@ -91,7 +123,7 @@
 
 <div class="contact-form-wraper2">
     <div class="contact-form-wraper">
-        <form id="contact-form"  action="{%url 'save-contact-form' '/testCatalog'%}" method="post" class="contact-form">
+        <form id="contact-form" action="{%url 'save-contact-form' '/testCatalog'%}" method="post" class="contact-form">
             {% csrf_token %}
             <input type="hidden" name="taskName" id="taskName" value="catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e">
             <h2 class="form-header">לקבלת הצעת מחיר משתלמת ללא עלות וללא התחייבות השאירו פרטים ומיד נחזור אליכם
@@ -111,22 +143,21 @@
 <script src="{%static 'assets/catalog/js/catalog.js'%}"></script>
 
 <script type="text/javascript">
-
     $(document).ready(function () {
         albums = getAllAlbums();
         var catalogMarkup = ``;
         var catalogPreload = ``;
         var k = 0;
-        for(var i = 0; i<albums.length; i++) {
+        for (var i = 0; i < albums.length; i++) {
             var albumMarkup = ``;
             album = albums[i];
-            if(albums[i].is_public) {
+            if (albums[i].is_public) {
                 albumMarkup += `
                     <div class="title">${album.title}</div>
                     <div class="container">
                         <div id="slick-slider-${i}" class="slick-slider">`
                 albumPreload = ``;
-                for(var j = 0; j < album.images_list.length;j++) {
+                for (var j = 0; j < album.images_list.length; j++) {
                     var img = album.images_list[j];
                     albumMarkup += `
                         <div data-album-id="${album.id}" data-my-slide-index="${k++}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
@@ -155,7 +186,7 @@
                 slidesToShow: 4,
                 slidesToScroll: 1,
                 dots: isDots,
-                speed:100,
+                speed: 100,
                 focusOnSelect: false,
                 rtl: true,
                 swipeToSlide: true,
@@ -174,23 +205,27 @@
 
         }
 
-        $('.my-slick-slide').on('click',(e)=>{
+        $('.my-slick-slide').on('click', (e) => {
             console.log(e.currentTarget);
-            var prodId= parseInt(e.currentTarget.dataset.prodId);
+            var prodId = parseInt(e.currentTarget.dataset.prodId);
             var albumId = parseInt(e.currentTarget.dataset.albumId);
-            
-            albums =  getAllAlbums();
-            var album = albums.find((val,idx,obj)=>{return val.id == albumId})
-            var img = album.images_list.find((val)=>{return val.id== prodId});
+
+            albums = getAllAlbums();
+            var album = albums.find((val, idx, obj) => {
+                return val.id == albumId
+            })
+            var img = album.images_list.find((val) => {
+                return val.id == prodId
+            });
 
             var colorMarkup = ``
-            for(var i = 0; i< img.colors_list.length; i++){ 
+            for (var i = 0; i < img.colors_list.length; i++) {
                 var col = img.colors_list[i];
                 colorMarkup += `<div class="color-box" style="background:${col.color};"></div>`;
             }
 
             var sizeMarkup = ``;
-            for(var i =0; i<img.sizes_list.length;i++) {
+            for (var i = 0; i < img.sizes_list.length; i++) {
                 var size = img.sizes_list[i];
                 sizeMarkup += `<div class="size-box">${size.size}</div>`;
             }
@@ -220,32 +255,35 @@
 
 
             $('#modal-add-btn').val(prodId);
-            $('#modal-add-btn').click((e)=>{
+            $('#modal-add-btn').click((e) => {
                 console.log('modal-add-btn clicked');
                 addClientLikeProduct(e.currentTarget.value)
             });
-            
+
             $('#catalogModal').modal('show');
-            $('#catalogModal .close-modal').click(function() {
+            $('#catalogModal .close-modal').click(function () {
                 console.log('#catalogModal > .close-modal');
                 $('#catalogModal').modal('hide');
             });
         });
-        
-        
-        
-        
-        
+
+
+
+
+
         task = myStorage.getItem('user_click_task');
-        if(task == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+        debugger;
+        if (task == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
             console.log('show task catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e');
-            setTimeout(()=> {
+            setTimeout(() => {
                 //document.getElementById('contact-form').scrollIntoView();
-                window.scrollTo(0,document.body.scrollHeight);
+                window.scrollTo(0, document.body.scrollHeight);
                 //myStorage.setItem('user_click_task', undefined);
                 myStorage.removeItem('user_click_task');
-            },100); 
-            
+            }, 100);
+        } else if (task == "products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+            loadProductsModal();
+
         }
     });
 </script>

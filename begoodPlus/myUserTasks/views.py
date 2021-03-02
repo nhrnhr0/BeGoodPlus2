@@ -9,7 +9,7 @@ def updateUserTaskView(request, *args, **kwargs):
 from .models import ContactFormTask, UserTask
 import json
 from django.core.exceptions import ObjectDoesNotExist
-from .serializers import UserTaskSerializer
+from .serializers import UserTaskSerializer, ProductsTaskSerializer
 
 def get_session_key(request):
     if not request.session.session_key:
@@ -47,7 +47,7 @@ def updateProductsFormUserTaskView(request, *args, **kwargs):
         for product in products:
             try:
                 #TODO: this code is not compleately working
-                if task.products_set.filter(pk=product).exists() == False:
+                if task.products.filter(pk=product).exists() == False:
                     obj = CatalogImage.objects.get(pk=product)
                     task.products.add(obj)
             except:
@@ -58,6 +58,15 @@ def updateProductsFormUserTaskView(request, *args, **kwargs):
         
 
         return HttpResponse(json.dumps({'task_id': task.id}), content_type="application/json")
+def getUserCartView(request, *args, **kwargs):
+    session = get_session_key(request)
+    cart = ProductsTask.objects.filter(session=session).first()
+    ser_context={'request': request}
+    serializer = ProductsTaskSerializer(cart,context=ser_context)
+    #content = JSONRenderer().render(serializer.data)
+    data = json.dumps(serializer.data)
+    return HttpResponse(data,content_type="application/json")
+    
 
 def updateContactFormUserTaskView(request,*args, **kwargs):
     if request.is_ajax() and request.method == "POST":

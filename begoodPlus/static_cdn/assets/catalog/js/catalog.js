@@ -234,5 +234,36 @@ function addClientLikeProduct(prodId) {
   }*/
 }
 
+function updateProductsCart() {
+  $.ajax({
+    type: "GET",
+    url: '/tasks/get-user-cart',
+    //data: serFrm,
+    success: (json)=> {
+      debugger;
+      console.log(json);
+      //myStorage.setItem('task_catalog_id',json.task_id );
+      //getUserTasks();
+      var productsMarkup = '<ul>';
+      for(var i = 0; i < json.products_list.length; i++) {
+        product = json.products_list[i];
+        productsMarkup += `
+          <li><img src=${product.image_thumbnail} height="50px"/> <span>${product.title}</span>
+        `
+      }
+      productsMarkup += '</ul>';
+      $('#cartProductsList').html(productsMarkup);
+    },
+    dataType: "json"
+  });
+}
 
+function loadProductsModal() {
+  debugger;
+  $('#likedProductsModal').modal('show');
+  $('#likedProductsModal .close-modal').click(function () {
+    $('#likedProductsModal').modal('hide');
+});
+  updateProductsCart();
+}
 setCatalogTaskListiner();
