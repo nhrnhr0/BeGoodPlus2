@@ -171,7 +171,8 @@
 .main-section {}
 
 .section-1-wraper {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imgs/white_paper.webp');
+    //background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imgs/white_paper.webp');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../catalog/imgs/catalogBg1.jpeg');
     background-size: cover;
 
 }
@@ -179,7 +180,8 @@
 .scene-wraper {
     position: relative;
     z-index: 1;
-    background: url('../../base/imgs/mainBg3.jpg');
+    //background: url('../../base/imgs/mainBg3.jpg');
+    background: url('../../catalog/imgs/catalogBg1.jpeg');
 
     overflow: hidden;
     background-size: cover;
@@ -382,12 +384,17 @@
 
 
 .scene {
-    width: 460px;
-    height: 340px;
+    width: 710px;
+    height: 590px;
 
     .carousel__cell {
-        width: 440px;
-        height: 320px;
+        width: 710px;
+        height: 590px;
+        .carusel-img {
+            height: 530px;
+            //width: 710px;
+            border-radius: 25px;
+        }
     }
 }
 

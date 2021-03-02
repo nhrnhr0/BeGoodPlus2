@@ -142,15 +142,15 @@
 }
 
 .section-1-wraper {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../imgs/white_paper.webp");
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../imgs/white_paper.webp");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../../catalog/imgs/catalogBg1.jpeg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../catalog/imgs/catalogBg1.jpeg");
   background-size: cover;
 }
 
 .scene-wraper {
   position: relative;
   z-index: 1;
-  background: url("../../base/imgs/mainBg3.jpg");
+  background: url("../../catalog/imgs/catalogBg1.jpeg");
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -364,13 +364,18 @@
 }
 
 .scene {
-  width: 460px;
-  height: 340px;
+  width: 710px;
+  height: 590px;
 }
 
 .scene .carousel__cell {
-  width: 440px;
-  height: 320px;
+  width: 710px;
+  height: 590px;
+}
+
+.scene .carousel__cell .carusel-img {
+  height: 530px;
+  border-radius: 25px;
 }
 
 /*
