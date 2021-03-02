@@ -93,6 +93,13 @@
   .modal-header {
     background: #ffd880;
   }
+  .modal-body{ 
+    background: url('../imgs/catalogBg1.jpeg');
+    //background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),url('../imgs/catalogBg1.jpeg');
+    overflow: hidden;
+    background-size: contain;
+    background-position: center;
+  }
   .modal-footer {
     background: #ffd880;
   }
@@ -110,12 +117,13 @@
       min-width: 35%;
       padding-left:30px;
       .product-title {
-        font-size: 1.6em;
+        font-size: 2em;
         font-weight: bold;
       }
       .product-description {
         max-height: 120px;
         overflow-y: auto;
+        font-size: 1.6em;
       }
       .product-color {
         display: flex;

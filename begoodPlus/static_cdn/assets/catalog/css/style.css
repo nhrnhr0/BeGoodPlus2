@@ -109,6 +109,13 @@
   background: #ffd880;
 }
 
+.modal .modal-body {
+  background: url("../imgs/catalogBg1.jpeg");
+  overflow: hidden;
+  background-size: contain;
+  background-position: center;
+}
+
 .modal .modal-footer {
   background: #ffd880;
 }
@@ -132,13 +139,14 @@
 }
 
 #catalogModal .inner-body .product-detail .product-title {
-  font-size: 1.6em;
+  font-size: 2em;
   font-weight: bold;
 }
 
 #catalogModal .inner-body .product-detail .product-description {
   max-height: 120px;
   overflow-y: auto;
+  font-size: 1.6em;
 }
 
 #catalogModal .inner-body .product-detail .product-color {
