@@ -118,12 +118,13 @@
       padding-left:30px;
       .product-title {
         font-size: 2em;
-        font-weight: bold;
+        font-weight: bolder;
       }
       .product-description {
         max-height: 120px;
         overflow-y: auto;
-        font-size: 1.6em;
+        font-size: 1.3em;
+        font-weight: bold;
       }
       .product-color {
         display: flex;

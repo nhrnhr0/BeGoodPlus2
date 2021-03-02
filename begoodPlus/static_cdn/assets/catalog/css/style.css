@@ -140,13 +140,14 @@
 
 #catalogModal .inner-body .product-detail .product-title {
   font-size: 2em;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 #catalogModal .inner-body .product-detail .product-description {
   max-height: 120px;
   overflow-y: auto;
-  font-size: 1.6em;
+  font-size: 1.3em;
+  font-weight: bold;
 }
 
 #catalogModal .inner-body .product-detail .product-color {
