@@ -194,7 +194,7 @@
                     var img = album.images_list[j];
                     albumMarkup += `
                         <div data-album-id="${album.id}" data-my-slide-index="${k++}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
-                            <img width="150px" height="150px" data-lazy="${img.image_thumbnail}" alt="${img.description}" />
+                            <img data-lazy="${img.image_thumbnail}" alt="${img.description}" />
                             <div class="img-title">${img.title}</div>
                         </div>`
                     albumPreload += `<link rel="prefetch" width="923px" height="715px" href="${img.image}" />`;

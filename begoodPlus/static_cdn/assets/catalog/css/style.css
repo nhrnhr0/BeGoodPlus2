@@ -3,7 +3,7 @@
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../imgs/catalogBg1.jpeg");
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../imgs/catalogBg1.jpeg");
   overflow: hidden;
-  background-size: contain;
+  background-size: 20%;
   background-position: center;
 }
 
@@ -27,11 +27,12 @@
   background-color: #0d6efd;
   border-color: #0d6efd;
   margin-top: 25px;
-  color: black;
+  color: white;
   font-weight: bold;
   text-align: center;
   font-size: 2rem;
   width: 70%;
+  border-radius: 30px;
 }
 
 .title-wraper .title:hover {
@@ -107,17 +108,29 @@
 
 .modal .modal-header {
   background: #ffd880;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.modal .modal-header .modal-title {
+  font-weight: 700;
+  font-size: 2.5em;
 }
 
 .modal .modal-body {
   background: url("../imgs/catalogBg1.jpeg");
   overflow: hidden;
-  background-size: contain;
+  background-size: 20%;
   background-position: center;
 }
 
 .modal .modal-footer {
   background: #ffd880;
+}
+
+#catalogModal .modal-body {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
 }
 
 #catalogModal .inner-body {
@@ -238,5 +251,51 @@
 
 #categoryModal .category-items .category-item {
   padding: 5px;
+  position: relative;
+}
+
+#categoryModal .category-items .category-item:hover {
+  background-color: black;
+}
+
+#categoryModal .category-items .category-item img {
+  height: auto;
+  padding: 5px;
+}
+
+#categoryModal .category-items .category-item img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0)));
+  -webkit-mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+          mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0)));
+          mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+}
+
+#categoryModal .category-items .category-item img:hover + .img-title {
+  display: block;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  font-weight: 700;
+}
+
+#categoryModal .category-items .category-item .img-title {
+  position: absolute;
+  display: none;
+  color: white;
+  z-index: 2000;
+  bottom: 0px;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  font-size: 1.5em;
+  left: 50%;
+  pointer-events: none;
+  text-align: center;
+}
+
+.contact-form-wraper2 {
+  background-color: #FFD880;
 }
 /*# sourceMappingURL=style.css.map */

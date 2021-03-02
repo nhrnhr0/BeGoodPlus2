@@ -4,7 +4,7 @@
     background: url('../imgs/catalogBg1.jpeg');
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url('../imgs/catalogBg1.jpeg');
     overflow: hidden;
-    background-size: contain;
+    background-size: 20%;
     background-position: center;
 
     //mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgb(0, 0, 0));
@@ -23,12 +23,13 @@
       background-color: #0d6efd;
       border-color: #0d6efd;
       margin-top: 25px;
-      color: black;
+      color: white;
       font-weight: bold;
       
       text-align: center;
       font-size: 2rem;
       width: 70%;
+      border-radius: 30px;
       &:hover {
         opacity: 1;
       }
@@ -92,12 +93,18 @@
   }
   .modal-header {
     background: #ffd880;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    .modal-title {
+      font-weight: 700;
+      font-size: 2.5em;
+    }
   }
   .modal-body{ 
     background: url('../imgs/catalogBg1.jpeg');
     //background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),url('../imgs/catalogBg1.jpeg');
     overflow: hidden;
-    background-size: contain;
+    background-size: 20%;
     background-position: center;
   }
   .modal-footer {
@@ -105,7 +112,10 @@
   }
 }
 #catalogModal {
-  
+  .modal-body {
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;
+  }
   .inner-body {
     display: flex;
     flex-direction: row;
@@ -193,6 +203,45 @@
     align-items: center;
     .category-item {
       padding:5px;
+      &:hover {
+        background-color: black;
+      }
+      position: relative;
+      img {
+        height: auto;
+        padding: 5px;
+  
+        &:hover {
+          transform: scale(1.1);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+        }
+  
+        &:hover + .img-title {
+          display: block;
+          transition: transform 0.2s;
+          //transform: translate(-50%, -80%);
+          font-weight: 700;
+        }
+      }
+      .img-title {
+        position: absolute;
+        display: none;
+        color: white;
+        z-index: 2000;
+        bottom: 0px;
+        transform: translate(-50%, 0%);
+        //top: 0px;
+        font-size: 1.5em;
+        
+        left: 50%;
+        pointer-events: none;
+        text-align: center;
+      }
     }
   }
+}
+
+
+.contact-form-wraper2 {
+  background-color: #FFD880;
 }

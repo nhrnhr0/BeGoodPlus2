@@ -160,6 +160,7 @@ function openCategoryModal(albumId) {
     img = album.images_list[i];
     imagesMarkup+= `<div class="category-item" onclick="$('.my-slick-slide[data-prod-id=${img.id}]').click();" data-category-prod-id="${img.id}">
                     <img width="250px" height="250px" src="${img.image_thumbnail}" alt="${img.description}" />
+                    <div class="img-title">${img.title}</div>
                     </div>
       `
   }
