@@ -43,27 +43,34 @@
 }
 
 .slick-slider .my-slick-slide img:hover + .img-title {
+  display: block;
   -webkit-transition: -webkit-transform 0.2s;
   transition: -webkit-transform 0.2s;
   transition: transform 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;
-  -webkit-transform: translate(-50%, -80%);
-          transform: translate(-50%, -80%);
   font-weight: 700;
 }
 
 .slick-slider .my-slick-slide .img-title {
   position: absolute;
+  display: none;
   color: white;
   z-index: 2000;
-  top: 0px;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  top: 50%;
+  bottom: 0px;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
   font-size: 1.5em;
   left: 50%;
   pointer-events: none;
   text-align: center;
+}
+
+.modal .modal-header {
+  background: #ffd880;
+}
+
+.modal .modal-footer {
+  background: #ffd880;
 }
 
 #catalogModal .close {
@@ -90,6 +97,11 @@
 #catalogModal .inner-body .product-detail {
   min-width: 35%;
   padding-left: 30px;
+}
+
+#catalogModal .inner-body .product-detail .product-title {
+  font-size: 1.6em;
+  font-weight: bold;
 }
 
 #catalogModal .inner-body .product-detail .product-color {
@@ -132,7 +144,7 @@
 #catalogModal .inner-body .product-detail .product-size .size-box {
   border: 1px black solid;
   margin: 3px;
-  width: 30px;
+  min-width: 30px;
   text-align: center;
   font-weight: 700;
 }

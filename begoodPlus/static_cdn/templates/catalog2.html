@@ -54,6 +54,10 @@
             <div class="modal-footer">
                 <button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>
                 <button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>
+
+                
+                <button id="modal-prev-btn" class="btn btn-danger"> הקודם </button>
+                <button id="modal-next-btn" class="btn btn-danger" > הבא </button>
             </div>
         </div>
     </div>
@@ -248,11 +252,25 @@
                     <div class="img-wraper"><img src="${img.image}"/></div>
                 </div>
                 <div class="inner-footer">
-                    <button class="btn btn-primary" onclick="$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();" > הבא </button>
+                    <!--
+                    <button class="btn btn-primary" onclick="" > הבא </button>
                     <button class="btn btn-primary" onclick="$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();" > הקודם </button>
+                    -->
                 </div>
             `)
 
+            $('#modal-next-btn').attr('onClick',`$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`);
+            $('#modal-prev-btn').attr('onClick',`$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`);
+            /*
+            $('#modal-next-btn').click(function (e) {
+                console.log('click next', e);
+                debugger;
+                $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`).click();
+            });*/
+            $('#modal-prev-btn').click(function (e) {
+                console.log('click prev', e);
+                $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]`).click();
+            });
 
             $('#modal-add-btn').val(prodId);
             $('#modal-add-btn').click((e) => {
@@ -272,7 +290,6 @@
 
 
         task = myStorage.getItem('user_click_task');
-        debugger;
         if (task == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
             console.log('show task catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e');
             setTimeout(() => {

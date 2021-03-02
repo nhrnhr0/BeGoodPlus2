@@ -35,24 +35,34 @@
         
       }
       &:hover + .img-title {
+        display: block;
         transition: transform 0.2s;
-        transform: translate(-50%, -80%);
+        //transform: translate(-50%, -80%);
         font-weight: 700;
       }
     }
     .img-title {
       position: absolute;
+      display: none;
       color: white;
       z-index: 2000;
-      top: 0px;
-      transform: translate(-50%, -50%);
-      top: 50%;
+      bottom: 0px;
+      transform: translate(-50%, 0%);
+      //top: 0px;
       font-size: 1.5em;
       
       left: 50%;
       pointer-events: none;
       text-align: center;
     }
+  }
+}
+.modal {
+  .modal-header {
+    background: #ffd880;
+  }
+  .modal-footer {
+    background: #ffd880;
   }
 }
 #catalogModal {
@@ -74,6 +84,10 @@
       //padding-right: 5px;
       min-width: 35%;
       padding-left:30px;
+      .product-title {
+        font-size: 1.6em;
+        font-weight: bold;
+      }
       .product-color {
         flex-wrap: wrap;
         flex-direction: row-reverse;
@@ -97,7 +111,7 @@
         .size-box {
           border: 1px black solid;
           margin: 3px;
-          width: 30px;
+          min-width: 30px;
           text-align: center;
           font-weight: 700;
           &:hover {

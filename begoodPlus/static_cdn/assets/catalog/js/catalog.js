@@ -240,7 +240,6 @@ function updateProductsCart() {
     url: '/tasks/get-user-cart',
     //data: serFrm,
     success: (json)=> {
-      debugger;
       console.log(json);
       //myStorage.setItem('task_catalog_id',json.task_id );
       //getUserTasks();
@@ -259,7 +258,6 @@ function updateProductsCart() {
 }
 
 function loadProductsModal() {
-  debugger;
   $('#likedProductsModal').modal('show');
   $('#likedProductsModal .close-modal').click(function () {
     $('#likedProductsModal').modal('hide');
