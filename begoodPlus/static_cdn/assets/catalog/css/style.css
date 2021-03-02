@@ -20,12 +20,19 @@
 }
 
 .title-wraper .title {
+  opacity: 0.5;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
   margin-top: 25px;
   color: black;
   font-weight: bold;
   text-align: center;
   font-size: 2rem;
   width: 70%;
+}
+
+.title-wraper .title:hover {
+  opacity: 1;
 }
 
 .slick-dots li button:before {
@@ -114,6 +121,9 @@
 }
 
 #catalogModal .inner-body .product-detail {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   min-width: 35%;
   padding-left: 30px;
 }
@@ -177,8 +187,15 @@
   color: white;
 }
 
+#catalogModal .inner-body .img-wraper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 #catalogModal .inner-body .img-wraper img {
   width: 450px;
+  float: left;
 }
 
 #catalogModal .modal-footer {

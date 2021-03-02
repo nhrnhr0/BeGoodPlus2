@@ -16,6 +16,9 @@
   display: flex;
   justify-content: center;
   .title{
+      opacity: 0.5;
+      background-color: #0d6efd;
+      border-color: #0d6efd;
       margin-top: 25px;
       color: black;
       font-weight: bold;
@@ -23,6 +26,9 @@
       text-align: center;
       font-size: 2rem;
       width: 70%;
+      &:hover {
+        opacity: 1;
+      }
   }
 }
 .slick-dots li button:before {
@@ -97,6 +103,7 @@
     
     .product-detail {
       //padding-right: 5px;
+      flex:1;
       min-width: 35%;
       padding-left:30px;
       .product-title {
@@ -148,8 +155,10 @@
 
     }
     .img-wraper {
+      flex:1;
       img {
         width: 450px;
+        float: left;
       }
     }
   }
