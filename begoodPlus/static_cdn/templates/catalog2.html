@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
 <!-- Add the slick-theme.css if you want default styling -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
-
 <link rel="stylesheet" href="{%static 'assets/catalog/css/style.css' %}">
 {% endblock extra_head%}
 
@@ -22,8 +21,8 @@
 <div class="modal" id="catalogProductsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+            <div class="modal-header text-center">
+                <h5 class="modal-title  w-100">Modal title</h5>
                 <button type="button" class="close close-modal" data-dismiss="catalogModal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -42,8 +41,8 @@
 <div class="modal" id="catalogModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+            <div class="modal-header text-center">
+                <h5 class="modal-title  w-100">Modal title</h5>
                 <button type="button" class="close close-modal" data-dismiss="catalogModal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -67,8 +66,8 @@
 <div class="modal" id="categoryModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Category</h5>
+            <div class="modal-header text-center">
+                <h5 class="modal-title  w-100">Category</h5>
                 <button type="button" class="close close-modal" data-dismiss="catalogModal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -93,8 +92,8 @@
 <div class="modal" id="likedProductsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">מוצרים שאהבתי</h5>
+            <div class="modal-header text-center">
+                <h5 class="modal-title  w-100">מוצרים שאהבתי</h5>
                 <button type="button" class="close close-modal" data-dismiss="likedProductsModal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -186,7 +185,7 @@
                 albumMarkup += `
                     <!--<div class="title">${album.title}</div>-->
                     <div class="title-wraper">
-                        <button data-album-id="${album.id}" onclick="openCategoryModal(${album.id})" class="title btn btn-success">${album.title}</button>
+                        <button data-album-id="${album.id}" onclick="openCategoryModal(${album.id})" class="title btn btn-outline-success">${album.title}</button>
                     </div>
                     <div class="container">
                         <div id="slick-slider-${i}" class="slick-slider">`
@@ -274,11 +273,21 @@
                         <hr>
                         <div class="product-description">${img.description.replace(/(?:\r\n|\r|\n)/g, '<br>') }</div>
                         <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="product-color ">${colorMarkup}</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="product-size">${sizeMarkup}</div>
+                            </div>
+                        </div>
+                        <!--
                         <div class="section-title">צבעים</div>
                         <div class="product-color">${colorMarkup}</div>
                         <hr>
                         <div class="section-title">מידות</div>
                         <div class="product-size">${sizeMarkup}</div>
+                        -->
                     </div>
                     <div class="img-wraper"><img id="catalog-image-${img.id}" src="${img.image}"/></div>
                 </div>

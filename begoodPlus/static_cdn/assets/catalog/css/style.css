@@ -1,5 +1,5 @@
 .catalog {
-  background-color: #FFFDD1;
+  background: url("../imgs/catalogBg1.jpeg");
 }
 
 @media (min-width: 576px) {
@@ -19,7 +19,8 @@
 
 .title-wraper .title {
   margin-top: 25px;
-  color: wheat;
+  color: black;
+  font-weight: bold;
   text-align: center;
   font-size: 2rem;
   width: 70%;
@@ -37,10 +38,16 @@
   position: relative;
 }
 
+.slick-slider .my-slick-slide:hover {
+  background-color: black;
+}
+
 .slick-slider .my-slick-slide img {
   width: 100%;
   height: auto;
   padding: 5px;
+  -webkit-filter: none !important;
+          filter: none !important;
 }
 
 .slick-slider .my-slick-slide img:hover {
@@ -120,17 +127,16 @@
 }
 
 #catalogModal .inner-body .product-detail .product-color {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /*
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        display: flex;
+        flex-direction: row;*/
 }
 
 #catalogModal .inner-body .product-detail .product-color .color-box {
@@ -145,13 +151,13 @@
 }
 
 #catalogModal .inner-body .product-detail .product-size {
+  /*
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
