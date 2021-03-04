@@ -45,7 +45,7 @@ function updateCatalogTask() {
   });
 }
 
-
+// TODO: send the ajax once and not once per input field
 function updateLikedProductsTask() {
   var frm = $('#likedProductsForm');
   task_id = myStorage.getItem('task_products_id');
@@ -60,15 +60,16 @@ function updateLikedProductsTask() {
     url: '/tasks/update-products-form',
     data: serFrm,
     success: (json)=> {
-      debugger;
       console.log(json);
       myStorage.setItem('task_products_id',json.task_name );
-      getUserTasks();
+
+      /*getUserTasks();
       for(var i = 0; i< json.products_list.length; i++) {
         img = json.products_list[i];
         var slick_slide = $(`[data-prod-id="${img.id}"`);
         slick_slide.data('is-added',true);
-      }
+        updateClientLikedUI1(img.id);
+      }*/
     },
     dataType: "json"
   });
@@ -93,12 +94,49 @@ function setClientLinkedProducts(products) {
   myStorage.setItem('client_liked_products', JSON.stringify(products));
 }
 */
+function modal_add_btn_click() {
+  
+}
+function updateClientLikedUI() {
+  console.log('hey');
+  liked_products = $('#likedProductsForm input[name="products[]"]');
+  for(var i = 0; i<liked_products.length;i++) {
+    updateClientLikedUI1(liked_products.val());
+  }
+
+}
+function updateClientLikedUI1(prodId) {
+  $(`.my-slick-slide[data-prod-id=${prodId}]`).addClass('checked');
+  $(`.category-item[data-category-prod-id="${prodId}"]`).addClass('checked');
+}
+
+// delete the product from the user form
+function removeClientLikeProduct(prodId) {
+  var productsToRemove = $(`#likedProductsForm :input[name="products[]"]`).filter(function() {
+    return this.value == prodId
+  });
+  productsToRemove.remove();
+  
+  $.ajax({
+    type: "GET",
+    url: `tasks/delete-user-liked-product/${prodId}`,
+    //data: serFrm,
+    success: (json)=> {
+      console.log('product deleted in the server');
+    }
+  });
+  
+  updateLikedProductsTask();
+}
 function addClientLikeProduct(prodId) {
   //products = $('#likedProductsForm > products[]');
   $('#likedProductsForm').append(`<input type="text" name="products[]" value="${prodId}"id="">`);
   $('#likedProductsForm').trigger('change');
   $('#modal-add-btn').prop('disabled', true);
   $('#modal-add-btn').text('נוסף להצעת מחיר');
+  $('#modal-add-btn').addClass('isAdded');
+  //updateClientLikedUI();
+  updateProductsCart();
   console.log('addClientLikeProduct done');
   /*
   products = getClientLinkedProducts();
@@ -128,17 +166,35 @@ function updateProductsCart() {
       //myStorage.setItem('task_catalog_id',json.task_id );
       //getUserTasks();
       var productsMarkup = '<ul>';
+      debugger;
       for(var i = 0; i < json.products_list.length; i++) {
+        
         product = json.products_list[i];
         productsMarkup += `
-          <li><img src=${product.image_thumbnail} height="50px"/> <span>${product.title}</span>
+          <li data-prod-id="${product.id}">
+            <div>
+              <img src=${product.image_thumbnail} height="50px"/>
+              <span>${product.title}</span>
+            </div>
+            <div>
+              <button type='button' data-prod-id="${product.id}" onclick="deleteLikedProductBtn(${product.id});" ><span >&times;</span></button>
+            </div>
+          </li>
         `
+        updateClientLikedUI1(product.id);
       }
       productsMarkup += '</ul>';
       $('#cartProductsList').html(productsMarkup);
     },
     dataType: "json"
   });
+}
+
+// delete the product from the user cart in the html and in the form
+function deleteLikedProductBtn(prodId) {
+  console.log('delete me');
+  $(`li[data-prod-id="${prodId}"`).remove();
+  removeClientLikeProduct(prodId);
 }
 
 function loadProductsModal() {
@@ -150,7 +206,8 @@ function loadProductsModal() {
 }
 
 function openCategoryModal(albumId) {
-  debugger;
+  //updateLikedProductsTask();
+  updateProductsCart();
   var albums = getAllAlbums();
   var album = albums.find((val, idx, obj) => {
     return val.id == albumId
@@ -158,9 +215,12 @@ function openCategoryModal(albumId) {
   var imagesMarkup = '<div class="category-items">'
   for(var i = 0; i < album.images_list.length;i++) {
     img = album.images_list[i];
-    imagesMarkup+= `<div class="category-item" onclick="$('.my-slick-slide[data-prod-id=${img.id}]').click();" data-category-prod-id="${img.id}">
-                    <img width="250px" height="250px" src="${img.image_thumbnail}" alt="${img.description}" />
+    imagesMarkup+= `<div class="category-item" data-category-prod-id="${img.id}">
+                    <img width="250px" height="250px" onclick="$('.my-slick-slide[data-prod-id=${img.id}]').click();" src="${img.image_thumbnail}" alt="${img.description}" />
                     <div class="img-title">${img.title}</div>
+                    <div onclick="$('.my-slick-slide[data-prod-id=${img.id}] [name=like-btn]').click();" class="like-btn" name="like-btn">
+                      <i name="like-btn" class="fa fa-heart"></i>
+                    </div>
                     </div>
       `
   }

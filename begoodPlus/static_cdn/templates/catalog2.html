@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
 <!-- Add the slick-theme.css if you want default styling -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+<script src="https://kit.fontawesome.com/022c0fea0b.js" crossorigin="anonymous" defer></script>
 <link rel="stylesheet" href="{%static 'assets/catalog/css/style.css' %}">
 {% endblock extra_head%}
 
@@ -51,13 +52,13 @@
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-                
+
                 <!--<button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>-->
 
-                
+
                 <button id="modal-prev-btn" class="btn btn-secondary"> הקודם </button>
                 <button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>
-                <button id="modal-next-btn" class="btn btn-secondary" > הבא </button>
+                <button id="modal-next-btn" class="btn btn-secondary"> הבא </button>
             </div>
         </div>
     </div>
@@ -76,7 +77,7 @@
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-                
+
                 <!--<button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>-->
 
                 <!--
@@ -105,19 +106,19 @@
                         <div class="col-6">
                             <input type="hidden" name="taskName" id="taskName"
                                 value="products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e">
-                                <div class="form-group">
-                                    <label class="control-label">Name</label>
-                                    <div>
-                                        <input type="text" class="form-control input-lg" name="name" value="">
-                                    </div>
+                            <div class="form-group">
+                                <label class="control-label">Name</label>
+                                <div>
+                                    <input type="text" class="form-control input-lg" name="name" value="">
                                 </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label">E-Mail Address</label>
                                 <div>
                                     <input type="email" class="form-control input-lg" name="email" value="">
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="control-label">Phone</label>
                                 <div>
@@ -173,7 +174,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        
+        updateProductsCart();
         albums = getAllAlbums();
         var catalogMarkup = ``;
         var catalogPreload = ``;
@@ -193,10 +194,17 @@
                 for (var j = 0; j < album.images_list.length; j++) {
                     var img = album.images_list[j];
                     albumMarkup += `
-                        <div data-album-id="${album.id}" data-my-slide-index="${k++}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
-                            <img data-lazy="${img.image_thumbnail}" alt="${img.description}" />
-                            <div class="img-title">${img.title}</div>
-                        </div>`
+                        <div class="wraper-my-slick-slide">
+                            <div data-album-id="${album.id}" data-my-slide-index="${k++}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
+                                <img data-lazy="${img.image_thumbnail}" alt="${img.description}" />
+                                <div class="img-title">${img.title}</div>
+                                <div class="like-btn" name="like-btn">
+                                    <i name="like-btn" class="fa fa-heart"></i>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        `
                     albumPreload += `<link rel="prefetch" width="923px" height="715px" href="${img.image}" />`;
                 }
                 albumMarkup += `</div></div>`
@@ -207,6 +215,7 @@
         $('.catalog').html(catalogMarkup).append(catalogPreload);
         console.log(albums)
         var slisks = $('.slick-slider');
+        
         for (var i = 0; i < slisks.length; i++) {
 
 
@@ -239,33 +248,38 @@
         }
 
         $('.my-slick-slide').on('click', (e) => {
-            console.log(e.currentTarget);
-            var prodId = parseInt(e.currentTarget.dataset.prodId);
-            var albumId = parseInt(e.currentTarget.dataset.albumId);
-            var isAdded = e.currentTarget.dataset.isAdded;
+            if (e.target.getAttribute('name') == 'like-btn') {
+                console.log('I like this products!');
+                addClientLikeProduct(e.currentTarget.dataset.prodId);
+                //$(e.currentTarget).addClass('checked');
+                //$('#product-like-btn').prop("checked", true);
+            } else {
+                var prodId = parseInt(e.currentTarget.dataset.prodId);
+                var albumId = parseInt(e.currentTarget.dataset.albumId);
+                //var isAdded = e.currentTarget.dataset.isAdded;
 
-            albums = getAllAlbums();
-            var album = albums.find((val, idx, obj) => {
-                return val.id == albumId
-            })
-            var img = album.images_list.find((val) => {
-                return val.id == prodId
-            });
+                albums = getAllAlbums();
+                var album = albums.find((val, idx, obj) => {
+                    return val.id == albumId
+                })
+                var img = album.images_list.find((val) => {
+                    return val.id == prodId
+                });
 
-            var colorMarkup = ``
-            for (var i = 0; i < img.colors_list.length; i++) {
-                var col = img.colors_list[i];
-                colorMarkup += `<div class="color-box" style="background:${col.color};"></div>`;
-            }
+                var colorMarkup = ``
+                for (var i = 0; i < img.colors_list.length; i++) {
+                    var col = img.colors_list[i];
+                    colorMarkup += `<div class="color-box" style="background:${col.color};"></div>`;
+                }
 
-            var sizeMarkup = ``;
-            for (var i = 0; i < img.sizes_list.length; i++) {
-                var size = img.sizes_list[i];
-                sizeMarkup += `<div class="size-box">${size.size}</div>`;
-            }
+                var sizeMarkup = ``;
+                for (var i = 0; i < img.sizes_list.length; i++) {
+                    var size = img.sizes_list[i];
+                    sizeMarkup += `<div class="size-box">${size.size}</div>`;
+                }
 
-            $('#catalogModal .modal-title').text(album.title);
-            $('#catalogModal .modal-body').html(`
+                $('#catalogModal .modal-title').text(album.title);
+                $('#catalogModal .modal-body').html(`
                 <div class="inner-body">
 
                     <div class="product-detail">
@@ -281,57 +295,67 @@
                                 <div class="product-size">${sizeMarkup}</div>
                             </div>
                         </div>
-                        <!--
-                        <div class="section-title">צבעים</div>
-                        <div class="product-color">${colorMarkup}</div>
-                        <hr>
-                        <div class="section-title">מידות</div>
-                        <div class="product-size">${sizeMarkup}</div>
-                        -->
                     </div>
                     <div class="img-wraper"><img id="catalog-image-${img.id}" src="${img.image}"/></div>
                 </div>
                 <div class="inner-footer">
-                    <!--
-                    <button class="btn btn-primary" onclick="" > הבא </button>
-                    <button class="btn btn-primary" onclick="$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();" > הקודם </button>
-                    -->
                 </div>
             `)
-            debugger;
-            $('#modal-next-btn').attr('onClick',`$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`);
-            $('#modal-prev-btn').attr('onClick',`$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`);
-            /*
-            $('#modal-next-btn').click(function (e) {
-                console.log('click next', e);
-                debugger;
-                $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`).click();
-            });*/
-            $('#modal-prev-btn').click(function (e) {
-                console.log('click prev', e);
-                $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]`).click();
-            });
+                $('#modal-next-btn').attr('onClick',
+                    `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
+                    );
+                $('#modal-prev-btn').attr('onClick',
+                    `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
+                    );
+                /*
+                $('#modal-next-btn').click(function (e) {
+                    console.log('click next', e);
+                    $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`).click();
+                });*/
+                $('#modal-prev-btn').click(function (e) {
+                    console.log('click prev', e);
+                    $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]`)
+                        .click();
+                });
 
-            $('#modal-add-btn').val(prodId);
-            debugger;
-            if($(e.currentTarget).data().isAdded){
-                $('#modal-add-btn').prop('disabled', true);
-                $('#modal-add-btn').text('נוסף להצעת מחיר');
-            }else {
-                $('#modal-add-btn').prop('disabled', false);
-                $('#modal-add-btn').text('הוסף להצעת מחיר');
+                $('#modal-add-btn').val(prodId);
+                if($(e.currentTarget).hasClass('checked')) {
+                    $('#modal-add-btn').prop('disabled', true);
+                    $('#modal-add-btn').text('נוסף להצעת מחיר');
+                    $('#modal-add-btn').addClass('isAdded');
+                }
+                else {
+                    $('#modal-add-btn').prop('disabled', false);
+                    $('#modal-add-btn').text('הוסף להצעת מחיר');
+                    $('#modal-add-btn').removeClass('isAdded');
+                }
+                /*
+                if ($(e.currentTarget).data().isAdded) {
+                    $('#modal-add-btn').prop('disabled', true);
+                    $('#modal-add-btn').text('נוסף להצעת מחיר');
+                    $('#modal-add-btn').addClass('isAdded');
+                } else {
+                    $('#modal-add-btn').prop('disabled', false);
+                    $('#modal-add-btn').text('הוסף להצעת מחיר');
+                    $('#modal-add-btn').removeClass('isAdded');
+                }*/
+                $('#modal-add-btn').click((e) => {
+                    console.log('modal-add-btn clicked');
+                    addClientLikeProduct(e.currentTarget.value)
+                });
+
+                $('#catalogModal').modal('show');
+                $('#catalogModal .close-modal').click(function () {
+                    console.log('#catalogModal > .close-modal');
+                    $('#catalogModal').modal('hide');
+                });
+
             }
-            $('#modal-add-btn').click((e) => {
-                console.log('modal-add-btn clicked');
-                addClientLikeProduct(e.currentTarget.value)
-            });
-
-            $('#catalogModal').modal('show');
-            $('#catalogModal .close-modal').click(function () {
-                console.log('#catalogModal > .close-modal');
-                $('#catalogModal').modal('hide');
-            });
+            
         });
+
+
+        
 
 
 
@@ -350,6 +374,9 @@
             loadProductsModal();
 
         }
+
+        console.log('updateClientLikedUI');
+        updateClientLikedUI();
     });
 </script>
 {%endblock%}

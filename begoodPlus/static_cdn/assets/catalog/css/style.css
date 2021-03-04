@@ -1,3 +1,7 @@
+:root {
+  --like-font-size: 30px;
+}
+
 .catalog {
   background: url("../imgs/catalogBg1.jpeg");
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../imgs/catalogBg1.jpeg");
@@ -47,12 +51,57 @@
   margin-bottom: 0px !important;
 }
 
+.slick-slider .wraper-my-slick-slide:hover {
+  background-color: black;
+}
+
 .slick-slider .my-slick-slide {
   position: relative;
 }
 
-.slick-slider .my-slick-slide:hover {
-  background-color: black;
+.slick-slider .my-slick-slide .like-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 1;
+  z-index: 2;
+  width: 100%;
+}
+
+.slick-slider .my-slick-slide .like-btn .fa-heart {
+  position: relative;
+  font-size: var(--like-font-size);
+  -webkit-text-stroke: 2px #e5e5e5;
+  color: whitesmoke;
+  -webkit-transition: all ease-in-out;
+  transition: all ease-in-out;
+  bottom: 0;
+  z-index: 3;
+}
+
+.slick-slider .my-slick-slide .like-btn:hover .fa-heart {
+  color: red;
+  -webkit-text-stroke: 1px red;
+  -webkit-animation: .5s linear burst;
+          animation: .5s linear burst;
+}
+
+.slick-slider .my-slick-slide.checked .fa-heart {
+  color: red;
+  -webkit-text-stroke: 1px red;
+  -webkit-animation: .5s linear burst;
+          animation: .5s linear burst;
 }
 
 .slick-slider .my-slick-slide img {
@@ -86,7 +135,7 @@
   display: none;
   color: white;
   z-index: 2000;
-  bottom: 0px;
+  bottom: 50%;
   -webkit-transform: translate(-50%, 0%);
           transform: translate(-50%, 0%);
   font-size: 1.5em;
@@ -229,10 +278,40 @@
           justify-content: space-between;
 }
 
-#catalogModal .modal-footer #modal-add-btn:disabled {
+#catalogModal .modal-footer #modal-add-btn.isAdded {
   color: #fff;
   background-color: #398439;
   border-color: #255625;
+  -webkit-animation: addToCartAnimation;
+          animation: addToCartAnimation;
+  -webkit-animation-duration: 100ms;
+          animation-duration: 100ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes addToCartAnimation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes addToCartAnimation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 #categoryModal .category-items {
@@ -295,7 +374,134 @@
   text-align: center;
 }
 
+#categoryModal .category-items .category-item .like-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 1;
+  z-index: 2;
+  width: 100%;
+}
+
+#categoryModal .category-items .category-item .like-btn .fa-heart {
+  position: relative;
+  font-size: var(--like-font-size);
+  -webkit-text-stroke: 2px #e5e5e5;
+  color: whitesmoke;
+  -webkit-transition: all ease-in-out;
+  transition: all ease-in-out;
+  bottom: 0;
+  z-index: 3;
+}
+
+#categoryModal .category-items .category-item .like-btn:hover .fa-heart {
+  color: red;
+  -webkit-text-stroke: 1px red;
+  -webkit-animation: .5s linear burst;
+          animation: .5s linear burst;
+}
+
+#categoryModal .category-items .category-item.checked .fa-heart {
+  color: red;
+  -webkit-text-stroke: 1px red;
+  -webkit-animation: .5s linear burst;
+          animation: .5s linear burst;
+}
+
 .contact-form-wraper2 {
   background-color: #FFD880;
+}
+
+@-webkit-keyframes burst {
+  0%, 10% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: .5;
+    color: lavender;
+  }
+  45% {
+    -webkit-transform: scale(0.2) rotate(30deg);
+            transform: scale(0.2) rotate(30deg);
+    opacity: .75;
+  }
+  50% {
+    -webkit-transform: scale(2) rotate(-37.5deg);
+            transform: scale(2) rotate(-37.5deg);
+    opacity: 1;
+    color: red;
+    text-shadow: 2px 2px 6px rgba(235, 9, 9, 0.5);
+  }
+  90%, 95% {
+    -webkit-transform: scale(1) rotate(10deg);
+            transform: scale(1) rotate(10deg);
+    text-shadow: none;
+  }
+  100% {
+    -webkit-transform: rotate(-2.5deg);
+            transform: rotate(-2.5deg);
+  }
+}
+
+@keyframes burst {
+  0%, 10% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: .5;
+    color: lavender;
+  }
+  45% {
+    -webkit-transform: scale(0.2) rotate(30deg);
+            transform: scale(0.2) rotate(30deg);
+    opacity: .75;
+  }
+  50% {
+    -webkit-transform: scale(2) rotate(-37.5deg);
+            transform: scale(2) rotate(-37.5deg);
+    opacity: 1;
+    color: red;
+    text-shadow: 2px 2px 6px rgba(235, 9, 9, 0.5);
+  }
+  90%, 95% {
+    -webkit-transform: scale(1) rotate(10deg);
+            transform: scale(1) rotate(10deg);
+    text-shadow: none;
+  }
+  100% {
+    -webkit-transform: rotate(-2.5deg);
+            transform: rotate(-2.5deg);
+  }
+}
+
+#likedProductsModal .modal-body #cartProductsList ul li {
+  background: #FFD880;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#likedProductsModal .modal-body #cartProductsList ul li button {
+  border: 0;
+  background-color: transparent;
+}
+
+#likedProductsModal .modal-body #cartProductsList ul li button:hover {
+  color: red;
 }
 /*# sourceMappingURL=style.css.map */

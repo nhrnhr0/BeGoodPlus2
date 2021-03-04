@@ -1,4 +1,14 @@
 
+:root {
+  $fade-grey: #ededed;
+  $grey: #111;
+  $muted-grey: #999;
+  $heart: #ff4f8f;
+  $white: #fff;
+  --like-font-size: 30px;
+
+}
+
 .catalog {
     //background-color: #FFFDD1;//rgb(61, 61, 61);
     background: url('../imgs/catalogBg1.jpeg');
@@ -40,23 +50,67 @@
 }
 
 .slick-slider {
+
+
+
   margin-bottom: 0px!important;
-  .my-slick-slide {
+  .wraper-my-slick-slide {
     &:hover {
       background-color: black;
     }
+    
+    
+  }
+  .my-slick-slide {
+    .like-btn {
+      //position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition: all 0.5s;
+      opacity: 1;
+      z-index: 2;
+      width: 100%;
+      .fa-heart{
+        position: relative;
+        font-size: var(--like-font-size);
+        -webkit-text-stroke: 2px #e5e5e5;
+        color: whitesmoke;
+        transition: all ease-in-out;
+        bottom: 0;
+        z-index: 3;
+      }
+    }
+    
+    .like-btn:hover .fa-heart {
+      color: red;
+      -webkit-text-stroke: 1px red;
+      animation: .5s linear burst; 
+    }
+    
+    &.checked .fa-heart{
+      color: red;
+      -webkit-text-stroke: 1px red;
+      animation: .5s linear burst; 
+    }
+
+
+    
+    
     position: relative;
     img {
       width: 100%;
       height: auto;
       padding: 5px;
       filter: none !important;
-      
-
       &:hover {
         transform: scale(1.1);
         mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
       }
+
 
       &:hover + .img-title {
         display: block;
@@ -70,7 +124,7 @@
       display: none;
       color: white;
       z-index: 2000;
-      bottom: 0px;
+      bottom: 50%;
       transform: translate(-50%, 0%);
       //top: 0px;
       font-size: 1.5em;
@@ -187,10 +241,29 @@
 
   .modal-footer {
     justify-content: space-between;
+    #modal-add-btn {
+      &.isAdded {
+        color: #fff;
+        background-color: #398439;
+        border-color: #255625;
+        animation: addToCartAnimation;  
+        animation-duration: 100ms;
+        animation-iteration-count: 1;
+        animation-timing-function: linear; 
+      }
+    }
     #modal-add-btn:disabled {
-      color: #fff;
-      background-color: #398439;
-      border-color: #255625;
+      
+      
+    }
+
+    @keyframes addToCartAnimation {
+      from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
     }
   }
 }
@@ -237,6 +310,41 @@
         pointer-events: none;
         text-align: center;
       }
+
+      .like-btn {
+        //position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: all 0.5s;
+        opacity: 1;
+        z-index: 2;
+        width: 100%;
+        .fa-heart{
+          position: relative;
+          font-size: var(--like-font-size);
+          -webkit-text-stroke: 2px #e5e5e5;
+          color: whitesmoke;
+          transition: all ease-in-out;
+          bottom: 0;
+          z-index: 3;
+        }
+      }
+      
+      .like-btn:hover .fa-heart {
+        color: red;
+        -webkit-text-stroke: 1px red;
+        animation: .5s linear burst; 
+      }
+      
+      &.checked .fa-heart{
+        color: red;
+        -webkit-text-stroke: 1px red;
+        animation: .5s linear burst; 
+      }
     }
   }
 }
@@ -244,4 +352,55 @@
 
 .contact-form-wraper2 {
   background-color: #FFD880;
+}
+
+@keyframes burst{
+  0%,10%{
+      transform: scale(1);
+      opacity: .5;
+      color:lavender;
+  }
+  45%{
+      transform: scale(.2) rotate(30deg);
+      opacity: .75;
+  }
+  50%{
+      transform: scale(2) rotate(-37.5deg);
+      opacity: 1;
+      color: red;
+      text-shadow: 2px 2px 6px rgba(235, 9, 9, 0.5);
+  }
+  90%,95%{
+      transform: scale(1) rotate(10deg);
+      text-shadow: none;
+  }
+  100% {
+      transform: rotate(-2.5deg);
+  }
+
+}
+
+
+#likedProductsModal {
+  .modal-body {
+    #cartProductsList {
+      ul {
+        li {
+          background: #FFD880;
+          border-radius: 10px;
+          margin:5px;
+          padding:5px;
+          display: flex;
+          justify-content: space-between;
+          button {
+            border:0;
+            background-color: transparent;
+            &:hover {
+              color:red;
+            }
+          }
+        }
+      }
+    }
+  }
 }

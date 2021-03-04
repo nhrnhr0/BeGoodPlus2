@@ -44,6 +44,7 @@ def updateProductsFormUserTaskView(request, *args, **kwargs):
         task.name=name
         task.email=email
         task.phone=phone
+        #task.products.clear()
         for product in products:
             try:
                 #TODO: this code is not compleately working
@@ -68,7 +69,14 @@ def getUserCartView(request, *args, **kwargs):
     data = json.dumps(serializer.data)
     return HttpResponse(data,content_type="application/json")
     
-
+def delUserLikedProductView(request, prodId, *args,**kwargs):
+    if request.method == "GET":
+        session = get_session_key(request)
+        cart = ProductsTask.objects.filter(session=session).first()
+        product = CatalogImage.objects.get(pk=prodId)
+        cart.products.remove(product)
+        return getUserCartView(request, *args, **kwargs)
+    
 def updateContactFormUserTaskView(request,*args, **kwargs):
     if request.is_ajax() and request.method == "POST":
         #task_id = request.POST.get('task_id', None)
