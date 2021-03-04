@@ -141,7 +141,7 @@ function addClientLikeProduct(prodId) {
   $('#modal-add-btn').prop('disabled', true);
   $('#modal-add-btn').text('נוסף להצעת מחיר');
   $('#modal-add-btn').addClass('isAdded');
-  updateClientLikedUI(prodId);
+  updateClientLikedUI1(prodId);
   updateProductsCart();
   console.log('addClientLikeProduct done');
   /*
@@ -172,7 +172,6 @@ function updateProductsCart() {
       //myStorage.setItem('task_catalog_id',json.task_id );
       //getUserTasks();
       var productsMarkup = '<ul>';
-      debugger;
       for(var i = 0; i < json.products_list.length; i++) {
         
         product = json.products_list[i];

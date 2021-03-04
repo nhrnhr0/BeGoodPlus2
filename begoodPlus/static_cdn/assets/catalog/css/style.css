@@ -91,10 +91,9 @@
 }
 
 .slick-slider .my-slick-slide .like-btn:hover .fa-heart {
-  color: red;
-  -webkit-text-stroke: 1px red;
-  -webkit-animation: .5s linear burst;
-          animation: .5s linear burst;
+  color: transparent;
+  /*-webkit-text-stroke: 1px red;
+      animation: .5s linear burst; */
 }
 
 .slick-slider .my-slick-slide.checked .fa-heart {
@@ -481,6 +480,11 @@
     -webkit-transform: rotate(-2.5deg);
             transform: rotate(-2.5deg);
   }
+}
+
+#likedProductsModal .modal-body {
+  max-height: 80vh;
+  overflow: scroll;
 }
 
 #likedProductsModal .modal-body #cartProductsList ul li {

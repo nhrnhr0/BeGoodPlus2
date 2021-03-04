@@ -86,9 +86,9 @@
     }
     
     .like-btn:hover .fa-heart {
-      color: red;
-      -webkit-text-stroke: 1px red;
-      animation: .5s linear burst; 
+      color: transparent;
+      /*-webkit-text-stroke: 1px red;
+      animation: .5s linear burst; */
     }
     
     &.checked .fa-heart{
@@ -269,6 +269,7 @@
 }
 
 #categoryModal {
+  
   .category-items {
     display: flex;
     flex-wrap: wrap;
@@ -383,6 +384,8 @@
 
 #likedProductsModal {
   .modal-body {
+    max-height: 80vh;
+    overflow: scroll;
     #cartProductsList {
       ul {
         li {
