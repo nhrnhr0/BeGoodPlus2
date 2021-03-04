@@ -76,7 +76,6 @@ function submitForm() {
     if (!formIsFull) {
         return false;
     }
-    debugger;
     frm.submit(); // Submit the form
     var taskName = frm.find('#taskName').val();
     for (var i = 2; i < frm[0].length; i++) {

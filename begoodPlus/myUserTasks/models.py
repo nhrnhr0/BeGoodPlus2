@@ -7,11 +7,11 @@ from django.utils.translation import gettext as _
 class UserTask(models.Model):
     #session = models.ForeignKey(Session, on_delete=models.SET_NULL, blank=True, null=True)
     session = models.CharField(max_length=41, blank=True, null=True)
-    task_name = models.CharField(max_length=120, unique=True, blank=True, null=True)
+    task_name = models.CharField(max_length=120, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True, blank=True, null=True)
     class Meta:
-        pass
+        unique_together = ('task_name', 'session',)
 
 class ContactFormTask(UserTask):
     name = models.CharField(verbose_name=_('name'), max_length=50, blank=True, null=True)

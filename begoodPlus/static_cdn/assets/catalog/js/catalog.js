@@ -40,6 +40,7 @@ function updateCatalogTask() {
       console.log(json);
       myStorage.setItem('task_catalog_id',json.task_id );
       getUserTasks();
+      updateProductsCart();
     },
     dataType: "json"
   });
@@ -109,6 +110,10 @@ function updateClientLikedUI1(prodId) {
   $(`.my-slick-slide[data-prod-id=${prodId}]`).addClass('checked');
   $(`.category-item[data-category-prod-id="${prodId}"]`).addClass('checked');
 }
+function removeClientLikedUI1(prodId) {
+  $(`.my-slick-slide[data-prod-id=${prodId}]`).removeClass('checked');
+  $(`.category-item[data-category-prod-id="${prodId}"]`).removeClass('checked');
+}
 
 // delete the product from the user form
 function removeClientLikeProduct(prodId) {
@@ -116,6 +121,7 @@ function removeClientLikeProduct(prodId) {
     return this.value == prodId
   });
   productsToRemove.remove();
+  removeClientLikedUI1(prodId);
   
   $.ajax({
     type: "GET",
@@ -135,7 +141,7 @@ function addClientLikeProduct(prodId) {
   $('#modal-add-btn').prop('disabled', true);
   $('#modal-add-btn').text('נוסף להצעת מחיר');
   $('#modal-add-btn').addClass('isAdded');
-  //updateClientLikedUI();
+  updateClientLikedUI(prodId);
   updateProductsCart();
   console.log('addClientLikeProduct done');
   /*
