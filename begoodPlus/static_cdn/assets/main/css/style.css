@@ -185,15 +185,36 @@
           perspective: 1000px;
 }
 
+.scene .carusel-control {
+  top: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 125%;
+  position: relative;
+  -webkit-transform: translate(10%, 0);
+          transform: translate(10%, 0);
+}
+
 .scene .carusel-control .previous-button {
-  position: absolute;
-  top: 20%;
-  -webkit-transform: rotate(-90deg) translate(-50%, 0);
-          transform: rotate(-90deg) translate(-50%, 0);
-  right: 470px;
-  padding: 20px;
   background: transparent;
   border: 0;
+  -webkit-transform: rotate(-90deg) translate(0, 0);
+          transform: rotate(-90deg) translate(0, 0);
+  /*position: absolute;
+            top: 20%;
+            transform: rotate(-90deg) translate(-50%, 0);
+            right: 470px;
+            padding: 20px;
+            background: transparent;
+            border: 0;*/
 }
 
 .scene .carusel-control .previous-button :hover {
@@ -201,14 +222,17 @@
 }
 
 .scene .carusel-control .next-button {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: rotate(90deg) translate(-50%, 0);
-          transform: rotate(90deg) translate(-50%, 0);
-  right: -125px;
-  padding: 20px;
   background: transparent;
   border: 0;
+  -webkit-transform: rotate(90deg) translate(0, 0);
+          transform: rotate(90deg) translate(0, 0);
+  /*position: absolute;
+            top: 50%;
+            transform: rotate(90deg) translate(-50%, 0);
+            right: -125px;
+            padding: 20px;
+            background: transparent;
+            border: 0;*/
 }
 
 .scene .carusel-control .next-button :hover {
