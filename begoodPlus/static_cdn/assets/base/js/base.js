@@ -48,7 +48,10 @@ function autosave_functionality(autosave_identifier, selector) {
 
 
 function setContactFormAutoSave() {
-    frm = $('#contact-form');
+    setFormAutoSave($('#contact-form'));
+}
+function setFormAutoSave(formSelector) {
+    frm = formSelector;
     var taskName = frm.find('#taskName').val();
 
     for (var i = 2; i < frm[0].length; i++) {
@@ -56,7 +59,17 @@ function setContactFormAutoSave() {
     }
 }
 
+function resetFormAutoSave(formSelector) {
+    frm = formSelector;
+    var taskName = frm.find('#taskName').val();
 
+    for (var i = 2; i < frm[0].length; i++) {
+        sessionStorage.setItem(taskName + '_' + frm[0][i].id, '')
+    }
+}
+function resetContactFormAutoSave() {
+    resetFormAutoSave($('#contact-form'));
+}
 /** contact form submit */
 /* TODO: this function dose not clean the autosave data... */
 /*
@@ -128,23 +141,39 @@ function getUserTasks() {
         type: "GET",
         //cache:false,
         dataType: "json",
-        success: function(json){
+        success: function (json) {
             data = json;
             var markup = ``;
-            for(var i = 0; i< data.length; i++) {
-                if(data[i].task_name == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].task_name == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
                     markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/testCatalog#contact-form">לא סיימתי למלא טופס בדף הקטלוג </a></li>`
-                }
-                else if(data[i].task_name == "main-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+                } else if (data[i].task_name == "main-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
                     markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/test#contact-form">לא סיימתי למלא טופס בדף הבית </a></li>`
-                }
-                else if(data[i].task_name == "products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+                } else if (data[i].task_name == "products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
                     markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/testCatalog">לחץ כאן לשליחת טופס מוצרים אהובים </a></li>`
                 }
             }
             $('#navbarDropdownList').html(markup);
+            var tasksLenght = $('#navbarDropdownList li').length;
+            el = document.getElementById('navbarDropdown');
+            var count = Number(el.getAttribute('data-count')) || 0;
+            
+            if(count != tasksLenght) {
+                
+                el.setAttribute('data-count', tasksLenght);
+                el.classList.remove('notify');
+                el.offsetWidth = el.offsetWidth;
+                el.classList.add('notify');
+            }
+                        
+            if (count === 0) {
+                el.classList.remove('show-count');
+            }else {
+                
+                el.classList.add('show-count');
+            }
         },
-        error: function(e) {
+        error: function (e) {
             console.log('error: ', e);
         }
     });

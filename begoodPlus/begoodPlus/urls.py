@@ -91,10 +91,11 @@ urlpatterns = [
     path('test/', mainView, name='main-view'),
     path('testCatalog', catalogView2,name="catalogView2"),
     path('tasks/update-contact-form', updateContactFormUserTaskView, name='update-contact-form-user-task'),
+    #path('tasks/submit-contact-form', submitContactFormUserTaskView, name='submit-contact-form-user-task'),
     path('tasks/update-products-form', updateProductsFormUserTaskView, name='update-products-form-user-task'),
     path('tasks/get-user-tasks', getUserTasksView, name='get-user-tasks'),
     path('tasks/get-user-cart', getUserCartView, name='get-user-cart'),
-    path('tasks/delete-user-liked-product/<int:prodId>', delUserLikedProductView, name='delete-user-liked-product')
+    path('tasks/delete-user-liked-product/', delUserLikedProductView, name='delete-user-liked-product')
 ]
 
 if settings.DEBUG:

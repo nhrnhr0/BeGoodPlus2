@@ -10,8 +10,10 @@ class UserTask(models.Model):
     task_name = models.CharField(max_length=120, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True, blank=True, null=True)
+    submited = models.BooleanField(default=False)
     class Meta:
-        unique_together = ('task_name', 'session',)
+        #unique_together = ('task_name', 'session','submited','created_date')
+        pass
 
 class ContactFormTask(UserTask):
     name = models.CharField(verbose_name=_('name'), max_length=50, blank=True, null=True)

@@ -109,20 +109,20 @@
                             <div class="form-group">
                                 <label class="control-label">Name</label>
                                 <div>
-                                    <input type="text" class="form-control input-lg" name="name" value="">
+                                    <input type="text" class="form-control input-lg" id="id_name" name="name" value="" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">E-Mail Address</label>
                                 <div>
-                                    <input type="email" class="form-control input-lg" name="email" value="">
+                                    <input type="email" class="form-control input-lg"id="id_email" name="email" value="" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">Phone</label>
                                 <div>
-                                    <input type="tel" class="form-control input-lg" name="phone" value="">
+                                    <input type="tel" class="form-control input-lg" id="id_phone" name="phone" value="" required>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" id="modal-add-btn" class="btn btn-primary">שלח</button>
+                <button type="button" onclick="submitCatalogProducts()"   class="btn btn-primary">שלח</button><!--id="modal-add-btn"-->
                 <button type="button" class="btn btn-secondary close-modal"
                     data-dismiss="likedProductsModal">סגור</button>
             </div>
@@ -160,12 +160,17 @@
             </h2>
             {% bootstrap_form contactForm %}
             {% buttons %}
-            <button type="submit" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו
+            <button onclick="submitCatalogContactForm()" type="button" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו
                 פרטים</button>
             {% endbuttons %}
         </form>
     </div>
 </div>
+
+
+<form method="POST" id="deleteProductForm" action="tasks/delete-user-liked-product">
+    {%csrf_token%}
+</form>
 {%endblock%}
 
 {%block extra_body%}

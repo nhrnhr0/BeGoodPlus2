@@ -22,16 +22,27 @@ function setCatalogTaskListiner() {
     console.log('update Products Task');
     updateLikedProductsTask();
   });
+
+  setFormAutoSave(productsFrm)
 }
-function updateCatalogTask() {
+function updateCatalogTask(isSubmited=false) {
+  debugger;
   var frm = $('.contact-form');
   task_id = myStorage.getItem('task_catalog_id');
   var serTaskId ='';
   if(task_id) {
-    var serTaskId = '&task_id=' + task_id
+    var serTaskId = `&task_id=${task_id}&submited=${isSubmited}`
   }
   serFrm = frm.serialize() + serTaskId;
-  console.log('serFrm', serFrm);
+  
+  if(isSubmited) {
+    isValid = frm.get(0).reportValidity();
+    if(isValid == false) {
+      alert('שם פאלפון ואימייל הם שדות חובה');
+      return;
+    }
+  }
+
   $.ajax({
     type: "POST",
     url: '/tasks/update-contact-form',
@@ -39,30 +50,58 @@ function updateCatalogTask() {
     success: (json)=> {
       console.log(json);
       myStorage.setItem('task_catalog_id',json.task_id );
+      if (json.task_id == -1) {
+        frm.trigger("reset");
+        resetContactFormAutoSave();
+      }
       getUserTasks();
       updateProductsCart();
     },
     dataType: "json"
   });
 }
+function submitCatalogContactForm() {
+  debugger;
+  updateCatalogTask(isSubmited=true);
+  
 
+}
+function submitCatalogProducts() {
+  updateLikedProductsTask(isSubmited=true);
+  window.location.href = window.location.href;
+
+}
 // TODO: send the ajax once and not once per input field
-function updateLikedProductsTask() {
+function updateLikedProductsTask(isSubmited=false) {
   var frm = $('#likedProductsForm');
   task_id = myStorage.getItem('task_products_id');
   var serTaskId ='';
   if(task_id) {
-    var serTaskId = '&task_id=' + task_id
+    //var serTaskId = '&task_id=' + task_id
+    var serTaskId = `&task_id=${task_id}&submited=${isSubmited}`;
   }
   serFrm = frm.serialize() + serTaskId;
-  console.log('serFrm', serFrm);
+  if(isSubmited) {
+    isValid = frm.get(0).reportValidity();
+    if(isValid == false) {
+      alert('שם פאלפון ואימייל הם שדות חובה');
+      return;
+    }
+  }
   $.ajax({
     type: "POST",
     url: '/tasks/update-products-form',
     data: serFrm,
     success: (json)=> {
       console.log(json);
-      myStorage.setItem('task_products_id',json.task_name );
+      //myStorage.setItem('task_products_name',json.task_name );
+      myStorage.setItem('task_products_id',json.task_id );
+      if (json.task_id == -1) {
+        frm.trigger("reset");
+        resetFormAutoSave(frm);
+        $('#cartProductsList').empty();
+        getUserTasks();
+      }
 
       /*getUserTasks();
       for(var i = 0; i< json.products_list.length; i++) {
@@ -120,17 +159,25 @@ function removeClientLikeProduct(prodId) {
   var productsToRemove = $(`#likedProductsForm :input[name="products[]"]`).filter(function() {
     return this.value == prodId
   });
+  debugger;
   productsToRemove.remove();
   removeClientLikedUI1(prodId);
+  var cartId = myStorage.getItem('task_products_id');
+  var serTaskId ='';
+  if(cartId) {
+    var serTaskId = `&cartId=${cartId}&prodId=${prodId}`
+  }
+  serFrm = frm.serialize() + serTaskId;
   
   $.ajax({
-    type: "GET",
-    url: `tasks/delete-user-liked-product/${prodId}`,
-    //data: serFrm,
+    type: "POST",
+    url: `tasks/delete-user-liked-product/`,
+    data: serFrm,
     success: (json)=> {
-      console.log('product deleted in the server');
+      console.log('product deleted in the server', json);
     }
   });
+  $('#deleteProductForm')
   
   updateLikedProductsTask();
 }
@@ -142,7 +189,8 @@ function addClientLikeProduct(prodId) {
   $('#modal-add-btn').text('נוסף להצעת מחיר');
   $('#modal-add-btn').addClass('isAdded');
   updateClientLikedUI1(prodId);
-  updateProductsCart();
+  getUserTasks();
+  setTimeout(updateProductsCart, 500);
   console.log('addClientLikeProduct done');
   /*
   products = getClientLinkedProducts();
@@ -239,3 +287,4 @@ function openCategoryModal(albumId) {
 }
 
 setCatalogTaskListiner();
+getUserTasks();

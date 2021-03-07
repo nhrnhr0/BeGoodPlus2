@@ -182,11 +182,6 @@ function isSwipeInCD() {
   return swipeCD;
 }
 
-// set initials
-onOrientationChange();
-initLoopCarusel();
-setCatalogTaskListiner();
-
 function setCatalogTaskListiner() {
   var frm = $('.contact-form');
   frm.change(function(){
@@ -194,15 +189,24 @@ function setCatalogTaskListiner() {
     updateMainTask();
   });
 }
-function updateMainTask() {
+function updateMainTask(isSubmited=false) {
   var frm = $('.contact-form');
   task_id = myStorage.getItem('task_main_id');
   var serTaskId ='';
   if(task_id) {
-    var serTaskId = '&task_id=' + task_id
+    var serTaskId = `&task_id=${task_id}&submited=${isSubmited}`
   }
   serFrm = frm.serialize() + serTaskId;
-  console.log('serFrm', serFrm);
+  
+  if(isSubmited) {
+    isValid = frm.get(0).reportValidity();
+    if(isValid == false) {
+      alert('שם פאלפון ואימייל הם שדות חובה');
+      return;
+    }
+  }
+
+
   $.ajax({
     type: "POST",
     url: '/tasks/update-contact-form',
@@ -210,12 +214,48 @@ function updateMainTask() {
     success: (json)=> {
       console.log(json);
       myStorage.setItem('task_main_id',json.task_id )
+      if (json.task_id == -1) {
+        frm.trigger("reset");
+        resetContactFormAutoSave();
+      }
       getUserTasks();
     },
     dataType: "json"
   });
-
 }
+function submitMainContactForm() {
+  debugger;
+  updateMainTask(isSubmited=true);
+}
+
+// set initials
+onOrientationChange();
+initLoopCarusel();
+setCatalogTaskListiner();
+getUserTasks();
+
+/*function submitMainContactForm() { 
+  var frm = $('.contact-form');
+  task_id = myStorage.getItem('task_main_id');
+  var serTaskId ='';
+  if(task_id) {
+    var serTaskId = '&task_id=' + task_id + '&submited=True'
+  }
+  serFrm = frm.serialize() + serTaskId;
+  console.log('serFrm', serFrm);
+  $.ajax({
+    type: "POST",
+    url: '/tasks/submit-contact-form',
+    data: serFrm,
+    success: (json)=> {
+      console.log(json);
+      //myStorage.setItem('task_main_id',json.task_id )
+      myStorage.removeItem('task_main_id');
+      getUserTasks();
+    },
+    dataType: "json"
+  });
+}*/
 /*
 function checkMainTask() {
   debugger;
