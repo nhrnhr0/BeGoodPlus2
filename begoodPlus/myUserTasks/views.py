@@ -81,9 +81,13 @@ def updateProductsFormUserTaskView(request, *args, **kwargs):
         if task.submited == False and submited == True:
             print('the form is submited', task.id)
 
+        if products == None or len(products) == 0:
+            task.delete()
+            task_id=-1
 
         if submited:
-            return HttpResponse(json.dumps({'task_id': -1}), content_type="application/json")
+            task_id=-1
+        #return HttpResponse(json.dumps({'task_id': -1}), content_type="application/json")
         return  HttpResponse(json.dumps({'task_id': task_id}), content_type="application/json")
         #return getUserCartView(request, *args,**kwargs)
         

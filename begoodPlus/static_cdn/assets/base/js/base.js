@@ -165,13 +165,13 @@ function getUserTasks() {
                 el.offsetWidth = el.offsetWidth;
                 el.classList.add('notify');
             }
-                        
+            /*
             if (count === 0) {
                 el.classList.remove('show-count');
             }else {
                 
                 el.classList.add('show-count');
-            }
+            }*/
         },
         error: function (e) {
             console.log('error: ', e);
