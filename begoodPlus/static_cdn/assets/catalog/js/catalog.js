@@ -26,7 +26,6 @@ function setCatalogTaskListiner() {
   setFormAutoSave(productsFrm)
 }
 function updateCatalogTask(isSubmited=false) {
-  debugger;
   var frm = $('.contact-form');
   task_id = myStorage.getItem('task_catalog_id');
   var serTaskId ='';
@@ -61,7 +60,6 @@ function updateCatalogTask(isSubmited=false) {
   });
 }
 function submitCatalogContactForm() {
-  debugger;
   updateCatalogTask(isSubmited=true);
   
 
@@ -159,7 +157,6 @@ function removeClientLikeProduct(prodId) {
   var productsToRemove = $(`#likedProductsForm :input[name="products[]"]`).filter(function() {
     return this.value == prodId
   });
-  debugger;
   productsToRemove.remove();
   removeClientLikedUI1(prodId);
   var cartId = myStorage.getItem('task_products_id');
@@ -186,7 +183,7 @@ function addClientLikeProduct(prodId) {
   $('#likedProductsForm').append(`<input type="text" name="products[]" value="${prodId}"id="">`);
   $('#likedProductsForm').trigger('change');
   $('#modal-add-btn').prop('disabled', true);
-  $('#modal-add-btn').text('נוסף להצעת מחיר');
+  //$('#modal-add-btn').text('נוסף להצעת מחיר');
   $('#modal-add-btn').addClass('isAdded');
   updateClientLikedUI1(prodId);
   

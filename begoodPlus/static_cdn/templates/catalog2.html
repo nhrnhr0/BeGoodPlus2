@@ -57,7 +57,15 @@
 
 
                 <button id="modal-prev-btn" class="btn btn-secondary"> הקודם </button>
-                <button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>
+
+
+                <!--<button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>-->
+
+                <div id="modal-add-btn" class="like-wrapper">
+                    <a name="like-btn"><span name="like-btn">הוסף לסל</span></a>
+                </div>
+
+                
                 <button id="modal-next-btn" class="btn btn-secondary"> הבא </button>
             </div>
         </div>
@@ -204,7 +212,16 @@
                                 <img data-lazy="${img.image_thumbnail}" alt="${img.description}" />
                                 <div class="img-title">${img.title}</div>
                                 <div class="like-btn" name="like-btn">
+                                    <!--
                                     <i name="like-btn" class="fa fa-heart"></i>
+                                    <button name="like-btn" type="button" class="btn btn-primary">הוסף להצעת מחיר</button>
+                                    <input type="checkbox" name="button" id="like-btn-for-${img.id}">
+                                    <label class="bevel" for="like-btn-for-${img.id}">הוסף להצעת מחיר</label>
+                                    -->
+                                    <div class="like-wrapper">
+                                        <a name="like-btn"><span name="like-btn">אהבתי את המוצר</span></a>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             
@@ -252,8 +269,8 @@
         }
 
         $('.my-slick-slide').on('click', (e) => {
+            console.log(e);
             if (e.target.getAttribute('name') == 'like-btn') {
-                console.log('I like this products!');
                 addClientLikeProduct(e.currentTarget.dataset.prodId);
                 //$(e.currentTarget).addClass('checked');
                 //$('#product-like-btn').prop("checked", true);
@@ -313,11 +330,9 @@
                     );
                 /*
                 $('#modal-next-btn').click(function (e) {
-                    console.log('click next', e);
                     $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`).click();
                 });*/
                 $('#modal-prev-btn').click(function (e) {
-                    console.log('click prev', e);
                     $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]`)
                         .click();
                 });
@@ -325,12 +340,12 @@
                 $('#modal-add-btn').val(prodId);
                 if($(e.currentTarget).hasClass('checked')) {
                     $('#modal-add-btn').prop('disabled', true);
-                    $('#modal-add-btn').text('נוסף להצעת מחיר');
+                    //$('#modal-add-btn').text('נוסף להצעת מחיר');
                     $('#modal-add-btn').addClass('isAdded');
                 }
                 else {
                     $('#modal-add-btn').prop('disabled', false);
-                    $('#modal-add-btn').text('הוסף להצעת מחיר');
+                    //$('#modal-add-btn').text('הוסף להצעת מחיר');
                     $('#modal-add-btn').removeClass('isAdded');
                 }
                 /*
@@ -344,13 +359,11 @@
                     $('#modal-add-btn').removeClass('isAdded');
                 }*/
                 $('#modal-add-btn').click((e) => {
-                    console.log('modal-add-btn clicked');
                     addClientLikeProduct(e.currentTarget.value)
                 });
 
                 $('#catalogModal').modal('show');
                 $('#catalogModal .close-modal').click(function () {
-                    console.log('#catalogModal > .close-modal');
                     $('#catalogModal').modal('hide');
                 });
 
@@ -367,7 +380,6 @@
 
         task = myStorage.getItem('user_click_task');
         if (task == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
-            console.log('show task catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e');
             setTimeout(() => {
                 //document.getElementById('contact-form').scrollIntoView();
                 window.scrollTo(0, document.body.scrollHeight);
@@ -379,7 +391,6 @@
 
         }
 
-        console.log('updateClientLikedUI');
         updateClientLikedUI();
     });
 </script>
