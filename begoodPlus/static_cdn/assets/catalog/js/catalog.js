@@ -1,9 +1,8 @@
-
 $(document).on('show.bs.modal', '.modal', function (event) {
   var zIndex = 1040 + (10 * $('.modal:visible').length);
   $(this).css('z-index', zIndex);
-  setTimeout(function() {
-      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+  setTimeout(function () {
+    $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
   }, 0);
 });
 $(document).on('hidden.bs.modal', '.modal', function () {
@@ -12,31 +11,32 @@ $(document).on('hidden.bs.modal', '.modal', function () {
 
 function setCatalogTaskListiner() {
   var frm = $('.contact-form');
-  frm.change(function(){
+  frm.change(function () {
     console.log('update Catalog Task');
     updateCatalogTask();
   });
 
   var productsFrm = $('#likedProductsForm');
-  productsFrm.change(function() {
+  productsFrm.change(function () {
     console.log('update Products Task');
     updateLikedProductsTask();
   });
 
   setFormAutoSave(productsFrm)
 }
-function updateCatalogTask(isSubmited=false) {
+
+function updateCatalogTask(isSubmited = false) {
   var frm = $('.contact-form');
   task_id = myStorage.getItem('task_catalog_id');
-  var serTaskId ='';
-  if(task_id) {
+  var serTaskId = '';
+  if (task_id) {
     var serTaskId = `&task_id=${task_id}&submited=${isSubmited}`
   }
   serFrm = frm.serialize() + serTaskId;
-  
-  if(isSubmited) {
+
+  if (isSubmited) {
     isValid = frm.get(0).reportValidity();
-    if(isValid == false) {
+    if (isValid == false) {
       alert('שם פאלפון ואימייל הם שדות חובה');
       return;
     }
@@ -46,9 +46,9 @@ function updateCatalogTask(isSubmited=false) {
     type: "POST",
     url: '/tasks/update-contact-form',
     data: serFrm,
-    success: (json)=> {
+    success: (json) => {
       console.log(json);
-      myStorage.setItem('task_catalog_id',json.task_id );
+      myStorage.setItem('task_catalog_id', json.task_id);
       if (json.task_id == -1) {
         frm.trigger("reset");
         resetContactFormAutoSave();
@@ -59,29 +59,31 @@ function updateCatalogTask(isSubmited=false) {
     dataType: "json"
   });
 }
+
 function submitCatalogContactForm() {
-  updateCatalogTask(isSubmited=true);
-  
+  updateCatalogTask(isSubmited = true);
+
 
 }
+
 function submitCatalogProducts() {
-  updateLikedProductsTask(isSubmited=true);
+  updateLikedProductsTask(isSubmited = true);
   window.location.href = window.location.href;
 
 }
 // TODO: send the ajax once and not once per input field
-function updateLikedProductsTask(isSubmited=false) {
+function updateLikedProductsTask(isSubmited = false) {
   var frm = $('#likedProductsForm');
   task_id = myStorage.getItem('task_products_id');
-  var serTaskId ='';
-  if(task_id) {
+  var serTaskId = '';
+  if (task_id) {
     //var serTaskId = '&task_id=' + task_id
     var serTaskId = `&task_id=${task_id}&submited=${isSubmited}`;
   }
   serFrm = frm.serialize() + serTaskId;
-  if(isSubmited) {
+  if (isSubmited) {
     isValid = frm.get(0).reportValidity();
-    if(isValid == false) {
+    if (isValid == false) {
       alert('שם פאלפון ואימייל הם שדות חובה');
       return;
     }
@@ -90,10 +92,10 @@ function updateLikedProductsTask(isSubmited=false) {
     type: "POST",
     url: '/tasks/update-products-form',
     data: serFrm,
-    success: (json)=> {
+    success: (json) => {
       console.log(json);
       //myStorage.setItem('task_products_name',json.task_name );
-      myStorage.setItem('task_products_id',json.task_id );
+      myStorage.setItem('task_products_id', json.task_id);
       if (json.task_id == -1) {
         frm.trigger("reset");
         resetFormAutoSave(frm);
@@ -133,20 +135,23 @@ function setClientLinkedProducts(products) {
 }
 */
 function modal_add_btn_click() {
-  
+
 }
+
 function updateClientLikedUI() {
   console.log('hey');
   liked_products = $('#likedProductsForm input[name="products[]"]');
-  for(var i = 0; i<liked_products.length;i++) {
+  for (var i = 0; i < liked_products.length; i++) {
     updateClientLikedUI1(liked_products.val());
   }
 
 }
+
 function updateClientLikedUI1(prodId) {
   $(`.my-slick-slide[data-prod-id=${prodId}]`).addClass('checked');
   $(`.category-item[data-category-prod-id="${prodId}"]`).addClass('checked');
 }
+
 function removeClientLikedUI1(prodId) {
   $(`.my-slick-slide[data-prod-id=${prodId}]`).removeClass('checked');
   $(`.category-item[data-category-prod-id="${prodId}"]`).removeClass('checked');
@@ -154,30 +159,30 @@ function removeClientLikedUI1(prodId) {
 
 // delete the product from the user form
 function removeClientLikeProduct(prodId) {
-  var productsToRemove = $(`#likedProductsForm :input[name="products[]"]`).filter(function() {
+  var productsToRemove = $(`#likedProductsForm :input[name="products[]"]`).filter(function () {
     return this.value == prodId
   });
   productsToRemove.remove();
   removeClientLikedUI1(prodId);
   var cartId = myStorage.getItem('task_products_id');
-  var serTaskId ='';
-  if(cartId) {
+  var serTaskId = '';
+  if (cartId) {
     var serTaskId = `&cartId=${cartId}&prodId=${prodId}`
   }
   serFrm = frm.serialize() + serTaskId;
-  
+
   $.ajax({
     type: "POST",
     url: `tasks/delete-user-liked-product/`,
     data: serFrm,
-    success: (json)=> {
+    success: (json) => {
       console.log('product deleted in the server', json);
     }
   });
-  $('#deleteProductForm')
-  
-  updateLikedProductsTask();
+  setTimeout(updateLikedProductsTask, 500);
+
 }
+
 function addClientLikeProduct(prodId) {
   //products = $('#likedProductsForm > products[]');
   $('#likedProductsForm').append(`<input type="text" name="products[]" value="${prodId}"id="">`);
@@ -186,14 +191,14 @@ function addClientLikeProduct(prodId) {
   //$('#modal-add-btn').text('נוסף להצעת מחיר');
   $('#modal-add-btn').addClass('isAdded');
   updateClientLikedUI1(prodId);
-  
+
 
   // bell animation:
   $('#navbarDropdown').removeClass('notify');
   $('#navbarDropdown').offsetWidth = $('#navbarDropdown').offsetWidth;
-  setTimeout(()=>{
+  setTimeout(() => {
     $('#navbarDropdown').addClass('notify');
-  },200);
+  }, 200);
   setTimeout(updateProductsCart, 500);
   setTimeout(getUserTasks, 500);
   console.log('addClientLikeProduct done');
@@ -220,13 +225,13 @@ function updateProductsCart() {
     type: "GET",
     url: '/tasks/get-user-cart',
     //data: serFrm,
-    success: (json)=> {
+    success: (json) => {
       console.log(json);
       //myStorage.setItem('task_catalog_id',json.task_id );
       //getUserTasks();
       var productsMarkup = '<ul>';
-      for(var i = 0; i < json.products_list.length; i++) {
-        
+      for (var i = 0; i < json.products_list.length; i++) {
+
         product = json.products_list[i];
         productsMarkup += `
           <li data-prod-id="${product.id}">
@@ -266,15 +271,15 @@ function loadProductsModal() {
 function openImageProductModal(prodId) {
   debugger;
   var albums = getAllAlbums();
-  var product= undefined;
-  for(var i =0; i < albums.length; i++) {
-    for(var j = 0; j < albums[i].images_list.length; j++) {
-      if(albums[i].images_list[j].id == prodId) {
+  var product = undefined;
+  for (var i = 0; i < albums.length; i++) {
+    for (var j = 0; j < albums[i].images_list.length; j++) {
+      if (albums[i].images_list[j].id == prodId) {
         product = albums[i].images_list[j];
         break;
       }
     }
-    if(product != undefined) {
+    if (product != undefined) {
       break;
     }
   }
@@ -301,28 +306,33 @@ function openCategoryModal(albumId) {
     return val.id == albumId
   });
   var album = albums[albumIndex];
-  var nextAlbum = albums[(albumIndex + 1)%albums.length];
+  var nextAlbum = albums[(albumIndex + 1) % albums.length];
   var prevIndex;
-  if(albumIndex == 0) {
+  if (albumIndex == 0) {
     prevIndex = albums.length
-  }else {
+  } else {
     prevIndex = albumIndex
   }
   prevIndex -= 1;
   var prevAlbum = albums[prevIndex];
 
   var imagesMarkup = '<div class="category-items">'
-  for(var i = 0; i < album.images_list.length;i++) {
+  for (var i = 0; i < album.images_list.length; i++) {
     img = album.images_list[i];
-    imagesMarkup+= `<div class="category-item" data-category-prod-id="${img.id}">
-                    <img width="250px" height="250px" onclick="$('.my-slick-slide[data-prod-id=${img.id}]').click();" src="${img.image_thumbnail}" alt="${img.description}" />
-                    <div class="img-title">${img.title}</div>
-                    <div onclick="$('.my-slick-slide[data-prod-id=${img.id}] [name=like-btn]')[0].click();" class="like-btn" name="like-btn">
-                        <div class="like-wrapper">
-                            <a name="like-btn"><span name="like-btn">אהבתי את המוצר</span></a>
-                        </div>
-                    </div>
-                    </div>
+    imagesMarkup += `
+      <div class="category-item" data-category-prod-id="${img.id}">
+        <div class="category-item-img-wraper">
+          <img width="250px" height="250px" onclick="$('.my-slick-slide[data-prod-id=${img.id}]').click();" src="${img.image_thumbnail}" alt="${img.description}" />
+          <div class="img-title">${img.title}</div>
+        </div>
+        <div>
+          <div onclick="$('.my-slick-slide[data-prod-id=${img.id}] + .like-btn .like-wrapper')[0].click();" class="like-btn" name="like-btn">
+            <div class="like-wrapper">
+              <a name="like-btn"><span name="like-btn">הוסף להצעת מחיר</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
       `
   }
   imagesMarkup += '</div>'

@@ -117,18 +117,20 @@
   margin-bottom: 0px !important;
 
   .wraper-my-slick-slide {
+    /*&:hover {
+      background-color: black;
+    }*/
+
+
+  }
+  .my-slick-slide {
+    cursor: pointer;
     &:hover {
       background-color: black;
     }
 
 
-  }
-
-  .my-slick-slide {
-    cursor: pointer;
-
-
-    &.checked .like-wrapper a {
+    &.checked + .like-btn .like-wrapper a {
       color: #eee;
 
       &:hover {
@@ -307,6 +309,9 @@
 
     #modal-add-btn {
       cursor: pointer;
+      a {
+        padding: 10px!important;
+      }
       &.isAdded {
         /*
         color: #fff;
@@ -353,6 +358,12 @@
     align-items: center;
 
     .category-item {
+      cursor: pointer;
+      .category-item-img-wraper {
+        &:hover {
+          background-color: black;
+        }
+      }
       padding: 5px;
 
       &.checked {
@@ -372,7 +383,7 @@
       }
 
       &:hover {
-        background-color: black;
+        
       }
 
       position: relative;

@@ -17,6 +17,9 @@ def get_session_key(request):
     if not request.session.session_key:
         request.session.save()
     return request.session.session_key
+
+from django.db import models
+
 def getUserTasksView(request, *args, **kwargs):
     
     session = get_session_key(request)
@@ -121,8 +124,12 @@ def getUserCartView(request, *args, **kwargs):
     cart = ProductsTask.objects.filter(session=session, submited=False).latest('modified_date')
     ser_context={'request': request}
     serializer = ProductsTaskSerializer(cart,context=ser_context)
-    #content = JSONRenderer().render(serializer.data)
-    data = json.dumps(serializer.data)
+    if cart.products.count() == 0:
+        data = {'id': -1}
+    else:
+        data = json.dumps(serializer.data)
+
+    
     return HttpResponse(data,content_type="application/json")
     
 def delUserLikedProductView(request, *args,**kwargs):

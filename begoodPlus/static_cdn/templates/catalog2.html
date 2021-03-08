@@ -62,7 +62,7 @@
                 <!--<button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>-->
 
                 <div id="modal-add-btn" class="like-wrapper">
-                    <a name="like-btn"><span name="like-btn">הוסף לסל</span></a>
+                    <a name="like-btn"><span name="like-btn">הוסף להצעת מחיר</span></a>
                 </div>
 
                 
@@ -232,12 +232,14 @@
                             <div data-album-id="${album.id}" data-my-slide-index="${j}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
                                 <img data-lazy="${img.image_thumbnail}" alt="${img.description}" />
                                 <div class="img-title">${img.title}</div>
-                                <div class="like-btn" name="like-btn">
-                                    <div class="like-wrapper">
-                                        <a name="like-btn"><span name="like-btn">אהבתי את המוצר</span></a>
-                                    </div>
+                            </div>
+                        <!-- <div class="wraper-my-slick-slide-2"> -->
+                            <div class="like-btn" name="like-btn">
+                                <div class="like-wrapper" data-prod-id="${img.id}">
+                                    <a name="like-btn"><span name="like-btn">הוסף להצעת מחיר</span></a>
                                 </div>
                             </div>
+                        <!-- </div> -->
                             
                         </div>
                         `
@@ -282,7 +284,10 @@
                 }]
             });
         }
-
+        $('.my-slick-slide + .like-btn .like-wrapper').on('click', (e)=> {
+            console.log('like clicked');
+            addClientLikeProduct(e.currentTarget.dataset.prodId);
+        });
         $('.my-slick-slide').on('click', (e) => {
             console.log('.my-slick-slide', e, e.currentTarget.dataset.prodId);
             if (e.target.getAttribute('name') == 'like-btn') {
