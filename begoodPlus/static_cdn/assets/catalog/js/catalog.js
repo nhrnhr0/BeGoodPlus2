@@ -263,28 +263,77 @@ function loadProductsModal() {
   updateProductsCart();
 }
 
+function openImageProductModal(prodId) {
+  debugger;
+  var albums = getAllAlbums();
+  var product= undefined;
+  for(var i =0; i < albums.length; i++) {
+    for(var j = 0; j < albums[i].images_list.length; j++) {
+      if(albums[i].images_list[j].id == prodId) {
+        product = albums[i].images_list[j];
+        break;
+      }
+    }
+    if(product != undefined) {
+      break;
+    }
+  }
+
+
+
+  $('#ImageProductsModal .modal-title').text(product.title);
+  $('#ImageProductsModal .modal-body').html(`
+    <img src=${product.image} />
+  `);
+  $('#ImageProductsModal .modal-footer').html('');
+  $('#ImageProductsModal').modal('show');
+  $('#ImageProductsModal .close-modal').click(function () {
+    $('#ImageProductsModal').modal('hide');
+  });
+}
+
+
 function openCategoryModal(albumId) {
   //updateLikedProductsTask();
   updateProductsCart();
   var albums = getAllAlbums();
-  var album = albums.find((val, idx, obj) => {
+  var albumIndex = albums.findIndex((val, idx, obj) => {
     return val.id == albumId
   });
+  var album = albums[albumIndex];
+  var nextAlbum = albums[(albumIndex + 1)%albums.length];
+  var prevIndex;
+  if(albumIndex == 0) {
+    prevIndex = albums.length
+  }else {
+    prevIndex = albumIndex
+  }
+  prevIndex -= 1;
+  var prevAlbum = albums[prevIndex];
+
   var imagesMarkup = '<div class="category-items">'
   for(var i = 0; i < album.images_list.length;i++) {
     img = album.images_list[i];
     imagesMarkup+= `<div class="category-item" data-category-prod-id="${img.id}">
                     <img width="250px" height="250px" onclick="$('.my-slick-slide[data-prod-id=${img.id}]').click();" src="${img.image_thumbnail}" alt="${img.description}" />
                     <div class="img-title">${img.title}</div>
-                    <div onclick="$('.my-slick-slide[data-prod-id=${img.id}] [name=like-btn]').click();" class="like-btn" name="like-btn">
+                    <div onclick="$('.my-slick-slide[data-prod-id=${img.id}] [name=like-btn]')[0].click();" class="like-btn" name="like-btn">
                       <i name="like-btn" class="fa fa-heart"></i>
                     </div>
                     </div>
       `
   }
   imagesMarkup += '</div>'
+
+  buttonsMarkup = `
+  <button class="btn btn-primary" onclick="openCategoryModal(${prevAlbum.id})" value=${prevAlbum.id}>${prevAlbum.title}</button>
+    <button class="btn btn-primary" onclick="openCategoryModal(${nextAlbum.id})" value=${nextAlbum.id}>${nextAlbum.title}</button>
+    
+  `
+
   $('#categoryModal .modal-title').text(album.title);
   $('#categoryModal .modal-body').html(imagesMarkup);
+  $('#categoryModal .modal-footer').html(buttonsMarkup);
   $('#categoryModal').modal('show');
   $('#categoryModal .close-modal').click(function () {
     $('#categoryModal').modal('hide');

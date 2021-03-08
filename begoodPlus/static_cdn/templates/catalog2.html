@@ -77,7 +77,7 @@
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h5 class="modal-title  w-100">Category</h5>
-                <button type="button" class="close close-modal" data-dismiss="catalogModal" aria-label="Close">
+                <button type="button" class="close close-modal" data-dismiss="categoryModal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -97,6 +97,26 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="ImageProductsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title  w-100">modal title</h5>
+                <button type="button" class="close close-modal" data-dismiss="ImageProductsModal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                modal body
+            </div>
+            <div class="modal-footer">
+                modal footer
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="modal" id="likedProductsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -183,6 +203,7 @@
 
 {%block extra_body%}
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="{%static 'assets/catalog/js/catalog.js'%}"></script>
 
 <script type="text/javascript">
@@ -269,7 +290,7 @@
         }
 
         $('.my-slick-slide').on('click', (e) => {
-            console.log(e);
+            console.log('.my-slick-slide', e, e.currentTarget.dataset.prodId);
             if (e.target.getAttribute('name') == 'like-btn') {
                 addClientLikeProduct(e.currentTarget.dataset.prodId);
                 //$(e.currentTarget).addClass('checked');
@@ -306,7 +327,8 @@
                     <div class="product-detail">
                         <div class="product-title">${img.title}</div>
                         <hr>
-                        <div class="product-description">${img.description.replace(/(?:\r\n|\r|\n)/g, '<br>') }</div>
+                        <!-- <div class="product-description">${img.description.replace(/(?:\r\n|\r|\n)/g, '<br>') }</div> -->
+                        <div class="product-description">${marked(img.description)}</div>
                         <hr>
                         <div class="row">
                             <div class="col-6">
@@ -317,7 +339,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="img-wraper"><img id="catalog-image-${img.id}" src="${img.image}"/></div>
+                    <div class="img-wraper" onclick="openImageProductModal(${img.id})"><img id="catalog-image-${img.id}" src="${img.image}"/></div>
                 </div>
                 <div class="inner-footer">
                 </div>
@@ -366,9 +388,7 @@
                     $('#modal-add-btn').text('הוסף להצעת מחיר');
                     $('#modal-add-btn').removeClass('isAdded');
                 }*/
-                $('#modal-add-btn').click((e) => {
-                    addClientLikeProduct(e.currentTarget.value)
-                });
+                
 
                 $('#catalogModal').modal('show');
                 $('#catalogModal .close-modal').click(function () {
@@ -401,6 +421,13 @@
 
         updateClientLikedUI();
     });
+
+
+    $('#modal-add-btn').click((e) => {
+                    console.log('modal-add-btn', e);
+                    addClientLikeProduct(e.currentTarget.value)
+                    return false;
+                });
 </script>
 {%endblock%}
 

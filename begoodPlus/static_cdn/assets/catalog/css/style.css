@@ -378,6 +378,20 @@
   }
 }
 
+#categoryModal .modal-content {
+  max-height: 80vh;
+}
+
+#categoryModal .modal-body {
+  overflow-y: scroll;
+}
+
+#categoryModal .modal-footer {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 #categoryModal .category-items {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -429,7 +443,7 @@
   display: none;
   color: white;
   z-index: 2000;
-  bottom: 0px;
+  bottom: 50%;
   -webkit-transform: translate(-50%, 0%);
           transform: translate(-50%, 0%);
   font-size: 1.5em;
@@ -488,7 +502,8 @@
 }
 
 @-webkit-keyframes burst {
-  0%, 10% {
+  0%,
+  10% {
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: .5;
@@ -506,7 +521,8 @@
     color: red;
     text-shadow: 2px 2px 6px rgba(235, 9, 9, 0.5);
   }
-  90%, 95% {
+  90%,
+  95% {
     -webkit-transform: scale(1) rotate(10deg);
             transform: scale(1) rotate(10deg);
     text-shadow: none;
@@ -518,7 +534,8 @@
 }
 
 @keyframes burst {
-  0%, 10% {
+  0%,
+  10% {
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: .5;
@@ -536,7 +553,8 @@
     color: red;
     text-shadow: 2px 2px 6px rgba(235, 9, 9, 0.5);
   }
-  90%, 95% {
+  90%,
+  95% {
     -webkit-transform: scale(1) rotate(10deg);
             transform: scale(1) rotate(10deg);
     text-shadow: none;
@@ -572,5 +590,32 @@
 
 #likedProductsModal .modal-body #cartProductsList ul li button:hover {
   color: red;
+}
+
+@media (min-width: 576px) {
+  #ImageProductsModal .modal-dialog {
+    max-width: 90vw;
+  }
+}
+
+#ImageProductsModal .modal-dialog .modal-content {
+  max-height: 100vh;
+}
+
+#ImageProductsModal .modal-dialog .modal-content .modal-body {
+  overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#ImageProductsModal .modal-dialog .modal-content .modal-body img {
+  height: 100%;
 }
 /*# sourceMappingURL=style.css.map */
