@@ -292,7 +292,7 @@ function openImageProductModal(prodId) {
 
   $('#ImageProductsModal .modal-title').text(product.title);
   $('#ImageProductsModal .modal-body').html(`
-    <img src=${product.image} />
+    <img class="img-fluid" src=${product.image} />
   `);
   $('#ImageProductsModal .modal-footer').html('');
   $('#ImageProductsModal').modal('show');

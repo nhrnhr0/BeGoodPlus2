@@ -537,11 +537,10 @@
 #ImageProductsModal {
   .modal-dialog {
     @media (min-width: 576px) {
-      max-width: 80vw;
+      //max-width: 80vw;
     }
 
     .modal-content {
-      max-height: 100vh;
 
       .modal-body {
         padding:0px;
@@ -549,12 +548,8 @@
         display: flex;
         justify-content: center;
         align-items: center;*/
-        overflow-y: auto;
 
         img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
         }
       }
     }
