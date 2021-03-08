@@ -576,8 +576,18 @@
   color: red;
 }
 
+#ImageProductsModal .modal-dialog {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#ImageProductsModal .modal-dialog .modal-content {
+  max-height: 100vh;
+}
+
 #ImageProductsModal .modal-dialog .modal-content .modal-body {
   padding: 0px;
+  overflow-y: auto;
   /*overflow-y: scroll;
         display: flex;
         justify-content: center;

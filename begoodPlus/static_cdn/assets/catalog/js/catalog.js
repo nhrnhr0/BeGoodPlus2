@@ -294,7 +294,7 @@ function openImageProductModal(prodId) {
   $('#ImageProductsModal .modal-body').html(`
     <img class="img-fluid" src=${product.image} />
   `);
-  $('#ImageProductsModal .modal-footer').html('');
+  //$('#ImageProductsModal .modal-footer').html('');
   $('#ImageProductsModal').modal('show');
   $('#ImageProductsModal .close-modal').click(function () {
     $('#ImageProductsModal').modal('hide');
