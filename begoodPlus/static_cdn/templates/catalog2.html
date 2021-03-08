@@ -233,13 +233,11 @@
                                 <img data-lazy="${img.image_thumbnail}" alt="${img.description}" />
                                 <div class="img-title">${img.title}</div>
                             </div>
-                        <!-- <div class="wraper-my-slick-slide-2"> -->
                             <div class="like-btn" name="like-btn">
                                 <div class="like-wrapper" data-prod-id="${img.id}">
                                     <a name="like-btn"><span name="like-btn">הוסף להצעת מחיר</span></a>
                                 </div>
                             </div>
-                        <!-- </div> -->
                             
                         </div>
                         `
@@ -342,13 +340,47 @@
                 </div>
                 <div class="inner-footer">
                 </div>
-            `)
-            $('#modal-next-btn').attr('onClick',
-                `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
-            );
-            $('#modal-prev-btn').attr('onClick',
-                `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
-            );
+                `);
+            
+            
+                var modalNextBtn = $('#modal-next-btn');
+                var modalPrevBtn = $('#modal-prev-btn');
+                var nextElementStr = `[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`;
+                var prevElementStr = `[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]`;
+                var nextElement = $(nextElementStr)
+                var prevElement = $(prevElementStr)
+                modalNextBtn.attr('onClick',
+                    `$('${nextElementStr}').click();`
+                );
+                modalPrevBtn.attr('onClick',
+                    `$('${prevElementStr}').click();`
+                );
+                // no more next, so hide next button
+                if(nextElement.length == 0) {
+                    modalNextBtn.data('hide-me', 'yes');
+                    modalNextBtn.css('visibility', 'hidden');
+                }else {
+                    modalNextBtn.data('hide-me', 'no');
+                    modalNextBtn.css('visibility', 'visible');
+                }
+                // no more prev, so hide prev button
+                if(prevElement.length == 0) {
+                    modalPrevBtn.data('hide-me', 'yes');
+                    modalPrevBtn.css('visibility', 'hidden');
+                }else {
+                    modalPrevBtn.data('hide-me', 'no');
+                    modalPrevBtn.css('visibility', 'visible');
+                }
+                /*
+                modalNextBtn.attr('onClick',
+                    `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
+                );
+                modalPrevBtn.attr('onClick',
+                    `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
+                );
+                */
+                
+                
             /*
                 $('#modal-next-btn').attr('onClick',
                     `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
@@ -367,14 +399,16 @@
                 });
 
                 $('#modal-add-btn').val(prodId);
+                
                 if($(e.currentTarget).hasClass('checked')) {
+                    debugger;
                     $('#modal-add-btn').prop('disabled', true);
-                    //$('#modal-add-btn').text('נוסף להצעת מחיר');
+                    $('#modal-add-btn span').text('נוסף להצעת מחיר');
                     $('#modal-add-btn').addClass('isAdded');
                 }
                 else {
                     $('#modal-add-btn').prop('disabled', false);
-                    //$('#modal-add-btn').text('הוסף להצעת מחיר');
+                    $('#modal-add-btn span').text('הוסף להצעת מחיר');
                     $('#modal-add-btn').removeClass('isAdded');
                 }
                 /*

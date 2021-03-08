@@ -104,6 +104,10 @@
   color: white;
 }
 
+.like-btn {
+  cursor: pointer;
+}
+
 .slick-slider {
   margin-bottom: 0px !important;
 }
@@ -124,6 +128,7 @@
 }
 
 .slick-slider .my-slick-slide.checked + .like-btn .like-wrapper a {
+  border: 1px solid white;
   color: #eee;
 }
 
@@ -427,6 +432,7 @@
 
 #categoryModal .category-items .category-item.checked .like-wrapper a {
   color: #eee;
+  border: 1px solid white;
 }
 
 #categoryModal .category-items .category-item.checked .like-wrapper a:hover {
@@ -586,12 +592,13 @@
         display: flex;
         justify-content: center;
         align-items: center;*/
+  overflow-y: auto;
 }
 
 #ImageProductsModal .modal-dialog .modal-content .modal-body img {
-  -o-object-fit: cover;
-     object-fit: cover;
   width: 100%;
-  padding: 0px;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 /*# sourceMappingURL=style.css.map */

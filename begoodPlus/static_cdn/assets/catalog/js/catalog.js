@@ -150,11 +150,15 @@ function updateClientLikedUI() {
 function updateClientLikedUI1(prodId) {
   $(`.my-slick-slide[data-prod-id=${prodId}]`).addClass('checked');
   $(`.category-item[data-category-prod-id="${prodId}"]`).addClass('checked');
+  $(`.my-slick-slide[data-prod-id=${prodId}] + .like-btn span`).text('נוסף להצעת מחיר');
+  $(`.category-item[data-category-prod-id=${prodId}] .like-btn .like-wrapper a span`).text('נוסף להצעת מחיר');
 }
 
 function removeClientLikedUI1(prodId) {
   $(`.my-slick-slide[data-prod-id=${prodId}]`).removeClass('checked');
   $(`.category-item[data-category-prod-id="${prodId}"]`).removeClass('checked');
+  $(`.my-slick-slide[data-prod-id=${prodId}] + .like-btn span`).text('הוסף להצעת מחיר');
+  $(`.category-item[data-category-prod-id=${prodId}] .like-btn .like-wrapper a span`).text('הוסף להצעת מחיר');
 }
 
 // delete the product from the user form
@@ -188,7 +192,7 @@ function addClientLikeProduct(prodId) {
   $('#likedProductsForm').append(`<input type="text" name="products[]" value="${prodId}"id="">`);
   $('#likedProductsForm').trigger('change');
   $('#modal-add-btn').prop('disabled', true);
-  //$('#modal-add-btn').text('נוסף להצעת מחיר');
+  $('#modal-add-btn span').text('נוסף להצעת מחיר');
   $('#modal-add-btn').addClass('isAdded');
   updateClientLikedUI1(prodId);
 
