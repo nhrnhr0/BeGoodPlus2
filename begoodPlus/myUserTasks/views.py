@@ -52,7 +52,10 @@ def updateProductsFormUserTaskView(request, *args, **kwargs):
             submited = False
 
         if task_id and task_id != '-1':
-            task = ProductsTask.objects.get(pk=task_id)
+            try:
+                task = ProductsTask.objects.get(pk=task_id)
+            except:
+                task, created = ProductsTask.objects.get_or_create(session=session, task_name=task_name, submited=submited)
             #task.name=name
             #task.email=email
             #task.phone=phone

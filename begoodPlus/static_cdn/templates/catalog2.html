@@ -202,13 +202,13 @@
                         <button data-album-id="${album.id}" onclick="openCategoryModal(${album.id})" class="title btn">${album.title}</button>
                     </div>
                     <div class="container">
-                        <div id="slick-slider-${i}" class="slick-slider">`
+                        <div name="slick-slider-${album.id}" id="slick-slider-${i}" class="slick-slider">`
                 albumPreload = ``;
                 for (var j = 0; j < album.images_list.length; j++) {
                     var img = album.images_list[j];
                     albumMarkup += `
                         <div class="wraper-my-slick-slide">
-                            <div data-album-id="${album.id}" data-my-slide-index="${k++}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
+                            <div data-album-id="${album.id}" data-my-slide-index="${j}" data-prod-id="${img.id}" class="my-slick-slide shadow-lg">
                                 <img data-lazy="${img.image_thumbnail}" alt="${img.description}" />
                                 <div class="img-title">${img.title}</div>
                                 <div class="like-btn" name="like-btn">
@@ -322,12 +322,20 @@
                 <div class="inner-footer">
                 </div>
             `)
+            $('#modal-next-btn').attr('onClick',
+                `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
+            );
+            $('#modal-prev-btn').attr('onClick',
+                `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
+            );
+            /*
                 $('#modal-next-btn').attr('onClick',
                     `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
                     );
                 $('#modal-prev-btn').attr('onClick',
                     `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
                     );
+                    */
                 /*
                 $('#modal-next-btn').click(function (e) {
                     $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`).click();
