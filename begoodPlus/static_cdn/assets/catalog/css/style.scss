@@ -543,20 +543,23 @@
 #ImageProductsModal {
   .modal-dialog {
     @media (min-width: 576px) {
-      max-width: 90vw;
+      max-width: 80vw;
     }
 
     .modal-content {
       max-height: 100vh;
 
       .modal-body {
-        overflow-y: scroll;
+        padding:0px;
+        /*overflow-y: scroll;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center;*/
 
         img {
-          height: 100%;
+          object-fit: cover;
+          width: 100%;
+          padding: 0px;
         }
       }
     }
