@@ -86,7 +86,6 @@ urlpatterns = [
     #path('TaxReturnCampain/', TaxReturnCampainView)
     path('landingPageFormSubmit', landingPageFormSubmit),
     path('saveContactForm/<path:next>/', saveBaseContactFormView, name="save-contact-form"),
-    #re_path('^tracking/', include('tracking.urls')),
 
     path('test/', mainView, name='main-view'),
     path('testCatalog', catalogView2,name="catalogView2"),
