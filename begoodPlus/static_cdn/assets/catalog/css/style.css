@@ -2,18 +2,10 @@
   --like-font-size: 30px;
 }
 
-.like-wrapper {
-  /*position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);*/
-}
-
 .like-wrapper a {
+  border-radius: 50px;
   width: 100%;
   display: block;
-  /*width: 200px;
-    height: 40px;*/
   line-height: 40px;
   font-size: 1.2em;
   font-weight: 700;
@@ -40,9 +32,10 @@
   left: 0;
   width: 0;
   height: 100%;
-  background: #ff003b;
+  background: #159560;
   -webkit-transition: all .35s;
   transition: all .35s;
+  border-radius: 50px;
 }
 
 .like-wrapper a:hover {
@@ -121,40 +114,6 @@
 
 .slick-slider .my-slick-slide {
   cursor: pointer;
-  /*
-    .like-btn {
-      //position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      transition: all 0.5s;
-      opacity: 1;
-      z-index: 2;
-      width: 100%;
-      .fa-heart{
-        position: relative;
-        font-size: var(--like-font-size);
-        -webkit-text-stroke: 2px #e5e5e5;
-        color: whitesmoke;
-        transition: all ease-in-out;
-        bottom: 0;
-        z-index: 3;
-      }
-    }
-    
-    .like-btn:hover .fa-heart {
-      color: transparent;
-    }
-    
-    &.checked .fa-heart{
-      color: red;
-      -webkit-text-stroke: 1px red;
-      animation: .5s linear burst; 
-    }
-    */
   position: relative;
 }
 
@@ -345,6 +304,10 @@
           justify-content: space-between;
 }
 
+#catalogModal .modal-footer #modal-add-btn {
+  cursor: pointer;
+}
+
 #catalogModal .modal-footer #modal-add-btn.isAdded {
   /*
         color: #fff;
@@ -409,6 +372,55 @@
 #categoryModal .category-items .category-item {
   padding: 5px;
   position: relative;
+  /*
+      .like-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: all 0.5s;
+        opacity: 1;
+        z-index: 2;
+        width: 100%;
+
+        .fa-heart {
+          position: relative;
+          font-size: var(--like-font-size);
+          -webkit-text-stroke: 2px #e5e5e5;
+          color: whitesmoke;
+          transition: all ease-in-out;
+          bottom: 0;
+          z-index: 3;
+        }
+      }
+
+      .like-btn:hover .fa-heart {
+        color: red;
+        -webkit-text-stroke: 1px red;
+        animation: .5s linear burst;
+      }
+
+      &.checked .fa-heart {
+        color: red;
+        -webkit-text-stroke: 1px red;
+        animation: .5s linear burst;
+      }
+      */
+}
+
+#categoryModal .category-items .category-item.checked .like-wrapper a {
+  color: #eee;
+}
+
+#categoryModal .category-items .category-item.checked .like-wrapper a:hover {
+  color: white;
+}
+
+#categoryModal .category-items .category-item.checked .like-wrapper a:after {
+  width: 100%;
+  height: 100%;
 }
 
 #categoryModal .category-items .category-item:hover {
@@ -450,51 +462,6 @@
   left: 50%;
   pointer-events: none;
   text-align: center;
-}
-
-#categoryModal .category-items .category-item .like-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  opacity: 1;
-  z-index: 2;
-  width: 100%;
-}
-
-#categoryModal .category-items .category-item .like-btn .fa-heart {
-  position: relative;
-  font-size: var(--like-font-size);
-  -webkit-text-stroke: 2px #e5e5e5;
-  color: whitesmoke;
-  -webkit-transition: all ease-in-out;
-  transition: all ease-in-out;
-  bottom: 0;
-  z-index: 3;
-}
-
-#categoryModal .category-items .category-item .like-btn:hover .fa-heart {
-  color: red;
-  -webkit-text-stroke: 1px red;
-  -webkit-animation: .5s linear burst;
-          animation: .5s linear burst;
-}
-
-#categoryModal .category-items .category-item.checked .fa-heart {
-  color: red;
-  -webkit-text-stroke: 1px red;
-  -webkit-animation: .5s linear burst;
-          animation: .5s linear burst;
 }
 
 .contact-form-wraper2 {

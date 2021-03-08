@@ -56,7 +56,7 @@
                 <!--<button type="button" class="btn btn-secondary close-modal" data-dismiss="catalogModal">Close</button>-->
 
 
-                <button id="modal-prev-btn" class="btn btn-secondary"> הקודם </button>
+                <button id="modal-prev-btn" class="btn btn-primary"> הקודם </button>
 
 
                 <!--<button type="button" id="modal-add-btn" class="btn btn-primary">הוסף להצעת מחיר</button>-->
@@ -66,7 +66,7 @@
                 </div>
 
                 
-                <button id="modal-next-btn" class="btn btn-secondary"> הבא </button>
+                <button id="modal-next-btn" class="btn btn-primary"> הבא </button>
             </div>
         </div>
     </div>
@@ -233,16 +233,9 @@
                                 <img data-lazy="${img.image_thumbnail}" alt="${img.description}" />
                                 <div class="img-title">${img.title}</div>
                                 <div class="like-btn" name="like-btn">
-                                    <!--
-                                    <i name="like-btn" class="fa fa-heart"></i>
-                                    <button name="like-btn" type="button" class="btn btn-primary">הוסף להצעת מחיר</button>
-                                    <input type="checkbox" name="button" id="like-btn-for-${img.id}">
-                                    <label class="bevel" for="like-btn-for-${img.id}">הוסף להצעת מחיר</label>
-                                    -->
                                     <div class="like-wrapper">
                                         <a name="like-btn"><span name="like-btn">אהבתי את המוצר</span></a>
                                     </div>
-                                    
                                 </div>
                             </div>
                             
@@ -263,10 +256,11 @@
 
 
             var numberOfItems = $(slisks[i]).find('.my-slick-slide').length
-            var isDots = true;
+            /*var isDots = true;
             if (numberOfItems > 20) {
                 isDots = false;
-            }
+            }*/
+            var isDots = false;
             $(slisks[i]).slick({
                 slidesToShow: 4,
                 slidesToScroll: 1,

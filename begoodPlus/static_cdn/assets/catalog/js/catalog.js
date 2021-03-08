@@ -318,7 +318,9 @@ function openCategoryModal(albumId) {
                     <img width="250px" height="250px" onclick="$('.my-slick-slide[data-prod-id=${img.id}]').click();" src="${img.image_thumbnail}" alt="${img.description}" />
                     <div class="img-title">${img.title}</div>
                     <div onclick="$('.my-slick-slide[data-prod-id=${img.id}] [name=like-btn]')[0].click();" class="like-btn" name="like-btn">
-                      <i name="like-btn" class="fa fa-heart"></i>
+                        <div class="like-wrapper">
+                            <a name="like-btn"><span name="like-btn">אהבתי את המוצר</span></a>
+                        </div>
                     </div>
                     </div>
       `
