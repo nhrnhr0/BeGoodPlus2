@@ -53,26 +53,26 @@ def updateProductsFormUserTaskView(request, *args, **kwargs):
 
         if task_id and task_id != '-1':
             task = ProductsTask.objects.get(pk=task_id)
-            task.name=name
-            task.email=email
-            task.phone=phone
-            task.submited = submited
-            for product in products:
-                try:
-                    if task.products.filter(pk=product).exists() == False:
-                        obj = CatalogImage.objects.get(pk=product)
-                        task.products.add(obj)
-                except:
-                    pass
-                pass
+            #task.name=name
+            #task.email=email
+            #task.phone=phone
+            #task.submited = submited
+            
         else:
             task, created = ProductsTask.objects.get_or_create(session=session, task_name=task_name, submited=submited)
             task_id = task.id
-            task.name=name
-            task.email=email
-            task.phone=phone
-            task.submited = submited
-
+        task.name=name
+        task.email=email
+        task.phone=phone
+        task.submited = submited
+        for product in products:
+            try:
+                if task.products.filter(pk=product).exists() == False:
+                    obj = CatalogImage.objects.get(pk=product)
+                    task.products.add(obj)
+            except:
+                pass
+            pass
         old_tasks = ProductsTask.objects.filter(session=session,task_name=task_name, submited=False).exclude(pk=task_id)
         print('delete old tasks ', old_tasks)
         old_tasks.delete()
@@ -81,7 +81,8 @@ def updateProductsFormUserTaskView(request, *args, **kwargs):
         if task.submited == False and submited == True:
             print('the form is submited', task.id)
 
-        if products == None or len(products) == 0:
+        taskProductsCount= task.products.all().count()
+        if taskProductsCount == 0:
             task.delete()
             task_id=-1
 

@@ -189,7 +189,7 @@ function addClientLikeProduct(prodId) {
   $('#modal-add-btn').text('נוסף להצעת מחיר');
   $('#modal-add-btn').addClass('isAdded');
   updateClientLikedUI1(prodId);
-  getUserTasks();
+  
 
   // bell animation:
   $('#navbarDropdown').removeClass('notify');
@@ -198,6 +198,7 @@ function addClientLikeProduct(prodId) {
     $('#navbarDropdown').addClass('notify');
   },200);
   setTimeout(updateProductsCart, 500);
+  setTimeout(getUserTasks, 500);
   console.log('addClientLikeProduct done');
   /*
   products = getClientLinkedProducts();
