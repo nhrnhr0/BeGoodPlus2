@@ -165,14 +165,18 @@
                 .mark-strong {
                     font-weight: 700;
                     display: inline;
-                    text-decoration: underline;
+                    //text-decoration: underline;
                 }
             }
 
-            .sentence-1 {font-size: 2em;}
+            .sentence-1 {
+                font-size: 2em;
+                font-weight: 700;
+            }
             .sentence-2 {
                 font-size: 2em;
                 text-align: center;
+                font-weight: 700;
             }
             .sentence-3 {
                 font-size: 1.5em;
@@ -180,20 +184,25 @@
                 
             }
             .sentence-4 {
-                font-size: 2em;
+                font-size: 1.8em;
                 font-weight: 700;
                 text-align: center;
             }
             .sentence-5 {
-                font-size: 1.5em;
+                font-size: 2em;
                 z-index: 999;
                 text-align: center;
-                padding-bottom: 20px;
+                padding-bottom: 30px;
             }
         }
     }
 
     .carusel-extra {
+        
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../catalog/imgs/catalogBg1.jpeg);
+    background-size: cover;
+    margin-top: 80px;
+
         .hero-description {
             font-size: 1.8rem;
             //color: #ddb550;
@@ -251,6 +260,9 @@
     .scene-title-wraper {
         background-color: black;
         border-radius: 20px;
+        width: fit-content;
+        margin: auto;
+        padding:10px;
     .scene-title {
         text-align: center;
         font-size: 2em;
