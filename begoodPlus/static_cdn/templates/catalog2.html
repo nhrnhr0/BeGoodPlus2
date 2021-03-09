@@ -15,6 +15,23 @@
 {% endblock extra_head%}
 
 {% block content %}
+
+<div class="section-1">
+    <!--
+    <div class="main-slider">
+            <img src="{%static 'assets/catalog/imgs/slide1.jpg'%}"/>
+            <img src="{%static 'assets/catalog/imgs/slide2.jpg'%}"/>
+            <img src="{%static 'assets/catalog/imgs/slide3.jpg'%}"/>
+    </div>
+    -->
+
+    <div class="main-slider">
+        <div><img class="main-slide-img" src="{%static 'assets/catalog/imgs/slide1.jpg'%}"/></div>
+        <div><img class="main-slide-img" src="{%static 'assets/catalog/imgs/slide2.jpg'%}" /></div>
+        <div><img class="main-slide-img" src="{%static 'assets/catalog/imgs/slide3.jpg'%}" /></div>
+    </div>
+</div>
+
 <div class="catalog">
 
 </div>
@@ -132,7 +149,7 @@
             <div class="modal-body">
                 <form id="likedProductsForm">
                     {%csrf_token%}
-                    <div class="row">
+                    <div class=" row">
                         <div class="col-6">
                             <input type="hidden" name="taskName" id="taskName"
                                 value="products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e">
@@ -191,7 +208,8 @@
             {% csrf_token %}
             <input type="hidden" name="taskName" id="taskName" value="catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e">
             <h2 class="form-header">
-                לקבלת הצעת מחיר משתלמת <div class="mark-strong">ללא</div> עלות <div class="mark-strong">וללא</div> התחייבות השאירו פרטים ומיד נחזור אליכם
+                לקבלת הצעת מחיר משתלמת <div class="mark-strong">ללא</div> עלות <div class="mark-strong">וללא</div>
+                התחייבות השאירו פרטים ומיד נחזור אליכם
             </h2>
             </h2>
             {% bootstrap_form contactForm %}
@@ -217,7 +235,25 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        debugger;
         updateProductsCart();
+        $('.main-slider').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay:true,
+                dots: false,
+                speed: 1000,
+                autoplaySpeed: 6000,
+                pauseOnFocus: true,
+                focusOnSelect: false,
+                rtl: true,
+                swipeToSlide: false,
+                //lazyLoad: 'ondemand',
+                draggable: false,
+                infinite: true,
+            });
+
+
         albums = getAllAlbums();
         var catalogMarkup = ``;
         var catalogPreload = ``;
@@ -261,10 +297,11 @@
         console.log(albums)
         var slisks = $('.slick-slider');
 
-        for (var i = 0; i < slisks.length; i++) {
+        // TODO: start index from 0 and choose a diffrent selector so the first (main) slider is not selected
+        for (var i = 1; i < slisks.length; i++) {
 
 
-            var numberOfItems = $(slisks[i]).find('.my-slick-slide').length
+            //var numberOfItems = $(slisks[i]).find('.my-slick-slide').length
             /*var isDots = true;
             if (numberOfItems > 20) {
                 isDots = false;
@@ -455,7 +492,7 @@
 
         task = myStorage.getItem('user_click_task');
         activateUserTask(task);
-        
+
 
         updateClientLikedUI();
     });

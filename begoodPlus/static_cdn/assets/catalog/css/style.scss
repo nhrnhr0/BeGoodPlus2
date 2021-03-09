@@ -37,7 +37,7 @@
       left: 0;
       width: 0;
       height: 100%;
-      background: #159560;//#ff003b;
+      background: #159560; //#ff003b;
       transition: all .35s;
       border-radius: 50px;
     }
@@ -127,14 +127,16 @@
 
 
   }
+
   .my-slick-slide {
     cursor: pointer;
+
     &:hover {
       background-color: black;
     }
 
 
-    &.checked + .like-btn .like-wrapper a {
+    &.checked+.like-btn .like-wrapper a {
       border: 1px solid white;
       color: #eee;
 
@@ -314,9 +316,11 @@
 
     #modal-add-btn {
       cursor: pointer;
+
       a {
-        padding: 10px!important;
+        padding: 10px !important;
       }
+
       &.isAdded {
         /*
         color: #fff;
@@ -364,33 +368,33 @@
 
     .category-item {
       cursor: pointer;
+
       .category-item-img-wraper {
         &:hover {
           background-color: black;
         }
       }
+
       padding: 5px;
 
       &.checked {
         .like-wrapper a {
           color: #eee;
           border: 1px solid white;
-        
-            &:hover {
-              color: white;
-            }
-        
-            &:after {
-              width: 100%;
-              height: 100%;
-            }
+
+          &:hover {
+            color: white;
+          }
+
+          &:after {
+            width: 100%;
+            height: 100%;
+          }
         }
-        
+
       }
 
-      &:hover {
-        
-      }
+      &:hover {}
 
       position: relative;
 
@@ -538,24 +542,35 @@
   .modal-dialog {
     margin-top: 0px;
     margin-bottom: 0px;
+
     @media (min-width: 576px) {
       //max-width: 100vw;
     }
 
     .modal-content {
       max-height: 100vh;
-      
+
       .modal-body {
-        padding:0px;
+        padding: 0px;
         overflow-y: auto;
         /*overflow-y: scroll;
         display: flex;
         justify-content: center;
         align-items: center;*/
 
-        img {
-        }
+        img {}
       }
     }
+  }
+}
+
+
+.main-slider {
+  max-width: 99vw;
+  margin: 0 auto;
+
+  .main-slide-img {
+    width: 100%;
+    height: auto;
   }
 }
