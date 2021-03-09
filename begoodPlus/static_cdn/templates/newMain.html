@@ -69,7 +69,7 @@
                             </div>
 
                             <button onclick="window.location='{%url 'catalogView2'%}'" class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
-                            <img class="carusel-img" src="{%static 'assets/main/imgs/caruselImg1.png' %}" />
+                            <img class="carusel-img" src="{%static 'assets/main/imgs/caruselImg1.jpg' %}" />
                         </div>
                         <div class="carousel__cell">
                             <div class="title">
@@ -77,13 +77,15 @@
                             </div>
 
                             <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
-                            <img class="carusel-img" src="{%static 'assets/main/imgs/caruselImg2.png' %}" />
+                            <img class="carusel-img" src="{%static 'assets/main/imgs/caruselImg2.jpg' %}" />
                         </div>
                         <div class="carousel__cell">
                             <div class="title">
-                                3
+                                עיצוב גרפי
                             </div>
+
                             <button class="btn btn-success cell-btn">למעבר לקטלוג לחץ כאן</button>
+                            <img class="carusel-img" src="{%static 'assets/main/imgs/caruselImg3.jpg' %}" />
                         </div>
                         <!--
                         <div class="carousel__cell">
@@ -191,6 +193,21 @@
 <!-- js imports -->
 
 <script src="{%static 'assets/main/js/main.js' %}"></script>
+
+<script>
+function activateUserTask(task) {
+        if (task == "main-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+            setTimeout(() => {
+                //document.getElementById('contact-form').scrollIntoView();
+                window.scrollTo(0, document.body.scrollHeight);
+                //myStorage.setItem('user_click_task', undefined);
+                myStorage.removeItem('user_click_task');
+            }, 1000);
+        }
+    }
+
+</script>
+
 {%endblock extra_body %}
 
 

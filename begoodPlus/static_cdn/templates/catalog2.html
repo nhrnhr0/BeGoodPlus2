@@ -65,7 +65,7 @@
                     <a name="like-btn"><span name="like-btn">הוסף להצעת מחיר</span></a>
                 </div>
 
-                
+
                 <button id="modal-next-btn" class="btn btn-primary"> הבא </button>
             </div>
         </div>
@@ -139,25 +139,28 @@
                             <div class="form-group">
                                 <label class="control-label">Name</label>
                                 <div>
-                                    <input type="text" class="form-control input-lg" id="id_name" name="name" value="" required>
+                                    <input type="text" class="form-control input-lg" id="id_name" name="name" value=""
+                                        required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">E-Mail Address</label>
                                 <div>
-                                    <input type="email" class="form-control input-lg"id="id_email" name="email" value="" required>
+                                    <input type="email" class="form-control input-lg" id="id_email" name="email"
+                                        value="" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">Phone</label>
                                 <div>
-                                    <input type="tel" class="form-control input-lg" id="id_phone" name="phone" value="" required>
+                                    <input type="tel" class="form-control input-lg" id="id_phone" name="phone" value=""
+                                        required>
                                 </div>
                             </div>
                         </div>
                         <div class="col-6" id="cartProductsList">
-                            <h1>my products</h1>
+                            <h1>הוסף מוצרים לעגלה</h1>
                         </div>
                     </div>
 
@@ -173,7 +176,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="submitCatalogProducts()"   class="btn btn-primary">שלח</button><!--id="modal-add-btn"-->
+                <button type="button" onclick="submitCatalogProducts()" class="btn btn-primary">שלח</button>
+                <!--id="modal-add-btn"-->
                 <button type="button" class="btn btn-secondary close-modal"
                     data-dismiss="likedProductsModal">סגור</button>
             </div>
@@ -190,7 +194,8 @@
             </h2>
             {% bootstrap_form contactForm %}
             {% buttons %}
-            <button onclick="submitCatalogContactForm()" type="button" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו
+            <button onclick="submitCatalogContactForm()" type="button" class="btn btn-success form-submit">לשיחת יעוץ
+                ללא עלות וללא התחייבות השאירו
                 פרטים</button>
             {% endbuttons %}
         </form>
@@ -253,7 +258,7 @@
         $('.catalog').html(catalogMarkup).append(catalogPreload);
         console.log(albums)
         var slisks = $('.slick-slider');
-        
+
         for (var i = 0; i < slisks.length; i++) {
 
 
@@ -284,7 +289,7 @@
                 }]
             });
         }
-        $('.my-slick-slide + .like-btn .like-wrapper').on('click', (e)=> {
+        $('.my-slick-slide + .like-btn .like-wrapper').on('click', (e) => {
             console.log('like clicked');
             addClientLikeProduct(e.currentTarget.dataset.prodId);
         });
@@ -343,12 +348,14 @@
                 <div class="inner-footer">
                 </div>
                 `);
-            
-            
+
+
                 var modalNextBtn = $('#modal-next-btn');
                 var modalPrevBtn = $('#modal-prev-btn');
-                var nextElementStr = `[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`;
-                var prevElementStr = `[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]`;
+                var nextElementStr =
+                    `[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`;
+                var prevElementStr =
+                    `[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]`;
                 var nextElement = $(nextElementStr)
                 var prevElement = $(prevElementStr)
                 modalNextBtn.attr('onClick',
@@ -358,18 +365,18 @@
                     `$('${prevElementStr}').click();`
                 );
                 // no more next, so hide next button
-                if(nextElement.length == 0) {
+                if (nextElement.length == 0) {
                     modalNextBtn.data('hide-me', 'yes');
                     modalNextBtn.css('visibility', 'hidden');
-                }else {
+                } else {
                     modalNextBtn.data('hide-me', 'no');
                     modalNextBtn.css('visibility', 'visible');
                 }
                 // no more prev, so hide prev button
-                if(prevElement.length == 0) {
+                if (prevElement.length == 0) {
                     modalPrevBtn.data('hide-me', 'yes');
                     modalPrevBtn.css('visibility', 'hidden');
-                }else {
+                } else {
                     modalPrevBtn.data('hide-me', 'no');
                     modalPrevBtn.css('visibility', 'visible');
                 }
@@ -381,16 +388,16 @@
                     `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
                 );
                 */
-                
-                
-            /*
-                $('#modal-next-btn').attr('onClick',
-                    `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
-                    );
-                $('#modal-prev-btn').attr('onClick',
-                    `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
-                    );
-                    */
+
+
+                /*
+                    $('#modal-next-btn').attr('onClick',
+                        `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
+                        );
+                    $('#modal-prev-btn').attr('onClick',
+                        `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
+                        );
+                        */
                 /*
                 $('#modal-next-btn').click(function (e) {
                     $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`).click();
@@ -401,14 +408,13 @@
                 });
 
                 $('#modal-add-btn').val(prodId);
-                
-                if($(e.currentTarget).hasClass('checked')) {
+
+                if ($(e.currentTarget).hasClass('checked')) {
                     debugger;
                     $('#modal-add-btn').prop('disabled', true);
                     $('#modal-add-btn span').text('נוסף להצעת מחיר');
                     $('#modal-add-btn').addClass('isAdded');
-                }
-                else {
+                } else {
                     $('#modal-add-btn').prop('disabled', false);
                     $('#modal-add-btn span').text('הוסף להצעת מחיר');
                     $('#modal-add-btn').removeClass('isAdded');
@@ -423,7 +429,7 @@
                     $('#modal-add-btn').text('הוסף להצעת מחיר');
                     $('#modal-add-btn').removeClass('isAdded');
                 }*/
-                
+
 
                 $('#catalogModal').modal('show');
                 $('#catalogModal .close-modal').click(function () {
@@ -431,38 +437,40 @@
                 });
 
             }
-            
+            $('#modal-add-btn').click((e) => {
+                console.log('modal-add-btn', e);
+                addClientLikeProduct(e.currentTarget.value)
+                return false;
+            });
         });
 
 
-        
+
 
 
 
 
 
         task = myStorage.getItem('user_click_task');
+        activateUserTask(task);
+        
+
+        updateClientLikedUI();
+    });
+
+    function activateUserTask(task) {
         if (task == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
             setTimeout(() => {
                 //document.getElementById('contact-form').scrollIntoView();
                 window.scrollTo(0, document.body.scrollHeight);
                 //myStorage.setItem('user_click_task', undefined);
                 myStorage.removeItem('user_click_task');
-            }, 100);
+            }, 1000);
         } else if (task == "products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
             loadProductsModal();
-
+            myStorage.removeItem('user_click_task');
         }
-
-        updateClientLikedUI();
-    });
-
-
-    $('#modal-add-btn').click((e) => {
-                    console.log('modal-add-btn', e);
-                    addClientLikeProduct(e.currentTarget.value)
-                    return false;
-                });
+    }
 </script>
 {%endblock%}
 

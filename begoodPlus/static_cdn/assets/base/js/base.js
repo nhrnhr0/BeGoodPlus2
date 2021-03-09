@@ -134,6 +134,14 @@ $(function () {
 function startGetUserTasksLoop() {
     setInterval(getUserTasks, 15000);
 }
+function taskClicked(taskName, taskUrl, msg) {
+    if(taskUrl !=  window.location.pathname) {
+        myStorage.setItem('user_click_task', `${taskName}`);
+        window.location.href= taskUrl;
+    }else {
+        activateUserTask(taskName)
+    }
+}
 
 function getUserTasks() {
     $.ajax({
@@ -144,6 +152,7 @@ function getUserTasks() {
         success: function (json) {
             data = json;
             var markup = ``;
+            /*
             for (var i = 0; i < data.length; i++) {
                 if (data[i].task_name == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
                     markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/testCatalog#contact-form">לא סיימתי למלא טופס בדף הקטלוג </a></li>`
@@ -151,6 +160,15 @@ function getUserTasks() {
                     markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/test#contact-form">לא סיימתי למלא טופס בדף הבית </a></li>`
                 } else if (data[i].task_name == "products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
                     markup += `<li><a class="dropdown-item" onclick="myStorage.setItem('user_click_task', '${data[i].task_name}');" data-task="${data.taskName}" href="/testCatalog">לחץ כאן לשליחת טופס מוצרים אהובים </a></li>`
+                }
+            }*/
+            for (var i = 0; i < data.length; i++) { 
+                if(data[i].task_name == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+                    markup += `<li><a class="dropdown-item" onclick="taskClicked('${data[i].task_name}', '/testCatalog#contact-form', 'לא סיימתי למלא טופס בדף הקטלוג');">לא סיימתי למלא טופס בדף הקטלוג</li>`
+                }else if (data[i].task_name == "main-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+                    markup += `<li><a class="dropdown-item" onclick="taskClicked('${data[i].task_name}', '/test/#contact-form', 'לא סיימתי למלא טופס בדף הבית');">לא סיימתי למלא טופס בדף הבית</li>`
+                }else if (data[i].task_name == "products-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {
+                    markup += `<li><a class="dropdown-item" onclick="taskClicked('${data[i].task_name}', '/testCatalog', 'לחץ כאן לשליחת טופס מוצרים אהובים');">לחץ כאן לשליחת טופס מוצרים אהובים</li>`
                 }
             }
             $('#navbarDropdownList').html(markup);
