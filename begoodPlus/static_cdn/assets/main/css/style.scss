@@ -1,6 +1,8 @@
 .my-body {
     background-color: rgb(255, 255, 255);
-
+    /*position: relative;
+    z-index: 1;
+    background: url(../../catalog/imgs/catalogBg1.jpeg);*/
     //background-color: rgb(0, 0, 0);
 }
 
@@ -87,23 +89,12 @@
     animation-direction: alternate-reverse;
 }
 
-.hero-wraper {
+
+/*.hero-wraper {
     position: relative;
     z-index: 1;
     font-weight: 700;
-
-    //background: url('../../base/imgs/tilesBg.jpg');
-    /*
-    background-size: cover;
-    box-shadow: 0 0 8px 8px rgb(2, 2, 2) inset;*/
-
-    /*
-    background-color: #854cbf;
-    border-radius: 30px;
-    */
-
-
-}
+}*/
 
 @keyframes move-waves {
     from {
@@ -118,24 +109,6 @@
 .hero {
     color: silver;
     padding-bottom: 10px;
-
-    .hero-description {
-        font-size: 1.8rem;
-        //color: #ddb550;
-        padding-top: 20px;
-        text-align: center;
-
-        /*text-shadow:
-            -1px -1px 0 #000,  
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;*/
-
-        .hero-description-title {}
-
-        //mix-blend-mode: difference;
-    }
-
 }
 
 .hero-slogen-wraper {
@@ -172,10 +145,72 @@
 
 .main-section {}
 
+.section-2-wraper {
+    
+    
+}
+
 .section-1-wraper {
     //background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imgs/white_paper.webp');
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../catalog/imgs/catalogBg1.jpeg');
     background-size: cover;
+
+    .hero-wraper {
+        .hero {
+            .sentence {
+                font-size: 1.5em;
+                color: white;
+                text-shadow: -2px -1px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+
+                .mark-strong {
+                    font-weight: 700;
+                    display: inline;
+                    text-decoration: underline;
+                }
+            }
+
+            .sentence-1 {font-size: 2em;}
+            .sentence-2 {
+                font-size: 2em;
+                text-align: center;
+            }
+            .sentence-3 {
+                font-size: 1.5em;
+                text-align: center;
+                
+            }
+            .sentence-4 {
+                font-size: 2em;
+                font-weight: 700;
+                text-align: center;
+            }
+            .sentence-5 {
+                font-size: 1.5em;
+                z-index: 999;
+                text-align: center;
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    .carusel-extra {
+        .hero-description {
+            font-size: 1.8rem;
+            //color: #ddb550;
+            padding-top: 20px;
+            text-align: center;
+    
+            /*text-shadow:
+                -1px -1px 0 #000,  
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;*/
+    
+            .hero-description-title {}
+    
+            //mix-blend-mode: difference;
+        }
+    }
 
 }
 
@@ -213,6 +248,18 @@
     */
     //    padding-top: 100px;
     //        padding-bottom: 150px;
+    .scene-title-wraper {
+        background-color: black;
+        border-radius: 20px;
+    .scene-title {
+        text-align: center;
+        font-size: 2em;
+        font-weight: 700;
+        //color: white;
+
+
+    }
+}
 }
 
 // carousel implementation:
@@ -234,6 +281,7 @@
         width: 125%;
         position: relative;
         transform: translate(10%, 0);
+
         .previous-button {
             background: transparent;
             border: 0;
@@ -320,7 +368,7 @@
         width: 100%;
         border-radius: 25px;
         transition: transform 1.3s;
-        color:black;
+        color: black;
         font-weight: bold;
     }
 
@@ -409,6 +457,7 @@
     .carousel__cell {
         width: 710px;
         height: 590px;
+
         .carusel-img {
             height: 530px;
             //width: 710px;
@@ -495,4 +544,9 @@ $gold-animation-text-color: rgba(255, 255, 255, 0.3);
 .temp-img {
     width: 440px;
     border-radius: 20px;
+}
+
+
+.contact-form-wraper2 {
+    background-color: #FFD880;
 }

@@ -1,5 +1,8 @@
 .my-body {
   background-color: white;
+  /*position: relative;
+    z-index: 1;
+    background: url(../../catalog/imgs/catalogBg1.jpeg);*/
 }
 
 @-webkit-keyframes AnimationName {
@@ -69,19 +72,11 @@
   animation-direction: alternate-reverse;
 }
 
-.hero-wraper {
-  position: relative;
-  z-index: 1;
-  font-weight: 700;
-  /*
-    background-size: cover;
-    box-shadow: 0 0 8px 8px rgb(2, 2, 2) inset;*/
-  /*
-    background-color: #854cbf;
-    border-radius: 30px;
-    */
-}
-
+/*.hero-wraper {
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+}*/
 @-webkit-keyframes move-waves {
   from {
     background-position-x: 0%;
@@ -90,7 +85,6 @@
     background-position-x: 100%;
   }
 }
-
 @keyframes move-waves {
   from {
     background-position-x: 0%;
@@ -103,17 +97,6 @@
 .hero {
   color: silver;
   padding-bottom: 10px;
-}
-
-.hero .hero-description {
-  font-size: 1.8rem;
-  padding-top: 20px;
-  text-align: center;
-  /*text-shadow:
-            -1px -1px 0 #000,  
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;*/
 }
 
 .hero-slogen-wraper {
@@ -150,6 +133,56 @@
   background-size: cover;
 }
 
+.section-1-wraper .hero-wraper .hero .sentence {
+  font-size: 1.5em;
+  color: white;
+  text-shadow: -2px -1px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+.section-1-wraper .hero-wraper .hero .sentence .mark-strong {
+  font-weight: 700;
+  display: inline;
+  text-decoration: underline;
+}
+
+.section-1-wraper .hero-wraper .hero .sentence-1 {
+  font-size: 2em;
+}
+
+.section-1-wraper .hero-wraper .hero .sentence-2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.section-1-wraper .hero-wraper .hero .sentence-3 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.section-1-wraper .hero-wraper .hero .sentence-4 {
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.section-1-wraper .hero-wraper .hero .sentence-5 {
+  font-size: 1.5em;
+  z-index: 999;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.section-1-wraper .carusel-extra .hero-description {
+  font-size: 1.8rem;
+  padding-top: 20px;
+  text-align: center;
+  /*text-shadow:
+                -1px -1px 0 #000,  
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;*/
+}
+
 .scene-wraper {
   position: relative;
   z-index: 1;
@@ -174,6 +207,17 @@
         padding-top: 75px;
         padding-bottom: 150px;
     */
+}
+
+.scene-wraper .scene-title-wraper {
+  background-color: black;
+  border-radius: 20px;
+}
+
+.scene-wraper .scene-title-wraper .scene-title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 700;
 }
 
 .scene {
@@ -467,5 +511,9 @@
 .temp-img {
   width: 440px;
   border-radius: 20px;
+}
+
+.contact-form-wraper2 {
+  background-color: #FFD880;
 }
 /*# sourceMappingURL=style.css.map */
