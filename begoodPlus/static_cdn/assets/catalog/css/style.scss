@@ -570,13 +570,35 @@
 
 
 .main-slider {
+  .main-slide {
+    position: relative;
+    
+    .text {
+      position: absolute;
+      top: 0px;
+      font-size: 2.3em;
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 100%;
+      
+      color: white;
+      text-shadow: -2px -1px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+      .text-1 {
+        font-size: 1.5em;
+      }
+      .text-2 {
+        width: 100vw;
+        text-align: center;
+      }
+    }
+    .main-slide-img {
+      width: 100vw;
+      //height:25.3125vw;
+      //width: auto;
+    }
+  }
   //max-width: 99vw;
   //max-height: 60vh;
   margin: 0 auto;
 
-  .main-slide-img {
-    width: 100vw;
-    //height:25.3125vw;
-    //width: auto;
-  }
+  
 }
