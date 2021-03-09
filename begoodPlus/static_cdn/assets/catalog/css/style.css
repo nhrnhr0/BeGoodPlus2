@@ -602,6 +602,7 @@
 }
 
 .main-slider .main-slide-img {
-  width: 100%;
+  width: 100vw;
+  height: 25.3125vw;
 }
 /*# sourceMappingURL=style.css.map */
