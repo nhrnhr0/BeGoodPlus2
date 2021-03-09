@@ -2,6 +2,9 @@
   --like-font-size: 30px;
 }
 
+/** {
+  border: 1px solid red;
+}*/
 .like-wrapper a {
   border-radius: 50px;
   width: 100%;
@@ -595,12 +598,10 @@
 }
 
 .main-slider {
-  max-width: 99vw;
   margin: 0 auto;
 }
 
 .main-slider .main-slide-img {
   width: 100%;
-  height: auto;
 }
 /*# sourceMappingURL=style.css.map */

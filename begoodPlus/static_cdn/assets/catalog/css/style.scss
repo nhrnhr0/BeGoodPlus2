@@ -8,6 +8,10 @@
 
 }
 
+/** {
+  border: 1px solid red;
+}*/
+
 .like-wrapper {
   a {
     border-radius: 50px;
@@ -566,11 +570,12 @@
 
 
 .main-slider {
-  max-width: 99vw;
+  //max-width: 99vw;
+  //max-height: 60vh;
   margin: 0 auto;
 
   .main-slide-img {
     width: 100%;
-    height: auto;
+    //width: auto;
   }
 }
