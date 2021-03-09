@@ -13,13 +13,14 @@ class BaseForm(forms.ModelForm):
         #        bound_field.field.widget.attrs["required"] = "required"
 
 class FormBeseContactInformation(BaseForm):
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'שם'}), label='', )
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'שם - חובה'}), label='', )
     email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'אימייל'}), label='',)
-    phone = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'פאלפון'}), label='',)
+    phone = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'פאלפון - חובה'}), label='',)
     message = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'הודעה', 'rows':'2'}), label='', )
     def __init__(self, *args, **kwargs):
         super(FormBeseContactInformation, self).__init__(*args, **kwargs)
         self.fields['message'].required = False
+        self.fields['email'].required = False
     class Meta:
         model = BeseContactInformation
         fields = '__all__'

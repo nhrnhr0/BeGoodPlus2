@@ -168,7 +168,8 @@
                 <form id="contact-form"  action="{%url 'save-contact-form' '/test'%}" method="post" class="contact-form">
                     {% csrf_token %}
                     <input type="hidden" name="taskName" id="taskName" value="main-ec6bb117-c8fa-4a38-989a-ab0e0805e44e">
-                    <h2 class="form-header">לקבלת הצעת מחיר משתלמת ללא עלות וללא התחייבות השאירו פרטים ומיד נחזור אליכם
+                    <h2 class="form-header">
+                        לקבלת הצעת מחיר משתלמת <div class="mark-strong">ללא</div> עלות <div class="mark-strong">וללא</div> התחייבות השאירו פרטים ומיד נחזור אליכם
                     </h2>
                     {% bootstrap_form contactForm %}
                     {% buttons %}
@@ -176,7 +177,7 @@
                         <button type="submit" class="btn btn-success form-submit">לשיחת יעוץ ללא עלות וללא התחייבות השאירו
                         פרטים</button>
                         -->
-                        <input type="button" class="btn btn-success form-submit"  value="לשיחת יעוץ ללא עלות וללא התחייבות השאירו פרטים" id="btnsubmit" onclick="submitMainContactForm()">
+                        <input type="button" class="btn btn-success form-submit"  value="לשליחת טופס לחץ כאן" id="btnsubmit" onclick="submitMainContactForm()">
                     {% endbuttons %}
                 </form>
             </div>

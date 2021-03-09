@@ -143,6 +143,10 @@ body {}
                 padding-right: 10px;
                 //margin-bottom: 80px;
                 text-align: center;
+                .mark-strong {
+                    display:inline;
+                    font-weight: 700;
+                }
             }
 
             ::placeholder {

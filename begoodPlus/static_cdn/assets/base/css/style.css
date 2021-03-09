@@ -189,6 +189,11 @@
   text-align: center;
 }
 
+.contact-form-wraper2 .contact-form-wraper .contact-form .form-header .mark-strong {
+  display: inline;
+  font-weight: 700;
+}
+
 .contact-form-wraper2 .contact-form-wraper .contact-form ::-webkit-input-placeholder {
   color: black;
 }

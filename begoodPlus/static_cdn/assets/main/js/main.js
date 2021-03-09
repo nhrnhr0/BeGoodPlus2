@@ -201,7 +201,7 @@ function updateMainTask(isSubmited=false) {
   if(isSubmited) {
     isValid = frm.get(0).reportValidity();
     if(isValid == false) {
-      alert('שם פאלפון ואימייל הם שדות חובה');
+      alert('שם ופאלפון הם שדות חובה');
       return;
     }
   }
