@@ -145,39 +145,42 @@
 }
 
 .section-1-wraper .hero-wraper .hero .sentence-1 {
-  font-size: 2em;
+  font-size: 3em;
   font-weight: 700;
 }
 
 .section-1-wraper .hero-wraper .hero .sentence-2 {
-  font-size: 2em;
+  font-size: 3em;
   text-align: center;
   font-weight: 700;
+  padding-bottom: 0.4em;
 }
 
 .section-1-wraper .hero-wraper .hero .sentence-3 {
-  font-size: 1.5em;
+  font-size: 1.7em;
   text-align: center;
 }
 
 .section-1-wraper .hero-wraper .hero .sentence-4 {
   font-size: 1.8em;
-  font-weight: 700;
   text-align: center;
+  text-decoration: underline;
+  padding-bottom: 0.4em;
 }
 
 .section-1-wraper .hero-wraper .hero .sentence-5 {
-  font-size: 2em;
+  font-size: 2.5em;
   z-index: 999;
   text-align: center;
+  font-weight: 700;
   padding-bottom: 30px;
 }
 
 .section-1-wraper .carusel-extra {
+  margin-top: 9em;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../../catalog/imgs/catalogBg1.jpeg);
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../catalog/imgs/catalogBg1.jpeg);
   background-size: cover;
-  margin-top: 80px;
 }
 
 .section-1-wraper .carusel-extra .hero-description {
@@ -195,11 +198,11 @@
   position: relative;
   z-index: 1;
   background: url("../../catalog/imgs/catalogBg1.jpeg");
+  padding-top: 3.4em;
+  padding-bottom: 150px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  padding-top: 100px;
-  padding-bottom: 150px;
   /*background-repeat: no-repeat;
     background-size: cover;
     background-repeat: no-repeat;
@@ -234,6 +237,7 @@
 }
 
 .scene {
+  padding-top: 1.4em;
   position: relative;
   width: 610px;
   height: 490px;
