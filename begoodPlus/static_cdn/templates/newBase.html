@@ -34,8 +34,8 @@
     -->
     <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{%url 'main-view'%}"><img class="nav-logo" src="{%static 'assets/base/imgs/logo_ms.png'%}" alt=""
-                    height="58" width="24px"></a>
+            <a class="navbar-brand" href="{%url 'main-view'%}"><img class="nav-logo"
+                    src="{%static 'assets/base/imgs/logo_ms.png'%}" alt="" height="58" width="24px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -110,23 +110,40 @@
     <script src="{%static 'assets/base/js/base.js' %}"></script>
 
     <script>
-            
-            //var allAlbums = 
-            var allAlbums;
-            {%if catalogAlbumData %}
-                allAlbums = {{catalogAlbumData|safe}};
-                myStorage.setItem('msAlbums', JSON.stringify(allAlbums));
-            {%else%}
-                allAlbums = undefined;
-            {%endif%}
-            function getAllAlbums() {
-                if(allAlbums == undefined) {
-                    allAlbums = JSON.parse(myStorage.getItem('myAlbums'));
-                }
-                return allAlbums;
-            }
+        //var allAlbums = 
+        /*
+        var allAlbums;
+        {%if catalogAlbumData %}
+            allAlbums = {{catalogAlbumData|safe}};
+            myStorage.setItem('msAlbums', JSON.stringify(allAlbums));
+        {%else%}
+            allAlbums = undefined;
+        {%endif%}
+        */
+        var allAlbums;
 
-            
+        function getAllAlbums() {
+            if (allAlbums == undefined) {
+                allAlbums = JSON.parse(myStorage.getItem('msAlbums'));
+                if (allAlbums == undefined) {
+                    $.ajax({
+                        type: "GET",
+                        url: '/catalog_api',
+                        success: (json) => {
+                            //allAlbums = ;
+                            myStorage.setItem('msAlbums',json.catalogAlbumData);
+                        },
+                        error: (e) =>{
+                            console.log('error:', e);
+                        },
+                        dataType: "json"
+                    });
+                }
+            }
+            console.log('getAllAlbums', allAlbums);
+            return allAlbums;
+        }
+        getAllAlbums();
     </script>
 
     {% block extra_body %}

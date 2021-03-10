@@ -14,15 +14,21 @@ class CatalogAlbumViewSet(viewsets.ModelViewSet):
 
 
 import json
-
-def catalogView2(request, *args, **wkargs):
+def catalogView_api(request, *args, **wkrags):
+    print('catalogView_api start')
     albums = CatalogAlbum.objects.prefetch_related('images').all()
     ser_context={'request': request}
     serializer = CatalogAlbumSerializer(albums,context=ser_context, many=True)
-    #content = JSONRenderer().render(serializer.data)
     data = json.dumps(serializer.data)
-    #context = {'catalogAlbums': albums,'catalogAlbumData':data}
-    context = {'catalogAlbumData':data}
-    #context = {'catalogAlbums': albums,}
+    context = {'catalogAlbumData':data,}
+    print('catalogView_api end')
+    return JsonResponse(context)
+    #return render(request, 'catalog2.html', context=context)
+
+def catalogView2(request, *args, **wkargs):
+    print('catalogView2 start')
+    albums = CatalogAlbum.objects.prefetch_related('images').all()
+    context = {'albums':albums}
+    print('catalogView2 end')
     return render(request, 'catalog2.html', context=context)
     

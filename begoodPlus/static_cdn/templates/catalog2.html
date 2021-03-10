@@ -27,9 +27,7 @@
 
     <div class="main-slider">
         <div class="main-slide">
-            <img class="main-slide-img" 
-                src="{%static 'assets/catalog/imgs/hero_big.jpg'%}"
-            />
+            <img class="main-slide-img" src="{%static 'assets/catalog/imgs/hero_big.jpg'%}" />
             <div class="text">
                 <div class="text-1">
                     בעל עסק? גם לך נמאס לבזבז זמן וכסף בהזמנות רכש לעובדים?
@@ -48,6 +46,33 @@
 
 <div class="catalog">
 
+    {%for album in albums%}
+    {%if album.is_public%}
+    <div class="title-wraper">
+        <button data-album-id="{{album.id}}" onclick="openCategoryModal({{album.id}})"
+            class="title btn">{{album.title}}</button>
+    </div>
+    <div class="container">
+        <div name="slick-slider-{{album.id}}" id="slick-slider-{{forloop.parentloop.counter0}}" class="slick-slider">`
+            {%for img in album.images.all%}
+            <div class="wraper-my-slick-slide">
+                <div data-album-id="{{album.id}}" data-my-slide-index="{{forloop.counter0}}" data-prod-id="{{img.id}}"
+                    class="my-slick-slide shadow-lg">
+                    <img data-lazy="media/{{img.image_thumbnail}}" alt="{{img.description}}" />
+                    <div class="img-title">{{img.title}}</div>
+                </div>
+                <div class="like-btn" name="like-btn">
+                    <div class="like-wrapper" data-prod-id="{{img.id}}">
+                        <a name="like-btn"><span name="like-btn">הוסף להצעת מחיר</span></a>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+
+    {%endif%}
+    {%endfor%}
 </div>
 
 <div class="modal" id="catalogProductsModal" tabindex="-1" role="dialog">
@@ -252,24 +277,25 @@
         debugger;
         updateProductsCart();
         $('.main-slider').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay:true,
-                dots: false,
-                speed: 1000,
-                autoplaySpeed: 6000,
-                pauseOnFocus: true,
-                focusOnSelect: false,
-                rtl: true,
-                swipeToSlide: false,
-                //lazyLoad: 'ondemand',
-                draggable: false,
-                infinite: true,
-                arrows: false,
-            });
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            dots: false,
+            speed: 1000,
+            autoplaySpeed: 6000,
+            pauseOnFocus: true,
+            focusOnSelect: false,
+            rtl: true,
+            swipeToSlide: false,
+            //lazyLoad: 'ondemand',
+            draggable: false,
+            infinite: true,
+            arrows: false,
+        });
 
 
-        albums = getAllAlbums();
+        //albums = getAllAlbums();
+        /*
         var catalogMarkup = ``;
         var catalogPreload = ``;
         var k = 0;
@@ -309,7 +335,7 @@
             catalogPreload += albumPreload;
         }
         $('.catalog').html(catalogMarkup).append(catalogPreload);
-        console.log(albums)
+        */
         var slisks = $('.slick-slider');
 
         // TODO: start index from 0 and choose a diffrent selector so the first (main) slider is not selected
@@ -359,6 +385,7 @@
                 //var isAdded = e.currentTarget.dataset.isAdded;
 
                 albums = getAllAlbums();
+                debugger;
                 var album = albums.find((val, idx, obj) => {
                     return val.id == albumId
                 })
@@ -434,28 +461,6 @@
                     modalPrevBtn.data('hide-me', 'no');
                     modalPrevBtn.css('visibility', 'visible');
                 }
-                /*
-                modalNextBtn.attr('onClick',
-                    `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
-                );
-                modalPrevBtn.attr('onClick',
-                    `$('[name=slick-slider-${album.id}] .my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
-                );
-                */
-
-
-                /*
-                    $('#modal-next-btn').attr('onClick',
-                        `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]').click();`
-                        );
-                    $('#modal-prev-btn').attr('onClick',
-                        `$('.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]').click();`
-                        );
-                        */
-                /*
-                $('#modal-next-btn').click(function (e) {
-                    $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)+1}]`).click();
-                });*/
                 $('#modal-prev-btn').click(function (e) {
                     $(`.my-slick-slide[data-my-slide-index=${parseInt(e.currentTarget.dataset.mySlideIndex)-1}]`)
                         .click();
@@ -473,17 +478,6 @@
                     $('#modal-add-btn span').text('הוסף להצעת מחיר');
                     $('#modal-add-btn').removeClass('isAdded');
                 }
-                /*
-                if ($(e.currentTarget).data().isAdded) {
-                    $('#modal-add-btn').prop('disabled', true);
-                    $('#modal-add-btn').text('נוסף להצעת מחיר');
-                    $('#modal-add-btn').addClass('isAdded');
-                } else {
-                    $('#modal-add-btn').prop('disabled', false);
-                    $('#modal-add-btn').text('הוסף להצעת מחיר');
-                    $('#modal-add-btn').removeClass('isAdded');
-                }*/
-
 
                 $('#catalogModal').modal('show');
                 $('#catalogModal .close-modal').click(function () {

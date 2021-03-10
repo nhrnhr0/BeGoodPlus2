@@ -51,7 +51,7 @@ from glofa_types.views import glofa_data
 from freeFlow.views import freeFlowView, freeFlowChangeLanguage
 from core.views import admin_subscribe_view, mainView, saveBaseContactFormView
 from leadsCampains.views import landingPageFormSubmit
-from catalogAlbum.views import catalogView2
+from catalogAlbum.views import catalogView2,catalogView_api
 from myUserTasks.views import updateContactFormUserTaskView, getUserTasksView,updateProductsFormUserTaskView,getUserCartView,delUserLikedProductView
 urlpatterns = [
     #path('jet/', include('jet.urls', 'jet')),
@@ -89,6 +89,7 @@ urlpatterns = [
 
     path('test/', mainView, name='main-view'),
     path('testCatalog', catalogView2,name="catalogView2"),
+    path('catalog_api', catalogView_api, name="catalog-view-api"),
     path('tasks/update-contact-form', updateContactFormUserTaskView, name='update-contact-form-user-task'),
     #path('tasks/submit-contact-form', submitContactFormUserTaskView, name='submit-contact-form-user-task'),
     path('tasks/update-products-form', updateProductsFormUserTaskView, name='update-products-form-user-task'),
