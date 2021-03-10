@@ -11,6 +11,8 @@
 <!-- Add the slick-theme.css if you want default styling -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
 <script src="https://kit.fontawesome.com/022c0fea0b.js" crossorigin="anonymous" defer></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <link rel="stylesheet" href="{%static 'assets/catalog/css/style.css' %}">
 {% endblock extra_head%}
 
@@ -27,12 +29,16 @@
 
     <div class="main-slider">
         <div class="main-slide">
-            <img class="main-slide-img" src="{%static 'assets/catalog/imgs/slide1.jpg'%}" />
+            <img class="main-slide-img" 
+            srcset="{%static 'assets/catalog/imgs/slide1_big.jpg'%} 800w,
+                    {%static 'assets/catalog/imgs/slide1.jpg'%} 1900w"
+            
+            src="{%static 'assets/catalog/imgs/slide1.jpg'%}" />
             <div class="text">
-                <div class="text-1">
+                <div class="text-1 cls-animate-in-right" >
                     בעל עסק? גם לך נמאס לבזבז זמן וכסף בהזמנות רכש לעובדים?
                 </div>
-                <div class="text-2">
+                <div class="text-2 cls-animate-in-right">
                     תן למקצוענים לעשות את העבודה בשבילך
                 </div>
             </div>
@@ -292,11 +298,13 @@
 {%block extra_body%}
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="{%static 'assets/catalog/js/catalog.js'%}"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
         debugger;
+        AOS.init();
         updateProductsCart();
         $('.main-slider').slick({
             slidesToShow: 1,

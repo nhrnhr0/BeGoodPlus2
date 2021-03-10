@@ -597,6 +597,39 @@
         align-items: center;*/
 }
 
+.cls-animate-in-right {
+  -webkit-animation: animate-in-right;
+          animation: animate-in-right;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-delay: 1000;
+          animation-delay: 1000;
+}
+
+@-webkit-keyframes animate-in-right {
+  from {
+    -webkit-transform: translate(100%, 0%);
+            transform: translate(100%, 0%);
+  }
+  to {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes animate-in-right {
+  from {
+    -webkit-transform: translate(100%, 0%);
+            transform: translate(100%, 0%);
+  }
+  to {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
 .main-slider {
   margin: 0 auto;
 }

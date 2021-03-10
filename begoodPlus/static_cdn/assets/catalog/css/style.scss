@@ -569,6 +569,22 @@
 }
 
 
+.cls-animate-in-right {
+  animation: animate-in-right;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 1000;
+}
+
+@keyframes animate-in-right {
+  from {
+    transform: translate(100%,0%);
+  }
+  to {
+    transform: translate(0%,0%);
+  }
+}
+
 .main-slider {
   .main-slide {
     position: relative;
