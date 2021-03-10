@@ -27,7 +27,29 @@
 
     <div class="main-slider">
         <div class="main-slide">
-            <img class="main-slide-img" src="{%static 'assets/catalog/imgs/photo_2021-03-10_12-25-33.jpg'%}" />
+            <img class="main-slide-img" src="{%static 'assets/catalog/imgs/slide1.jpg'%}" />
+            <div class="text">
+                <div class="text-1">
+                    בעל עסק? גם לך נמאס לבזבז זמן וכסף בהזמנות רכש לעובדים?
+                </div>
+                <div class="text-2">
+                    תן למקצוענים לעשות את העבודה בשבילך
+                </div>
+            </div>
+        </div>
+        <div class="main-slide">
+            <img class="main-slide-img" src="{%static 'assets/catalog/imgs/slide2.jpg'%}" />
+            <div class="text">
+                <div class="text-1">
+                    בעל עסק? גם לך נמאס לבזבז זמן וכסף בהזמנות רכש לעובדים?
+                </div>
+                <div class="text-2">
+                    תן למקצוענים לעשות את העבודה בשבילך
+                </div>
+            </div>
+        </div>
+        <div class="main-slide">
+            <img class="main-slide-img" src="{%static 'assets/catalog/imgs/slide3.jpg'%}" />
             <div class="text">
                 <div class="text-1">
                     בעל עסק? גם לך נמאס לבזבז זמן וכסף בהזמנות רכש לעובדים?
@@ -279,8 +301,8 @@
         $('.main-slider').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: true,
-            dots: false,
+            //autoplay: true,
+            autoplay: false,
             speed: 1000,
             autoplaySpeed: 6000,
             pauseOnFocus: true,
@@ -288,6 +310,7 @@
             rtl: true,
             swipeToSlide: false,
             //lazyLoad: 'ondemand',
+            dots: true,
             draggable: false,
             infinite: true,
             arrows: false,
