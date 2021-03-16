@@ -31,7 +31,7 @@ def autocompleteModel(request):
     if request.is_ajax():
         q = request.GET.get('q', '')
         albums_qs = CatalogAlbum.objects.filter(Q(title__icontains=q) & Q(is_public=True))
-        products_qs = CatalogImage.objects.filter(Q(title__icontains=q) | Q(description__icontains=q))
+        products_qs = CatalogImage.objects.filter(Q(title__icontains=q) | Q(description__icontains=q) |  Q(images__title__icontains=q))
         print(albums_qs)
         print(products_qs)
         ser_context={'request': request}
