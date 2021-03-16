@@ -192,7 +192,7 @@
                         .appendTo( ul );
                 }else if(item.my_type == 'product') {
                     return $( "<li>" )
-                        .append( `<div class="search-item" data-type='product' data-id='${item.id}'><img style="height:25px;" src=${item.image}/> ${item.title} </div>`)
+                        .append( `<div class="search-item" data-type='product' data-id='${item.id}'><img style="height:25px;" src="${item.image}" /> ${item.title} </div>`)
                         .appendTo( ul );
                 }else {
                     return ul;
