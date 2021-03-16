@@ -5,16 +5,6 @@ from catalogAlbum.models import CatalogAlbum
 from drf_multiple_model.views import ObjectMultipleModelAPIView
 from django.urls import reverse
 
-class SearchCatalogImageSerializer(serializers.HyperlinkedModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    my_type = serializers.ReadOnlyField(default='product')
-    url = serializers.ReadOnlyField(default='/testCatalog')
-    class Meta:
-        model = CatalogImage
-        #fields = '__all__'
-        #exclude = ('colors','sizes')
-        fields = ('id','url', 'title', 'description', 'image','image_thumbnail', 'my_type',)
-
 class SearchCatalogAlbumSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.IntegerField(read_only=True)
     my_type = serializers.ReadOnlyField(default='album')
@@ -23,6 +13,19 @@ class SearchCatalogAlbumSerializer(serializers.HyperlinkedModelSerializer):
         model = CatalogAlbum
         fields = ('id', 'url', 'title', 'slug', 'is_public', 'my_type',)
         #exclude = ('images',)
+
+class SearchCatalogImageSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    my_type = serializers.ReadOnlyField(default='product')
+    url = serializers.ReadOnlyField(default='/testCatalog')
+    images = SearchCatalogAlbumSerializer('images', many=True)
+    class Meta:
+        model = CatalogImage
+        #fields = '__all__'
+        #exclude = ('colors','sizes')
+        fields = ('id','url','title', 'images','description', 'image','image_thumbnail', 'my_type',)
+
+
 
 from drf_multiple_model.views import ObjectMultipleModelAPIView
 
