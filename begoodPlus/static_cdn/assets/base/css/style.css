@@ -1,3 +1,7 @@
+.ui-autocomplete {
+  z-index: 9999999;
+}
+
 .navbar {
   position: -webkit-sticky;
   position: sticky;

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'webpush',
     'tof',
     'bootstrap5',
+    'drf_multiple_model',
     
 
     # own

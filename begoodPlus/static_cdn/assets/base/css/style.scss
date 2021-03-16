@@ -1,5 +1,8 @@
 body {}
 
+.ui-autocomplete {
+    z-index: 9999999;
+}
 .navbar {
     position: sticky;
     top: 0;

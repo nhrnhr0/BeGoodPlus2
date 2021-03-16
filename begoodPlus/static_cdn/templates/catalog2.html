@@ -308,7 +308,6 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        debugger;
         AOS.init();
         updateProductsCart();
         $('.main-slider').slick({
@@ -421,7 +420,6 @@
                 //var isAdded = e.currentTarget.dataset.isAdded;
 
                 albums = getAllAlbums();
-                debugger;
                 var album = albums.find((val, idx, obj) => {
                     return val.id == albumId
                 })
@@ -505,7 +503,6 @@
                 $('#modal-add-btn').val(prodId);
 
                 if ($(e.currentTarget).hasClass('checked')) {
-                    debugger;
                     $('#modal-add-btn').prop('disabled', true);
                     $('#modal-add-btn span').text('נוסף להצעת מחיר');
                     $('#modal-add-btn').addClass('isAdded');
@@ -537,10 +534,31 @@
 
         task = myStorage.getItem('user_click_task');
         activateUserTask(task);
+        handleSearchTasks();
+        
 
 
         updateClientLikedUI();
     });
+
+    function handleSearchTasks() {
+        debugger;
+        var openCategoryTask = myStorage.getItem('search_open_category');
+        if(openCategoryTask != null) {
+            openCategoryModal(openCategoryTask);
+            myStorage.removeItem('search_open_category');
+
+        }
+
+        var openProductTask = myStorage.getItem('search_open_product');
+        if(openProductTask != null) {
+            $(`.my-slick-slide[data-prod-id=${openProductTask}]`).click();
+            //var prod = $(`div[data-prod-id=${openProductTask}]`);
+            //prod.click();
+            
+            myStorage.removeItem('search_open_product');
+        }
+    }
 
     function activateUserTask(task) {
         if (task == "catalog-ec6bb117-c8fa-4a38-989a-ab0e0805e44e") {

@@ -4,6 +4,7 @@ from django.utils.translation import gettext as _
 
 from catalogImages.models import CatalogImage
 from django.utils.html import mark_safe
+from itertools import chain
 
 '''
 class CatalogAlbum(models.Model):
