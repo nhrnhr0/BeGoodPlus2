@@ -439,7 +439,11 @@
                     sizeMarkup += `<div class="size-box">${size.size}</div>`;
                 }
 
-                $('#catalogModal .modal-title').text(album.title);
+                //$('#catalogModal .modal-title').text(album.title);
+                $('#catalogModal .modal-title').html(`
+                <button data-album-id="${album.id}" onclick="openCategoryModal(${album.id})"
+                    class="title btn btn-success">${album.title}</button>
+                    `);
                 $('#catalogModal .modal-body').html(`
                 <div class="inner-body">
 
@@ -524,20 +528,9 @@
                 return false;
             });
         });
-
-
-
-
-
-
-
-
         task = myStorage.getItem('user_click_task');
         activateUserTask(task);
         handleSearchTasks();
-        
-
-
         updateClientLikedUI();
     });
 
