@@ -54,6 +54,7 @@ class CatalogAlbum(MPTTModel):
         
     class Meta:
         unique_together = ('slug', 'parent',)   
+        ordering = ('throughimage__image_order',)
     def __str__(self):
         return self.title
         

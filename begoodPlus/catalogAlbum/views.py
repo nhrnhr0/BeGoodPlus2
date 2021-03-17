@@ -26,8 +26,9 @@ def catalogView_api(request, *args, **wkrags):
     #return render(request, 'catalog2.html', context=context)
 
 def catalogView2(request, *args, **wkargs):
+
     print('catalogView2 start')
-    albums = CatalogAlbum.objects.prefetch_related('images').all()
+    albums = CatalogAlbum.objects.prefetch_related('images').all()#.order_by("throughimage__image_order")
     context = {'albums':albums}
     print('catalogView2 end')
     return render(request, 'catalog2.html', context=context)
