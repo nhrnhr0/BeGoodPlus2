@@ -53,7 +53,8 @@ class CatalogAlbum(MPTTModel):
         order_insertion_by = ['title']
         
     class Meta:
-        unique_together = ('slug', 'parent',)   
+        unique_together = ('slug', 'parent',)  
+        #ordering = ['throughimage__image_order'] 
         #ordering = ('throughimage__image_order',)
     def __str__(self):
         return self.title

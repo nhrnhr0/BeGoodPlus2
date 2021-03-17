@@ -26,6 +26,7 @@ class CatalogImage(models.Model):
     class Meta():
         verbose_name = _('Catalog image')
         verbose_name_plural = _('Catalog images')
+        ordering = ['throughimage__image_order'] 
         
     
     def optimize_image(image,size, *args, **kwargs):
