@@ -49,7 +49,7 @@ from clientLikedImages.views import add_liked_images
 from clientImages.views import upload_user_image
 from glofa_types.views import glofa_data
 from freeFlow.views import freeFlowView, freeFlowChangeLanguage
-from core.views import admin_subscribe_view, mainView, saveBaseContactFormView,autocompleteModel
+from core.views import admin_subscribe_view, mainView, saveBaseContactFormView,autocompleteModel, autocompleteClick
 from leadsCampains.views import landingPageFormSubmit
 from catalogAlbum.views import catalogView2,catalogView_api
 from myUserTasks.views import updateContactFormUserTaskView, getUserTasksView,updateProductsFormUserTaskView,getUserCartView,delUserLikedProductView
@@ -97,6 +97,7 @@ urlpatterns = [
     path('tasks/get-user-cart', getUserCartView, name='get-user-cart'),
     path('tasks/delete-user-liked-product/', delUserLikedProductView, name='delete-user-liked-product'),
     path('search',autocompleteModel),
+    path('search-click', autocompleteClick),
 ]
 
 if settings.DEBUG:

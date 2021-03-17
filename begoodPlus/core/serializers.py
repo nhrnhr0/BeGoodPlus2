@@ -18,12 +18,12 @@ class SearchCatalogImageSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.IntegerField(read_only=True)
     my_type = serializers.ReadOnlyField(default='product')
     url = serializers.ReadOnlyField(default='/testCatalog')
-    images = SearchCatalogAlbumSerializer('images', many=True)
+    album = SearchCatalogAlbumSerializer('album', many=True)
     class Meta:
         model = CatalogImage
         #fields = '__all__'
         #exclude = ('colors','sizes')
-        fields = ('id','url','title', 'images','description', 'image','image_thumbnail', 'my_type',)
+        fields = ('id','url','title', 'album','description', 'image','image_thumbnail', 'my_type',)
 
 
 

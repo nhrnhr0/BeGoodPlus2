@@ -109,6 +109,22 @@
     <script src="{%static 'assets/base/js/base.js' %}"></script>
 
     <script>
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
         //var allAlbums = 
         /*
         var allAlbums;
@@ -142,7 +158,7 @@
             console.log('getAllAlbums', allAlbums);
             return allAlbums;
         }
-
+        var search_term_id = -1;
         function initAutocomplete() {
             $('#search').autocomplete({
                 source: function (request, response) {
@@ -155,7 +171,43 @@
                         },
                         success: function (data) {
                             console.log('response', data);
-                            response(data.all);
+                            /*var items = $.map(data.all, function (value, key) {
+                                console.log('map,', value, key)
+                                return {
+                                    label: value.title,
+                                    value: value.title,
+                                    data: value
+                                };
+                            });*/
+                            search_term_id = data.id;
+                            var items = [];
+                            for(var i = 0; i< data.all.length; i++) {
+                                
+                                my_item = data.all[i];
+                                items.push({
+                                    lable: my_item.title,
+                                    value:my_item.title,
+                                    data:my_item
+                                });
+                                album = my_item.album[1];
+                                var found_album = false;
+                                for(var j = 0; j < items.length; j++) {
+                                    if(items[j].data.my_type == 'album' && items[j].data.id ==  album.id) {
+                                        found_album = true;
+                                        break;
+                                    }
+                                }
+                                if(found_album == false) {
+                                    items.unshift({
+                                        lable: album.title,
+                                        value: album.title,
+                                        data: {id: album.id, title:album.title,my_type:'album', url:album.url }
+                                    });
+                                }
+                            }
+                            debugger;
+                            //response(data.all);
+                            response(items);
                         },
                         error: function(xhr) {
                             alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
@@ -164,8 +216,24 @@
                 },
                 minLength: 3,
                 select: function (event, ui) {
-                    var item = ui.item;
-                    
+                    debugger;
+                    var item = ui.item.data;
+                    const csrftoken = getCookie('csrftoken');
+                    $.ajax({
+                        url: "/search-click",
+                        dataType: "json",
+                        type: "POST",
+                        headers: {'X-CSRFToken': csrftoken},
+                        data: {
+                            id: search_term_id,
+                            value: ui
+                        },
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
+
+
                     if(item.my_type == 'album') {
                         myStorage.setItem('search_open_category', item.id);
                         
@@ -188,18 +256,30 @@
                 console.log(item);
                 console.log(ul.html());
                 debugger;
-                var album = item.images[1];
-                var category = ul.find(`ul[name=list-category-${album.id}]`)[0];
-                if(category == undefined) {
-                    category = $(`<li><ul name="list-category-${album.id}"></ul></li>`);
-                    category.appendTo(ul);
-                    category = category.find('ul')
+
+                var data = item.data;
+                if(data.my_type == 'album') {
+                    return $(`<li name="list-category-${data.id}"><div class="search-item" data-type='album' data-id='${data.id}'>${data.title}</div></li>`).prependTo(ul);
+                }else if(data.my_type == 'product') {
+                    return $( "<li>" )
+                        .append( `<div class="search-item" data-type='product' data-id='${item.value.id}'><img style="height:25px;" src="${item.data.image}" /> ${item.data.title} </div>`)
+                        .appendTo(ul);    
                 }
-                $( "<li>" )
-                        .append( `<div class="search-item" data-type='product' data-id='${item.id}'><img style="height:25px;" src="${item.image}" /> ${item.title} </div>`)
-                        .appendTo( $(category));
+                
+                /*
+                var album = item.data.images[1];
+                var category = ul.find(`li[name=list-category-${album.id}]`)[0];
+                if(category == undefined) {
+                    category = $(`<li name="list-category-${album.id}"><div class="search-item" data-type='album' data-id='${album.id}'>${album.title}</div></li>`);
+                    category.prependTo(ul);
+                    //category = category.find('ul')
+                }
+                return $( "<li>" )
+                        .append( `<div class="search-item" data-type='product' data-id='${item.value.id}'><img style="height:25px;" src="${item.data.image}" /> ${item.data.title} </div>`)
+                        .appendTo(ul);
                 console.log(ul.html());
                 return ul;
+                */
                 
                 /*
                 if(item.my_type == 'album') {
@@ -212,8 +292,8 @@
                         .appendTo( ul );
                 }else {
                     return ul;
-                }
-                */
+                }*/
+                
             };
         }
 
