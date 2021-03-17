@@ -189,7 +189,15 @@ function getCookie(name) {
                                     value:my_item.title,
                                     data:my_item
                                 });
-                                album = my_item.album[1];
+                                // get the first album that is not all products
+                                var album = undefined;
+                                for(var k = 0; k < my_item.album.length; k++) {
+                                    if(my_item.album.id != 1) {
+                                        album = my_item.album[k]
+                                        break;
+                                    }
+                                }
+                                //album = my_item.album[1];
                                 var found_album = false;
                                 for(var j = 0; j < items.length; j++) {
                                     if(items[j].data.my_type == 'album' && items[j].data.id ==  album.id) {
