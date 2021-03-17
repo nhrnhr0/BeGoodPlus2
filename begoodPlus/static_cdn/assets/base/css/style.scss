@@ -1,11 +1,90 @@
 body {}
+
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    left: -160px;
+    //left: 0px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 10;
+
+    .icon {
+        text-decoration: none;
+        width: 210px;
+        border-radius: 100px;
+        padding-right: 10px;
+        color: #fff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 20px;
+        //transform: translateX(-210px);
+        transform: translateX(160px);
+        transition: all 0.5s linear;
+
+
+        &.hide {
+            transform: translateX(-220px);
+        }
+        &.pick {
+            transform: translateX(10px);
+        }
+        &.show {
+            transform: translateX(160px);
+            transition: all 0.1s linear;
+            &:hover {
+                transform: translateX(170px);
+            }
+        }
+
+        img {
+            width: 50px;
+        }
+        .inner-icon {
+            width: 100%;
+            //font-size: 1.3em;
+            font-size: 0.857em;
+            padding:10px;
+            height: 100%;
+        }
+
+        &.delivery {
+            background-color: rgb(251, 251, 82);
+            .inner-icon {
+                //font-size: .9em;
+            }
+        }
+        &.whatsapp {
+            background-color: lightgreen;
+        }
+        &.facebook {
+            background-color: #4267B2;
+        }
+        &.instegram {
+            background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+        }
+        /*&.pick {
+            transform: translateX(-90px);
+        }*/
+        a {
+            color: white;
+        }
+    }
+}
+
+
 #search_form {
     //margin:auto;
     //transform: translate(-50%,0%);
-    flex-grow: 1;
+    //flex-grow: 1;
+    //justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
     input {
         //min-width: 350px;
-        swidth: 100%;
+        width: 80%;
     }
 }
 .ui-autocomplete {
@@ -36,7 +115,11 @@ body {}
 
     .nav-logo {
         width: auto;
-        height: 30px;
+        height: 40px;
+    }
+    .nav-logo-2 {
+        width: auto;
+        height:40px;
     }
     .nav-link-home {
         padding-left: 20px;
