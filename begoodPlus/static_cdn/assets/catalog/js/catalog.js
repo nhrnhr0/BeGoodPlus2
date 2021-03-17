@@ -304,6 +304,7 @@ function openImageProductModal(prodId) {
 
 function openCategoryModal(albumId) {
   //updateLikedProductsTask();
+  $('#catalogModal .close-modal').click();
   updateProductsCart();
   var albums = getAllAlbums();
   var albumIndex = albums.findIndex((val, idx, obj) => {
