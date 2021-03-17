@@ -67,15 +67,79 @@
 }
 
 .icon-bar .icon.delivery {
-  background-color: #fbfb52;
+  background-color: #FFD880;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+}
+
+.icon-bar .icon.delivery .inner-icon:focus {
+  outline: 0;
+}
+
+.icon-bar .icon.delivery .inner-icon:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  -webkit-filter: blur(30px);
+          filter: blur(30px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+
+.icon-bar .icon.delivery .inner-icon:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+
+.icon-bar .icon.delivery .inner-icon:hover {
+  cursor: pointer;
+}
+
+.icon-bar .icon.delivery .inner-icon:hover:before {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+
+.icon-bar .icon.delivery .inner-icon:hover:after {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  -webkit-transition: .7s;
+  transition: .7s;
 }
 
 .icon-bar .icon.whatsapp {
-  background-color: lightgreen;
+  background: -webkit-gradient(linear, left top, left bottom, from(#25D366), to(#128C7E));
+  background: linear-gradient(#25D366, #128C7E);
+  color: white;
 }
 
 .icon-bar .icon.facebook {
-  background-color: #4267B2;
+  background-color: #2b4170;
+  background: -webkit-gradient(linear, left top, left bottom, from(#11AEFE), to(#0066E0));
+  background: linear-gradient(top, #11AEFE, #0066E0);
+  text-shadow: 0 -1px -1px #1f2f52;
 }
 
 .icon-bar .icon.instegram {

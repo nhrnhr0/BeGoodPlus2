@@ -51,16 +51,75 @@ body {}
         }
 
         &.delivery {
-            background-color: rgb(251, 251, 82);
+            background-color: #FFD880;
+            //background-color: #0000007c;
+            transition: .6s;
+            overflow: hidden;
             .inner-icon {
                 //font-size: .9em;
+                &:focus{
+                    outline: 0;
+                  }
+                  &:before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    background: rgba(255,255,255,0.8);
+                    width: 60px;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    opacity: .5;
+                    filter: blur(30px);
+                    transform: translateX(-100px)  skewX(-15deg);
+                  }
+                  &:after{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    background: rgba(255,255,255,0.2);
+                    width: 30px;
+                    height: 100%;
+                    left: 30px;
+                    top: 0;
+                    opacity: 0;
+                    filter: blur(5px);
+                    transform: translateX(-100px) skewX(-15deg);
+                  }
+                  &:hover{
+                    //background: #338033;
+                    
+                    cursor: pointer;
+                    &:before{
+                      transform: translateX(300px)  skewX(-15deg);  
+                      opacity: 0.6;
+                      transition: .7s;
+                    }
+                    &:after{
+                      transform: translateX(300px) skewX(-15deg);  
+                      opacity: 1;
+                      transition: .7s;
+                    }
+                  }
             }
         }
         &.whatsapp {
-            background-color: lightgreen;
+            //background-color: lightgreen;
+            //background: rgb(37,211,102);
+//background: linear-gradient(180deg, rgba(37,211,102,1) 50%, rgba(18,140,126,1) 150%);
+            //background: linear-gradient(45deg, #E5FFCC , #1EBEA5 , #00E676 , #D0E9EA)
+            //background:
+   //linear-gradient(#25d366,#25d366) 14% 84%/16% 16% no-repeat,
+   //radial-gradient(#25d366 60%,transparent 0);
+   background: linear-gradient(#25D366
+   , #128C7E);
+   color:white;
         }
         &.facebook {
-            background-color: #4267B2;
+            //background-color: #4267B2
+            background-color: #2b4170;
+            background: linear-gradient(top, #11AEFE, #0066E0);
+            text-shadow: 0 -1px -1px #1f2f52;
         }
         &.instegram {
             background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
@@ -72,6 +131,8 @@ body {}
             color: white;
         }
     }
+
+      
 }
 
 
