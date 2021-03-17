@@ -148,6 +148,7 @@
   width: 100%;
   height: auto;
   padding: 5px;
+  border-radius: 15px;
   -webkit-filter: none !important;
           filter: none !important;
 }
@@ -155,6 +156,7 @@
 .slick-slider .my-slick-slide img:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+  border-radius: 15px;
   -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0)));
   -webkit-mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
           mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0)));
@@ -310,6 +312,9 @@
 #catalogModal .inner-body .img-wraper img {
   width: 450px;
   float: left;
+  border-radius: 15px;
+  -webkit-box-shadow: 10px 10px 5px #858585;
+          box-shadow: 10px 10px 5px #858585;
 }
 
 #catalogModal .modal-footer {
@@ -450,6 +455,7 @@
 #categoryModal .category-items .category-item img {
   height: auto;
   padding: 5px;
+  border-radius: 15px;
 }
 
 #categoryModal .category-items .category-item img:hover {

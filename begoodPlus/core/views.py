@@ -46,7 +46,7 @@ def autocompleteModel(request):
             Q(description__icontains=q) |  
             Q(album__title__icontains=q) |
             Q(album__keywords__icontains=q)
-            ).distinct()
+            ).distinct()[0:20]
         '''
         threshold=0.3
         products_qs = CatalogImage.objects.annotate(

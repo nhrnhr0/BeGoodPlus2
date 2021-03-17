@@ -162,10 +162,12 @@
       width: 100%;
       height: auto;
       padding: 5px;
+      border-radius: 15px;
       filter: none !important;
 
       &:hover {
         transform: scale(1.1);
+        border-radius: 15px;
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
       }
 
@@ -311,6 +313,8 @@
       img {
         width: 450px;
         float: left;
+        border-radius: 15px;
+        box-shadow: 10px 10px 5px rgb(133, 133, 133);
       }
     }
   }
@@ -405,7 +409,7 @@
       img {
         height: auto;
         padding: 5px;
-
+        border-radius: 15px;
         &:hover {
           transform: scale(1.1);
           mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));

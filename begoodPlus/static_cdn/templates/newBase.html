@@ -42,7 +42,17 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            
+
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <form class="d-flex" id="search_form">
+                    <input class="form-control" id="search" type="search" placeholder="Search" aria-label="Search">
+                    <!-- <button class="btn btn-outline-success" type="submit">Search</button>-->
+                </form>
+
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link nav-link-home active" aria-current="page" href="#">Home</a>
@@ -72,10 +82,7 @@
                     </li>
                 </ul>
 
-                <form class="d-flex">
-                    <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                
 
             </div>
         </div>
@@ -216,7 +223,6 @@ function getCookie(name) {
                                     });
                                 }
                             }
-                            debugger;
                             //response(data.all);
                             response(items);
                         },
@@ -227,7 +233,6 @@ function getCookie(name) {
                 },
                 minLength: 3,
                 select: function (event, ui) {
-                    debugger;
                     var item = ui.item.data;
                     const csrftoken = getCookie('csrftoken');
                     $.ajax({
@@ -266,11 +271,10 @@ function getCookie(name) {
             .autocomplete( "instance" )._renderItem = function( ul, item ) {
                 console.log(item);
                 console.log(ul.html());
-                debugger;
 
                 var data = item.data;
                 if(data.my_type == 'album') {
-                    return $(`<li name="list-category-${data.id}"><div class="search-item" data-type='album' data-id='${data.id}'>${data.title}</div></li>`).prependTo(ul);
+                    return $(`<li class="list-category" name="list-category-${data.id}"><div class="search-item" data-type='album' data-id='${data.id}'>${data.title}</div></li>`).prependTo(ul);
                 }else if(data.my_type == 'product') {
                     return $( "<li>" )
                         .append( `<div class="search-item" data-type='product' data-id='${item.value.id}'><img style="height:25px;" src="${item.data.image}" /> ${item.data.title} </div>`)

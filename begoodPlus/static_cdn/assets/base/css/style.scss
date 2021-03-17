@@ -1,7 +1,32 @@
 body {}
-
+#search_form {
+    //margin:auto;
+    //transform: translate(-50%,0%);
+    flex-grow: 1;
+    input {
+        //min-width: 350px;
+        swidth: 100%;
+    }
+}
 .ui-autocomplete {
     z-index: 9999999;
+    .list-category {
+        background-color: black;
+        margin: 5px;
+        padding:3px;
+        .search-item {
+            //border: 5px black solid;
+            background-color: #FFD880;
+            text-align: center;
+            font-size: larger;
+        }
+        &:hover {
+            .search-item {
+                //background-color: #40508d;
+                background-color: #3969B1;
+            }
+        }
+    }
 }
 .navbar {
     position: sticky;
