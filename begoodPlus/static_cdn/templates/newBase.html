@@ -197,6 +197,9 @@ function getCookie(name) {
                                         break;
                                     }
                                 }
+                                if(album == undefined) {
+                                    album = my_item.album[0];
+                                }
                                 //album = my_item.album[1];
                                 var found_album = false;
                                 for(var j = 0; j < items.length; j++) {
