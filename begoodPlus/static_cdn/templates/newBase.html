@@ -192,7 +192,7 @@ function getCookie(name) {
                                 // get the first album that is not all products
                                 var album = undefined;
                                 for(var k = 0; k < my_item.album.length; k++) {
-                                    if(my_item.album.id != 1) {
+                                    if(my_item.album[k].id != 1) {
                                         album = my_item.album[k]
                                         break;
                                     }
