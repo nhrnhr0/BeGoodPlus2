@@ -68,8 +68,6 @@
 
 .icon-bar .icon.delivery {
   background-color: #FFD880;
-  -webkit-transition: .6s;
-  transition: .6s;
   overflow: hidden;
 }
 

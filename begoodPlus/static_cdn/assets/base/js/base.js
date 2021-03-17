@@ -37,6 +37,7 @@ function deleteClientTask(taskName) {
 var lastKnownScrollPosition = 0;
 var ticking = false;
 var side_icons = document.querySelectorAll('.icon-bar .icon');
+var is_delivery_first_open = false;
 function handleSideIcons(scrollPos) {
     //var icons = document.querySelectorAll('.icon-bar > div');
     if (scrollPos > 200) {
@@ -46,17 +47,32 @@ function handleSideIcons(scrollPos) {
             //icons[i].style.transform =  'translateX(0px)';
             side_icons[i].classList.remove('hide');
             side_icons[i].classList.add('pick');
+            
 
+        }
+        if(is_delivery_first_open == false) {
+            var delivery = document.querySelector('.icon-bar .icon.delivery');
+            delivery.classList.remove('pick');
+            delivery.classList.add('show');
+            setTimeout(pick_delivery_icon_in_start, 3000, delivery);
+            is_delivery_first_open = true;
         }
     }else {
         
         for(var i= 0; i  < side_icons.length; i++) {
             //icons[i].style.transform =  'translateX(-220px)';
+            side_icons[i].classList.remove('show');
             side_icons[i].classList.remove('pick');
             side_icons[i].classList.add('hide');
         }
         //document.querySelector('.icon-bar > div').css('transform', 'translateX(-220px)');
     }
+}
+
+function pick_delivery_icon_in_start(delivery) {
+    delivery.classList.remove('show');
+    delivery.classList.add('pick');
+    //is_delivery_first_open = false;
 }
 document.addEventListener('scroll', function(e) {
     lastKnownScrollPosition = window.scrollY;
