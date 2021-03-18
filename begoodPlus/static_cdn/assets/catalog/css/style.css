@@ -650,7 +650,6 @@
 }
 
 .main-slider .main-slide .text {
-  border: 1px solid red;
   position: absolute;
   top: 0px;
   width: 100%;
@@ -658,6 +657,7 @@
   background-color: rgba(0, 0, 0, 0);
   color: white;
   text-shadow: -2px -1px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  font-size: 2.3em;
   /*
       .text-1 {
         font-size: 1.5em;
@@ -669,17 +669,13 @@
       }*/
 }
 
-@media (min-width: 1312px) {
-  .main-slider .main-slide .text {
-    font-size: 2.3em;
-  }
-  .main-slider .main-slide .text .text-1 {
-    font-size: 1.5em;
-  }
-  .main-slider .main-slide .text .text-2 {
-    font-size: 1.2em;
-    text-align: center;
-  }
+.main-slider .main-slide .text .text-1 {
+  font-size: 1.5em;
+}
+
+.main-slider .main-slide .text .text-2 {
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .slide-1 .text .text-wraper-2 {
