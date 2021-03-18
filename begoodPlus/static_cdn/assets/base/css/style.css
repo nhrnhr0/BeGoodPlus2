@@ -251,6 +251,7 @@
 .navbar #navbarDropdown::before {
   display: block;
   content: "\f0f3";
+  color: black;
   font-family: "FontAwesome";
   -webkit-transform-origin: top center;
           transform-origin: top center;

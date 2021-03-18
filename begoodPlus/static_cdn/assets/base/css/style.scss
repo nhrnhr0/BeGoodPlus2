@@ -255,6 +255,7 @@ body {}
         &::before {
             display: block;
             content: "\f0f3";
+            color: black;
             font-family: "FontAwesome";
             transform-origin: top center;
         }
