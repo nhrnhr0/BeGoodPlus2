@@ -746,40 +746,44 @@
     }
     .img-2 {
       position: absolute;
-      left:150px;
-      bottom: 0px;
+      left:80px;
+      bottom: 150px;
     }
     .img-3 {
+      
       position: absolute;
-      left:0px;
-      bottom: 200px;
+      left:280px;
+      bottom: 0px;
     }
     .img-4 {
       position: absolute;
-      left:55%;
-      bottom: 0px;
+      left:38%;
+      height: 350px;
+      bottom: 100px;
     }
     .img-5 {
       position: absolute;
-      left:40%;
-      bottom: 0px;
+      left:57%;
+      bottom: 55px;
     }
     .img-6 {
       position: absolute;
-      left:45%;
+      left:65%;
       bottom: 0px;
     }
-
     .img-7 {
       position: absolute;
       right: 50px;
-      bottom: 0px;
+      bottom: 190px;
+      height: 200px;
     }
     .img-8 {
       position: absolute;
-      right: 50px;
-      bottom: 150px;
+      right: 00px;
+      bottom: 0px;
+      //border: 1px solid red;
     }
+    
     /*
     min-height: 50px;
     .img-1,.img-2,
