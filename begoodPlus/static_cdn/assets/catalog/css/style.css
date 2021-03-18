@@ -928,6 +928,10 @@
   max-width: 100%;
 }
 
+.slide-3 .text {
+  color: pink !important;
+}
+
 .slide-3 .images {
   position: absolute;
   bottom: 0px;
