@@ -920,3 +920,77 @@
     }*/
   }
 }
+
+
+.slide-3 {
+  .main-slide-img {
+    height: 280px;
+    max-width: 100%;
+  }
+  .images {
+    position: absolute;
+
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    max-height: 50vh;
+
+    //@media (min-width:1100px) {
+      // face shild
+      .img-14 {
+        position: absolute;
+        left: 70%;
+        bottom: 0px;
+      }
+      // yellow vest
+      .img-15 {
+        position: absolute;
+        left: 40%;
+        bottom: 50px;
+        height: 320px;
+      }
+
+      .img-16 {
+        position: absolute;
+        left: 280px;
+        bottom: 0px;
+      }
+
+      .img-17 {
+        position: absolute;
+        left: 0%;
+        height: 280px;
+        bottom: 220px;
+      }
+
+      // red glove
+      .img-18 {
+        position: absolute;
+        left: 0px;
+        height: 235px;
+        bottom: -20px;
+      }
+
+      // shild glasses
+      .img-19 {
+        position: absolute;
+        right: 0px;
+        bottom: 200px;
+      }
+
+      .img-20 {
+        position: absolute;
+        right: 0px;
+        height: 200px;
+        bottom: 0px;
+      }
+      // orange vest
+      .img-23 {
+        position: absolute;
+        left: 55%;
+        bottom: 0px;
+        height: 320px;
+      }
+    /*}*/
+  }
+}
