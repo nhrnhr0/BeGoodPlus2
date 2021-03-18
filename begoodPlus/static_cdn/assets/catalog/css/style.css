@@ -993,9 +993,9 @@
   }
   .slide-3 .images .img-15 {
     position: absolute;
-    left: 35%;
-    bottom: 50px;
-    height: 320px;
+    left: 32%;
+    bottom: 10px;
+    height: 300px;
   }
   .slide-3 .images .img-16 {
     position: absolute;
@@ -1006,7 +1006,7 @@
     position: absolute;
     left: 0%;
     height: 280px;
-    bottom: 180px;
+    bottom: 120px;
   }
   .slide-3 .images .img-18 {
     position: absolute;
@@ -1017,8 +1017,8 @@
   .slide-3 .images .img-19 {
     position: absolute;
     right: 0px;
-    height: 190px;
-    bottom: 130px;
+    height: 75px;
+    bottom: 60px;
   }
   .slide-3 .images .img-20 {
     position: absolute;
@@ -1028,9 +1028,9 @@
   }
   .slide-3 .images .img-23 {
     position: absolute;
-    left: 52%;
+    left: 49%;
     bottom: 0px;
-    height: 320px;
+    height: 300px;
   }
 }
 /*# sourceMappingURL=style.css.map */
