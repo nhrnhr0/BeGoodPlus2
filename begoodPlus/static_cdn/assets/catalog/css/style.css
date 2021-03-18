@@ -669,6 +669,19 @@
       }*/
 }
 
+@media (min-width: 1312px) {
+  .main-slider .main-slide .text {
+    font-size: 2.3em;
+  }
+  .main-slider .main-slide .text .text-1 {
+    font-size: 1.5em;
+  }
+  .main-slider .main-slide .text .text-2 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+}
+
 .slide-1 .text .text-wraper-2 {
   max-width: 80vh;
   margin: auto;
