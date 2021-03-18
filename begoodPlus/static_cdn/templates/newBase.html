@@ -29,7 +29,7 @@
         </div>
         <div class="icon whatsapp hide">
             <img src="{%static 'assets/base/imgs/whatsapp.svg' %}" alt="" srcset="">
-            <a target="_blank" href="https://wa.me/+972546132005">
+            <a target="_blank" href="https://wa.me/+972547919908">
                 <div class="inner-icon">
                     וואצאפ
                 </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="icon facebook hide">
             <img src="{%static 'assets/base/imgs/icons8-facebook.svg'%}" alt="" srcset="">
-            <a target="_blank" href="https://www.facebook.com/ShermakDogs/">
+            <a target="_blank" href="https://www.facebook.com/%D7%91%D7%99%D7%92%D7%95%D7%93-%D7%A4%D7%9C%D7%95%D7%A1-102693374827456/">
             <div class="inner-icon">
                 פייסבוק
             </div>
@@ -73,11 +73,26 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{%url 'main-view'%}"><img class="nav-logo"
                     src="{%static 'assets/base/imgs/logo_ms.png'%}" alt="" height="58" width="24px"></a>
+
+            <div class="menu-wraper">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/test">דף הבית</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/testCatalog">קטלוג</a>
+                        </li>
+                </ul>
+            </div>
+        </div>
 
 
             <form class="d-flex" id="search_form">
@@ -122,17 +137,7 @@
 
 
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">דף הבית</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">קטלוג</a>
-                            </li>
-                    </ul>
-                </div>
+                
         </div>
     </nav>
 
