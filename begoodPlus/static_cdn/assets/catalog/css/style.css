@@ -929,7 +929,7 @@
 }
 
 .slide-3 .text {
-  color: pink !important;
+  color: #c0ffc0 !important;
 }
 
 .slide-3 .images {
@@ -1020,7 +1020,7 @@
   }
   .slide-3 .images .img-19 {
     position: absolute;
-    right: 40px;
+    right: 70px;
     height: 165px;
     bottom: 130px;
   }
