@@ -733,8 +733,7 @@
 }
 
 @media (min-width: 1312px) {
-  .main-slider .main-slide .images {
-    background-color: red;
+  .main-slider .main-slide .images .main-slide-img {
     display: block;
   }
 }

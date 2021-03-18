@@ -676,8 +676,9 @@
 
       // big screen
       @media (min-width: 1312px) {
-        background-color: rgb(255, 0, 0);
-        display: block;
+        .main-slide-img {
+          display: block;
+        }
       }
 
       /*
