@@ -592,7 +592,12 @@
 .main-slider {
   .main-slide {
     position: relative;
-    
+    .main-slide-img {
+      width: 100vw;
+      height:66vh;
+      //height:25.3125vw;
+      //width: auto;
+    }
     .text {
       position: absolute;
       top: 0px;
@@ -611,11 +616,7 @@
         text-align: center;
       }
     }
-    .main-slide-img {
-      width: 100vw;
-      //height:25.3125vw;
-      //width: auto;
-    }
+    
   }
   //max-width: 99vw;
   //max-height: 60vh;

@@ -644,6 +644,11 @@
   position: relative;
 }
 
+.main-slider .main-slide .main-slide-img {
+  width: 100vw;
+  height: 66vh;
+}
+
 .main-slider .main-slide .text {
   position: absolute;
   top: 0px;
@@ -661,9 +666,5 @@
 .main-slider .main-slide .text .text-2 {
   width: 100vw;
   text-align: center;
-}
-
-.main-slider .main-slide .main-slide-img {
-  width: 100vw;
 }
 /*# sourceMappingURL=style.css.map */
