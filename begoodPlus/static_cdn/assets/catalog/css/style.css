@@ -934,59 +934,103 @@
   left: 0px;
   width: 100vw;
   max-height: 50vh;
-  /*}*/
 }
 
-.slide-3 .images .img-14 {
-  position: absolute;
-  left: 70%;
-  bottom: 0px;
+@media (min-width: 1100px) {
+  .slide-3 .images .img-14 {
+    position: absolute;
+    left: 66%;
+    bottom: 0px;
+  }
+  .slide-3 .images .img-15 {
+    position: absolute;
+    left: 35%;
+    bottom: 50px;
+    height: 320px;
+  }
+  .slide-3 .images .img-16 {
+    position: absolute;
+    left: 200px;
+    bottom: 0px;
+  }
+  .slide-3 .images .img-17 {
+    position: absolute;
+    left: 0%;
+    height: 280px;
+    bottom: 180px;
+  }
+  .slide-3 .images .img-18 {
+    position: absolute;
+    left: 0px;
+    height: 235px;
+    bottom: -20px;
+  }
+  .slide-3 .images .img-19 {
+    position: absolute;
+    right: 0px;
+    height: 190px;
+    bottom: 130px;
+  }
+  .slide-3 .images .img-20 {
+    position: absolute;
+    right: 0px;
+    height: 200px;
+    bottom: 0px;
+  }
+  .slide-3 .images .img-23 {
+    position: absolute;
+    left: 52%;
+    bottom: 0px;
+    height: 320px;
+  }
 }
 
-.slide-3 .images .img-15 {
-  position: absolute;
-  left: 40%;
-  bottom: 50px;
-  height: 320px;
-}
-
-.slide-3 .images .img-16 {
-  position: absolute;
-  left: 280px;
-  bottom: 0px;
-}
-
-.slide-3 .images .img-17 {
-  position: absolute;
-  left: 0%;
-  height: 280px;
-  bottom: 220px;
-}
-
-.slide-3 .images .img-18 {
-  position: absolute;
-  left: 0px;
-  height: 235px;
-  bottom: -20px;
-}
-
-.slide-3 .images .img-19 {
-  position: absolute;
-  right: 0px;
-  bottom: 200px;
-}
-
-.slide-3 .images .img-20 {
-  position: absolute;
-  right: 0px;
-  height: 200px;
-  bottom: 0px;
-}
-
-.slide-3 .images .img-23 {
-  position: absolute;
-  left: 55%;
-  bottom: 0px;
-  height: 320px;
+@media (min-width: 1312px) {
+  .slide-3 .images .img-14 {
+    position: absolute;
+    left: 66%;
+    bottom: 0px;
+  }
+  .slide-3 .images .img-15 {
+    position: absolute;
+    left: 35%;
+    bottom: 50px;
+    height: 320px;
+  }
+  .slide-3 .images .img-16 {
+    position: absolute;
+    left: 200px;
+    bottom: 0px;
+  }
+  .slide-3 .images .img-17 {
+    position: absolute;
+    left: 0%;
+    height: 280px;
+    bottom: 180px;
+  }
+  .slide-3 .images .img-18 {
+    position: absolute;
+    left: 0px;
+    height: 235px;
+    bottom: -20px;
+  }
+  .slide-3 .images .img-19 {
+    position: absolute;
+    right: 0px;
+    height: 190px;
+    bottom: 130px;
+  }
+  .slide-3 .images .img-20 {
+    position: absolute;
+    right: 0px;
+    height: 200px;
+    bottom: 0px;
+  }
+  .slide-3 .images .img-23 {
+    position: absolute;
+    left: 52%;
+    bottom: 0px;
+    height: 320px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
