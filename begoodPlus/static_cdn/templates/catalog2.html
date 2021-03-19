@@ -378,16 +378,16 @@
 {%block extra_body%}
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://zachleat.github.io/BigText/dist/bigtext.js"></script>
+<!--<script src="https://zachleat.github.io/BigText/dist/bigtext.js"></script>-->
 <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
 <script src="{%static 'assets/catalog/js/catalog.js'%}"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        var x = window.matchMedia("(min-width: 1312px)");
+        /*var x = window.matchMedia("(min-width: 1312px)");
         if(x.matches == false) {
             $('.main-slide .text-wraper').bigtext();
-        }
+        }*/
         
         updateProductsCart();
         $('.main-slider').slick({
