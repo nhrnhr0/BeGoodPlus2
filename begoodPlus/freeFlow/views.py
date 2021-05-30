@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 # Create your views here.
 
@@ -25,6 +25,8 @@ def freeFlowChangeLanguage(request, language_code):
     return HttpResponse(content=language_code)
 
 def freeFlowView(request, lang='he'):
+    return redirect('http://freeflow.ms-global.co.il/freeFlow/'+lang+'/')
+    '''
     translation.activate(lang)
     #if request.session.get(translation.LANGUAGE_SESSION_KEY) is not None:
     #    print (request.session[translation.LANGUAGE_SESSION_KEY])
@@ -63,6 +65,7 @@ def freeFlowView(request, lang='he'):
             mail_res = email.send(True)
 
     return render(request, 'freeflow2.html',{'content':content})
+    '''
 
 from .models import FreeFlowStores
 from rest_framework import viewsets
